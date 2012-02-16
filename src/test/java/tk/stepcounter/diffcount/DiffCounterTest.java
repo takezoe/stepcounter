@@ -28,7 +28,6 @@ public class DiffCounterTest {
 		DiffFolderResult root = DiffCounter.count(new File(oldRoot), new File(newRoot));
 
 		DiffCounterResultUtil.assertEquals(url, root.toString());
-		System.out.println(root.toString());
 	}
 
 }
