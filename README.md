@@ -2,17 +2,13 @@ StepCounter
 ======================
 様々なプログラミング言語に対応したステップカウンタです。GUIとCUIの両方をサポートしており、AntやEclipse、NetBeansにも対応しています。
 
-ダウンロード
-----------------
-
-
 使い方
 ----------------
 ### コマンドライン
 
-コマンドラインで使用するにはstepcounter.jarをダウンロードし、コマンドラインから次のように入力してください。
+コマンドラインで使用するにはstepcounter-x.x.x-jar-with-dependencies.jarをダウンロードし、コマンドラインから次のように入力してください。
 
-    > java -cp stepcounter.jar tk.stepcounter.Main [ファイル名] [ファイル名] ...
+    > java -cp stepcounter-x.x.x-jar-with-dependencies.jar tk.stepcounter.Main [ファイル名] [ファイル名] ...
 
 結果は標準出力に出力されます。ファイル名にはフォルダを指定することも可能で、
 その場合そのフォルダに含まれる全てのファイルがカウント対象となりますので、
@@ -24,21 +20,21 @@ StepCounter
 また、-output=ファイル名というオプションを与えることで標準出力ではなくファイルへ出力を行ないます。
 CSV形式でcount.txtファイルへの出力を行なうには以下のようにします。
 
-    > java -cp stepcounter.jar jp.sf.amateras.stepcounter.Main -format=csv -output=count.txt -encoding=UTF-8 [ファイル名] [ファイル名] ...
+    > java -cp stepcounter-x.x.x-jar-with-dependencies.jar jp.sf.amateras.stepcounter.Main -format=csv -output=count.txt -encoding=UTF-8 [ファイル名] [ファイル名] ...
 
 差分カウンタの場合は以下のように使用します。指定可能なオプションは通常のステップカウンタの場合と同じです。
 
-    > java -cp stepcounter.jar tk.stepcounter.diffcount.Main [新版のディレクトリ名] [旧版のディレクトリ名]
+    > java -cp stepcounter-x.x.x-jar-with-dependencies.jar tk.stepcounter.diffcount.Main [新版のディレクトリ名] [旧版のディレクトリ名]
 
 ### Swingアプリケーション
 
 Swingアプリケーション版を使用するにはコマンドラインから以下のように入力してください。
 
-    > java -cp stepcounter.jar jp.sf.amateras.stepcounter.gui.MainWindow
+    > java -cp stepcounter-x.x.x-jar-with-dependencies.jar jp.sf.amateras.stepcounter.gui.MainWindow
 
 差分カウンタの場合は以下のようにして起動します。
 
-    > java -cp stepcounter.jar jp.sf.amateras.stepcounter.diffcount.renderer.gui.DiffCountFrame
+    > java -cp stepcounter-x.x.x-jar-with-dependencies.jar jp.sf.amateras.stepcounter.diffcount.renderer.gui.DiffCountFrame
 
 ### Antからの利用
 
@@ -54,11 +50,11 @@ stepcounterタスクはstepcounter.jarのみ、diffcounterタスクはstepcounte
     <!-- 独自タスクの定義 -->
     <taskdef name="stepcounter"
       classname="jp.sf.amateras.stepcounter.ant.StepCounterTask"
-      classpath="stepcounter.jar"/>
+      classpath="stepcounter-x.x.x-jar-with-dependencies.jar"/>
 
     <taskdef name="diffcounter"
       classname="jp.sf.amateras.stepcounter.ant.DiffCounterTask"
-      classpath="stepcounter.jar"/>
+      classpath="stepcounter-x.x.x-jar-with-dependencies.jar"/>
 
     <target name="count">
       <!-- ステップ数をカウント -->
@@ -214,7 +210,6 @@ Mavenを使用している場合は以下の依存関係をpom.xmlに追加し�
 
 ライセンス
 ----------------
-Copyright &copy; 2012 Project Amateras
-Licensed under the [Apache License, Version 2.0][Apache]
+Licensed under the [Apache License, Version 2.0](http://www.apache.org/licenses/LICENSE-2.0)
 
-[Apache]: http://www.apache.org/licenses/LICENSE-2.0
+Copyright &copy; 2012 Project Amateras
