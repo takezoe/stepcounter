@@ -41,6 +41,11 @@
       <name>The Seasar Foundation Maven2 Repository</name>
       <url>http://maven.seasar.org/maven2</url>
     </repository>
+    <repository>
+      <id>atlassian-release</id>
+      <name>Attlassian Releases</name>
+      <url>http://maven.glassfish.org/content/repositories/atlassian-release/</url>
+    </repository>
   </repositories>
 
   <pluginRepositories>
@@ -52,24 +57,24 @@
 
   <dependencies>
     <dependency>
-	  <groupId>org.swinglabs</groupId>
-	  <artifactId>swingx</artifactId>
-	  <version>1.6.1</version>
+      <groupId>org.swinglabs</groupId>
+      <artifactId>swingx</artifactId>
+      <version>1.6.1</version>
     </dependency>
     <dependency>
-	  <groupId>org.apache.poi</groupId>
-	  <artifactId>poi</artifactId>
-	  <version>3.2-FINAL</version>
+      <groupId>org.apache.poi</groupId>
+      <artifactId>poi</artifactId>
+      <version>3.2-FINAL</version>
     </dependency>
     <dependency>
-	  <groupId>org.apache.commons.jrcs</groupId>
-	  <artifactId>jrcs-diff</artifactId>
-	  <version>1.0.0</version>
+      <groupId>commons-jrcs</groupId>
+      <artifactId>commons-jrcs</artifactId>
+      <version>diff-0.1.7</version>
     </dependency>
     <dependency>
-	  <groupId>org.dyno.visual.swing.layouts</groupId>
-	  <artifactId>grouplayout</artifactId>
-	  <version>1.0.0</version>
+      <groupId>org.dyno.visual.swing.layouts</groupId>
+      <artifactId>grouplayout</artifactId>
+      <version>1.0.0</version>
     </dependency>
     <dependency>
       <groupId>org.seasar.fisshplate</groupId>
@@ -78,8 +83,8 @@
     </dependency>
     <dependency>
       <groupId>org.eclipse.core</groupId>
-	  <artifactId>org.eclipse.core.resources</artifactId>
-	  <version>3.6.0.v20100526-0737</version>
+      <artifactId>org.eclipse.core.resources</artifactId>
+      <version>3.6.0.v20100526-0737</version>
       <scope>provided</scope>
      <exclusions>
        <exclusion>
