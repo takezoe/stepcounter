@@ -25,13 +25,11 @@ StepCounter
 また、-output=ファイル名というオプションを与えることで標準出力ではなくファイルへ出力を行ないます。
 CSV形式でcount.txtファイルへの出力を行なうには以下のようにします。
 
- > java -cp stepcounter.jar tk.stepcounter.Main -format=csv -output=count.txt -encoding=UTF-8
-   [ファイル名] [ファイル名] ...（実際には１行で記述）
+ > java -cp stepcounter.jar tk.stepcounter.Main -format=csv -output=count.txt -encoding=UTF-8 [ファイル名] [ファイル名] ...
 
 差分カウンタの場合は以下のように使用します。指定可能なオプションは通常のステップカウンタの場合と同じです。
 
- > java -cp stepcounter.jar tk.stepcounter.diffcount.Main
-   [新版のディレクトリ名] [旧版のディレクトリ名] （実際には１行で記述）
+ > java -cp stepcounter.jar tk.stepcounter.diffcount.Main [新版のディレクトリ名] [旧版のディレクトリ名]
 
 ### Swingアプリケーション
 
@@ -42,8 +40,7 @@ Swingアプリケーション版を使用するにはstepcounter.jarをダブル
 
 差分カウンタの場合は以下のようにして起動します。
 
- > java -cp stepcounter.jar;lib/org.apache.commons.jrcs.diff.jar
-   tk.stepcounter.diffcount.renderer.gui.DiffCountFrame（実際には１行で記述）
+ > java -cp stepcounter.jar;lib/org.apache.commons.jrcs.diff.jar tk.stepcounter.diffcount.renderer.gui.DiffCountFrame
 
 ### Antからの利用
 
@@ -56,17 +53,17 @@ Excelフォーマッタを使用する場合、カスタムタスクのクラス
 JARファイル群も追加する必要があることに注意してください（Excelフォーマッタを使用しない場合、
 stepcounterタスクはstepcounter.jarのみ、diffcounterタスクはstepcounter.jarとorg.apache.commons.jrcs.diff.jarのみで動作します）。
 
- <!-- 独自タスクの定義 -->
- <taskdef name="stepcounter"
+ &lt;!-- 独自タスクの定義 --&gt;
+ &lt;taskdef name="stepcounter"
    classname="tk.stepcounter.ant.StepCounterTask"
    classpath="stepcounter.jar;
      lib/fisshplate-0.1.4.jar;
      lib/poi-3.2-FINAL.jar;
      lib/commons-logging-1.1.jar;
      lib/log4j-1.2.12.jar;
-     lib/ognl-2.6.9-patch-20090427.jar"/>
+     lib/ognl-2.6.9-patch-20090427.jar"/&gt;
 
- <taskdef name="diffcounter"
+ &lt;taskdef name="diffcounter"
    classname="tk.stepcounter.ant.DiffCounterTask"
    classpath="stepcounter.jar;
      lib/fisshplate-0.1.4.jar;
@@ -74,20 +71,20 @@ stepcounterタスクはstepcounter.jarのみ、diffcounterタスクはstepcounte
      lib/commons-logging-1.1.jar;
      lib/log4j-1.2.12.jar;
      lib/ognl-2.6.9-patch-20090427.jar;
-     lib/org.apache.commons.jrcs.diff.jar"/>
+     lib/org.apache.commons.jrcs.diff.jar"/&gt;
 
- <target name="count">
-   <!-- ステップ数をカウント -->
-   <stepcounter format="csv" output="count.txt" encoding="UTF-8">
-     <fileset dir="src">
-       <include name="**/*.java"/>
-     </fileset>
-   </stepcounter>
+ &lt;target name="count"&gt;
+   &lt;!-- ステップ数をカウント --&gt;
+   &lt;stepcounter format="csv" output="count.txt" encoding="UTF-8"&gt;
+     &lt;fileset dir="src"&gt;
+       &lt;include name="**/*.java"/&gt;
+     &lt;/fileset&gt;
+   &lt;/stepcounter&gt;
 
-   <!-- 差分をカウント -->
-   <diffcounter format="csv" output="diff.txt" encoding="UTF-8"
-      srcdir="current/src" olddir="old/src"/>
- </target>
+   &lt;!-- 差分をカウント --&gt;
+   &lt;diffcounter format="csv" output="diff.txt" encoding="UTF-8"
+      srcdir="current/src" olddir="old/src"/&gt;
+ &lt;/target&gt;
 
 ### 特殊なタグ
 
@@ -112,7 +109,7 @@ Eclipseプラグインでは以下のようにカテゴリ別タブでカテゴ�
 * ディレクトリの差分をカウントできるようにしました。
 * Clojure、Scalaに対応しました。
 
-新機能の詳細については開発者のブログも参照してください。
+新機能の詳細については[開発者のブログ](http://d.hatena.ne.jp/takezoe/20101114#p1)も参照してください。
 
 ### Version 1.16(2010/8/29)
 
@@ -121,7 +118,7 @@ Eclipseプラグインでは以下のようにカテゴリ別タブでカテゴ�
 * カウント対象外のファイルを指定できるようにしました。
 * カウント結果をExcelファイルとして保存できるようにしました。
 
-新機能の詳細については開発者のブログも参照してください。
+新機能の詳細については[開発者のブログ](http://d.hatena.ne.jp/takezoe/20100829#p1)も参照してください。
 
 ### Version 1.16(2010/1/31)
 
