@@ -13,7 +13,7 @@ StepCounter
 コマンドラインで使用するにはtk.eclipse.plugin.stepcounter_x.x.x.zipを解凍したフォルダ（stepcounter.jarがあるフォルダ）に
 移動してコマンドラインから次のように入力してください。
 
- > java -cp stepcounter.jar tk.stepcounter.Main [ファイル名] [ファイル名] ...
+    > java -cp stepcounter.jar tk.stepcounter.Main [ファイル名] [ファイル名] ...
 
 結果は標準出力に出力されます。ファイル名にはフォルダを指定することも可能で、
 その場合そのフォルダに含まれる全てのファイルがカウント対象となりますので、
@@ -25,22 +25,22 @@ StepCounter
 また、-output=ファイル名というオプションを与えることで標準出力ではなくファイルへ出力を行ないます。
 CSV形式でcount.txtファイルへの出力を行なうには以下のようにします。
 
- > java -cp stepcounter.jar tk.stepcounter.Main -format=csv -output=count.txt -encoding=UTF-8 [ファイル名] [ファイル名] ...
+    > java -cp stepcounter.jar tk.stepcounter.Main -format=csv -output=count.txt -encoding=UTF-8 [ファイル名] [ファイル名] ...
 
 差分カウンタの場合は以下のように使用します。指定可能なオプションは通常のステップカウンタの場合と同じです。
 
- > java -cp stepcounter.jar tk.stepcounter.diffcount.Main [新版のディレクトリ名] [旧版のディレクトリ名]
+    > java -cp stepcounter.jar tk.stepcounter.diffcount.Main [新版のディレクトリ名] [旧版のディレクトリ名]
 
 ### Swingアプリケーション
 
 Swingアプリケーション版を使用するにはstepcounter.jarをダブルクリックするか（Windowsのみ？）、
 アーカイブを解凍したフォルダ（stepcounter.jarがあるフォルダ）に移動してコマンドラインから以下のように入力してください。
 
- > java -cp stepcounter.jar tk.stepcounter.gui.MainWindow
+    > java -cp stepcounter.jar tk.stepcounter.gui.MainWindow
 
 差分カウンタの場合は以下のようにして起動します。
 
- > java -cp stepcounter.jar;lib/org.apache.commons.jrcs.diff.jar tk.stepcounter.diffcount.renderer.gui.DiffCountFrame
+    > java -cp stepcounter.jar;lib/org.apache.commons.jrcs.diff.jar tk.stepcounter.diffcount.renderer.gui.DiffCountFrame
 
 ### Antからの利用
 
@@ -53,38 +53,38 @@ Excelフォーマッタを使用する場合、カスタムタスクのクラス
 JARファイル群も追加する必要があることに注意してください（Excelフォーマッタを使用しない場合、
 stepcounterタスクはstepcounter.jarのみ、diffcounterタスクはstepcounter.jarとorg.apache.commons.jrcs.diff.jarのみで動作します）。
 
- &lt;!-- 独自タスクの定義 --&gt;
- &lt;taskdef name="stepcounter"
-   classname="tk.stepcounter.ant.StepCounterTask"
-   classpath="stepcounter.jar;
-     lib/fisshplate-0.1.4.jar;
-     lib/poi-3.2-FINAL.jar;
-     lib/commons-logging-1.1.jar;
-     lib/log4j-1.2.12.jar;
-     lib/ognl-2.6.9-patch-20090427.jar"/&gt;
+    <!-- 独自タスクの定義 -->
+    <taskdef name="stepcounter"
+      classname="tk.stepcounter.ant.StepCounterTask"
+      classpath="stepcounter.jar;
+        lib/fisshplate-0.1.4.jar;
+        lib/poi-3.2-FINAL.jar;
+        lib/commons-logging-1.1.jar;
+        lib/log4j-1.2.12.jar;
+        lib/ognl-2.6.9-patch-20090427.jar"/>
 
- &lt;taskdef name="diffcounter"
-   classname="tk.stepcounter.ant.DiffCounterTask"
-   classpath="stepcounter.jar;
-     lib/fisshplate-0.1.4.jar;
-     lib/poi-3.2-FINAL.jar;
-     lib/commons-logging-1.1.jar;
-     lib/log4j-1.2.12.jar;
-     lib/ognl-2.6.9-patch-20090427.jar;
-     lib/org.apache.commons.jrcs.diff.jar"/&gt;
+    <taskdef name="diffcounter"
+      classname="tk.stepcounter.ant.DiffCounterTask"
+      classpath="stepcounter.jar;
+        lib/fisshplate-0.1.4.jar;
+        lib/poi-3.2-FINAL.jar;
+        lib/commons-logging-1.1.jar;
+        lib/log4j-1.2.12.jar;
+        lib/ognl-2.6.9-patch-20090427.jar;
+        lib/org.apache.commons.jrcs.diff.jar"/>
 
- &lt;target name="count"&gt;
-   &lt;!-- ステップ数をカウント --&gt;
-   &lt;stepcounter format="csv" output="count.txt" encoding="UTF-8"&gt;
-     &lt;fileset dir="src"&gt;
-       &lt;include name="**/*.java"/&gt;
-     &lt;/fileset&gt;
-   &lt;/stepcounter&gt;
+    <target name="count">
+      <!-- ステップ数をカウント -->
+      <stepcounter format="csv" output="count.txt" encoding="UTF-8">
+        <fileset dir="src">
+          <include name="**/*.java"/>
+        </fileset>
+      </stepcounter>
 
-   &lt;!-- 差分をカウント --&gt;
-   &lt;diffcounter format="csv" output="diff.txt" encoding="UTF-8"
-      srcdir="current/src" olddir="old/src"/&gt;
- &lt;/target&gt;
+      <!-- 差分をカウント -->
+      <diffcounter format="csv" output="diff.txt" encoding="UTF-8"
+         srcdir="current/src" olddir="old/src"/>
+    </target>
 
 ### 特殊なタグ
 
@@ -92,13 +92,13 @@ stepcounterタスクはstepcounter.jarのみ、diffcounterタスクはstepcounte
 
 カテゴリ別に集計するにはソースコード中の任意の場所に以下のようなタグを記述しておきます。
 
- [[カテゴリ]]
+    [[カテゴリ]]
 
 Eclipseプラグインでは以下のようにカテゴリ別タブでカテゴリ別に集計された値を確認することができます。
 
 また、同様にソースコードに以下のタグを記述しておくと、そのファイルはカウント結果から除外されます。
 
- [[IGNORE]]
+    [[IGNORE]]
 
 これらのタグはステップカウント、差分カウントのどちらの場合でも有効です。
 
