@@ -1,12 +1,16 @@
 package tk.stepcounter;
 
 import java.io.Closeable;
+import java.io.File;
 import java.util.ArrayList;
 
 /**
  * 各種ユーティリティメソッドを提供するクラス
  */
 public class Util {
+
+	private static String fileEncoding = null;
+	private static FileEncodingDetector fileEncodingDetector = null;
 
 	/**
 	 * 文字列を指定文字列で分割し、配列で返却します。
@@ -105,5 +109,28 @@ public class Util {
 				;
 			}
 		}
+	}
+
+	public static void setFileEncodingDetector(FileEncodingDetector detector){
+		fileEncodingDetector = detector;
+	}
+
+	public static void setFileEncoding(String encoding){
+		fileEncoding = encoding;
+	}
+
+	public static String getFileEncoding(File file){
+		if(fileEncoding != null){
+			return fileEncoding;
+		}
+
+		if(fileEncodingDetector != null){
+			String encoding = fileEncodingDetector.getEncoding(file);
+			if(encoding != null){
+				return encoding;
+			}
+		}
+
+		return System.getProperty("file.encoding");
 	}
 }

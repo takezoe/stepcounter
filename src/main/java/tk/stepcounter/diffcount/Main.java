@@ -45,8 +45,8 @@ public class Main {
 			if(format == null || format.length() == 0){
 				format = "text";
 			}
-			if(encoding == null || encoding.length() == 0){
-				encoding = System.getProperty("file.encoding");
+			if(encoding != null && encoding.length() > 0){
+				Util.setFileEncoding(encoding);
 			}
 
 			Renderer renderer = RendererFactory.getRenderer(format);
@@ -54,7 +54,6 @@ public class Main {
 				throw new RuntimeException(format + " is invalid format!");
 			}
 
-			DiffCounter.setEncoding(encoding);
 			DiffFolderResult result = DiffCounter.count(olddir, srcdir);
 
 			byte[] bytes = renderer.render(result);

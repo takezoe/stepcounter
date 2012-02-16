@@ -9,13 +9,6 @@ import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
 
-// TODO この辺をEclipseプラグインから差し込めるようにする？
-import org.eclipse.core.resources.IFile;
-import org.eclipse.core.resources.IWorkspace;
-import org.eclipse.core.resources.ResourcesPlugin;
-import org.eclipse.core.runtime.IPath;
-import org.eclipse.core.runtime.Path;
-
 import tk.stepcounter.diffcount.object.AbstractDiffResult;
 import tk.stepcounter.diffcount.object.DiffFileResult;
 import tk.stepcounter.diffcount.object.DiffFolderResult;
@@ -131,36 +124,36 @@ public class DiffCounterUtil {
 		}
 	}
 
-	/**
-	 * ファイルの文字コードを取得します。
-	 *
-	 * @param file ファイル
-	 * @return ファイルの文字コード
-	 */
-	public static String getFileEncoding(File file) {
-		String encoding = null;;
-
-		// Eclipseプラグイン上から実行された場合は、ワークスペースの文字コードを取得
-		if (ResourcesPlugin.getPlugin() != null) {
-			IWorkspace workspace = ResourcesPlugin.getWorkspace();
-			IPath location = Path.fromOSString(file.getAbsolutePath());
-			IFile resource = workspace.getRoot().getFileForLocation(location);
-
-			if (resource != null) {
-				try {
-					encoding = resource.getCharset();
-				} catch (Exception ex) {
-					ex.printStackTrace();
-				}
-			}
-		}
-
-		if (encoding == null) {
-			encoding = System.getProperty("file.encoding");
-		}
-
-		return encoding;
-	}
+//	/**
+//	 * ファイルの文字コードを取得します。
+//	 *
+//	 * @param file ファイル
+//	 * @return ファイルの文字コード
+//	 */
+//	public static String getFileEncoding(File file) {
+//		String encoding = null;;
+//
+//		// Eclipseプラグイン上から実行された場合は、ワークスペースの文字コードを取得
+//		if (ResourcesPlugin.getPlugin() != null) {
+//			IWorkspace workspace = ResourcesPlugin.getWorkspace();
+//			IPath location = Path.fromOSString(file.getAbsolutePath());
+//			IFile resource = workspace.getRoot().getFileForLocation(location);
+//
+//			if (resource != null) {
+//				try {
+//					encoding = resource.getCharset();
+//				} catch (Exception ex) {
+//					ex.printStackTrace();
+//				}
+//			}
+//		}
+//
+//		if (encoding == null) {
+//			encoding = System.getProperty("file.encoding");
+//		}
+//
+//		return encoding;
+//	}
 
 	public static List<DiffFileResult> convertToList(
 			DiffFolderResult folderResult) {

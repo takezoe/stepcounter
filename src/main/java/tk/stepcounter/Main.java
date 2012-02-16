@@ -39,7 +39,7 @@ public class Main {
 	}
 
 	/** カウントを実行します */
-	public void executeCount(String encoding) throws IOException {
+	public void executeCount() throws IOException {
 		// フォーマッタが設定されていない場合はデフォルトを使用
 		if(formatter == null){
 			formatter = FormatterFactory.getFormatter("");
@@ -47,7 +47,7 @@ public class Main {
 		// １ファイル or １ディレクトリずつカウント
 		ArrayList<CountResult> list = new ArrayList<CountResult>();
 		for(int i=0;i<files.length;i++){
-			CountResult[] results = count(files[i], encoding);
+			CountResult[] results = count(files[i]);
 			for(int j=0;j<results.length;j++){
 				list.add(results[j]);
 			}
@@ -67,12 +67,12 @@ public class Main {
 	}
 
 	/** １ファイルをカウント */
-	private CountResult[] count(File file, String encoding) throws IOException {
+	private CountResult[] count(File file) throws IOException {
 		if(file.isDirectory()){
 			File[] files = file.listFiles();
 			ArrayList<CountResult> list = new ArrayList<CountResult>();
 			for(int i=0;i<files.length;i++){
-				CountResult[] results = count(files[i], encoding);
+				CountResult[] results = count(files[i]);
 				for(int j=0;j<results.length;j++){
 					list.add(results[j]);
 				}
@@ -81,7 +81,7 @@ public class Main {
 		} else {
 			StepCounter counter = StepCounterFactory.getCounter(file.getName());
 			if(counter!=null){
-				CountResult result = counter.count(file, encoding);
+				CountResult result = counter.count(file, Util.getFileEncoding(file));
 				return new CountResult[]{result};
 			} else {
 				// 未対応の形式の場合は形式にnullを設定して返す
@@ -153,14 +153,15 @@ public class Main {
 			main.setOutput(new PrintStream(new FileOutputStream(new File(output))));
 		}
 
-		if(encoding == null){
-			encoding = System.getProperty("file.encoding");
+		if(encoding != null){
+//			encoding = System.getProperty("file.encoding");
+			Util.setFileEncoding(encoding);
 		}
 		if ("true".equalsIgnoreCase(showDirectory)) {
 			main.setShowDirectory(true);
 		}
 
-		main.executeCount(encoding);
+		main.executeCount();
 	}
 
 }

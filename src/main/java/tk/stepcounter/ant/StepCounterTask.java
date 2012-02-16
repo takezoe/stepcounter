@@ -22,6 +22,7 @@ import org.apache.tools.ant.types.FileSet;
 import org.apache.tools.ant.types.Path;
 
 import tk.stepcounter.Main;
+import tk.stepcounter.Util;
 import tk.stepcounter.format.FormatterFactory;
 
 /**
@@ -83,10 +84,10 @@ public class StepCounterTask extends Task {
 			}
 			System.out.println(files.size() + "ファイル");
 
-			if(encoding == null || encoding.length() == 0){
-				encoding = System.getProperty("file.encoding");
+			if(encoding != null && encoding.length() > 0){
+				Util.setFileEncoding(encoding);
 			}
-			main.executeCount(encoding);
+			main.executeCount();
 			if(output!=null && !output.equals("")){
 				System.out.println(new File(output).getAbsolutePath() + "にカウント結果を出力しました。");
 			}

@@ -82,18 +82,6 @@
       <version>0.1.4</version>
     </dependency>
     <dependency>
-      <groupId>org.eclipse.core</groupId>
-      <artifactId>org.eclipse.core.resources</artifactId>
-      <version>3.6.0.v20100526-0737</version>
-      <scope>provided</scope>
-     <exclusions>
-       <exclusion>
-         <groupId>org.apache.felix</groupId>
-         <artifactId>org.osgi.foundation</artifactId>
-       </exclusion>
-     </exclusions>
-    </dependency>
-    <dependency>
       <groupId>org.apache.ant</groupId>
       <artifactId>ant</artifactId>
       <version>1.8.1</version>

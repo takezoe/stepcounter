@@ -176,7 +176,7 @@ public class MainWindow extends JFrame implements ActionListener {
 			counter.setFormatter(FormatterFactory.getFormatter(format));
 			counter.setShowDirectory(showDirectory);
 			try {
-				counter.executeCount(null);
+				counter.executeCount();
 				byte[] buf = out.toByteArray();
 				if(buf!=null && buf.length>0){
 					appendText(StringUtility.replace(new String(buf,0,buf.length),"\r\n","\n"));

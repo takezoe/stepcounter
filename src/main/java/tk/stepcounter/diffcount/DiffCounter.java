@@ -2,6 +2,7 @@ package tk.stepcounter.diffcount;
 
 import java.io.File;
 
+import tk.stepcounter.Util;
 import tk.stepcounter.diffcount.diff.DiffEngine;
 import tk.stepcounter.diffcount.diff.IDiffHandler;
 import tk.stepcounter.diffcount.object.AbstractDiffResult;
@@ -11,22 +12,22 @@ import tk.stepcounter.diffcount.object.DiffStatus;
 
 /**
  * 差分のカウント処理を行います。
- * 
+ *
  */
 public class DiffCounter {
 
-	private static String	encoding	= null;
+//	private static String	encoding	= null;
+//
+//	public static void setEncoding(String encoding) {
+//		DiffCounter.encoding = encoding;
+//	}
 
-	public static void setEncoding(String encoding) {
-		DiffCounter.encoding = encoding;
-	}
-
-	private static String getEncoding(File file) {
-		if (encoding != null) {
-			return encoding;
-		}
-		return DiffCounterUtil.getFileEncoding(file);
-	}
+//	private static String getEncoding(File file) {
+//		if (encoding != null) {
+//			return encoding;
+//		}
+//		return DiffCounterUtil.getFileEncoding(file);
+//	}
 
 	/**
 	 * 2つのディレクトリ配下のソースコードの差分をカウントします。
@@ -66,7 +67,7 @@ public class DiffCounter {
 			for (File oldFile : oldFiles) {
 				if (newFile.getName().equals(oldFile.getName())) {
 					AbstractDiffResult result = createDiffResult(parent,
-							oldFile, newFile, getEncoding(newFile),
+							oldFile, newFile, Util.getFileEncoding(newFile),
 							DiffStatus.MODIFIED);
 					if (result != null) {
 						parent.addChild(result);
@@ -79,7 +80,7 @@ public class DiffCounter {
 			// 古いソースツリーに見つからなかった場合は追加
 			if (found == false) {
 				AbstractDiffResult result = createDiffResult(parent, null,
-						newFile, getEncoding(newFile), DiffStatus.ADDED);
+						newFile, Util.getFileEncoding(newFile), DiffStatus.ADDED);
 				parent.addChild(result);
 			}
 
@@ -111,7 +112,7 @@ public class DiffCounter {
 
 			if (found == false) {
 				parent.addChild(createDiffResult(parent, oldFile, null,
-						getEncoding(oldFile), DiffStatus.REMOVED));
+						Util.getFileEncoding(oldFile), DiffStatus.REMOVED));
 			}
 		}
 
@@ -265,7 +266,7 @@ public class DiffCounter {
 
 		/**
 		 * 追加行数を取得します。
-		 * 
+		 *
 		 * @return 追加行数
 		 */
 		public int getAddCount() {
@@ -274,7 +275,7 @@ public class DiffCounter {
 
 		/**
 		 * 削除行数を取得します。
-		 * 
+		 *
 		 * @return 削除行数
 		 */
 		public int getDelCount() {
