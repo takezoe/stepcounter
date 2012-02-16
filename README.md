@@ -10,8 +10,7 @@ StepCounter
 ----------------
 ### コマンドライン
 
-コマンドラインで使用するにはtk.eclipse.plugin.stepcounter_x.x.x.zipを解凍したフォルダ（stepcounter.jarがあるフォルダ）に
-移動してコマンドラインから次のように入力してください。
+コマンドラインで使用するにはstepcounter.jarをダウンロードし、コマンドラインから次のように入力してください。
 
     > java -cp stepcounter.jar tk.stepcounter.Main [ファイル名] [ファイル名] ...
 
@@ -25,7 +24,7 @@ StepCounter
 また、-output=ファイル名というオプションを与えることで標準出力ではなくファイルへ出力を行ないます。
 CSV形式でcount.txtファイルへの出力を行なうには以下のようにします。
 
-    > java -cp stepcounter.jar tk.stepcounter.Main -format=csv -output=count.txt -encoding=UTF-8 [ファイル名] [ファイル名] ...
+    > java -cp stepcounter.jar jp.sf.amateras.stepcounter.Main -format=csv -output=count.txt -encoding=UTF-8 [ファイル名] [ファイル名] ...
 
 差分カウンタの場合は以下のように使用します。指定可能なオプションは通常のステップカウンタの場合と同じです。
 
@@ -33,14 +32,13 @@ CSV形式でcount.txtファイルへの出力を行なうには以下のよう�
 
 ### Swingアプリケーション
 
-Swingアプリケーション版を使用するにはstepcounter.jarをダブルクリックするか（Windowsのみ？）、
-アーカイブを解凍したフォルダ（stepcounter.jarがあるフォルダ）に移動してコマンドラインから以下のように入力してください。
+Swingアプリケーション版を使用するにはコマンドラインから以下のように入力してください。
 
-    > java -cp stepcounter.jar tk.stepcounter.gui.MainWindow
+    > java -cp stepcounter.jar jp.sf.amateras.stepcounter.gui.MainWindow
 
 差分カウンタの場合は以下のようにして起動します。
 
-    > java -cp stepcounter.jar;lib/org.apache.commons.jrcs.diff.jar tk.stepcounter.diffcount.renderer.gui.DiffCountFrame
+    > java -cp stepcounter.jar jp.sf.amateras.stepcounter.diffcount.renderer.gui.DiffCountFrame
 
 ### Antからの利用
 
@@ -55,23 +53,12 @@ stepcounterタスクはstepcounter.jarのみ、diffcounterタスクはstepcounte
 
     <!-- 独自タスクの定義 -->
     <taskdef name="stepcounter"
-      classname="tk.stepcounter.ant.StepCounterTask"
-      classpath="stepcounter.jar;
-        lib/fisshplate-0.1.4.jar;
-        lib/poi-3.2-FINAL.jar;
-        lib/commons-logging-1.1.jar;
-        lib/log4j-1.2.12.jar;
-        lib/ognl-2.6.9-patch-20090427.jar"/>
+      classname="jp.sf.amateras.stepcounter.ant.StepCounterTask"
+      classpath="stepcounter.jar"/>
 
     <taskdef name="diffcounter"
-      classname="tk.stepcounter.ant.DiffCounterTask"
-      classpath="stepcounter.jar;
-        lib/fisshplate-0.1.4.jar;
-        lib/poi-3.2-FINAL.jar;
-        lib/commons-logging-1.1.jar;
-        lib/log4j-1.2.12.jar;
-        lib/ognl-2.6.9-patch-20090427.jar;
-        lib/org.apache.commons.jrcs.diff.jar"/>
+      classname="jp.sf.amateras.stepcounter.ant.DiffCounterTask"
+      classpath="stepcounter.jar"/>
 
     <target name="count">
       <!-- ステップ数をカウント -->
@@ -101,6 +88,26 @@ Eclipseプラグインでは以下のようにカテゴリ別タブでカテゴ�
     [[IGNORE]]
 
 これらのタグはステップカウント、差分カウントのどちらの場合でも有効です。
+
+### Mavenでの利用
+
+Mavenを使用している場合は以下の依存関係をpom.xmlに追加してください。
+
+    <repositories>
+      <repository>
+        <id>amateras</id>
+        <name>Project Amateras Maven2 Repository</name>
+        <url>http://amateras.sourceforge.jp/mvn/</url>
+      </repository>
+    </repositories>
+
+    <dependencies>
+      <dependency>
+        <groupId>jp.sf.amateras.stepcounter</groupId>
+        <artifactId>stepcounter</artifactId>
+        <version>3.0.0</version>
+      </dependency>
+    </dependencies>
 
 更新履歴
 ----------------
