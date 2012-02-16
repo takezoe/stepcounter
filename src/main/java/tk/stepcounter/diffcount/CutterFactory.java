@@ -1,7 +1,6 @@
 package tk.stepcounter.diffcount;
 
 import java.io.File;
-import java.util.ResourceBundle;
 
 import tk.stepcounter.StepCounter;
 import tk.stepcounter.StepCounterFactory;
@@ -13,9 +12,6 @@ import tk.stepcounter.StepCounterFactory;
  * @author Naoki Takezoe
  */
 public class CutterFactory {
-
-	private static final String NOT_SUPPORTED = ResourceBundle.getBundle(
-			"tk.eclipse.plugin.stepcounter.StepCounterPluginResources").getString("StepCountView.notSupported");
 
 	/**
 	 * ファイルの拡張子から適切な{@link Cutter}の実装を返却します。
@@ -42,7 +38,7 @@ public class CutterFactory {
 	public static String getFileType(File file){
 		Cutter cutter = getCutter(file);
 		if(cutter == null){
-			return NOT_SUPPORTED;
+			return "Unknown";
 		}
 		return cutter.getFileType();
 	}
