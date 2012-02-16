@@ -9,7 +9,7 @@
   <url></url>
   <description>
   </description>
-  <inceptionYear>2010</inceptionYear>
+  <inceptionYear>2012</inceptionYear>
   <licenses>
     <license>
       <name>The Apache Software License, Version 2.0</name>
@@ -206,12 +206,10 @@
       <id>sourceforge.jp</id>
       <url>scp://shell.sourceforge.jp/home/groups/a/am/amateras/htdocs/mvn-snapshot/</url>
     </snapshotRepository>
-    <!--
     <site>
       <id>sourceforge.jp</id>
       <url>scp://shell.sourceforge.jp/home/groups/a/am/amateras/htdocs/site/stepcounter/</url>
     </site>
-    -->
   </distributionManagement>
 
 </project>
