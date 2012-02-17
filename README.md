@@ -20,11 +20,24 @@ StepCounter
 また、-output=ファイル名というオプションを与えることで標準出力ではなくファイルへ出力を行ないます。
 CSV形式でcount.txtファイルへの出力を行なうには以下のようにします。
 
-    > java -cp stepcounter-x.x.x-jar-with-dependencies.jar jp.sf.amateras.stepcounter.Main -format=csv -output=count.txt -encoding=UTF-8 [ファイル名] [ファイル名] ...
+    > java -cp stepcounter-x.x.x-jar-with-dependencies.jar jp.sf.amateras.stepcounter.Main -format=csv -output=count.txt [ファイル名] [ファイル名] ...
+
+指定可能なオプションは以下の通りです。
+
+* -format: 出力フォーマットをcsv、excelのいずれかで指定します。省略した場合はテキスト形式で出力します。
+* -output: カウント結果を出力するファイルを指定します。省略した場合は標準出力に出力します。
+* -encoding: ファイルの文字コードを指定します。省略した場合はプラットフォームのデフォルトエンコーディングを使用します。
+* -showDirectory: trueを指定するとファイル名だけでなく起点となるディレクトリからの相対パスで表示します。
 
 差分カウンタの場合は以下のように使用します。指定可能なオプションは通常のステップカウンタの場合と同じです。
 
     > java -cp stepcounter-x.x.x-jar-with-dependencies.jar tk.stepcounter.diffcount.Main [新版のディレクトリ名] [旧版のディレクトリ名]
+
+指定可能なオプションは以下の通りです。
+
+* -format: 出力フォーマットをtext、html、excelのいずれかで指定します。省略した場合はテキスト形式で出力します。
+* -output: カウント結果を出力するファイルを指定します。省略した場合は標準出力に出力します。
+* -encoding: ファイルの文字コードを指定します。省略した場合はプラットフォームのデフォルトエンコーディングを使用します。
 
 ### Swingアプリケーション
 
