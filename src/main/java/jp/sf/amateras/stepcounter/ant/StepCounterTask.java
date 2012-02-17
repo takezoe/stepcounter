@@ -38,7 +38,7 @@ public class StepCounterTask extends Task {
 	private String format = null;
 	private String output = null;
 	private String encoding = null;
-	private List<Path> showDirectoryList = new LinkedList<Path>();
+	private List<Path> srcList = new LinkedList<Path>();
 
 	/**
 	 * ステップ数測定を実行します。
@@ -65,10 +65,10 @@ public class StepCounterTask extends Task {
 		try {
 			Main main = new Main();
 			main.setFormatter(FormatterFactory.getFormatter(format));
-			if (showDirectoryList.size() > 0) {
+			if (srcList.size() > 0) {
 				List<File> dirs = new LinkedList<File>();
 
-				for (Path s : showDirectoryList) {
+				for (Path s : srcList) {
 					String[] path = s.list();
 					for (int i = 0; i < path.length; i++) {
 						dirs.add(new File(path[i]));
@@ -76,14 +76,15 @@ public class StepCounterTask extends Task {
 				}
 				main.setFiles((File[]) dirs.toArray(new File[dirs.size()]));
 				main.setShowDirectory(true);
+				System.out.println(dirs.size() + "起点ディレクトリ");
 			} else {
 				main.setFiles((File[]) files.toArray(new File[files.size()]));
+				System.out.println(files.size() + "ファイル");
 			}
 
 			if(output != null && !output.equals("")){
 				main.setOutput(new FileOutputStream(new File(output)));
 			}
-			System.out.println(files.size() + "ファイル");
 
 			if(encoding != null && encoding.length() > 0){
 				Util.setFileEncoding(encoding);
@@ -130,13 +131,11 @@ public class StepCounterTask extends Task {
 	}
 
 	/**
-	 * ディレクトリまたはファイルの出力形式を追加します。
+	 * 出力の起点となるディレクトリを追加します。
 	 *
-	 * @param showDirectory 出力形式
+	 * @param path ディレクトリパス
 	 */
-	public Path createShowDirectory() {
-		Path showDirectory = new Path(getProject());
-		this.showDirectoryList.add(showDirectory);
-		return showDirectory;
+	public void addSrc (Path path) {
+		this.srcList.add(path);
 	}
 }
