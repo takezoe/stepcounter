@@ -1,0 +1,16 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: StepCounter
+Bundle-SymbolicName: jp.sf.amateras.stepcounter;singleton:=true
+Bundle-Version: 3.0.0.qualifier
+Bundle-Activator: jp.sf.amateras.stepcounter.StepCounterPlugin
+Bundle-Vendor: Project Amateras
+Require-Bundle: org.eclipse.ui,
+ org.eclipse.core.runtime,
+ org.eclipse.core.resources,
+ org.eclipse.jdt.core,
+ org.eclipse.ui.ide
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Bundle-ActivationPolicy: lazy
+Bundle-ClassPath: lib/stepcounter-3.0.0-jar-with-dependencies.jar,
+ .
