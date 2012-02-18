@@ -10,7 +10,7 @@ import org.eclipse.ui.plugin.AbstractUIPlugin;
  */
 public class StepCounterPlugin extends AbstractUIPlugin {
 
-	public static final String PLUGIN_ID = "tk.eclipse.plugin.stepcounter";
+	public static final String PLUGIN_ID = "jp.sf.amateras.stepcounter";
 
 	//The shared instance.
 	private static StepCounterPlugin plugin;
@@ -24,7 +24,7 @@ public class StepCounterPlugin extends AbstractUIPlugin {
 	    super();
 		plugin = this;
 		try {
-			resourceBundle= ResourceBundle.getBundle("tk.eclipse.plugin.stepcounter.StepCounterPluginResources");
+			resourceBundle= ResourceBundle.getBundle("jp.sf.amateras.stepcounter.StepCounterPluginResources");
 		} catch (MissingResourceException x) {
 			resourceBundle = null;
 		}

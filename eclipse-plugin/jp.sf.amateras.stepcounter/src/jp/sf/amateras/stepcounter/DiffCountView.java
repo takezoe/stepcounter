@@ -53,49 +53,28 @@ import org.eclipse.ui.part.ViewPart;
 public class DiffCountView extends ViewPart {
 
 	private static final String	FILE		= StepCounterPlugin.getResourceString("DiffCountView.columnName");		//$NON-NLS-1$
-
 	private static final String	TYPE		= StepCounterPlugin.getResourceString("DiffCountView.columnType");		//$NON-NLS-1$
-
 	private static final String	STATUS		= StepCounterPlugin.getResourceString("DiffCountView.columnStatus");	//$NON-NLS-1$
-
 	private static final String	CATEGORY	= StepCounterPlugin.getResourceString("DiffCountView.columnCategory");	//$NON-NLS-1$
-
 	private static final String	DIFF_ADD	= StepCounterPlugin.getResourceString("DiffCountView.columnDiffAdd");	//$NON-NLS-1$
-
 	private static final String	DIFF_DEL	= StepCounterPlugin.getResourceString("DiffCountView.columnDiffDel");	//$NON-NLS-1$
-
 	private static final String	TOTAL		= StepCounterPlugin.getResourceString("DiffCountView.total");			//$NON-NLS-1$
 
 	private TabFolder			tabFolder;
-
 	private Table				fileTable;
-
 	private Table				categoryTable;
-
 	private Clipboard			clipboard;
-
 	private Menu				fileMenu;
-
 	private Menu				categoryMenu;
-
 	private MenuItem			openMenuItem;
-
 	private MenuItem			copyMenuItem1;
-
 	private MenuItem			copyMenuItem2;
-
 	private MenuItem			selectAllMenuItem1;
-
 	private MenuItem			selectAllMenuItem2;
-
 	private MenuItem			clearMenuItem1;
-
 	private MenuItem			clearMenuItem2;
-
 	private MenuItem			saveExcelMenuItem1;
-
 	private MenuItem			saveExcelMenuItem2;
-
 	private DiffFolderResult	results		= null;
 
 	/**
