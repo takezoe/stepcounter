@@ -244,6 +244,7 @@ public class StepCountView extends ViewPart {
 		// すべて削除
 		fileTable.removeAll();
 		files.clear();
+		results.clear();
 		categoryTable.removeAll();
 
 		if (selection != null && selection instanceof IStructuredSelection) {
@@ -263,8 +264,7 @@ public class StepCountView extends ViewPart {
 				if (obj instanceof ICompilationUnit) {
 					// Javaソースファイル（JDT）
 					ICompilationUnit file = (ICompilationUnit)obj;
-					result = countFile((IFile)file.getResource(),
-							categoryResult);
+					result = countFile((IFile)file.getResource(), categoryResult);
 				} else if (obj instanceof IPackageFragment) {
 					// Javaパッケージ（JDT）
 					IPackageFragment pkg = (IPackageFragment)obj;
@@ -338,12 +338,14 @@ public class StepCountView extends ViewPart {
 	 * @param file ファイル
 	 * @return このファイルのカウント結果
 	 */
-	private CountResult countFile(IFile file,
-			List<CategoryStepDto> categoryResult) {
+	private CountResult countFile(IFile file, List<CategoryStepDto> categoryResult) {
+		if(files.containsValue(file)){
+			return null;
+		}
 		try {
 			StepCounter counter = StepCounterFactory.getCounter(file.getName());
-			// 対応するカウンタが存在する場合
 			if (counter != null) {
+				// 対応するカウンタが存在する場合
 				CountResult result = counter.count(
 						file.getLocation().makeAbsolute().toFile(),
 						file.getCharset());
@@ -360,12 +362,10 @@ public class StepCountView extends ViewPart {
 				long none = result.getNon();
 				long step = result.getStep();
 
-				CategoryStepDto categoryDto = CategoryStepDto.getDto(
-						categoryResult, result.getCategory());
+				CategoryStepDto categoryDto = CategoryStepDto.getDto(categoryResult, result.getCategory());
 				categoryDto.setStep(categoryDto.getStep() + result.getStep());
 				categoryDto.setNone(categoryDto.getNone() + result.getNon());
-				categoryDto.setComment(categoryDto.getComment()
-						+ result.getComment());
+				categoryDto.setComment(categoryDto.getComment() + result.getComment());
 
 				String[] data = {
 						file.getFullPath().toString(),
@@ -379,8 +379,8 @@ public class StepCountView extends ViewPart {
 
 				return result;
 
-				// 対応するカウンタが存在しない場合
 			} else {
+				// 対応するカウンタが存在しない場合
 				String[] data = {
 						file.getFullPath().toString(),
 						//FILE.getName(),
@@ -443,13 +443,15 @@ public class StepCountView extends ViewPart {
 	 * @param pkg パッケージ
 	 * @return パッケージ内のカウント合計
 	 */
-	private CountResult countPackage(IPackageFragment pkg,
-			List<CategoryStepDto> categoryResult) {
+	private CountResult countPackage(IPackageFragment pkg, List<CategoryStepDto> categoryResult) {
 		CountResult result = new CountResult();
 		try {
 			ICompilationUnit[] files = pkg.getCompilationUnits();
 			for (int i = 0; i < files.length; i++) {
-				CountResult count = countFile((IFile)files[i].getResource(), categoryResult);
+				if(this.files.containsValue(files[i].getResource())){
+					return null;
+				}
+				CountResult count = countFile((IFile) files[i].getResource(), categoryResult);
 				if (count != null) {
 					result.setStep(result.getStep() + count.getStep());
 					result.setNon(result.getNon() + count.getNon());
