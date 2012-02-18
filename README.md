@@ -76,10 +76,14 @@ jp.sf.amateras.stepcounter_x.x.x.jarをダウンロードし、Eclipseのplugins
 パッケージ・エクスプローラーなどでファイルまたはディレクトリを選択してポップアップメニューから
 [ステップカウンタ] > [ステップ数をカウント] でステップ数をカウントすることができます。
 
+[Eclipseプラグイン（カウント結果）]{https://github.com/takezoe/stepcounter/blob/master/eclipse_plugin.png?raw=true}
+
 カウント結果は右クリックメニューからTSV形式でクリップボードにコピーしたり、Excelファイルとして保存することができます。
 
 差分カウントはディレクトリを選択して [ステップカウンタ] > [差分をカウント] でカウントできます。
 比較元のディレクトリを選択するダイアログが開くので、任意のディレクトリを選択してください。
+
+[Eclipseプラグイン（差分カウント結果）]{https://github.com/takezoe/stepcounter/blob/master/doff_count_view.png?raw=true}
 
 差分カウントビューでは右クリックメニューからTSV形式でクリップボードにコピーしたり、Excelファイルとして保存することができます。
 
