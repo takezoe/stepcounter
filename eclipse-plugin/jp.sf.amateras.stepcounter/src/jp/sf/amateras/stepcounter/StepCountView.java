@@ -46,47 +46,27 @@ import org.eclipse.ui.part.ViewPart;
 public class StepCountView extends ViewPart {
 
 	private TabFolder				tabFolder;
-
 	private Table					fileTable;
-
 	private Table					categoryTable;
-
 	private Menu					filePopup;
-
 	private Menu					categoryPopup;
-
 	private MenuItem				copy1;
-
 	private MenuItem				copy2;
-
 	private MenuItem				saveExcel1;
-
 	private MenuItem				saveExcel2;
-
 	private MenuItem				selectAll1;
-
 	private MenuItem				selectAll2;
-
 	private MenuItem				clear1;
-
 	private MenuItem				clear2;
-
 	private MenuItem				open;
-
 	private Clipboard				clipboard;
 
 	private static final String		FILE		= StepCounterPlugin.getResourceString("StepCountView.columnName");		//$NON-NLS-1$
-
 	private static final String		TYPE		= StepCounterPlugin.getResourceString("StepCountView.columnType");		//$NON-NLS-1$
-
 	private static final String		CATEGORY	= StepCounterPlugin.getResourceString("StepCountView.columnCategory");	//$NON-NLS-1$
-
 	private static final String		STEP		= StepCounterPlugin.getResourceString("StepCountView.columnStep");		//$NON-NLS-1$
-
 	private static final String		NONE		= StepCounterPlugin.getResourceString("StepCountView.columnNone");		//$NON-NLS-1$
-
 	private static final String		COMMENT		= StepCounterPlugin.getResourceString("StepCountView.columnComment");	//$NON-NLS-1$
-
 	private static final String		TOTAL		= StepCounterPlugin.getResourceString("StepCountView.columnTotal");	//$NON-NLS-1$
 
 	private HashMap<String, IFile>	files		= new HashMap<String, IFile>();
@@ -280,20 +260,20 @@ public class StepCountView extends ViewPart {
 			while (ite.hasNext()) {
 				Object obj = ite.next();
 				CountResult result = null;
-				// Javaソースファイル（JDT）
 				if (obj instanceof ICompilationUnit) {
+					// Javaソースファイル（JDT）
 					ICompilationUnit file = (ICompilationUnit)obj;
 					result = countFile((IFile)file.getResource(),
 							categoryResult);
-					// Javaパッケージ（JDT）
 				} else if (obj instanceof IPackageFragment) {
+					// Javaパッケージ（JDT）
 					IPackageFragment pkg = (IPackageFragment)obj;
 					result = countPackage(pkg, categoryResult);
-					// ファイル
 				} else if (obj instanceof IFile) {
+					// ファイル
 					result = countFile((IFile)obj, categoryResult);
-					// ディレクトリ
 				} else if (obj instanceof IContainer) {
+					// ディレクトリ
 					result = countFolder((IContainer)obj, categoryResult);
 				}
 				if (result != null) {
@@ -355,7 +335,7 @@ public class StepCountView extends ViewPart {
 	/**
 	 * １ファイルをカウント
 	 *
-	 * @param FILE ファイル
+	 * @param file ファイル
 	 * @return このファイルのカウント結果
 	 */
 	private CountResult countFile(IFile file,
@@ -469,8 +449,7 @@ public class StepCountView extends ViewPart {
 		try {
 			ICompilationUnit[] files = pkg.getCompilationUnits();
 			for (int i = 0; i < files.length; i++) {
-				CountResult count = countFile((IFile)files[i].getResource(),
-						categoryResult);
+				CountResult count = countFile((IFile)files[i].getResource(), categoryResult);
 				if (count != null) {
 					result.setStep(result.getStep() + count.getStep());
 					result.setNon(result.getNon() + count.getNon());

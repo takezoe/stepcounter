@@ -30,7 +30,7 @@ public class StepCountAction implements IObjectActionDelegate {
 	public void run(IAction action) {
 		try {
 			IWorkbenchWindow window = PlatformUI.getWorkbench().getActiveWorkbenchWindow();
-			window.getActivePage().showView("tk.eclipse.plugin.stepcounter.StepCountView");
+			window.getActivePage().showView("jp.sf.amateras.stepcounter.StepCountView");
 			IViewReference[] views = window.getActivePage().getViewReferences();
 			for(int i=0;i<views.length;i++){
 				IViewPart view = views[i].getView(false);
