@@ -22,9 +22,22 @@ CSV形式でcount.txtファイルへの出力を行なうには以下のよう�
 
     > java -cp stepcounter-x.x.x-jar-with-dependencies.jar jp.sf.amateras.stepcounter.Main -format=csv -output=count.txt -encoding=UTF-8 [ファイル名] [ファイル名] ...
 
-差分カウンタの場合は以下のように使用します。指定可能なオプションは通常のステップカウンタの場合と同じです。
+指定可能なオプションは以下の通りです。
+
+* -format: 出力フォーマットをcsv、excelのいずれかで指定します。省略した場合はテキスト形式で出力します。
+* -output: カウント結果を出力するファイルを指定します。省略した場合は標準出力に出力します。
+* -encoding: ファイルの文字コードを指定します。省略した場合はプラットフォームのデフォルトエンコーディングを使用します。
+* -showDirectory: trueを指定するとファイル名だけでなく起点となるディレクトリからの相対パスで表示します。
+
+差分カウンタの場合は以下のように使用します。
 
     > java -cp stepcounter-x.x.x-jar-with-dependencies.jar tk.stepcounter.diffcount.Main [新版のディレクトリ名] [旧版のディレクトリ名]
+
+指定可能なオプションは以下の通りです。
+
+* -format: 出力フォーマットをtext、html、excelのいずれかで指定します。省略した場合はテキスト形式で出力します。
+* -output: カウント結果を出力するファイルを指定します。省略した場合は標準出力に出力します。
+* -encoding: ファイルの文字コードを指定します。省略した場合はプラットフォームのデフォルトエンコーディングを使用します。
 
 ### Swingアプリケーション
 
@@ -42,10 +55,6 @@ Swingアプリケーション版を使用するにはコマンドラインから
 また、format属性で出力フォーマットを、output属性で出力ファイルを指定することができます。
 format属性を省略した場合はデフォルトのフォーマットが使用されます。
 output属性を省略した場合は標準出力へ出力されます。build.xmlは以下のようになります。
-
-Excelフォーマッタを使用する場合、カスタムタスクのクラスパスにlibディレクトリに格納されている
-JARファイル群も追加する必要があることに注意してください（Excelフォーマッタを使用しない場合、
-stepcounterタスクはstepcounter.jarのみ、diffcounterタスクはstepcounter.jarとorg.apache.commons.jrcs.diff.jarのみで動作します）。
 
     <!-- 独自タスクの定義 -->
     <taskdef name="stepcounter"
@@ -68,6 +77,13 @@ stepcounterタスクはstepcounter.jarのみ、diffcounterタスクはstepcounte
       <diffcounter format="csv" output="diff.txt" encoding="UTF-8"
          srcdir="current/src" olddir="old/src"/>
     </target>
+
+stepcounterタスクでfileset要素の代わりにsrc要素でディレクトリを指定することで、
+コマンドライン版で-showDirectory=trueを指定した場合と同じように、ファイル名を指定したディレクトリからの相対パスで表示します。
+
+    <stepcounter format="csv" output="count.txt" encoding="UTF-8">
+      <src path="src"/>
+    </stepcounter>
 
 ### Eclipseプラグイン
 
