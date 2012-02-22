@@ -1,4 +1,4 @@
-#Thu Feb 16 13:06:24 JST 2012
+#Thu Feb 23 00:44:44 JST 2012
 eclipse.preferences.version=1
 encoding//src/main/java=Windows-31J
 encoding//src/main/resources=Windows-31J
@@ -13,4 +13,5 @@ org.eclipse.jdt.core.compiler.debug.localVariable=generate
 org.eclipse.jdt.core.compiler.debug.sourceFile=generate
 org.eclipse.jdt.core.compiler.problem.assertIdentifier=error
 org.eclipse.jdt.core.compiler.problem.enumIdentifier=error
+org.eclipse.jdt.core.compiler.problem.forbiddenReference=warning
 org.eclipse.jdt.core.compiler.source=1.5
