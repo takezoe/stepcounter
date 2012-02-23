@@ -20,7 +20,15 @@ public class FormatterFactory {
 		// CSVフォーマット
 		if(name.equals("csv")){
 			return new CSVFormatter();
-
+			
+		// XMLフォーマット
+		} else if(name.equals("xml")){
+			return new XMLFormatter();
+			
+		// JSONフォーマット
+		} else if(name.equals("json")){
+			return new JSONFormatter();
+			
 		// Excelフォーマット
 		} else if(name.equals("excel")){
 			return new ExcelFormatter();
