@@ -37,7 +37,7 @@ import org.apache.tools.ant.types.ResourceCollection;
 
 /**
  * ステップカウンタを実行するAntタスクです。
- * 入れ子のsrc / filesetタグでファイルを指定します。
+ * 入れ子のfileset、filelistタグでファイルを指定します。
  *
  * @author sawat
  * @author hidekatsu.izuno
@@ -51,10 +51,10 @@ public class StepCounterTask extends Task {
 	private boolean directoryAsCategory = false;
 	private boolean defaultExcludes = true;
 	private boolean failonerror = true;
-	
+
 	/**
 	 * 出力するファイルを指定します。
-	 * 
+	 *
 	 * @param file 出力するファイル
 	 */
 	public void setOutput(File output) {
@@ -63,7 +63,7 @@ public class StepCounterTask extends Task {
 
 	/**
 	 * フォーマットを指定します。
-	 * 
+	 *
 	 * @param format フォーマット
 	 */
 	public void setFormat(String format){
@@ -72,31 +72,22 @@ public class StepCounterTask extends Task {
 
 	/**
 	 * ソースファイルの文字コードを指定します。
-	 * 
+	 *
 	 * @param encoding 文字コード
 	 */
 	public void setEncoding(String encoding) {
 		this.encoding = encoding;
 	}
-	
-	/**
-	 * 出力の起点となるディレクトリを追加します。
-	 *
-	 * @param path ディレクトリパス
-	 */
-	public void addSrc(Path path) {
-		rcs.add(path);
-	}
-	
+
 	/**
 	 * リソース・コレクションを追加します。
-	 * 
+	 *
 	 * @param res リソース・コレクション
 	 */
     public void add(ResourceCollection res) {
     	rcs.add(res);
     }
-    
+
 	/**
 	 * ディレクトリを出力するか指定します。デフォルトは false です。
 	 *
@@ -105,7 +96,7 @@ public class StepCounterTask extends Task {
     public void setShowDirectory(boolean showDirectory) {
     	this.showDirectory = showDirectory;
     }
-    
+
 	/**
 	 * カテゴリ名として起点ディレクトリを使用するか指定します。デフォルトは false です。
 	 *
@@ -114,7 +105,7 @@ public class StepCounterTask extends Task {
     public void setDirectoryAsCategory(boolean directoryAsCategory) {
     	this.directoryAsCategory = directoryAsCategory;
     }
-    
+
 	/**
 	 * デフォルトの除外設定を有効にするか指定します。デフォルトは true です。
 	 *
@@ -123,7 +114,7 @@ public class StepCounterTask extends Task {
     public void setDefaultexcludes(boolean defaultExcludes) {
     	this.defaultExcludes = defaultExcludes;
     }
-    
+
 	/**
 	 * ファイルが存在しないなどエラー発生時に動作を停止させるか指定します。
 	 *
@@ -132,17 +123,17 @@ public class StepCounterTask extends Task {
     public void setFailOnError(boolean failonerror) {
         this.failonerror = failonerror;
     }
-    
+
 	/**
 	 * ステップ数測定を実行します。
-	 * 
+	 *
 	 * @see org.apache.tools.ant.Task#execute()
 	 */
     public void execute() throws BuildException {
     	ResultFormatter formatter = FormatterFactory.getFormatter(format);
-    	
+
     	if (encoding != null) Util.setFileEncoding(encoding);
-    	
+
     	OutputStream out = null;
     	try {
 	    	if (output != null) {
@@ -154,7 +145,7 @@ public class StepCounterTask extends Task {
 	    	} else {
 	    		out = System.out;
 	    	}
-	    	
+
 	    	Map<FileSet, ResourceCollection> fsList = new LinkedHashMap<FileSet, ResourceCollection>();
 	    	for (ResourceCollection rc : rcs) {
 	    		if (rc instanceof Path && rc.isFilesystemOnly()) {
@@ -162,10 +153,10 @@ public class StepCounterTask extends Task {
 	    				FileSet fs = new FileSet();
 	    				fs.setDir(getProject().resolveFile(p));
 		    			fsList.put(fs, rc);
-	    			}			
+	    			}
 	    		} else if (rc instanceof FileList && rc.isFilesystemOnly()) {
 	    			FileList fl = (FileList)rc;
-	    			
+
     				FileSet fs = new FileSet();
     				fs.setDir(fl.getDir(getProject()));
    					fs.appendIncludes(fl.getFiles(getProject()));
@@ -176,37 +167,36 @@ public class StepCounterTask extends Task {
 	    			throw new BuildException("Only FileSystem resources are supported.");
 	    		}
 	    	}
-	    	
+
     		List<CountResult> results = new ArrayList<CountResult>();
 	    	for (Map.Entry<FileSet, ResourceCollection> entry : fsList.entrySet()) {
 	    		FileSet fs = entry.getKey();
     			fs.setDefaultexcludes(defaultExcludes);
-    			
+
     			DirectoryScanner ds = null;
                 try {
                     ds = fs.getDirectoryScanner(getProject());
                 } catch (BuildException e) {
-                    if (failonerror
-                        || !getMessage(e).endsWith(DirectoryScanner.DOES_NOT_EXIST_POSTFIX)) {
+                    if (failonerror || !getMessage(e).endsWith(DirectoryScanner.DOES_NOT_EXIST_POSTFIX)) {
                         throw e;
                     } else {
                         log("Warning: " + getMessage(e), Project.MSG_ERR);
                         continue;
                     }
                 }
-                
+
                 File baseDir = fs.getDir(getProject());
                 if (!baseDir.exists()) {
                 	throw new BuildException("basedir \"" + baseDir.getPath() + "\" does not exist!");
                 }
-                
+
                 String basePath;
 				try {
 					basePath = baseDir.getCanonicalPath();
 				} catch (IOException e) {
 					throw new BuildException("I/O Error: " + baseDir, e);
 				}
-				
+
         		for (String name : ds.getIncludedFiles()) {
         			File file = new File(baseDir, name);
         			try {
@@ -233,12 +223,12 @@ public class StepCounterTask extends Task {
         			}
         		}
 	    	}
-	    	
+
 	    	log("" + fsList.size() + " 起点ディレクトリ / " + results.size() + " ファイル");
-	    	
+
 	    	out.write(formatter.format(results.toArray(new CountResult[results.size()])));
 	    	out.flush();
-	    	
+
 	    	if (output != null) {
 	    		log(output.getAbsolutePath() + " にカウント結果を出力しました。");
 	    	}
@@ -252,7 +242,7 @@ public class StepCounterTask extends Task {
 			}
     	}
     }
-    
+
     private CountResult count(File file) throws IOException {
 		StepCounter counter = StepCounterFactory.getCounter(file.getName());
 		if (counter != null) {
