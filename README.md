@@ -14,17 +14,15 @@ StepCounter
 その場合そのフォルダに含まれる全てのファイルがカウント対象となりますので、
 例えばJavaで複数のパッケージ内のファイルを一括カウントしたい場合などはトップのフォルダだけ指定してやればOKです。
 
--format=csvというオプションを与えることでCSV形式、-format=excelというオプションを与えることでExcel形式で出力することも
-可能です（Excel形式で出力する場合はlibディレクトリに格納されているJARファイル群にもクラスパスを通す必要があります）。
-
-また、-output=ファイル名というオプションを与えることで標準出力ではなくファイルへ出力を行ないます。
-CSV形式でcount.txtファイルへの出力を行なうには以下のようにします。
+-format=<出力形式>というオプションで出力形式を指定することができます。
+また、-output=<ファイル名>というオプションを与えることで標準出力ではなくファイルへ出力を行ないます。
+たとえばCSV形式でcount.txtファイルへの出力を行なうには以下のようにします。
 
     > java -cp stepcounter-x.x.x-jar-with-dependencies.jar jp.sf.amateras.stepcounter.Main -format=csv -output=count.txt -encoding=UTF-8 [ファイル名] [ファイル名] ...
 
 指定可能なオプションは以下の通りです。
 
-* -format: 出力フォーマットをcsv、excelのいずれかで指定します。省略した場合はテキスト形式で出力します。
+* -format: 出力フォーマットをcsv、excel、xml、jsonのいずれかで指定します。省略した場合はテキスト形式で出力します。
 * -output: カウント結果を出力するファイルを指定します。省略した場合は標準出力に出力します。
 * -encoding: ファイルの文字コードを指定します。省略した場合はプラットフォームのデフォルトエンコーディングを使用します。
 * -showDirectory: trueを指定するとファイル名だけでなく起点となるディレクトリからの相対パスで表示します。
@@ -78,12 +76,8 @@ output属性を省略した場合は標準出力へ出力されます。build.xm
          srcdir="current/src" olddir="old/src"/>
     </target>
 
-stepcounterタスクでfileset要素の代わりにsrc要素でディレクトリを指定することで、
-コマンドライン版で-showDirectory=trueを指定した場合と同じように、ファイル名を指定したディレクトリからの相対パスで表示します。
-
-    <stepcounter format="csv" output="count.txt" encoding="UTF-8">
-      <src path="src"/>
-    </stepcounter>
+stepcounterタスクでshowDirectory属性にtrueを指定することで、
+コマンドライン版で-showDirectory=trueを指定した場合と同じように指定したディレクトリからの相対パスでファイル名を表示します。
 
 ### Eclipseプラグイン
 
@@ -135,12 +129,26 @@ Mavenを使用している場合は以下の依存関係をpom.xmlに追加し�
       <dependency>
         <groupId>jp.sf.amateras.stepcounter</groupId>
         <artifactId>stepcounter</artifactId>
-        <version>3.0.0</version>
+        <version>3.0.1-SNAPSHOT</version>
       </dependency>
     </dependencies>
 
 更新履歴
 ----------------
+### Version 3.0.1(未リリース)
+
+* カウント結果のフォーマッタにxmlとjsonを追加しました。
+* Antタスクでfilesetだけでなく、filelistも使用可能になりました。
+* Antタスクでの相対パス表示の指定方法を変更しました。3.0.0で追加されたsrc要素は廃止され、
+  代わりにstepcounterタスクのshowDirectory属性にtrueを指定することで
+  filesetやfilelistのdir属性で指定したディレクトリからの相対パスでファイル名を表示します。
+* AntタスクにdefaultExcludes属性をを追加しました。デフォルトで有効になります。
+* AntタスクにdirectoryAsCategory属性を追加しました。
+  標準では、カテゴリはファイル内のタグを見て判断されますが、この属性をtrueにするとカテゴリとして起点ディレクトリが利用されます。
+  （srcとtestなど）起点ディレクトリによって分類したい場合に使用します。
+* Antタスクにfailonerror属性を追加しました。
+  他のタスクと同じように、ファイルI/Oに失敗した場合、処理を継続するか否かを設定できるようになりました。
+
 ### Version 3.0.0(2012/2/18)
 
 * ソースコードのリポジトリをSourceForge.netのSubversionからGithubに移行しました。
