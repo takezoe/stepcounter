@@ -137,6 +137,10 @@ public class StepCounterFactory {
 			// JavaScript用カウンタを作成
 			return createJavaCounter("js");
 
+		} else if(fileName.endsWith(".json")){
+			// JSON用カウンタを作成
+			return createJavaCounter("JSON");
+
 		} else if(fileName.endsWith(".vbs")){
 			// VBScript用カウンタを作成
 			return createVBCounter("vbs");

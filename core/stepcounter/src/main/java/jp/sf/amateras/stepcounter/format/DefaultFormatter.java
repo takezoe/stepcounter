@@ -23,7 +23,7 @@ public class DefaultFormatter implements ResultFormatter {
 		sb.append("種類  カテゴリ            実行  空行  ｺﾒﾝﾄ  合計  ");
 		sb.append("\n");
 		sb.append(makeHyphen(maxFileLength));
-		sb.append("---------------------------------------------");
+		sb.append("--------------------------------------------------");
 		sb.append("\n");
 		// １行ずつ処理を行う
 		for(int i=0;i<results.length;i++){
@@ -58,7 +58,7 @@ public class DefaultFormatter implements ResultFormatter {
 		}
 		// 合計行をフォーマット
 		sb.append(makeHyphen(maxFileLength));
-		sb.append("---------------------------------------------");
+		sb.append("--------------------------------------------------");
 		sb.append("\n");
 		sb.append(fillOrCut("合計", maxFileLength));
 		sb.append(makeSpace(6));
@@ -80,14 +80,31 @@ public class DefaultFormatter implements ResultFormatter {
 		}
 		for (CountResult result : results) {
 			String fileName = result.getFileName();
-			int targetFileLength = Util.getByteLength(fileName);
-			if (fileName != null && fileLength < targetFileLength) {
-				fileLength = targetFileLength;
+			
+			if (fileName != null) {
+				int len = getDisplayWidth(fileName);
+				if (fileLength < len) fileLength = len;
 			}
 		}
 		return fileLength;
 	}
-
+	
+	/** テキストの表示幅を計算します */
+	private int getDisplayWidth(String str) {
+		int len = 0;
+		for (int i = 0; i < str.length(); i++) {
+			char c = str.charAt(i);
+			
+			// ASCII・ヨーロッパ文字および HALFWIDTH のみ半角と判断
+			if (c <= 0x00FF || (c >= 0xFF61 && c <= 0xFFDC) || (c >= 0xFFE8 && c <= 0xFFEE)) {
+				len += 1;
+			} else {
+				len += 2;
+			}
+		}
+		return len;
+	}
+	
 	/** 指定された長さの半角スペースを作成します */
 	private String makeSpace(int width){
 		StringBuffer sb = new StringBuffer();
@@ -111,7 +128,7 @@ public class DefaultFormatter implements ResultFormatter {
 	 * 指定の長さ以上であれば右側を切り落とします。
 	 */
 	private String fillOrCut(String str,int width){
-		int length = Util.getByteLength(str);
+		int length = getDisplayWidth(str);
 		if(length==width){
 			return str;
 		} else if(length < width){
