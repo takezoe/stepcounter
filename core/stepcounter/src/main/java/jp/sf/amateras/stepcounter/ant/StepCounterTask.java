@@ -32,7 +32,6 @@ import org.apache.tools.ant.Project;
 import org.apache.tools.ant.Task;
 import org.apache.tools.ant.types.FileList;
 import org.apache.tools.ant.types.FileSet;
-import org.apache.tools.ant.types.Path;
 import org.apache.tools.ant.types.ResourceCollection;
 
 /**
@@ -47,7 +46,7 @@ public class StepCounterTask extends Task {
 	private String format = "";
 	private String encoding;
 	private List<ResourceCollection> rcs = new ArrayList<ResourceCollection>();
-	private Boolean showDirectory;
+	private boolean showDirectory = false;
 	private boolean directoryAsCategory = false;
 	private boolean defaultExcludes = true;
 	private boolean failonerror = true;
@@ -148,13 +147,7 @@ public class StepCounterTask extends Task {
 
 	    	Map<FileSet, ResourceCollection> fsList = new LinkedHashMap<FileSet, ResourceCollection>();
 	    	for (ResourceCollection rc : rcs) {
-	    		if (rc instanceof Path && rc.isFilesystemOnly()) {
-	    			for (String p : ((Path)rc).list()) {
-	    				FileSet fs = new FileSet();
-	    				fs.setDir(getProject().resolveFile(p));
-		    			fsList.put(fs, rc);
-	    			}
-	    		} else if (rc instanceof FileList && rc.isFilesystemOnly()) {
+	    		if (rc instanceof FileList && rc.isFilesystemOnly()) {
 	    			FileList fl = (FileList)rc;
 
     				FileSet fs = new FileSet();
@@ -201,7 +194,7 @@ public class StepCounterTask extends Task {
         			File file = new File(baseDir, name);
         			try {
         				CountResult result = count(file);
-        				if (showDirectory != null || entry.getValue() instanceof Path) {
+        				if (showDirectory) {
         					name = file.getCanonicalPath();
         					if (name.startsWith(basePath)) {
         						name = name.substring(basePath.length());

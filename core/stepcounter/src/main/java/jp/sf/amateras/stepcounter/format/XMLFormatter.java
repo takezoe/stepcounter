@@ -32,25 +32,31 @@ public class XMLFormatter implements ResultFormatter {
 			writer.append("<stepcounter>\n");
 			
 			for (CountResult result : results) {
-				long total = result.getStep() + result.getNon() + result.getComment();
 				writer.append("\t<file ");
 				writer.append("name=\"");
 				escape(writer, result.getFileName());
 				writer.append("\" ");
-				if (result.getFileType() != null && result.getFileType().length() > 0) {
+				
+				// 未対応の形式をフォーマット
+				if (result.getFileType() == null || result.getFileType().length() == 0) {
+					writer.append("type=\"unknown\" ");
+				// 正常にカウントされたものをフォーマット
+				} else {
 					writer.append("type=\"");
 					escape(writer, result.getFileType());
 					writer.append("\" ");
+					if (result.getCategory() != null && result.getCategory().length() > 0) {
+						writer.append("category=\"");
+						escape(writer, result.getCategory());
+						writer.append("\" ");
+					}
+
+					long total = result.getStep() + result.getNon() + result.getComment();
+					writer.append("step=\"").append(Long.toString(result.getStep())).append("\" ");
+					writer.append("none=\"").append(Long.toString(result.getNon())).append("\" ");
+					writer.append("comment=\"").append(Long.toString(result.getComment())).append("\" ");
+					writer.append("total=\"").append(Long.toString(total)).append("\" ");
 				}
-				if (result.getCategory() != null && result.getCategory().length() > 0) {
-					writer.append("category=\"");
-					escape(writer, result.getCategory());
-					writer.append("\" ");
-				}
-				writer.append("step=\"").append(Long.toString(result.getStep())).append("\" ");
-				writer.append("none=\"").append(Long.toString(result.getNon())).append("\" ");
-				writer.append("comment=\"").append(Long.toString(result.getComment())).append("\" ");
-				writer.append("total=\"").append(Long.toString(total)).append("\" ");
 				writer.append("/>\n");
 			}			
 			
