@@ -142,7 +142,7 @@ Mavenを使用している場合は以下の依存関係をpom.xmlに追加し�
 * Antタスクでの相対パス表示の指定方法を変更しました。3.0.0で追加されたsrc要素は廃止され、
   代わりにstepcounterタスクのshowDirectory属性にtrueを指定することで
   filesetやfilelistのdir属性で指定したディレクトリからの相対パスでファイル名を表示します。
-* AntタスクにdefaultExcludes属性をを追加しました。デフォルトで有効になります。
+* AntタスクにdefaultExcludes属性を追加しました。デフォルトで有効になります。
 * AntタスクにdirectoryAsCategory属性を追加しました。
   標準では、カテゴリはファイル内のタグを見て判断されますが、この属性をtrueにするとカテゴリとして起点ディレクトリが利用されます。
   （srcとtestなど）起点ディレクトリによって分類したい場合に使用します。
