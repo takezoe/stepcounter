@@ -290,6 +290,20 @@ public class StepCounterFactory {
 			counter.setFileType("Haskell");
 			return counter;
 
+		} else if(fileName.endsWith(".f") || fileName.endsWith(".for") || fileName.endsWith(".ftn")){
+			// Fortran（固定形式）カウンタを作成
+			DefaultStepCounter counter = new DefaultStepCounter();
+			counter.addLineComment("*");
+			counter.setFileType("Fortran");
+			return counter;
+
+		} else if(fileName.endsWith(".f90") || fileName.endsWith(".f95")){
+			// Fortran（自由形式）カウンタを作成
+			DefaultStepCounter counter = new DefaultStepCounter();
+			counter.addLineComment("!");
+			counter.setFileType("Fortran");
+			return counter;
+
 		} else {
 			return null;
 		}
