@@ -129,13 +129,13 @@ Mavenを使用している場合は以下の依存関係をpom.xmlに追加し�
       <dependency>
         <groupId>jp.sf.amateras.stepcounter</groupId>
         <artifactId>stepcounter</artifactId>
-        <version>3.0.1-SNAPSHOT</version>
+        <version>3.0.1</version>
       </dependency>
     </dependencies>
 
 更新履歴
 ----------------
-### Version 3.0.1(未リリース)
+### Version 3.0.1(2012/4/21)
 
 * カウント結果のフォーマッタにxmlとjsonを追加しました。
 * Antタスクでfilesetだけでなく、filelistも使用可能になりました。
