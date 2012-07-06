@@ -308,6 +308,14 @@ public class StepCounterFactory {
 			// Makefile用カウンタを作成
 			return createShellCounter("Makefile");
 
+        } else if(fileName.endsWith(".as")){
+            // ActionScript3用カウンタを作成
+            return createJavaCounter(".as");
+            
+        } else if(fileName.endsWith(".mxml")){
+        	// MXML用カウンタを作成
+        	return createXMLCounter(".mxml");
+
 		} else {
 			return null;
 		}
