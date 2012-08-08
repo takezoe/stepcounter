@@ -4,7 +4,7 @@
   <groupId>jp.sf.amateras.stepcounter</groupId>
   <artifactId>stepcounter</artifactId>
   <packaging>jar</packaging>
-  <version>3.0.1</version>
+  <version>3.0.2-SNAPSHOT</version>
   <name>StepCounter</name>
   <url></url>
   <description>
