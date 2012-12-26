@@ -86,11 +86,11 @@ public class StepCounterFactory {
 			// Scala用カウンタを作成
 			return createJavaCounter("Scala");
 
-		} else if(fileName.endsWith(".cpp") || fileName.endsWith(".c")){
-			// C/C++用カウンタを作成
-			return createJavaCounter("C/C++");
+		} else if(fileName.endsWith(".cpp") || fileName.endsWith(".cxx") || fileName.endsWith(".cc") || fileName.endsWith(".c") || fileName.endsWith(".m") || fileName.endsWith(".mm")){
+			// C/C++/Objective-C(++)用カウンタを作成
+			return createJavaCounter("C/C++/ObjC");
 
-		} else if(fileName.endsWith(".h")){
+		} else if(fileName.endsWith(".h") || fileName.endsWith(".hpp") || fileName.endsWith(".hxx")){
 			//ヘッダファイル用カウンタを作成
 			return createJavaCounter("h");
 
