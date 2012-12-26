@@ -72,9 +72,9 @@
       <version>1.2.1</version>
     </dependency>
     <dependency>
-      <groupId>org.dyno.visual.swing.layouts</groupId>
-      <artifactId>grouplayout</artifactId>
-      <version>1.0.0</version>
+      <groupId>org.dyno.visual.swing</groupId>
+      <artifactId>visual.swing</artifactId>
+      <version>0.9.12.I20090527-2200</version>
     </dependency>
     <dependency>
       <groupId>org.seasar.fisshplate</groupId>
