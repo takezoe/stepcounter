@@ -1,12 +1,15 @@
 package jp.sf.amateras.stepcounter.diffcount.diff;
 
-import org.apache.commons.jrcs.diff.AddDelta;
-import org.apache.commons.jrcs.diff.ChangeDelta;
-import org.apache.commons.jrcs.diff.DeleteDelta;
-import org.apache.commons.jrcs.diff.Delta;
-import org.apache.commons.jrcs.diff.Diff;
-import org.apache.commons.jrcs.diff.DifferentiationFailedException;
-import org.apache.commons.jrcs.diff.Revision;
+import java.util.Arrays;
+import java.util.List;
+
+import difflib.ChangeDelta;
+import difflib.Chunk;
+import difflib.DeleteDelta;
+import difflib.Delta;
+import difflib.DiffUtils;
+import difflib.InsertDelta;
+import difflib.Patch;
 
 /**
  * 文字列の差分取得を行うためのDiffエンジンです。
@@ -17,9 +20,9 @@ public class DiffEngine {
 
 	private IDiffHandler	handler;
 
-	private String[]		text1;
+	private List<String>	text1;
 
-	private String[]		text2;
+	private List<String>	text2;
 
 	/**
 	 * コンストラクタ。
@@ -45,83 +48,52 @@ public class DiffEngine {
 	 */
 	public void doDiff() {
 
-		try {
-			Revision rev = Diff.diff(this.text1, this.text2);
+		Patch rev = DiffUtils.diff(this.text1, this.text2);
 
-			int count1 = 0;
-			int count2 = 0;
+		int count1 = 0;
+		int count2 = 0;
 
-			for (int i = 0; i < rev.size(); i++) {
-				Delta delta = rev.getDelta(i);
+		for (Delta delta : rev.getDeltas()) {
+			Chunk orgChunk = delta.getOriginal();
+			Chunk revChunk = delta.getRevised();
 
-				Range orgRange = new Range(delta.getOriginal().rangeString());
-				Range revRange = new Range(delta.getRevised().rangeString());
+			while (count1 != orgChunk.getPosition()) {
+				this.handler.match(this.text1.get(count1));
+				count1++;
+			}
+			count1 = orgChunk.getPosition();
+			count2 = revChunk.getPosition();
 
-				while (count1 != orgRange.getFrom() - 1) {
-					this.handler.match(this.text1[count1]);
+			if (delta instanceof InsertDelta) {
+				while (count2 <= revChunk.last()) {
+					this.handler.add(this.text2.get(count2));
+					count2++;
+				}
+
+			} else if (delta instanceof DeleteDelta) {
+				while (count1 <= orgChunk.last()) {
+					this.handler.delete(this.text1.get(count1));
 					count1++;
 				}
-				count1 = orgRange.getFrom() - 1;
-				count2 = revRange.getFrom() - 1;
 
-				if (delta instanceof AddDelta) {
-					while (count2 != revRange.getTo()) {
-						this.handler.add(this.text2[count2]);
-						count2++;
-					}
-
-				} else if (delta instanceof DeleteDelta) {
-					while (count1 != orgRange.getTo()) {
-						this.handler.delete(this.text1[count1]);
-						count1++;
-					}
-
-				} else if (delta instanceof ChangeDelta) {
-					while (count1 != orgRange.getTo()) {
-						this.handler.delete(this.text1[count1]);
-						count1++;
-					}
-					while (count2 != revRange.getTo()) {
-						this.handler.add(this.text2[count2]);
-						count2++;
-					}
-
+			} else if (delta instanceof ChangeDelta) {
+				while (count1 <= orgChunk.last()) {
+					this.handler.delete(this.text1.get(count1));
+					count1++;
 				}
-				count1 = orgRange.getTo();
-				count2 = revRange.getTo();
+				while (count2 <= revChunk.last()) {
+					this.handler.add(this.text2.get(count2));
+					count2++;
+				}
+
 			}
-
-			while (this.text2.length > count2) {
-				this.handler.match(this.text2[count2]);
-				count2++;
-			}
-		} catch (DifferentiationFailedException ex) {
-			throw new RuntimeException(ex);
-		}
-	}
-
-	private class Range {
-		private int	from;
-
-		private int	to;
-
-		public Range(String rangeString) {
-			if (rangeString.indexOf(",") != -1) {
-				String[] dim = rangeString.split(",");
-				this.from = Integer.parseInt(dim[0]);
-				this.to = Integer.parseInt(dim[1]);
-			} else {
-				this.from = Integer.parseInt(rangeString);
-				this.to = Integer.parseInt(rangeString);
-			}
+			count1 = orgChunk.last() + 1;
+			count2 = revChunk.last() + 1;
 		}
 
-		public int getFrom() {
-			return this.from;
-		}
-
-		public int getTo() {
-			return this.to;
+		while (this.text2.size() > count2) {
+			this.handler.match(this.text2.get(count2));
+			count2++;
 		}
 	}
 
@@ -131,10 +103,7 @@ public class DiffEngine {
 	 * @param text 文字列
 	 * @return １行ごとに分割された文字列
 	 */
-	private static String[] splitLine(String text) {
-		String result = text;
-		result = result.replaceAll("\r\n", "\n");
-		result = result.replaceAll("\r", "\n");
-		return result.split("\n");
+	private static List<String> splitLine(String text) {
+		return Arrays.asList(text.split("\r?\n|\r"));
 	}
 }
