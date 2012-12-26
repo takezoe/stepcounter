@@ -67,9 +67,9 @@
       <version>3.2-FINAL</version>
     </dependency>
     <dependency>
-      <groupId>commons-jrcs</groupId>
-      <artifactId>commons-jrcs</artifactId>
-      <version>diff-0.1.7</version>
+      <groupId>com.googlecode.java-diff-utils</groupId>
+      <artifactId>diffutils</artifactId>
+      <version>1.2.1</version>
     </dependency>
     <dependency>
       <groupId>org.dyno.visual.swing.layouts</groupId>
