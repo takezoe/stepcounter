@@ -57,7 +57,6 @@ public class DiffEngine {
 			Chunk orgChunk = delta.getOriginal();
 			Chunk revChunk = delta.getRevised();
 
-			// position‚Í0ƒIƒŠƒWƒ“?
 			while (count1 != orgChunk.getPosition()) {
 				this.handler.match(this.text1.get(count1));
 				count1++;
@@ -66,30 +65,30 @@ public class DiffEngine {
 			count2 = revChunk.getPosition();
 
 			if (delta instanceof InsertDelta) {
-				while (count2 != revChunk.last()) {
+				while (count2 <= revChunk.last()) {
 					this.handler.add(this.text2.get(count2));
 					count2++;
 				}
 
 			} else if (delta instanceof DeleteDelta) {
-				while (count1 != orgChunk.last()) {
+				while (count1 <= orgChunk.last()) {
 					this.handler.delete(this.text1.get(count1));
 					count1++;
 				}
 
 			} else if (delta instanceof ChangeDelta) {
-				while (count1 != orgChunk.last()) {
+				while (count1 <= orgChunk.last()) {
 					this.handler.delete(this.text1.get(count1));
 					count1++;
 				}
-				while (count2 != revChunk.last()) {
+				while (count2 <= revChunk.last()) {
 					this.handler.add(this.text2.get(count2));
 					count2++;
 				}
 
 			}
-			count1 = orgChunk.last();
-			count2 = revChunk.last();
+			count1 = orgChunk.last() + 1;
+			count2 = revChunk.last() + 1;
 		}
 
 		while (this.text2.size() > count2) {
