@@ -75,6 +75,13 @@
       <groupId>org.dyno.visual.swing</groupId>
       <artifactId>visual.swing</artifactId>
       <version>0.9.12.I20090527-2200</version>
+      <scope>provided</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.dyno.visual.swing</groupId>
+      <artifactId>visual.swing.layouts</artifactId>
+      <version>0.9.12.I20090527-2200</version>
+      <scope>runtime</scope>
     </dependency>
     <dependency>
       <groupId>org.seasar.fisshplate</groupId>
