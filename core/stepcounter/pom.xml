@@ -41,11 +41,6 @@
       <name>The Seasar Foundation Maven2 Repository</name>
       <url>http://maven.seasar.org/maven2</url>
     </repository>
-    <repository>
-      <id>atlassian-release</id>
-      <name>Attlassian Releases</name>
-      <url>http://maven.glassfish.org/content/repositories/atlassian-release/</url>
-    </repository>
   </repositories>
 
   <pluginRepositories>
@@ -72,17 +67,18 @@
       <version>1.2.1</version>
     </dependency>
     <dependency>
-      <groupId>org.dyno.visual.swing</groupId>
-      <artifactId>visual.swing</artifactId>
-      <version>0.9.12.I20090527-2200</version>
-      <scope>provided</scope>
+      <groupId>org.dyno.visual.swing.layouts</groupId>
+      <artifactId>grouplayout</artifactId>
+      <version>1.0.0</version>
     </dependency>
+    <!--
     <dependency>
       <groupId>org.dyno.visual.swing</groupId>
       <artifactId>visual.swing.layouts</artifactId>
       <version>0.9.12.I20090527-2200</version>
-      <scope>runtime</scope>
+      <scope>compile</scope>
     </dependency>
+    -->
     <dependency>
       <groupId>org.seasar.fisshplate</groupId>
       <artifactId>fisshplate</artifactId>
