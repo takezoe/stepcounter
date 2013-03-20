@@ -10,6 +10,7 @@ import jp.sf.amateras.stepcounter.*;
 import jp.sf.amateras.stepcounter.format.*;
 
 /** ステップカウンタのメインウィンドウ */
+@SuppressWarnings({"rawtypes", "unchecked", "deprecation"})
 public class MainWindow extends JFrame implements ActionListener {
 
 	private static final long serialVersionUID = 5954076353117692515L;

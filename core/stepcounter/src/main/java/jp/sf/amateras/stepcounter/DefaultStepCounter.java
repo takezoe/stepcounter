@@ -76,48 +76,52 @@ public class DefaultStepCounter implements StepCounter, Cutter {
 		}
 		BufferedReader reader = new BufferedReader(new InputStreamReader(
 				new FileInputStream(file), charSetName));
-
-		String line     = null;
+		
 		String category = "";
 		long step    = 0;
 		long non     = 0;
 		long comment = 0;
-		boolean areaFlag = false;
-		AreaComment lastAreaComment = new AreaComment();
 
-		while((line = reader.readLine()) != null){
-			if(category.length() == 0){
-				Matcher matcher = CATEGORY_PATTERN.matcher(line);
-				if(matcher.find()){
-					category = matcher.group(1);
+		try {
+			String line = null;
+			boolean areaFlag = false;
+			AreaComment lastAreaComment = new AreaComment();
+	
+			while((line = reader.readLine()) != null){
+				if(category.length() == 0){
+					Matcher matcher = CATEGORY_PATTERN.matcher(line);
+					if(matcher.find()){
+						category = matcher.group(1);
+					}
 				}
-			}
-			if(IGNORE_PATTERN.matcher(line).find()){
-				return null;
-			}
-
-			String trimedLine = line.trim();
-			if(areaFlag==false){
-				if(nonCheck(trimedLine)){
-					non++;
-				} else if(lineCommentCheck(trimedLine)){
-					comment++;
-				} else if(skipPatternCheck(trimedLine)){
-					non++;
-				} else if((lastAreaComment = areaCommentStartCheck(line))!=null){
-					comment++;
-					areaFlag = true;
+				if(IGNORE_PATTERN.matcher(line).find()){
+					return null;
+				}
+	
+				String trimedLine = line.trim();
+				if(areaFlag==false){
+					if(nonCheck(trimedLine)){
+						non++;
+					} else if(lineCommentCheck(trimedLine)){
+						comment++;
+					} else if(skipPatternCheck(trimedLine)){
+						non++;
+					} else if((lastAreaComment = areaCommentStartCheck(line))!=null){
+						comment++;
+						areaFlag = true;
+					} else {
+						step++;
+					}
 				} else {
-					step++;
-				}
-			} else {
-				comment++;
-				if(areaCommentEndCheck(line, lastAreaComment)){
-					areaFlag = false;
+					comment++;
+					if(areaCommentEndCheck(line, lastAreaComment)){
+						areaFlag = false;
+					}
 				}
 			}
+		} finally {
+			reader.close();
 		}
-		reader.close();
 		return new CountResult(file, file.getName(), getFileType(), category, step, non, comment);
 	}
 

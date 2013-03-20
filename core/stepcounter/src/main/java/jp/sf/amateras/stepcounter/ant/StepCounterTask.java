@@ -128,7 +128,8 @@ public class StepCounterTask extends Task {
 	 *
 	 * @see org.apache.tools.ant.Task#execute()
 	 */
-    public void execute() throws BuildException {
+    @SuppressWarnings("resource")
+	public void execute() throws BuildException {
     	ResultFormatter formatter = FormatterFactory.getFormatter(format);
 
     	if (encoding != null) Util.setFileEncoding(encoding);

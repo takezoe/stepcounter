@@ -39,53 +39,57 @@ public class PythonCounter implements StepCounter, Cutter {
 		BufferedReader reader = new BufferedReader(
 				new InputStreamReader(new FileInputStream(file), charSetName));
 
-		String line     = null;
 		String category = "";
 		long step    = 0;
 		long non     = 0;
 		long comment = 0;
-		boolean areaFlag = false;
-		boolean objectStartingFlag = true;
-
-		while((line = reader.readLine())!=null){
-			if(category.length() == 0){
-				Matcher matcher = CATEGORY_PATTERN.matcher(line);
-				if(matcher.find()){
-					category = matcher.group(1);
+		
+		try {
+			String line     = null;
+			boolean areaFlag = false;
+			boolean objectStartingFlag = true;
+	
+			while((line = reader.readLine())!=null){
+				if(category.length() == 0){
+					Matcher matcher = CATEGORY_PATTERN.matcher(line);
+					if(matcher.find()){
+						category = matcher.group(1);
+					}
+				}
+				if(IGNORE_PATTERN.matcher(line).find()){
+					return null;
+				}
+	
+				String trimedLine = line.trim();
+				if(areaFlag) {
+					comment++;
+					if(trimedLine.endsWith(DOCSTRING_DELIMITER)) { // docstring finished
+						areaFlag=false;
+					}
+					continue;
+				}
+				if(objectStartingFlag && trimedLine.startsWith(DOCSTRING_DELIMITER)) { // docstring started
+					comment++;
+					areaFlag = !trimedLine.endsWith(DOCSTRING_DELIMITER); // avoid one line docstring
+					continue;
+				}
+				objectStartingFlag = false;
+				if(trimedLine.length()==0){
+					non++;
+					continue;
+				}
+				if(trimedLine.indexOf('#')>=0){
+					comment++;
+					continue;
+				}
+				step++;
+				if(trimedLine.startsWith("def ") || trimedLine.startsWith("class ")){
+					objectStartingFlag = true;
 				}
 			}
-			if(IGNORE_PATTERN.matcher(line).find()){
-				return null;
-			}
-
-			String trimedLine = line.trim();
-			if(areaFlag) {
-				comment++;
-				if(trimedLine.endsWith(DOCSTRING_DELIMITER)) { // docstring finished
-					areaFlag=false;
-				}
-				continue;
-			}
-			if(objectStartingFlag && trimedLine.startsWith(DOCSTRING_DELIMITER)) { // docstring started
-				comment++;
-				areaFlag = !trimedLine.endsWith(DOCSTRING_DELIMITER); // avoid one line docstring
-				continue;
-			}
-			objectStartingFlag = false;
-			if(trimedLine.length()==0){
-				non++;
-				continue;
-			}
-			if(trimedLine.indexOf('#')>=0){
-				comment++;
-				continue;
-			}
-			step++;
-			if(trimedLine.startsWith("def ") || trimedLine.startsWith("class ")){
-				objectStartingFlag = true;
-			}
+		} finally {
+			reader.close();
 		}
-		reader.close();
 		return new CountResult(file, file.getName(), getFileType(), category, step, non, comment);
 	}
 
