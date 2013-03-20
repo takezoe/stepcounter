@@ -67,14 +67,21 @@
       <version>3.2-FINAL</version>
     </dependency>
     <dependency>
-      <groupId>commons-jrcs</groupId>
-      <artifactId>commons-jrcs</artifactId>
-      <version>diff-0.1.7</version>
+      <groupId>com.googlecode.java-diff-utils</groupId>
+      <artifactId>diffutils</artifactId>
+      <version>1.2.1</version>
     </dependency>
     <dependency>
-      <groupId>org.dyno.visual.swing.layouts</groupId>
-      <artifactId>grouplayout</artifactId>
-      <version>1.0.0</version>
+      <groupId>org.dyno.visual.swing</groupId>
+      <artifactId>visual.swing</artifactId>
+      <version>0.9.12.I20090527-2200</version>
+      <scope>provided</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.dyno.visual.swing</groupId>
+      <artifactId>visual.swing.layouts</artifactId>
+      <version>0.9.12.I20090527-2200</version>
+      <scope>runtime</scope>
     </dependency>
     <dependency>
       <groupId>org.seasar.fisshplate</groupId>
