@@ -156,6 +156,8 @@ Mavenを使用している場合は以下の依存関係をpom.xmlに追加し�
 ### Version 3.0.2(未リリース)
 
  * ActionScript3とMXMLに対応しました。
+ * C++/Objective-C/Objective-C++の拡張子(.cxx, .cc, .hpp, .hxx, .m, .mm)に対応しました。
+ * 差分カウント用のライブラリをcommons-jrcsからjava-diff-utils ( https://code.google.com/p/java-diff-utils/ )に変更しました。
 
 ### Version 3.0.1(2012/4/21)
 
