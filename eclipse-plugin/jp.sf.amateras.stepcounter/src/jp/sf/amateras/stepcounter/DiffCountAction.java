@@ -53,7 +53,7 @@ public class DiffCountAction implements IObjectActionDelegate {
 			try {
 				IWorkbenchWindow window = PlatformUI.getWorkbench().getActiveWorkbenchWindow();
 				window.getActivePage().showView(
-						"tk.eclipse.plugin.stepcounter.DiffCountView");
+						"jp.sf.amateras.stepcounter.DiffCountView");
 				IViewReference[] viewReferences = window.getActivePage().getViewReferences();
 				for (IViewReference viewReference : viewReferences) {
 					IViewPart view = viewReference.getView(false);
