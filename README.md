@@ -93,7 +93,7 @@ stepcounterタスクでshowDirectory属性にtrueを指定することで、
 
 ### Eclipseプラグイン
 
-jp.sf.amateras.stepcounter_x.x.x.jarをダウンロードし、Eclipseのpluginsディレクトリに配置してください。
+[こちら](https://sourceforge.jp/projects/amateras/releases/?package_id=1863)からjp.sf.amateras.stepcounter_x.x.x.jarをダウンロードし、Eclipseのpluginsディレクトリに配置してください。
 
 パッケージ・エクスプローラーなどでファイルまたはディレクトリを選択してポップアップメニューから
 [ステップカウンタ] > [ステップ数をカウント] でステップ数をカウントすることができます。
