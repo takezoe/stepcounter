@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: %pluginName
 Bundle-SymbolicName: jp.sf.amateras.stepcounter;singleton:=true
-Bundle-Version: 3.0.1.qualifier
+Bundle-Version: 3.0.2.qualifier
 Bundle-Activator: jp.sf.amateras.stepcounter.StepCounterPlugin
 Bundle-Vendor: %providerName
 Require-Bundle: org.eclipse.ui,
@@ -13,5 +13,5 @@ Require-Bundle: org.eclipse.ui,
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Bundle-Localization: plugin
 Bundle-ActivationPolicy: lazy
-Bundle-ClassPath: lib/stepcounter-3.0.1-jar-with-dependencies.jar,
+Bundle-ClassPath: lib/stepcounter-3.0.2-jar-with-dependencies.jar,
  .
