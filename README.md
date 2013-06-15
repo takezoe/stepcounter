@@ -146,14 +146,14 @@ Mavenを使用している場合は以下の依存関係をpom.xmlに追加し�
   <dependency>
     <groupId>jp.sf.amateras.stepcounter</groupId>
     <artifactId>stepcounter</artifactId>
-    <version>3.0.1</version>
+    <version>3.0.2</version>
   </dependency>
 </dependencies>
 ```
 
 更新履歴
 ----------------
-### Version 3.0.2(未リリース)
+### Version 3.0.2(2013/06/15)
 
  * ActionScript3とMXMLに対応しました。
  * C++/Objective-C/Objective-C++の拡張子(.cxx, .cc, .hpp, .hxx, .m, .mm)に対応しました。
