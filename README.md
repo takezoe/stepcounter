@@ -9,7 +9,7 @@ StepCounter
 コマンドラインで使用するにはstepcounter-x.x.x-jar-with-dependencies.jarをダウンロードし、コマンドラインから次のように入力してください。
 
 ```
-> java -cp stepcounter-x.x.x-jar-with-dependencies.jar tk.stepcounter.Main [ファイル名] [ファイル名] ...
+> java -cp stepcounter-x.x.x-jar-with-dependencies.jar jp.sf.amateras.stepcounter.Main [ファイル名] [ファイル名] ...
 ```
 
 結果は標準出力に出力されます。ファイル名にはフォルダを指定することも可能で、
@@ -34,7 +34,7 @@ StepCounter
 差分カウンタの場合は以下のように使用します。
 
 ```
-> java -cp stepcounter-x.x.x-jar-with-dependencies.jar tk.stepcounter.diffcount.Main [新版のディレクトリ名] [旧版のディレクトリ名]
+> java -cp stepcounter-x.x.x-jar-with-dependencies.jar jp.sf.amateras.stepcounter.diffcount.Main [新版のディレクトリ名] [旧版のディレクトリ名]
 ```
 
 指定可能なオプションは以下の通りです。
