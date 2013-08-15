@@ -180,6 +180,10 @@ public class StepCounterFactory {
 			// Tcl用カウンタを作成
 			return createShellCounter("Tcl");
 
+		} else if(fileName.endsWith(".sh")){
+			// Shell用カウンタを作成
+			return createShellCounter("Shell");
+
 		} else if(fileName.endsWith(".sql")){
 			// SQL用カウンタを作成
 			DefaultStepCounter counter = new DefaultStepCounter();
