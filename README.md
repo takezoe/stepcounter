@@ -6,7 +6,7 @@ StepCounter
 ----------------
 ### コマンドライン
 
-コマンドラインで使用するにはstepcounter-x.x.x-jar-with-dependencies.jarをダウンロードし、コマンドラインから次のように入力してください。
+コマンドラインで使用するには[こちら](http://amateras.sourceforge.jp/mvn/jp/sf/amateras/stepcounter/stepcounter/)からstepcounter-x.x.x-jar-with-dependencies.jarをダウンロードし、コマンドラインから次のように入力してください。
 
 ```
 > java -cp stepcounter-x.x.x-jar-with-dependencies.jar jp.sf.amateras.stepcounter.Main [ファイル名] [ファイル名] ...
