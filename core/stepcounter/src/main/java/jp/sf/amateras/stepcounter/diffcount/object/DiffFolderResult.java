@@ -26,7 +26,9 @@ public class DiffFolderResult extends AbstractDiffResult {
 	}
 
 	public void addChild(AbstractDiffResult child) {
-		this.children.add(child);
+		if(child != null){
+			this.children.add(child);
+		}
 	}
 
 	public List<AbstractDiffResult> getChildren() {
