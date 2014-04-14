@@ -146,13 +146,18 @@ Mavenを使用している場合は以下の依存関係をpom.xmlに追加し�
   <dependency>
     <groupId>jp.sf.amateras.stepcounter</groupId>
     <artifactId>stepcounter</artifactId>
-    <version>3.0.2</version>
+    <version>3.0.3</version>
   </dependency>
 </dependencies>
 ```
 
 更新履歴
 ----------------
+### Version 3.0.3(2014/04/15)
+
+ * シェルスクリプト（*.sh）に対応しました。
+ * 差分カウンタのバグを修正しました。
+
 ### Version 3.0.2(2013/06/15)
 
  * ActionScript3とMXMLに対応しました。
