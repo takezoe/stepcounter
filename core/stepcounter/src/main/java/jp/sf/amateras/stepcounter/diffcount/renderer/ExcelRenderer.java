@@ -5,14 +5,12 @@ import java.io.InputStream;
 import java.util.HashMap;
 import java.util.Map;
 
-import jp.sf.amateras.stepcounter.Util;
 import jp.sf.amateras.stepcounter.diffcount.DiffCounterUtil;
 import jp.sf.amateras.stepcounter.diffcount.object.DiffFolderResult;
 import jp.sf.amateras.stepcounter.format.ExcelFormatter;
+import net.sf.jxls.transformer.XLSTransformer;
 
-import org.apache.poi.hssf.usermodel.HSSFWorkbook;
-import org.seasar.fisshplate.template.FPTemplate;
-
+import org.apache.poi.ss.usermodel.Workbook;
 
 public class ExcelRenderer implements Renderer {
 
@@ -33,26 +31,17 @@ public class ExcelRenderer implements Renderer {
 	}
 
 	/**
-	 * Fisshplateを使用してExcelファイルを生成します。
+	 * jXLSを使用してExcelファイルを生成します。
 	 * 引数で与えたテンプレートの入力ストリームはこのメソッド内でクローズされます。
 	 * <p>
 	 * TODO {@link ExcelFormatter}と共通化する
 	 */
-	private static byte[] merge(InputStream in, Map<String, Object> data)
-			throws Exception {
-		FPTemplate template = new FPTemplate();
-		HSSFWorkbook wb;
-
-		try {
-			wb = template.process(in, data);
-		} catch (Exception ex) {
-			throw ex;
-		} finally {
-			Util.close(in);
-		}
-
+	private static byte[] merge(InputStream in, Map<String, Object> data) throws Exception {
+		XLSTransformer transformer = new XLSTransformer();
+		Workbook workbook = transformer.transformXLS(in, data);
+		
 		ByteArrayOutputStream out = new ByteArrayOutputStream();
-		wb.write(out);
+		workbook.write(out);
 
 		return out.toByteArray();
 	}

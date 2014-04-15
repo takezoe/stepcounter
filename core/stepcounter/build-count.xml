@@ -2,10 +2,10 @@
 <project default="count" basedir="." >
  <!-- 独自タスクの定義 相対パスからの target フォルダ配下にJARを置いてください。-->
  <taskdef name="stepcounter" classname="jp.sf.amateras.stepcounter.ant.StepCounterTask"
-  classpath="target/stepcounter-3.0.1-SNAPSHOT-jar-with-dependencies.jar" />
+  classpath="target/stepcounter-3.0.4-SNAPSHOT-jar-with-dependencies.jar" />
 
  <taskdef name="diffcounter" classname="jp.sf.amateras.stepcounter.ant.DiffCounterTask"
-  classpath="target/stepcounter-3.0.1-SNAPSHOT-jar-with-dependencies.jar" />
+  classpath="target/stepcounter-3.0.4-SNAPSHOT-jar-with-dependencies.jar" />
 
  <target name="count">
   <!-- ステップ数をカウント formatはデフォルト/csv/excelが選択できます。-->

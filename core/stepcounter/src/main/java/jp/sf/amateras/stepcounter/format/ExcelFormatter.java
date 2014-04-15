@@ -11,11 +11,9 @@ import java.util.Map;
 
 import jp.sf.amateras.stepcounter.CategoryStepDto;
 import jp.sf.amateras.stepcounter.CountResult;
-import jp.sf.amateras.stepcounter.Util;
+import net.sf.jxls.transformer.XLSTransformer;
 
-import org.apache.poi.hssf.usermodel.HSSFWorkbook;
-import org.seasar.fisshplate.template.FPTemplate;
-
+import org.apache.poi.ss.usermodel.Workbook;
 
 /**
  * カウント結果をExcelで出力します。
@@ -27,10 +25,6 @@ public class ExcelFormatter implements ResultFormatter {
 	public byte[] format(CountResult[] result) {
 		try {
 			InputStream in = ExcelFormatter.class.getResourceAsStream("ExcelFormatter.xls");
-
-			long totalStep = 0;
-			long totalNone = 0;
-			long totalComment = 0;
 
 			List<CategoryStepDto> categories = new ArrayList<CategoryStepDto>();
 			CategoryStepDto nonCategory = new CategoryStepDto();
@@ -46,12 +40,7 @@ public class ExcelFormatter implements ResultFormatter {
 				}
 				categoryDto.setStep(categoryDto.getStep() + resultDto.getStep());
 				categoryDto.setNone(categoryDto.getNone() + resultDto.getNon());
-				categoryDto.setComment(categoryDto.getComment()
-						+ resultDto.getComment());
-
-				totalStep += resultDto.getStep();
-				totalNone += resultDto.getNon();
-				totalComment += resultDto.getComment();
+				categoryDto.setComment(categoryDto.getComment() + resultDto.getComment());
 			}
 			if (useNonCategory) {
 				categories.add(nonCategory);
@@ -86,9 +75,6 @@ public class ExcelFormatter implements ResultFormatter {
 			Map<String, Object> data = new HashMap<String, Object>();
 			data.put("results", result);
 			data.put("categories", categories);
-			data.put("totalStep", totalStep);
-			data.put("totalNone", totalNone);
-			data.put("totalComment", totalComment);
 
 			return merge(in, data);
 
@@ -98,24 +84,15 @@ public class ExcelFormatter implements ResultFormatter {
 	}
 
 	/**
-	 * Fisshplateを使用してExcelファイルを生成します。
+	 * jXLSを使用してExcelファイルを生成します。
 	 * 引数で与えたテンプレートの入力ストリームはこのメソッド内でクローズされます。
 	 */
-	private static byte[] merge(InputStream in, Map<String, Object> data)
-			throws Exception {
-		FPTemplate template = new FPTemplate();
-		HSSFWorkbook wb;
-
-		try {
-			wb = template.process(in, data);
-		} catch (Exception ex) {
-			throw ex;
-		} finally {
-			Util.close(in);
-		}
-
+	private static byte[] merge(InputStream in, Map<String, Object> data) throws Exception {
+		XLSTransformer transformer = new XLSTransformer();
+		Workbook workbook = transformer.transformXLS(in, data);
+		
 		ByteArrayOutputStream out = new ByteArrayOutputStream();
-		wb.write(out);
+		workbook.write(out);
 
 		return out.toByteArray();
 	}

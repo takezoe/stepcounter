@@ -4,7 +4,7 @@
   <groupId>jp.sf.amateras.stepcounter</groupId>
   <artifactId>stepcounter</artifactId>
   <packaging>jar</packaging>
-  <version>3.0.3</version>
+  <version>3.0.4-SNAPSHOT</version>
   <name>StepCounter</name>
   <url></url>
   <description>
@@ -56,11 +56,13 @@
       <artifactId>swingx</artifactId>
       <version>1.6.1</version>
     </dependency>
+    <!--
     <dependency>
       <groupId>org.apache.poi</groupId>
       <artifactId>poi</artifactId>
       <version>3.2-FINAL</version>
     </dependency>
+    -->
     <dependency>
       <groupId>com.googlecode.java-diff-utils</groupId>
       <artifactId>diffutils</artifactId>
@@ -78,11 +80,16 @@
       <version>0.9.12.I20090527-2200</version>
       <scope>compile</scope>
     </dependency>
-    -->
     <dependency>
       <groupId>org.seasar.fisshplate</groupId>
       <artifactId>fisshplate</artifactId>
       <version>0.1.4</version>
+    </dependency>
+    -->
+    <dependency>
+      <groupId>net.sf.jxls</groupId>
+      <artifactId>jxls-core</artifactId>
+      <version>1.0.5</version>
     </dependency>
     <dependency>
       <groupId>org.apache.ant</groupId>
