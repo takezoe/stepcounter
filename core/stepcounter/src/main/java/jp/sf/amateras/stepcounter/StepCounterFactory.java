@@ -98,7 +98,7 @@ public class StepCounterFactory {
 			// C#用カウンタを作成
 			return createJavaCounter("C#");
 
-		} else if(fileName.endsWith(".jsp")){
+		} else if(fileName.endsWith(".jsp") || fileName.endsWith(".jspf") || fileName.endsWith(".tag")){
 			// JSP用カウンタを作成
 			DefaultStepCounter counter = new DefaultStepCounter();
 			counter.addLineComment("//");
@@ -106,6 +106,15 @@ public class StepCounterFactory {
 			counter.addAreaComment(new AreaComment("<%--","--%>"));
 			counter.addAreaComment(new AreaComment("<!--","-->"));
 			counter.setFileType("JSP");
+			return counter;
+
+		} else if(fileName.endsWith(".jspx") || fileName.endsWith(".tagx")){
+			// JSP用カウンタを作成
+			DefaultStepCounter counter = new DefaultStepCounter();
+			counter.addLineComment("//");
+			counter.addAreaComment(new AreaComment("/*","*/"));
+			counter.addAreaComment(new AreaComment("<!--","-->"));
+			counter.setFileType("JSPX");
 			return counter;
 
 		} else if(fileName.endsWith(".php") || fileName.endsWith(".php3")){
@@ -184,7 +193,7 @@ public class StepCounterFactory {
 			// Shell用カウンタを作成
 			return createShellCounter("Shell");
 
-		} else if(fileName.endsWith(".sql")){
+		} else if(fileName.endsWith(".sql") || fileName.endsWith(".ddl")){
 			// SQL用カウンタを作成
 			DefaultStepCounter counter = new DefaultStepCounter();
 			counter.addLineComment("#");
@@ -315,7 +324,7 @@ public class StepCounterFactory {
         } else if(fileName.endsWith(".as")){
             // ActionScript3用カウンタを作成
             return createJavaCounter(".as");
-            
+
         } else if(fileName.endsWith(".mxml")){
         	// MXML用カウンタを作成
         	return createXMLCounter(".mxml");
