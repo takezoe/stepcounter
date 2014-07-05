@@ -320,6 +320,10 @@ public class StepCounterFactory {
         	// MXML用カウンタを作成
         	return createXMLCounter(".mxml");
 
+		} else if(fileName.endsWith(".groovy")){
+			// Groovy用カウンタを作成
+			return createJavaCounter("Groovy");
+
 		} else {
 			return null;
 		}
