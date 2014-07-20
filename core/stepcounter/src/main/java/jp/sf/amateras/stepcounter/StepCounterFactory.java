@@ -317,7 +317,7 @@ public class StepCounterFactory {
 			counter.setFileType("Fortran");
 			return counter;
 
-		} else if(fileName.equals("Makefile")){
+		} else if(fileName.equals("makefile") || fileName.endsWith(".mk")){
 			// Makefile用カウンタを作成
 			return createShellCounter("Makefile");
 
