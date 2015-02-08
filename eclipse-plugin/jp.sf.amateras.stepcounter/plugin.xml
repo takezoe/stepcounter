@@ -21,6 +21,13 @@
             class="jp.sf.amateras.stepcounter.DiffCountView"
             id="jp.sf.amateras.stepcounter.DiffCountView">
       </view>
+      <view
+            name="%scopeCountViewName"
+            category="jp.sf.amateras.stepcounter"
+            icon="icons/stepcounter.gif"
+            class="jp.sf.amateras.stepcounter.ScopeCountView"
+            id="jp.sf.amateras.stepcounter.ScopeCountView">
+      </view>
    </extension>
    <extension
          point="org.eclipse.ui.popupMenus">
@@ -43,6 +50,12 @@
                menubarPath="jp.sf.amateras.stepcounter.menu/count">
          </action>
          -->
+         <action
+               label="%scopeCountLabel"
+               class="jp.sf.amateras.stepcounter.ScopeCountAction"
+               id="jp.sf.amateras.stepcounter.ScopeCountAction"
+               menubarPath="jp.sf.amateras.stepcounter.menu/count">
+         </action>
          <action
                label="%stepCountLabel"
                class="jp.sf.amateras.stepcounter.StepCountAction"
