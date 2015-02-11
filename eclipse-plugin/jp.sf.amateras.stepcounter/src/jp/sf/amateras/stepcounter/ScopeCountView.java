@@ -65,7 +65,7 @@ public class ScopeCountView extends ViewPart {
 	private static final String		STEP		= StepCounterPlugin.getResourceString("StepCountView.columnStep");		//$NON-NLS-1$
 	private static final String		NONE		= StepCounterPlugin.getResourceString("StepCountView.columnNone");		//$NON-NLS-1$
 	private static final String		COMMENT		= StepCounterPlugin.getResourceString("StepCountView.columnComment");	//$NON-NLS-1$
-	private static final String		TOTAL		= StepCounterPlugin.getResourceString("StepCountView.columnTotal");	//$NON-NLS-1$
+	private static final String		TOTAL		= StepCounterPlugin.getResourceString("StepCountView.columnTotal");		//$NON-NLS-1$
 
 	private HashMap<String, IFile>	files		= new HashMap<String, IFile>();
 
@@ -212,18 +212,13 @@ public class ScopeCountView extends ViewPart {
 	}
 
 	/**
-	 * Excelに保存する。<br>
-	 * 以下の形式での保存に対応。
-	 * <ul>
-	 * <li>xls</li>
-	 * <li>xlsx</li>
-	 * </ul>
+	 * Excelに保存する。
 	 */
 	private void saveToExcel() {
 		// エクスポート先のファイルを指定
 		FileDialog dialog = new FileDialog(
 				Display.getDefault().getActiveShell(), SWT.SAVE);
-		dialog.setFilterExtensions(new String[] { "*.xls", "*.xlsx" });
+		dialog.setFilterExtensions(new String[] { "*.xls" });
 		String path = dialog.open();
 		if (path != null) {
 			ExcelFormatter formatter = new ExcelFormatter();
@@ -331,10 +326,10 @@ public class ScopeCountView extends ViewPart {
 	/**
 	 * 選択範囲をカウント
 	 *
-	 * @param file ファイル
-	 * @param textSelection 選択範囲情報
+	 * @param file 選択範囲が存在している元ファイル
+	 * @param scopeFile 選択範囲で構成されたファイル
 	 * @param categoryResult カテゴリ情報
-	 * @return このファイルの選択範囲内のカウント結果
+	 * @return 選択範囲内のカウント結果
 	 */
 	private CountResult countScope(
 			IFile file,
@@ -402,6 +397,74 @@ public class ScopeCountView extends ViewPart {
 			ex.printStackTrace();
 			System.out.println(file.getName() + "でエラーが発生しました！");
 			return null;
+		}
+	}
+
+	/**
+	 * サポート外のエディタに対するカウント動作。
+	 *
+	 * @param selection IStructuredSelection
+	 */
+	public void notSupported(ISelection selection) {
+
+		// すべて削除
+		fileTable.removeAll();
+		files.clear();
+		results.clear();
+		categoryTable.removeAll();
+
+		if (selection != null && selection instanceof IStructuredSelection) {
+
+			IStructuredSelection iSel = (IStructuredSelection)selection;
+
+			@SuppressWarnings("unchecked")
+			Iterator<Object> ite = iSel.iterator();
+
+			long totalStep = 0;
+			long totalComment = 0;
+			long totalNone = 0;
+
+			while (ite.hasNext()) {
+				Object obj = ite.next();
+				if (obj instanceof IFile) {
+					IFile file = (IFile) obj;
+
+					// エディタが対応していない
+					String[] data = {
+							file.getFullPath().toString(),
+							//FILE.getName(),
+							StepCounterPlugin.getResourceString("ScopeCountView.notSupported"), //$NON-NLS-1$
+							"", "", //$NON-NLS-1$
+							"", //$NON-NLS-1$
+							"", //$NON-NLS-1$
+							"" //$NON-NLS-1$
+					};
+					TableItem item = new TableItem(fileTable, SWT.NULL);
+					item.setText(data);
+					files.put(file.getFullPath().toString(), file);
+				}
+			}
+			{
+				// ファイル単位の合計行を表示
+				String[] data = {
+						TOTAL,
+						"", //$NON-NLS-1$
+						"", //$NON-NLS-1$
+						String.valueOf(totalStep), String.valueOf(totalNone),
+						String.valueOf(totalComment),
+						String.valueOf(totalStep + totalNone + totalComment) };
+				TableItem item = new TableItem(fileTable, SWT.NULL);
+				item.setText(data);
+			}
+			{
+				// カテゴリ単位の合計行を表示
+				String[] data = { TOTAL, String.valueOf(totalStep),
+						String.valueOf(totalNone),
+						String.valueOf(totalComment),
+						String.valueOf(totalStep + totalNone + totalComment) };
+				TableItem item = new TableItem(categoryTable, SWT.NULL);
+				item.setText(data);
+			}
 		}
 	}
 
