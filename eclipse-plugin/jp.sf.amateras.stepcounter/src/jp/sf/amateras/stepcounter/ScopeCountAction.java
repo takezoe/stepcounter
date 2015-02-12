@@ -3,12 +3,15 @@ package jp.sf.amateras.stepcounter;
 import java.io.ByteArrayInputStream;
 import java.io.InputStream;
 import java.io.StringWriter;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IProject;
 import org.eclipse.core.resources.IWorkspaceRoot;
 import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.CoreException;
+import org.eclipse.core.runtime.IPath;
 import org.eclipse.jface.action.IAction;
 import org.eclipse.jface.text.IDocument;
 import org.eclipse.jface.text.ITextSelection;
@@ -31,6 +34,8 @@ import org.eclipse.ui.texteditor.ITextEditor;
 public class ScopeCountAction implements IObjectActionDelegate {
 
 	private ISelection selection = null;
+
+	private static final String TEMP_FILE = "stepcounter_scopeCountTempFile";
 
 	/**
 	 * コンストラクタ
@@ -85,7 +90,8 @@ public class ScopeCountAction implements IObjectActionDelegate {
 
 			// 選択範囲の行頭から行末までを含むデータでファイルを作成し、カウント処理に渡す
 			IWorkspaceRoot root = ResourcesPlugin.getWorkspace().getRoot();
-			IFile scopeFile  = root.getFile(project.getFullPath().append("scopeTemp"));
+			IPath path = project.getFullPath().append(TEMP_FILE);
+			IFile scopeFile  = root.getFile(path);
 			try {
 				StringWriter sw = new StringWriter();
 				for(int line=startLine; line <= endLine; line++){
@@ -96,12 +102,17 @@ public class ScopeCountAction implements IObjectActionDelegate {
 
 				InputStream in = new ByteArrayInputStream(sw.toString().getBytes());
 				if (scopeFile.exists()) {
-					// 上書き
-					scopeFile.setContents(in, true, true, null);
-				} else {
-					// 新規作成
-					scopeFile.create(in, true, null);
+					// 重複した場合、元ファイルを誰が作ったかは不明なので、維持しておく
+					SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMddHHmmSSS");
+					String addDate = sdf.format(new Date(System.currentTimeMillis()));
+					IPath datePath = path.removeLastSegments(1);
+					path = datePath.append(TEMP_FILE.concat(addDate));
+					scopeFile = root.getFile(path);
 				}
+
+				// 新規作成
+				scopeFile.create(in, true, null);
+
 				in.close();
 
 				processToUseScope(window, scopeFile);
