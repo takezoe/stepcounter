@@ -17,7 +17,7 @@ import jp.sf.amateras.stepcounter.diffcount.DiffCounterUtil;
 import jp.sf.amateras.stepcounter.diffcount.DiffSource;
 
 
-/** ƒJƒXƒ^ƒ}ƒCƒY‚µ‚Äg—p‚Å‚«‚é•W€‚ÌƒXƒeƒbƒvƒJƒEƒ“ƒ^‚Å‚· */
+/** ã‚«ã‚¹ã‚¿ãƒã‚¤ã‚ºã—ã¦ä½¿ç”¨ã§ãã‚‹æ¨™æº–ã®ã‚¹ãƒ†ãƒƒãƒ—ã‚«ã‚¦ãƒ³ã‚¿ã§ã™ */
 public class DefaultStepCounter implements StepCounter, Cutter {
 
 	private static Pattern CATEGORY_PATTERN = Pattern.compile("\\[\\[(.*?)\\]\\]");
@@ -29,49 +29,49 @@ public class DefaultStepCounter implements StepCounter, Cutter {
 	private String fileType = "UNDEF";
 
 	/**
-	 * ƒXƒLƒbƒv‚·‚éƒpƒ^[ƒ“i³‹K•\Œ»j‚ğ’Ç‰Á‚µ‚Ü‚·B
+	 * ã‚¹ã‚­ãƒƒãƒ—ã™ã‚‹ãƒ‘ã‚¿ãƒ¼ãƒ³ï¼ˆæ­£è¦è¡¨ç¾ï¼‰ã‚’è¿½åŠ ã—ã¾ã™ã€‚
 	 *
-	 * @param pattern ƒXƒLƒbƒv‚·‚éƒpƒ^[ƒ“i³‹K•\Œ»j
+	 * @param pattern ã‚¹ã‚­ãƒƒãƒ—ã™ã‚‹ãƒ‘ã‚¿ãƒ¼ãƒ³ï¼ˆæ­£è¦è¡¨ç¾ï¼‰
 	 */
 	public void addSkipPattern(String pattern){
 		this.skipPatterns.add(pattern);
 	}
 
 	/**
-	 * ƒXƒLƒbƒv‚·‚éƒpƒ^[ƒ“‚ğæ“¾‚µ‚Ü‚·B
+	 * ã‚¹ã‚­ãƒƒãƒ—ã™ã‚‹ãƒ‘ã‚¿ãƒ¼ãƒ³ã‚’å–å¾—ã—ã¾ã™ã€‚
 	 *
-	 * @return ƒXƒLƒbƒv‚·‚éƒpƒ^[ƒ“i³‹K•\Œ»j‚Ì”z—ñ
+	 * @return ã‚¹ã‚­ãƒƒãƒ—ã™ã‚‹ãƒ‘ã‚¿ãƒ¼ãƒ³ï¼ˆæ­£è¦è¡¨ç¾ï¼‰ã®é…åˆ—
 	 */
 	public String[] getSkipPatterns(){
 		return (String[])skipPatterns.toArray(new String[skipPatterns.size()]);
 	}
 
-	/** ƒtƒ@ƒCƒ‹‚Ìí—Ş‚ğİ’è‚µ‚Ü‚· */
+	/** ãƒ•ã‚¡ã‚¤ãƒ«ã®ç¨®é¡ã‚’è¨­å®šã—ã¾ã™ */
 	public void setFileType(String fileType){
 		this.fileType = fileType;
 	}
 
-	/** ƒtƒ@ƒCƒ‹‚Ìí—Ş‚ğæ“¾‚µ‚Ü‚· */
+	/** ãƒ•ã‚¡ã‚¤ãƒ«ã®ç¨®é¡ã‚’å–å¾—ã—ã¾ã™ */
 	public String getFileType(){
 		return this.fileType;
 	}
 
-	/** ’PˆêsƒRƒƒ“ƒg‚ÌŠJn•¶š—ñ‚ğ’Ç‰Á‚µ‚Ü‚· */
+	/** å˜ä¸€è¡Œã‚³ãƒ¡ãƒ³ãƒˆã®é–‹å§‹æ–‡å­—åˆ—ã‚’è¿½åŠ ã—ã¾ã™ */
 	public void addLineComment(String str){
 		this.lineComments.add(str);
 	}
 
-	/** •¡”sƒRƒƒ“ƒg‚ğ’Ç‰Á‚µ‚Ü‚· */
+	/** è¤‡æ•°è¡Œã‚³ãƒ¡ãƒ³ãƒˆã‚’è¿½åŠ ã—ã¾ã™ */
 	public void addAreaComment(AreaComment area){
 		this.areaComments.add(area);
 	}
 
-	/** ƒJƒEƒ“ƒg‚µ‚Ü‚· */
+	/** ã‚«ã‚¦ãƒ³ãƒˆã—ã¾ã™ */
 	public CountResult count(File file, String charset) throws IOException {
 		String charSetName = charset;
 		if (charSetName == null) {
-			// ƒLƒƒƒ‰ƒNƒ^ƒZƒbƒg–³w’è‚Ìê‡‚Í
-			// ƒvƒ‰ƒbƒgƒtƒH[ƒ€ƒfƒtƒHƒ‹ƒgƒLƒƒƒ‰ƒNƒ^ƒZƒbƒg‚ğw’è‚µ‚Ü‚·B
+			// ã‚­ãƒ£ãƒ©ã‚¯ã‚¿ã‚»ãƒƒãƒˆç„¡æŒ‡å®šã®å ´åˆã¯
+			// ãƒ—ãƒ©ãƒƒãƒˆãƒ•ã‚©ãƒ¼ãƒ ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆã‚­ãƒ£ãƒ©ã‚¯ã‚¿ã‚»ãƒƒãƒˆã‚’æŒ‡å®šã—ã¾ã™ã€‚
 			charSetName = Charset.defaultCharset().name();
 		}
 		BufferedReader reader = new BufferedReader(new InputStreamReader(
@@ -125,7 +125,7 @@ public class DefaultStepCounter implements StepCounter, Cutter {
 		return new CountResult(file, file.getName(), getFileType(), category, step, non, comment);
 	}
 
-	/** ƒXƒLƒbƒvƒpƒ^[ƒ“‚Éƒ}ƒbƒ`‚·‚é‚©ƒ`ƒFƒbƒN */
+	/** ã‚¹ã‚­ãƒƒãƒ—ãƒ‘ã‚¿ãƒ¼ãƒ³ã«ãƒãƒƒãƒã™ã‚‹ã‹ãƒã‚§ãƒƒã‚¯ */
 	private boolean skipPatternCheck(String line){
 		for(int i=0;i<skipPatterns.size();i++){
 			if(Pattern.matches((String) skipPatterns.get(i), line)){
@@ -135,7 +135,7 @@ public class DefaultStepCounter implements StepCounter, Cutter {
 		return false;
 	}
 
-	/** ‹ós‚©‚Ç‚¤‚©‚ğƒ`ƒFƒbƒN */
+	/** ç©ºè¡Œã‹ã©ã†ã‹ã‚’ãƒã‚§ãƒƒã‚¯ */
 	private boolean nonCheck(String line){
 		if(line.equals("")){
 			return true;
@@ -143,7 +143,7 @@ public class DefaultStepCounter implements StepCounter, Cutter {
 		return false;
 	}
 
-	/** ’PˆêsƒRƒƒ“ƒg‚©‚Ç‚¤‚©‚ğƒ`ƒFƒbƒN */
+	/** å˜ä¸€è¡Œã‚³ãƒ¡ãƒ³ãƒˆã‹ã©ã†ã‹ã‚’ãƒã‚§ãƒƒã‚¯ */
 	private boolean lineCommentCheck(String line){
 		for(int i=0;i<lineComments.size();i++){
 			if(line.startsWith((String) lineComments.get(i))){
@@ -164,7 +164,7 @@ public class DefaultStepCounter implements StepCounter, Cutter {
 	}
 
 	/**
-	 * •¡”sƒRƒƒ“ƒg‚ªŠJn‚µ‚Ä‚¢‚é‚©ƒ`ƒFƒbƒN
+	 * è¤‡æ•°è¡Œã‚³ãƒ¡ãƒ³ãƒˆãŒé–‹å§‹ã—ã¦ã„ã‚‹ã‹ãƒã‚§ãƒƒã‚¯
 	 */
 	private AreaComment areaCommentStartCheck(String line){
 		for(int i=0;i<areaComments.size();i++){
@@ -180,7 +180,7 @@ public class DefaultStepCounter implements StepCounter, Cutter {
 		return null;
 	}
 
-	/** •¡”sƒRƒƒ“ƒg‚ªI—¹‚µ‚Ä‚¢‚é‚©ƒ`ƒFƒbƒN */
+	/** è¤‡æ•°è¡Œã‚³ãƒ¡ãƒ³ãƒˆãŒçµ‚äº†ã—ã¦ã„ã‚‹ã‹ãƒã‚§ãƒƒã‚¯ */
 	private boolean areaCommentEndCheck(String line,AreaComment area){
 		String end = area.getEndString();
 		if(line.indexOf(end)>=0){
@@ -212,38 +212,54 @@ public class DefaultStepCounter implements StepCounter, Cutter {
 		} finally {
 			Util.close(reader);
 		}
+		
+		// è¤‡æ•°è¡Œã‚³ãƒ¡ãƒ³ãƒˆã‚’å‰Šé™¤
+		for (AreaComment areaComment : this.areaComments) {
+			// å˜ä¸€ã‚³ãƒ¡ãƒ³ãƒˆã‚’çºã‚
+			StringBuilder lineCommentsAll = null;
+			for (String lineComment : this.lineComments) {
+				if (lineCommentsAll != null) {
+					lineCommentsAll.append("|");
+					lineCommentsAll.append(Pattern.quote(lineComment));
+				} else {
+					lineCommentsAll = new StringBuilder(Pattern.quote(lineComment));
+				}
+			}
 
-		// ’PˆêƒRƒƒ“ƒg‚ğíœ
-		for(String lineComment: this.lineComments){
-			Pattern	pattern = Pattern.compile(Pattern.quote(lineComment) + ".+");
+			// å˜ä¸€ã‚³ãƒ¡ãƒ³ãƒˆã‹ã‚‰è¤‡æ•°è¡Œã‚³ãƒ¡ãƒ³ãƒˆ(é–‹å§‹)ã¾ã§ã®å†…å®¹ã‚’å‰Šé™¤
+			Pattern pattern = Pattern.compile("(?<=(" + lineCommentsAll + ")).*(?=" + Pattern.quote(areaComment.getStartString()) + ")");
+			Matcher matcher = pattern.matcher(source);
+			source = matcher.replaceAll("");
+
+			// è¤‡æ•°è¡Œã‚³ãƒ¡ãƒ³ãƒˆé–“ã®å†…å®¹ã‚’å‰Šé™¤
+			pattern = Pattern.compile("(?<!(" + lineCommentsAll + "))" + Pattern.quote(areaComment.getStartString()) + ".*?"
+					+ Pattern.quote(areaComment.getEndString()), Pattern.DOTALL);
+			matcher = pattern.matcher(source);
+			source = matcher.replaceAll("");
+		}
+
+		// å˜ä¸€ã‚³ãƒ¡ãƒ³ãƒˆã‚’å‰Šé™¤
+		for (String lineComment : this.lineComments) {
+			Pattern pattern = Pattern.compile(Pattern.quote(lineComment) + ".+");
 			Matcher matcher = pattern.matcher(source);
 			source = matcher.replaceAll("");
 		}
 
-		// •¡”sƒRƒƒ“ƒg‚ğíœ
-		for(AreaComment areaComment: this.areaComments){
-			Pattern	pattern = Pattern.compile(
-					Pattern.quote(areaComment.getStartString()) + ".+?" + Pattern.quote(areaComment.getEndString()),
-					Pattern.DOTALL);
-			Matcher matcher = pattern.matcher(source);
-			source = matcher.replaceAll("");
-		}
-
-		// ‹ós‚ğíœ‚µ‚Ä•Ô‹p
+		// ç©ºè¡Œã‚’å‰Šé™¤ã—ã¦è¿”å´
 		return new DiffSource(DiffCounterUtil.removeEmptyLines(source), isIgnore, category);
 	}
 
 //    /**
-//     * •¶š—ñ’†‚Ì”CˆÓ‚Ì•¶š—ñ‚ğw’è‚µ‚½•¶š—ñ‚É’uŠ·‚µ‚Ü‚·B
+//     * æ–‡å­—åˆ—ä¸­ã®ä»»æ„ã®æ–‡å­—åˆ—ã‚’æŒ‡å®šã—ãŸæ–‡å­—åˆ—ã«ç½®æ›ã—ã¾ã™ã€‚
 //     *
-//     * @param s •ÏŠ·‘ÎÛ‚Ì•¶š—ñB
-//     * @param s1 s2‚É’u‚«Š·‚í‚é•¶š—ñB
-//     * @param s2 s1‚É’u‚«Š·‚¦‚é•¶š—ñB
-//     * @return •ÏŠ·Œã‚Ì•¶š—ñBs‚ªnull‚Ìê‡‚Í‹ó•¶š—ñ‚ğ•Ô‚µ‚Ü‚·B
+//     * @param s å¤‰æ›å¯¾è±¡ã®æ–‡å­—åˆ—ã€‚
+//     * @param s1 s2ã«ç½®ãæ›ã‚ã‚‹æ–‡å­—åˆ—ã€‚
+//     * @param s2 s1ã«ç½®ãæ›ãˆã‚‹æ–‡å­—åˆ—ã€‚
+//     * @return å¤‰æ›å¾Œã®æ–‡å­—åˆ—ã€‚sãŒnullã®å ´åˆã¯ç©ºæ–‡å­—åˆ—ã‚’è¿”ã—ã¾ã™ã€‚
 //     */
 //    private static String replace(String s,String s1,String s2){
 //
-//        // s ‚ªNULL‚¾‚Á‚½ê‡A‹ó•¶š—ñ‚ğ•Ô‚·
+//        // s ãŒNULLã ã£ãŸå ´åˆã€ç©ºæ–‡å­—åˆ—ã‚’è¿”ã™
 //        if(s==null){ return ""; }
 //
 //        StringBuffer sb = new StringBuffer();
