@@ -155,9 +155,14 @@ public class DefaultStepCounter implements StepCounter, Cutter {
 			String start = area.getStartString();
 			String end   = area.getEndString();
 
-			int index = line.indexOf(start);
-			if(index==0 && line.indexOf(end,index)==line.length()-end.length()){
-				return true;
+			int startIndex = line.indexOf(start);
+			int endIndex = line.indexOf(end,startIndex);
+			if(startIndex==0) { 
+				if(endIndex==line.length()-end.length()) {
+					return true;
+				}
+				String commentRemovedLine = line.substring(0, endIndex + end.length());
+				return lineCommentCheck(commentRemovedLine.trim());
 			}
 		}
 		return false;
@@ -213,18 +218,18 @@ public class DefaultStepCounter implements StepCounter, Cutter {
 			Util.close(reader);
 		}
 
-		// 単一コメントを削除
-		for(String lineComment: this.lineComments){
-			Pattern	pattern = Pattern.compile(Pattern.quote(lineComment) + ".+");
+		// 複数行コメントを削除
+		for(AreaComment areaComment: this.areaComments){
+			Pattern	pattern = Pattern.compile(
+					Pattern.quote(areaComment.getStartString()) + ".*?" + Pattern.quote(areaComment.getEndString()),
+					Pattern.DOTALL);
 			Matcher matcher = pattern.matcher(source);
 			source = matcher.replaceAll("");
 		}
 
-		// 複数行コメントを削除
-		for(AreaComment areaComment: this.areaComments){
-			Pattern	pattern = Pattern.compile(
-					Pattern.quote(areaComment.getStartString()) + ".+?" + Pattern.quote(areaComment.getEndString()),
-					Pattern.DOTALL);
+		// 単一コメントを削除
+		for(String lineComment: this.lineComments){
+			Pattern	pattern = Pattern.compile(Pattern.quote(lineComment) + ".*");
 			Matcher matcher = pattern.matcher(source);
 			source = matcher.replaceAll("");
 		}
