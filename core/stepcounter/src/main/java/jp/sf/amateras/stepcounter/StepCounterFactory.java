@@ -244,6 +244,22 @@ public class StepCounterFactory {
 			counter.setFileType("CSS");
 			return counter;
 
+		} else if(fileName.endsWith(".sass")){
+			// Sass用カウンタを作成
+			DefaultStepCounter counter = new DefaultStepCounter();
+			counter.addLineComment("//");
+			counter.addAreaComment(new AreaComment("/*","*/"));
+			counter.setFileType("Sass");
+			return counter;
+
+		} else if(fileName.endsWith(".scss")){
+			// SCSS用カウンタを作成
+			DefaultStepCounter counter = new DefaultStepCounter();
+			counter.addLineComment("//");
+			counter.addAreaComment(new AreaComment("/*","*/"));
+			counter.setFileType("SCSS");
+			return counter;
+
 		} else if(fileName.endsWith(".l") || fileName.endsWith(".el") || fileName.endsWith(".cl")){
 			// Lisp用カウンタを作成
 			return createListCounter("Lisp");
