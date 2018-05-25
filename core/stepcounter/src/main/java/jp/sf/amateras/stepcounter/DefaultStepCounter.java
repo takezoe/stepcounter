@@ -156,7 +156,7 @@ public class DefaultStepCounter implements StepCounter, Cutter {
 			String end   = area.getEndString();
 
 			int index = line.indexOf(start);
-			if(index==0 && line.indexOf(end,index)==line.length()-end.length()){
+			if(index==0 && line.indexOf(end,index+start.length())==line.length()-end.length()){
 				return true;
 			}
 		}
@@ -173,7 +173,7 @@ public class DefaultStepCounter implements StepCounter, Cutter {
 			String end   = area.getEndString();
 
 			int index = line.indexOf(start);
-			if(index>=0 && line.indexOf(end,index)<0){
+			if(index>=0 && line.indexOf(end,index+start.length())<0){
 				return area;
 			}
 		}
