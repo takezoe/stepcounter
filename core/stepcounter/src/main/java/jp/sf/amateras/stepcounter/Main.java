@@ -83,7 +83,11 @@ public class Main {
 			StepCounter counter = StepCounterFactory.getCounter(file.getName());
 			if(counter!=null){
 				CountResult result = counter.count(file, Util.getFileEncoding(file));
-				return new CountResult[]{result};
+				if(result == null){
+					return new CountResult[]{};
+				} else {
+					return new CountResult[]{result};
+				}
 			} else {
 				// 未対応の形式の場合は形式にnullを設定して返す
 				return new CountResult[]{
