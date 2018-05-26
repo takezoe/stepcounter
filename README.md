@@ -146,13 +146,22 @@ Mavenを使用している場合は以下の依存関係をpom.xmlに追加し�
   <dependency>
     <groupId>jp.sf.amateras.stepcounter</groupId>
     <artifactId>stepcounter</artifactId>
-    <version>3.0.3</version>
+    <version>3.0.4</version>
   </dependency>
 </dependencies>
 ```
 
 更新履歴
 ----------------
+### Version 3.0.4(2018/05/26)
+
+ * コメントの処理を修正しました。
+ * Eclipseプラグインに「選択範囲をカウント」メニューを追加しました。
+ * Sass（*.sass）、SCSS（*.scss）に対応しました。
+ * Groovy（*.groovy）に対応しました。
+ * *.jspf, *.tag, *.jspx, *.tagx, *.ddl 拡張子に対応しました。
+ * Makefileの判定が失敗する不具合と*.mkに対応しました。
+
 ### Version 3.0.3(2014/04/15)
 
  * シェルスクリプト（*.sh）に対応しました。
