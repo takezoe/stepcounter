@@ -3,24 +3,24 @@ package jp.sf.amateras.stepcounter;
 import java.util.List;
 
 /**
- * ƒXƒeƒbƒvƒJƒEƒ“ƒg‚ÌƒJƒeƒSƒŠ•Ê‚ÌWŒv—pDTO‚Å‚·B
+ * ã‚¹ãƒ†ãƒƒãƒ—ã‚«ã‚¦ãƒ³ãƒˆæ™‚ã®ã‚«ãƒ†ã‚´ãƒªåˆ¥ã®é›†è¨ˆç”¨DTOã§ã™ã€‚
  *
  *  * @author takanori
  *
  */
 public class CategoryStepDto extends CategoryDto {
 
-	/** Àss” */
+	/** å®Ÿè¡Œè¡Œæ•° */
 	private long	step;
 
-	/** ƒRƒƒ“ƒgs” */
+	/** ã‚³ãƒ¡ãƒ³ãƒˆè¡Œæ•° */
 	private long	comment;
 
-	/** ‹ós” */
+	/** ç©ºè¡Œæ•° */
 	private long	none;
 
 	/**
-	 * ƒfƒtƒHƒ‹ƒgƒRƒ“ƒXƒgƒ‰ƒNƒ^B
+	 * ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ã€‚
 	 */
 	public CategoryStepDto() {}
 
@@ -49,11 +49,11 @@ public class CategoryStepDto extends CategoryDto {
 	}
 
 	/**
-	 * ƒJƒeƒSƒŠDTO‚ÌƒŠƒXƒg‚©‚çAw’è‚³‚ê‚½ƒJƒeƒSƒŠ‚ÌDTO‚ğæ“¾‚µ‚Ü‚·B
+	 * ã‚«ãƒ†ã‚´ãƒªDTOã®ãƒªã‚¹ãƒˆã‹ã‚‰ã€æŒ‡å®šã•ã‚ŒãŸã‚«ãƒ†ã‚´ãƒªã®DTOã‚’å–å¾—ã—ã¾ã™ã€‚
 	 *
-	 * @param categoryList ƒJƒeƒSƒŠDTO‚ÌƒŠƒXƒg
-	 * @param category ƒJƒeƒSƒŠ
-	 * @return ƒJƒeƒSƒŠDTO
+	 * @param categoryList ã‚«ãƒ†ã‚´ãƒªDTOã®ãƒªã‚¹ãƒˆ
+	 * @param category ã‚«ãƒ†ã‚´ãƒª
+	 * @return ã‚«ãƒ†ã‚´ãƒªDTO
 	 */
 	public static CategoryStepDto getDto(List<CategoryStepDto> categoryList,
 			String category) {

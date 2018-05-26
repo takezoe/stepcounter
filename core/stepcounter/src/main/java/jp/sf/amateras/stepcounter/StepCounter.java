@@ -2,13 +2,13 @@ package jp.sf.amateras.stepcounter;
 
 import java.io.*;
 
-/** ƒXƒeƒbƒvƒJƒEƒ“ƒ^‚ÌƒCƒ“ƒ^[ƒtƒF[ƒX */
+/** ã‚¹ãƒ†ãƒƒãƒ—ã‚«ã‚¦ãƒ³ã‚¿ã®ã‚¤ãƒ³ã‚¿ãƒ¼ãƒ•ã‚§ãƒ¼ã‚¹ */
 public interface StepCounter {
 
-	/** ƒJƒEƒ“ƒg‚µ‚Ü‚· */
+	/** ã‚«ã‚¦ãƒ³ãƒˆã—ã¾ã™ */
 	public CountResult count(File file, String encoding) throws IOException;
 
-	/** ƒtƒ@ƒCƒ‹ƒ^ƒCƒv‚ğæ“¾‚µ‚Ü‚· */
+	/** ãƒ•ã‚¡ã‚¤ãƒ«ã‚¿ã‚¤ãƒ—ã‚’å–å¾—ã—ã¾ã™ */
 	public String getFileType();
 
 }

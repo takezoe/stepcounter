@@ -15,7 +15,7 @@ import jp.sf.amateras.stepcounter.diffcount.DiffSource;
 
 
 /**
- * docstring���R�����g�Ƃ݂Ȃ�Python�p�̃X�e�b�v�J�E���^�ł��B
+ * docstringをコメントとみなすPython用のステップカウンタです。
  */
 public class PythonCounter implements StepCounter, Cutter {
 
@@ -25,15 +25,15 @@ public class PythonCounter implements StepCounter, Cutter {
 	private static final String DOCSTRING_DELIMITER = "\"\"\""; // docstring delimiter
 
 	/**
-	 * �J�E���g���܂��B
+	 * カウントします。
 	 *
-	 * @param file �J�E���g�Ώۂ̃t�@�C��
+	 * @param file カウント対象のファイル
 	 */
 	public CountResult count(File file, String charset) throws IOException {
 		String charSetName = charset;
 		if (charSetName == null) {
-			// �L�����N�^�Z�b�g���w��̏ꍇ��
-			// �v���b�g�t�H�[���f�t�H���g�L�����N�^�Z�b�g���w�肷��B
+			// キャラクタセット無指定の場合は
+			// プラットフォームデフォルトキャラクタセットを指定する。
 			charSetName = Charset.defaultCharset().name();
 		}
 		BufferedReader reader = new BufferedReader(
@@ -101,7 +101,7 @@ public class PythonCounter implements StepCounter, Cutter {
 		String category = "";
 		boolean isIgnore = false;
 
-		// docstring���폜
+		// docstringを削除
 		String[] lines = source.split("\n");
 		StringBuilder sb = new StringBuilder();
 
@@ -144,11 +144,11 @@ public class PythonCounter implements StepCounter, Cutter {
 
 		source = sb.toString();
 
-		// 1�s�R�����g���폜
+		// 1行コメントを削除
 		Matcher matcher = SINGLE_LINE_COMMENT_PATTERN.matcher(source);
 		source = matcher.replaceAll("");
 
-		// ��s���폜���ĕԋp
+		// 空行を削除して返却
 		return new DiffSource(DiffCounterUtil.removeEmptyLines(source), isIgnore, category);
 	}
 }

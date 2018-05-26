@@ -1,9 +1,9 @@
 /*
  * Created on 2003/06/19
  *
- * Ant—pƒJƒXƒ^ƒ€ƒ^ƒXƒN
- * ƒRƒ“ƒpƒCƒ‹‚·‚é‚Æ‚«‚ÍƒNƒ‰ƒXƒpƒX‚Éant.jar‚ğw’è‚µ‚Ä‚­‚¾‚³‚¢B
- * ‚Å‚àAnt‚ÅƒRƒ“ƒpƒCƒ‹‚·‚ê‚ÎA“Á‚Éw’è‚µ‚È‚­‚Ä‚àOK
+ * Antç”¨ã‚«ã‚¹ã‚¿ãƒ ã‚¿ã‚¹ã‚¯
+ * ã‚³ãƒ³ãƒ‘ã‚¤ãƒ«ã™ã‚‹ã¨ãã¯ã‚¯ãƒ©ã‚¹ãƒ‘ã‚¹ã«ant.jarã‚’æŒ‡å®šã—ã¦ãã ã•ã„ã€‚
+ * ã§ã‚‚Antã§ã‚³ãƒ³ãƒ‘ã‚¤ãƒ«ã™ã‚Œã°ã€ç‰¹ã«æŒ‡å®šã—ãªãã¦ã‚‚OK
  */
 
 package jp.sf.amateras.stepcounter.ant;
@@ -35,8 +35,8 @@ import org.apache.tools.ant.types.FileSet;
 import org.apache.tools.ant.types.ResourceCollection;
 
 /**
- * ƒXƒeƒbƒvƒJƒEƒ“ƒ^‚ğÀs‚·‚éAntƒ^ƒXƒN‚Å‚·B
- * “ü‚êq‚ÌfilesetAfilelistƒ^ƒO‚Åƒtƒ@ƒCƒ‹‚ğw’è‚µ‚Ü‚·B
+ * ã‚¹ãƒ†ãƒƒãƒ—ã‚«ã‚¦ãƒ³ã‚¿ã‚’å®Ÿè¡Œã™ã‚‹Antã‚¿ã‚¹ã‚¯ã§ã™ã€‚
+ * å…¥ã‚Œå­ã®filesetã€filelistã‚¿ã‚°ã§ãƒ•ã‚¡ã‚¤ãƒ«ã‚’æŒ‡å®šã—ã¾ã™ã€‚
  *
  * @author sawat
  * @author hidekatsu.izuno
@@ -52,79 +52,79 @@ public class StepCounterTask extends Task {
 	private boolean failonerror = true;
 
 	/**
-	 * o—Í‚·‚éƒtƒ@ƒCƒ‹‚ğw’è‚µ‚Ü‚·B
+	 * å‡ºåŠ›ã™ã‚‹ãƒ•ã‚¡ã‚¤ãƒ«ã‚’æŒ‡å®šã—ã¾ã™ã€‚
 	 *
-	 * @param file o—Í‚·‚éƒtƒ@ƒCƒ‹
+	 * @param file å‡ºåŠ›ã™ã‚‹ãƒ•ã‚¡ã‚¤ãƒ«
 	 */
 	public void setOutput(File output) {
 		this.output = output;
 	}
 
 	/**
-	 * ƒtƒH[ƒ}ƒbƒg‚ğw’è‚µ‚Ü‚·B
+	 * ãƒ•ã‚©ãƒ¼ãƒãƒƒãƒˆã‚’æŒ‡å®šã—ã¾ã™ã€‚
 	 *
-	 * @param format ƒtƒH[ƒ}ƒbƒg
+	 * @param format ãƒ•ã‚©ãƒ¼ãƒãƒƒãƒˆ
 	 */
 	public void setFormat(String format){
 		this.format = format;
 	}
 
 	/**
-	 * ƒ\[ƒXƒtƒ@ƒCƒ‹‚Ì•¶šƒR[ƒh‚ğw’è‚µ‚Ü‚·B
+	 * ã‚½ãƒ¼ã‚¹ãƒ•ã‚¡ã‚¤ãƒ«ã®æ–‡å­—ã‚³ãƒ¼ãƒ‰ã‚’æŒ‡å®šã—ã¾ã™ã€‚
 	 *
-	 * @param encoding •¶šƒR[ƒh
+	 * @param encoding æ–‡å­—ã‚³ãƒ¼ãƒ‰
 	 */
 	public void setEncoding(String encoding) {
 		this.encoding = encoding;
 	}
 
 	/**
-	 * ƒŠƒ\[ƒXEƒRƒŒƒNƒVƒ‡ƒ“‚ğ’Ç‰Á‚µ‚Ü‚·B
+	 * ãƒªã‚½ãƒ¼ã‚¹ãƒ»ã‚³ãƒ¬ã‚¯ã‚·ãƒ§ãƒ³ã‚’è¿½åŠ ã—ã¾ã™ã€‚
 	 *
-	 * @param res ƒŠƒ\[ƒXEƒRƒŒƒNƒVƒ‡ƒ“
+	 * @param res ãƒªã‚½ãƒ¼ã‚¹ãƒ»ã‚³ãƒ¬ã‚¯ã‚·ãƒ§ãƒ³
 	 */
     public void add(ResourceCollection res) {
     	rcs.add(res);
     }
 
 	/**
-	 * ƒfƒBƒŒƒNƒgƒŠ‚ğo—Í‚·‚é‚©w’è‚µ‚Ü‚·BƒfƒtƒHƒ‹ƒg‚Í false ‚Å‚·B
+	 * ãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒªã‚’å‡ºåŠ›ã™ã‚‹ã‹æŒ‡å®šã—ã¾ã™ã€‚ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆã¯ false ã§ã™ã€‚
 	 *
-	 * @param showDirectory ƒfƒBƒŒƒNƒgƒŠ‚ğo—Í‚·‚éê‡ true
+	 * @param showDirectory ãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒªã‚’å‡ºåŠ›ã™ã‚‹å ´åˆ true
 	 */
     public void setShowDirectory(boolean showDirectory) {
     	this.showDirectory = showDirectory;
     }
 
 	/**
-	 * ƒJƒeƒSƒŠ–¼‚Æ‚µ‚Ä‹N“_ƒfƒBƒŒƒNƒgƒŠ‚ğg—p‚·‚é‚©w’è‚µ‚Ü‚·BƒfƒtƒHƒ‹ƒg‚Í false ‚Å‚·B
+	 * ã‚«ãƒ†ã‚´ãƒªåã¨ã—ã¦èµ·ç‚¹ãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒªã‚’ä½¿ç”¨ã™ã‚‹ã‹æŒ‡å®šã—ã¾ã™ã€‚ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆã¯ false ã§ã™ã€‚
 	 *
-	 * @param directoryAsCategory ƒJƒeƒSƒŠ–¼‚Æ‚µ‚Ä‹N“_ƒfƒBƒŒƒNƒgƒŠ‚ğg—p‚·‚éê‡ true
+	 * @param directoryAsCategory ã‚«ãƒ†ã‚´ãƒªåã¨ã—ã¦èµ·ç‚¹ãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒªã‚’ä½¿ç”¨ã™ã‚‹å ´åˆ true
 	 */
     public void setDirectoryAsCategory(boolean directoryAsCategory) {
     	this.directoryAsCategory = directoryAsCategory;
     }
 
 	/**
-	 * ƒfƒtƒHƒ‹ƒg‚ÌœŠOİ’è‚ğ—LŒø‚É‚·‚é‚©w’è‚µ‚Ü‚·BƒfƒtƒHƒ‹ƒg‚Í true ‚Å‚·B
+	 * ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆã®é™¤å¤–è¨­å®šã‚’æœ‰åŠ¹ã«ã™ã‚‹ã‹æŒ‡å®šã—ã¾ã™ã€‚ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆã¯ true ã§ã™ã€‚
 	 *
-	 * @param showDirectory ƒfƒtƒHƒ‹ƒg‚ÌœŠOİ’è‚ğ—LŒø‚É‚·‚éê‡ true
+	 * @param showDirectory ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆã®é™¤å¤–è¨­å®šã‚’æœ‰åŠ¹ã«ã™ã‚‹å ´åˆ true
 	 */
     public void setDefaultexcludes(boolean defaultExcludes) {
     	this.defaultExcludes = defaultExcludes;
     }
 
 	/**
-	 * ƒtƒ@ƒCƒ‹‚ª‘¶İ‚µ‚È‚¢‚È‚ÇƒGƒ‰[”­¶‚É“®ì‚ğ’â~‚³‚¹‚é‚©w’è‚µ‚Ü‚·B
+	 * ãƒ•ã‚¡ã‚¤ãƒ«ãŒå­˜åœ¨ã—ãªã„ãªã©ã‚¨ãƒ©ãƒ¼ç™ºç”Ÿæ™‚ã«å‹•ä½œã‚’åœæ­¢ã•ã›ã‚‹ã‹æŒ‡å®šã—ã¾ã™ã€‚
 	 *
-	 * @param failonerror ƒGƒ‰[”­¶‚É“®ì‚ğ’â~‚³‚¹‚éê‡ true
+	 * @param failonerror ã‚¨ãƒ©ãƒ¼ç™ºç”Ÿæ™‚ã«å‹•ä½œã‚’åœæ­¢ã•ã›ã‚‹å ´åˆ true
 	 */
     public void setFailOnError(boolean failonerror) {
         this.failonerror = failonerror;
     }
 
 	/**
-	 * ƒXƒeƒbƒv”‘ª’è‚ğÀs‚µ‚Ü‚·B
+	 * ã‚¹ãƒ†ãƒƒãƒ—æ•°æ¸¬å®šã‚’å®Ÿè¡Œã—ã¾ã™ã€‚
 	 *
 	 * @see org.apache.tools.ant.Task#execute()
 	 */
@@ -217,13 +217,13 @@ public class StepCounterTask extends Task {
         		}
 	    	}
 
-	    	log("" + fsList.size() + " ‹N“_ƒfƒBƒŒƒNƒgƒŠ / " + results.size() + " ƒtƒ@ƒCƒ‹");
+	    	log("" + fsList.size() + " èµ·ç‚¹ãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒª / " + results.size() + " ãƒ•ã‚¡ã‚¤ãƒ«");
 
 	    	out.write(formatter.format(results.toArray(new CountResult[results.size()])));
 	    	out.flush();
 
 	    	if (output != null) {
-	    		log(output.getAbsolutePath() + " ‚ÉƒJƒEƒ“ƒgŒ‹‰Ê‚ğo—Í‚µ‚Ü‚µ‚½B");
+	    		log(output.getAbsolutePath() + " ã«ã‚«ã‚¦ãƒ³ãƒˆçµæœã‚’å‡ºåŠ›ã—ã¾ã—ãŸã€‚");
 	    	}
     	} catch (IOException e) {
 			throw new BuildException("I/O Error", e);

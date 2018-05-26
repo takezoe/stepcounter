@@ -3,22 +3,22 @@ package jp.sf.amateras.stepcounter.gui;
 import java.awt.event.*;
 
 /**
- * ƒƒCƒ“ƒEƒBƒ“ƒhƒE‚ÌƒCƒxƒ“ƒgƒnƒ“ƒhƒ‰B<br>
- * ƒEƒBƒ“ƒhƒE‚ª•Â‚¶‚ç‚ê‚½Û‚ÉƒvƒƒZƒX‚ğI—¹‚µ‚Ü‚·B
+ * ãƒ¡ã‚¤ãƒ³ã‚¦ã‚£ãƒ³ãƒ‰ã‚¦ã®ã‚¤ãƒ™ãƒ³ãƒˆãƒãƒ³ãƒ‰ãƒ©ã€‚<br>
+ * ã‚¦ã‚£ãƒ³ãƒ‰ã‚¦ãŒé–‰ã˜ã‚‰ã‚ŒãŸéš›ã«ãƒ—ãƒ­ã‚»ã‚¹ã‚’çµ‚äº†ã—ã¾ã™ã€‚
  */
 public class MainWindowListener extends WindowAdapter {
 	
 	private MainWindow window;
 	
 	/**
-	 * ƒRƒ“ƒXƒgƒ‰ƒNƒ^
+	 * ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿
 	 */
 	public MainWindowListener(MainWindow window){
 		this.window = window;
 	}
 	
 	/**
-	 * ƒEƒBƒ“ƒhƒE‚ª•Â‚¶‚ç‚ê‚½‚Æ‚«‚ÌƒCƒxƒ“ƒgƒnƒ“ƒhƒ‰
+	 * ã‚¦ã‚£ãƒ³ãƒ‰ã‚¦ãŒé–‰ã˜ã‚‰ã‚ŒãŸã¨ãã®ã‚¤ãƒ™ãƒ³ãƒˆãƒãƒ³ãƒ‰ãƒ©
 	 */
 	public void windowClosing(WindowEvent e){
 		this.window.saveConfig();

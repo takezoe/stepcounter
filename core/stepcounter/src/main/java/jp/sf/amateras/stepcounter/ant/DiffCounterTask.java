@@ -11,7 +11,7 @@ import org.apache.tools.ant.Task;
 
 
 /**
- * ·•ªƒJƒEƒ“ƒg‚ğs‚¤‚½‚ß‚ÌAntƒ^ƒXƒN‚Å‚·B
+ * å·®åˆ†ã‚«ã‚¦ãƒ³ãƒˆã‚’è¡Œã†ãŸã‚ã®Antã‚¿ã‚¹ã‚¯ã§ã™ã€‚
  *
  * @author Naoki Takezoe
  */
@@ -24,11 +24,11 @@ public class DiffCounterTask extends Task {
 	private String encoding = null;
 
 	/**
-	 * ·•ª‘ª’è‚ğÀs‚µ‚Ü‚·B
+	 * å·®åˆ†æ¸¬å®šã‚’å®Ÿè¡Œã—ã¾ã™ã€‚
 	 * @see org.apache.tools.ant.Task#execute()
 	 */
 	public void execute() throws BuildException {
-		// •K{ƒpƒ‰ƒ[ƒ^‚Ìƒ`ƒFƒbƒN
+		// å¿…é ˆãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿ã®ãƒã‚§ãƒƒã‚¯
 		if(RendererFactory.getRenderer(format) == null){
 			throw new BuildException("format " + format + " is invalid!");
 		}
@@ -60,7 +60,7 @@ public class DiffCounterTask extends Task {
 			main.executeCount();
 
 			if(output!=null && !output.equals("")){
-				System.out.println(new File(output).getAbsolutePath() + "‚ÉƒJƒEƒ“ƒgŒ‹‰Ê‚ğo—Í‚µ‚Ü‚µ‚½B");
+				System.out.println(new File(output).getAbsolutePath() + "ã«ã‚«ã‚¦ãƒ³ãƒˆçµæœã‚’å‡ºåŠ›ã—ã¾ã—ãŸã€‚");
 			}
 		} catch(Throwable t){
 			t.printStackTrace();
@@ -68,40 +68,40 @@ public class DiffCounterTask extends Task {
 	}
 
 	/**
-	 * Œ»İ‚Ìƒ\[ƒXƒfƒBƒŒƒNƒgƒŠ‚ğw’è‚µ‚Ü‚·B
-	 * @param srcdir Œ»İ‚Ìƒ\[ƒXƒfƒBƒŒƒNƒgƒŠ
+	 * ç¾åœ¨ã®ã‚½ãƒ¼ã‚¹ãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒªã‚’æŒ‡å®šã—ã¾ã™ã€‚
+	 * @param srcdir ç¾åœ¨ã®ã‚½ãƒ¼ã‚¹ãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒª
 	 */
 	public void setSrcdir(String srcdir) {
 		this.srcdir = srcdir;
 	}
 
 	/**
-	 * ‰ß‹‚Ìƒ\[ƒXƒfƒBƒŒƒNƒgƒŠ‚ğw’è‚µ‚Ü‚·B
-	 * @param olddir ‰ß‹‚Ìƒ\[ƒXƒfƒBƒŒƒNƒgƒŠ
+	 * éå»ã®ã‚½ãƒ¼ã‚¹ãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒªã‚’æŒ‡å®šã—ã¾ã™ã€‚
+	 * @param olddir éå»ã®ã‚½ãƒ¼ã‚¹ãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒª
 	 */
 	public void setOlddir(String olddir) {
 		this.olddir = olddir;
 	}
 
 	/**
-	 * ƒtƒH[ƒ}ƒbƒg‚ğw’è‚µ‚Ü‚·B
-	 * @param format ƒtƒH[ƒ}ƒbƒg
+	 * ãƒ•ã‚©ãƒ¼ãƒãƒƒãƒˆã‚’æŒ‡å®šã—ã¾ã™ã€‚
+	 * @param format ãƒ•ã‚©ãƒ¼ãƒãƒƒãƒˆ
 	 */
 	public void setFormat(String format) {
 		this.format = format;
 	}
 
 	/**
-	 * o—Í‚·‚éƒtƒ@ƒCƒ‹‚ğw’è‚µ‚Ü‚·B
-	 * @param file o—Í‚·‚éƒtƒ@ƒCƒ‹
+	 * å‡ºåŠ›ã™ã‚‹ãƒ•ã‚¡ã‚¤ãƒ«ã‚’æŒ‡å®šã—ã¾ã™ã€‚
+	 * @param file å‡ºåŠ›ã™ã‚‹ãƒ•ã‚¡ã‚¤ãƒ«
 	 */
 	public void setOutput(String output) {
 		this.output = output;
 	}
 
 	/**
-	 * ƒ\[ƒXƒtƒ@ƒCƒ‹‚Ì•¶šƒR[ƒh‚ğw’è‚µ‚Ü‚·B
-	 * @param encoding •¶šƒR[ƒh
+	 * ã‚½ãƒ¼ã‚¹ãƒ•ã‚¡ã‚¤ãƒ«ã®æ–‡å­—ã‚³ãƒ¼ãƒ‰ã‚’æŒ‡å®šã—ã¾ã™ã€‚
+	 * @param encoding æ–‡å­—ã‚³ãƒ¼ãƒ‰
 	 */
 	public void setEncoding(String encoding) {
 		this.encoding = encoding;

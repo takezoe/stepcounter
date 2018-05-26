@@ -9,17 +9,17 @@ import jp.sf.amateras.stepcounter.diffcount.object.DiffFolderResult;
 public class FileComparator implements Comparator<AbstractDiffResult> {
 
 	public int compare(AbstractDiffResult o1, AbstractDiffResult o2) {
-		// —¼•û‚Æ‚àƒfƒBƒŒƒNƒgƒŠ‚Ìê‡
+		// ä¸¡æ–¹ã¨ã‚‚ãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒªã®å ´åˆ
 		if (o1 instanceof DiffFolderResult && o2 instanceof DiffFolderResult) {
 			return o1.getName().compareTo(o2.getName());
 		}
-		// •Ğ•û‚Ì‚İƒfƒBƒŒƒNƒgƒŠê‡
+		// ç‰‡æ–¹ã®ã¿ãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒªå ´åˆ
 		if (o1 instanceof DiffFolderResult) {
 			return -1;
 		} else if (o2 instanceof DiffFolderResult) {
 			return 1;
 		}
-		// —¼•û‚Æ‚àƒtƒ@ƒCƒ‹‚Ìê‡
+		// ä¸¡æ–¹ã¨ã‚‚ãƒ•ã‚¡ã‚¤ãƒ«ã®å ´åˆ
 		return o1.getName().compareTo(o2.getName());
 	}
 

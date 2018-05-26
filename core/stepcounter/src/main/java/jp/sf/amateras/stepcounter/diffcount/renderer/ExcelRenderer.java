@@ -31,10 +31,10 @@ public class ExcelRenderer implements Renderer {
 	}
 
 	/**
-	 * jXLS‚ðŽg—p‚µ‚ÄExcelƒtƒ@ƒCƒ‹‚ð¶¬‚µ‚Ü‚·B
-	 * ˆø”‚Å—^‚¦‚½ƒeƒ“ƒvƒŒ[ƒg‚Ì“ü—ÍƒXƒgƒŠ[ƒ€‚Í‚±‚Ìƒƒ\ƒbƒh“à‚ÅƒNƒ[ƒY‚³‚ê‚Ü‚·B
+	 * jXLSã‚’ä½¿ç”¨ã—ã¦Excelãƒ•ã‚¡ã‚¤ãƒ«ã‚’ç”Ÿæˆã—ã¾ã™ã€‚
+	 * å¼•æ•°ã§ä¸ŽãˆãŸãƒ†ãƒ³ãƒ—ãƒ¬ãƒ¼ãƒˆã®å…¥åŠ›ã‚¹ãƒˆãƒªãƒ¼ãƒ ã¯ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰å†…ã§ã‚¯ãƒ­ãƒ¼ã‚ºã•ã‚Œã¾ã™ã€‚
 	 * <p>
-	 * TODO {@link ExcelFormatter}‚Æ‹¤’Ê‰»‚·‚é
+	 * TODO {@link ExcelFormatter}ã¨å…±é€šåŒ–ã™ã‚‹
 	 */
 	private static byte[] merge(InputStream in, Map<String, Object> data) throws Exception {
 		XLSTransformer transformer = new XLSTransformer();

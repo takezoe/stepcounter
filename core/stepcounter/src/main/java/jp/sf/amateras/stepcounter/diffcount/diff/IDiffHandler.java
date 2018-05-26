@@ -1,19 +1,19 @@
 package jp.sf.amateras.stepcounter.diffcount.diff;
 
 /**
- * Diff�N���X����ʒm���󂯎�邽�߂̃n���h���̃C���^�[�t�F�[�X�ł��B
+ * Diffクラスから通知を受け取るためのハンドラのインターフェースです。
  *
  * @author Naoki Takezoe
  */
 public interface IDiffHandler {
 
-	/** �s����v�����ꍇ�ɌĂяo����܂��B */
+	/** 行が一致した場合に呼び出されます。 */
 	public void match(String text);
 
-	/** �s���폜����Ă����ꍇ�ɌĂяo����܂��B */
+	/** 行が削除されていた場合に呼び出されます。 */
 	public void delete(String text);
 
-	/** �s���ǉ�����Ă����ꍇ�ɌĂяo����܂��B */
+	/** 行が追加されていた場合に呼び出されます。 */
 	public void add(String text);
 
 }

@@ -15,17 +15,17 @@ import jp.sf.amateras.stepcounter.diffcount.object.DiffFolderResult;
 
 
 /**
- * ƒ†[ƒeƒBƒŠƒeƒBƒƒ\ƒbƒh‚ğ’ñ‹Ÿ‚µ‚Ü‚·B
+ * ãƒ¦ãƒ¼ãƒ†ã‚£ãƒªãƒ†ã‚£ãƒ¡ã‚½ãƒƒãƒ‰ã‚’æä¾›ã—ã¾ã™ã€‚
  *
  * @author Naoki Takezoe
  */
 public class DiffCounterUtil {
 
 	/**
-	 * ƒtƒ@ƒCƒ‹‚ğ–³‹‚·‚é‚©‚Ç‚¤‚©‚ğ”»’è‚µ‚Ü‚·B
+	 * ãƒ•ã‚¡ã‚¤ãƒ«ã‚’ç„¡è¦–ã™ã‚‹ã‹ã©ã†ã‹ã‚’åˆ¤å®šã—ã¾ã™ã€‚
 	 *
-	 * @param file ƒtƒ@ƒCƒ‹
-	 * @return –³‹‚·‚éê‡trueA–³‹‚µ‚È‚¢ê‡false
+	 * @param file ãƒ•ã‚¡ã‚¤ãƒ«
+	 * @return ç„¡è¦–ã™ã‚‹å ´åˆtrueã€ç„¡è¦–ã—ãªã„å ´åˆfalse
 	 */
 	public static boolean isIgnore(File file) {
 		String name = file.getName();
@@ -50,10 +50,10 @@ public class DiffCounterUtil {
 	}
 
 	/**
-	 * ƒ\[ƒX‚©‚ç‹ós‚ğíœ‚µ‚Ü‚·B
+	 * ã‚½ãƒ¼ã‚¹ã‹ã‚‰ç©ºè¡Œã‚’å‰Šé™¤ã—ã¾ã™ã€‚
 	 *
-	 * @param source ƒ\[ƒX
-	 * @return ƒ\[ƒX‚©‚ç‹ós‚ğíœ‚µ‚½•¶š—ñ
+	 * @param source ã‚½ãƒ¼ã‚¹
+	 * @return ã‚½ãƒ¼ã‚¹ã‹ã‚‰ç©ºè¡Œã‚’å‰Šé™¤ã—ãŸæ–‡å­—åˆ—
 	 */
 	public static String removeEmptyLines(String source) {
 		StringBuilder sb = new StringBuilder();
@@ -68,10 +68,10 @@ public class DiffCounterUtil {
 	}
 
 	/**
-	 * ƒ\[ƒX‚ğs‚²‚Æ‚É•ªŠ„‚µ‚Ä”z—ñ‚Å•Ô‹p‚µ‚Ü‚·B
+	 * ã‚½ãƒ¼ã‚¹ã‚’è¡Œã”ã¨ã«åˆ†å‰²ã—ã¦é…åˆ—ã§è¿”å´ã—ã¾ã™ã€‚
 	 *
-	 * @param source ƒ\[ƒX
-	 * @return ƒ\[ƒX‚ğs‚²‚Æ‚É•ªŠ„‚µ‚½”z—ñ
+	 * @param source ã‚½ãƒ¼ã‚¹
+	 * @return ã‚½ãƒ¼ã‚¹ã‚’è¡Œã”ã¨ã«åˆ†å‰²ã—ãŸé…åˆ—
 	 */
 	public static String[] split(String source) {
 		List<String> lines = new ArrayList<String>();
@@ -95,12 +95,12 @@ public class DiffCounterUtil {
 	}
 
 	/**
-	 * ƒtƒ@ƒCƒ‹‚©‚çƒ\[ƒX‚ğ“Ç‚İ‚İ‚Ü‚·B
-	 * ƒ\[ƒX‚Ì‰üsƒR[ƒh‚ÍLF‚É“ˆê‚µ‚Ä•Ô‹p‚µ‚Ü‚·B
+	 * ãƒ•ã‚¡ã‚¤ãƒ«ã‹ã‚‰ã‚½ãƒ¼ã‚¹ã‚’èª­ã¿è¾¼ã¿ã¾ã™ã€‚
+	 * ã‚½ãƒ¼ã‚¹ã®æ”¹è¡Œã‚³ãƒ¼ãƒ‰ã¯LFã«çµ±ä¸€ã—ã¦è¿”å´ã—ã¾ã™ã€‚
 	 *
-	 * @param file ƒ\[ƒXƒtƒ@ƒCƒ‹
-	 * @param charset •¶šƒR[ƒh
-	 * @return ƒtƒ@ƒCƒ‹‚©‚ç“Ç‚İ‚ñ‚¾•¶š—ñ
+	 * @param file ã‚½ãƒ¼ã‚¹ãƒ•ã‚¡ã‚¤ãƒ«
+	 * @param charset æ–‡å­—ã‚³ãƒ¼ãƒ‰
+	 * @return ãƒ•ã‚¡ã‚¤ãƒ«ã‹ã‚‰èª­ã¿è¾¼ã‚“ã æ–‡å­—åˆ—
 	 */
 	public static String getSource(File file, String charset) {
 		if (file == null) {
@@ -126,15 +126,15 @@ public class DiffCounterUtil {
 	}
 
 //	/**
-//	 * ƒtƒ@ƒCƒ‹‚Ì•¶šƒR[ƒh‚ğæ“¾‚µ‚Ü‚·B
+//	 * ãƒ•ã‚¡ã‚¤ãƒ«ã®æ–‡å­—ã‚³ãƒ¼ãƒ‰ã‚’å–å¾—ã—ã¾ã™ã€‚
 //	 *
-//	 * @param file ƒtƒ@ƒCƒ‹
-//	 * @return ƒtƒ@ƒCƒ‹‚Ì•¶šƒR[ƒh
+//	 * @param file ãƒ•ã‚¡ã‚¤ãƒ«
+//	 * @return ãƒ•ã‚¡ã‚¤ãƒ«ã®æ–‡å­—ã‚³ãƒ¼ãƒ‰
 //	 */
 //	public static String getFileEncoding(File file) {
 //		String encoding = null;;
 //
-//		// Eclipseƒvƒ‰ƒOƒCƒ“ã‚©‚çÀs‚³‚ê‚½ê‡‚ÍAƒ[ƒNƒXƒy[ƒX‚Ì•¶šƒR[ƒh‚ğæ“¾
+//		// Eclipseãƒ—ãƒ©ã‚°ã‚¤ãƒ³ä¸Šã‹ã‚‰å®Ÿè¡Œã•ã‚ŒãŸå ´åˆã¯ã€ãƒ¯ãƒ¼ã‚¯ã‚¹ãƒšãƒ¼ã‚¹ã®æ–‡å­—ã‚³ãƒ¼ãƒ‰ã‚’å–å¾—
 //		if (ResourcesPlugin.getPlugin() != null) {
 //			IWorkspace workspace = ResourcesPlugin.getWorkspace();
 //			IPath location = Path.fromOSString(file.getAbsolutePath());
@@ -163,10 +163,10 @@ public class DiffCounterUtil {
 	}
 
 	/**
-	 * w’è‚³‚ê‚½·•ªƒtƒHƒ‹ƒ_‚ğA·•ªƒtƒ@ƒCƒ‹‚ÌƒŠƒXƒg‚É•ÏŠ·‚µ‚Ü‚·B
+	 * æŒ‡å®šã•ã‚ŒãŸå·®åˆ†ãƒ•ã‚©ãƒ«ãƒ€ã‚’ã€å·®åˆ†ãƒ•ã‚¡ã‚¤ãƒ«ã®ãƒªã‚¹ãƒˆã«å¤‰æ›ã—ã¾ã™ã€‚
 	 *
-	 * @param folderResult ·•ªƒtƒHƒ‹ƒ_
-	 * @return ·•ªƒtƒ@ƒCƒ‹‚ÌƒŠƒXƒg
+	 * @param folderResult å·®åˆ†ãƒ•ã‚©ãƒ«ãƒ€
+	 * @return å·®åˆ†ãƒ•ã‚¡ã‚¤ãƒ«ã®ãƒªã‚¹ãƒˆ
 	 */
 	private static Map<String, DiffFileResult> convertToMap(
 			DiffFolderResult folderResult) {

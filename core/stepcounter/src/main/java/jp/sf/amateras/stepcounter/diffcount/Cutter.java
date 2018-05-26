@@ -1,22 +1,22 @@
 package jp.sf.amateras.stepcounter.diffcount;
 
 /**
- * �\�[�X�R�[�h����R�����g���s�ȂǁA
- * �X�e�b�v���̃J�E���g���ɕs�v�ȕ�������菜�����߂̃J�b�^�[�̃C���^�[�t�F�[�X�ł��B
+ * ソースコードからコメントや空行など、
+ * ステップ数のカウント時に不要な部分を取り除くためのカッターのインターフェースです。
  *
  * @author Naoki Takezoe
  */
 public interface Cutter {
 
 	/**
-	 * �\�[�X�R�[�h����s�v�ȕ�������菜���܂��B
+	 * ソースコードから不要な部分を取り除きます。
 	 *
-	 * @param source �\�[�X
-	 * @return �s�v�ȕ�������菜����������
+	 * @param source ソース
+	 * @return 不要な部分を取り除いた文字列
 	 */
 	public DiffSource cut(String source);
 
-	/** �t�@�C���^�C�v���擾���܂� */
+	/** ファイルタイプを取得します */
 	public String getFileType();
 
 }

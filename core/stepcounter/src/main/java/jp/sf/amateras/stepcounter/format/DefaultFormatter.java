@@ -4,9 +4,9 @@ import jp.sf.amateras.stepcounter.CountResult;
 import jp.sf.amateras.stepcounter.Util;
 
 /**
- * ƒJƒEƒ“ƒgŒ‹‰Ê‚ğƒtƒH[ƒ}ƒbƒg‚µ‚Äo—Í‚·‚éƒNƒ‰ƒX‚Å‚·B
+ * ã‚«ã‚¦ãƒ³ãƒˆçµæœã‚’ãƒ•ã‚©ãƒ¼ãƒãƒƒãƒˆã—ã¦å‡ºåŠ›ã™ã‚‹ã‚¯ãƒ©ã‚¹ã§ã™ã€‚
  *
- * TODO ‘Û‰»
+ * TODO å›½éš›åŒ–
  */
 public class DefaultFormatter implements ResultFormatter {
 
@@ -17,23 +17,23 @@ public class DefaultFormatter implements ResultFormatter {
 		long sumNone    = 0;
 
 		int maxFileLength = getFileLength(results);
-		// ƒwƒbƒ_‚ğƒtƒH[ƒ}ƒbƒg
+		// ãƒ˜ãƒƒãƒ€ã‚’ãƒ•ã‚©ãƒ¼ãƒãƒƒãƒˆ
 		StringBuffer sb = new StringBuffer();
-		sb.append(fillOrCut("ƒtƒ@ƒCƒ‹", maxFileLength));
-		sb.append("í—Ş  ƒJƒeƒSƒŠ            Às  ‹ós  ºÒİÄ  ‡Œv  ");
+		sb.append(fillOrCut("ãƒ•ã‚¡ã‚¤ãƒ«", maxFileLength));
+		sb.append("ç¨®é¡  ã‚«ãƒ†ã‚´ãƒª            å®Ÿè¡Œ  ç©ºè¡Œ  ã‚³ãƒ¡ãƒ³ãƒˆ  åˆè¨ˆ  ");
 		sb.append("\n");
 		sb.append(makeHyphen(maxFileLength));
 		sb.append("--------------------------------------------------");
 		sb.append("\n");
-		// ‚Ps‚¸‚Âˆ—‚ğs‚¤
+		// ï¼‘è¡Œãšã¤å‡¦ç†ã‚’è¡Œã†
 		for(int i=0;i<results.length;i++){
 			CountResult result = results[i];
-			// –¢‘Î‰‚ÌƒJƒEƒ“ƒgŒ‹‰Ê‚ğƒtƒH[ƒ}ƒbƒg
+			// æœªå¯¾å¿œã®ã‚«ã‚¦ãƒ³ãƒˆçµæœã‚’ãƒ•ã‚©ãƒ¼ãƒãƒƒãƒˆ
 			if(result.getFileType()==null){
 				sb.append(fillOrCut(result.getFileName(), maxFileLength));
-				sb.append("–¢‘Î‰");
+				sb.append("æœªå¯¾å¿œ");
 				sb.append("\n");
-			// ³í‚ÉƒJƒEƒ“ƒg‚³‚ê‚½Œ‹‰Ê‚ğƒtƒH[ƒ}ƒbƒg
+			// æ­£å¸¸ã«ã‚«ã‚¦ãƒ³ãƒˆã•ã‚ŒãŸçµæœã‚’ãƒ•ã‚©ãƒ¼ãƒãƒƒãƒˆ
 			} else {
 //				String fileName = result.getFileName();
 //				String fileType = result.getFileType();
@@ -56,11 +56,11 @@ public class DefaultFormatter implements ResultFormatter {
 				sumNone    += result.getNon();
 			}
 		}
-		// ‡Œvs‚ğƒtƒH[ƒ}ƒbƒg
+		// åˆè¨ˆè¡Œã‚’ãƒ•ã‚©ãƒ¼ãƒãƒƒãƒˆ
 		sb.append(makeHyphen(maxFileLength));
 		sb.append("--------------------------------------------------");
 		sb.append("\n");
-		sb.append(fillOrCut("‡Œv", maxFileLength));
+		sb.append(fillOrCut("åˆè¨ˆ", maxFileLength));
 		sb.append(makeSpace(6));
 		sb.append(makeSpace(20));
 		sb.append(leftFillOrCut(String.valueOf(sumStep)   ,6));
@@ -72,7 +72,7 @@ public class DefaultFormatter implements ResultFormatter {
 		return sb.toString().getBytes();
 	}
 
-	/** ƒtƒ@ƒCƒ‹–¼‚Ì’·‚³‚É‡‚í‚¹‚½Å‘å’·‚ğæ“¾‚µ‚Ü‚·iÅ¬40j */
+	/** ãƒ•ã‚¡ã‚¤ãƒ«åã®é•·ã•ã«åˆã‚ã›ãŸæœ€å¤§é•·ã‚’å–å¾—ã—ã¾ã™ï¼ˆæœ€å°40ï¼‰ */
 	protected int getFileLength(CountResult[] results) {
 		int fileLength = 40;
 		if (results == null || results.length == 0) {
@@ -89,13 +89,13 @@ public class DefaultFormatter implements ResultFormatter {
 		return fileLength;
 	}
 	
-	/** ƒeƒLƒXƒg‚Ì•\¦•‚ğŒvZ‚µ‚Ü‚· */
+	/** ãƒ†ã‚­ã‚¹ãƒˆã®è¡¨ç¤ºå¹…ã‚’è¨ˆç®—ã—ã¾ã™ */
 	private int getDisplayWidth(String str) {
 		int len = 0;
 		for (int i = 0; i < str.length(); i++) {
 			char c = str.charAt(i);
 			
-			// ASCIIEƒˆ[ƒƒbƒp•¶š‚¨‚æ‚Ñ HALFWIDTH ‚Ì‚İ”¼Šp‚Æ”»’f
+			// ASCIIãƒ»ãƒ¨ãƒ¼ãƒ­ãƒƒãƒ‘æ–‡å­—ãŠã‚ˆã³ HALFWIDTH ã®ã¿åŠè§’ã¨åˆ¤æ–­
 			if (c <= 0x00FF || (c >= 0xFF61 && c <= 0xFFDC) || (c >= 0xFFE8 && c <= 0xFFEE)) {
 				len += 1;
 			} else {
@@ -105,7 +105,7 @@ public class DefaultFormatter implements ResultFormatter {
 		return len;
 	}
 	
-	/** w’è‚³‚ê‚½’·‚³‚Ì”¼ŠpƒXƒy[ƒX‚ğì¬‚µ‚Ü‚· */
+	/** æŒ‡å®šã•ã‚ŒãŸé•·ã•ã®åŠè§’ã‚¹ãƒšãƒ¼ã‚¹ã‚’ä½œæˆã—ã¾ã™ */
 	private String makeSpace(int width){
 		StringBuffer sb = new StringBuffer();
 		for(int i=0;i<width;i++){
@@ -114,7 +114,7 @@ public class DefaultFormatter implements ResultFormatter {
 		return sb.toString();
 	}
 
-	/** w’è‚³‚ê‚½’·‚³‚Ì”¼ŠpƒnƒCƒtƒ“‚ğì¬‚µ‚Ü‚· */
+	/** æŒ‡å®šã•ã‚ŒãŸé•·ã•ã®åŠè§’ãƒã‚¤ãƒ•ãƒ³ã‚’ä½œæˆã—ã¾ã™ */
 	private String makeHyphen(int width){
 		StringBuffer sb = new StringBuffer();
 		for(int i=0;i<width;i++){
@@ -124,8 +124,8 @@ public class DefaultFormatter implements ResultFormatter {
 	}
 
 	/**
-	 * •¶š—ñ‚ªw’è‚Ì’·‚³–¢–‚Å‚ ‚ê‚Î‰E‘¤‚ğƒXƒy[ƒX‚Å–„‚ßA
-	 * w’è‚Ì’·‚³ˆÈã‚Å‚ ‚ê‚Î‰E‘¤‚ğØ‚è—‚Æ‚µ‚Ü‚·B
+	 * æ–‡å­—åˆ—ãŒæŒ‡å®šã®é•·ã•æœªæº€ã§ã‚ã‚Œã°å³å´ã‚’ã‚¹ãƒšãƒ¼ã‚¹ã§åŸ‹ã‚ã€
+	 * æŒ‡å®šã®é•·ã•ä»¥ä¸Šã§ã‚ã‚Œã°å³å´ã‚’åˆ‡ã‚Šè½ã¨ã—ã¾ã™ã€‚
 	 */
 	private String fillOrCut(String str,int width){
 		int length = getDisplayWidth(str);
@@ -139,8 +139,8 @@ public class DefaultFormatter implements ResultFormatter {
 	}
 
 	/**
-	 * •¶š—ñ‚ªw’è‚Ì’·‚³–¢–‚Å‚ ‚ê‚Î¶‘¤‚ğƒXƒy[ƒX‚Å–„‚ßA
-	 * w’è‚Ì’·‚³ˆÈã‚Å‚ ‚ê‚Î‰E‘¤‚ğØ‚è—‚Æ‚µ‚Ü‚·B
+	 * æ–‡å­—åˆ—ãŒæŒ‡å®šã®é•·ã•æœªæº€ã§ã‚ã‚Œã°å·¦å´ã‚’ã‚¹ãƒšãƒ¼ã‚¹ã§åŸ‹ã‚ã€
+	 * æŒ‡å®šã®é•·ã•ä»¥ä¸Šã§ã‚ã‚Œã°å³å´ã‚’åˆ‡ã‚Šè½ã¨ã—ã¾ã™ã€‚
 	 */
 	private String leftFillOrCut(String str,int width){
 		int length = Util.getByteLength(str);

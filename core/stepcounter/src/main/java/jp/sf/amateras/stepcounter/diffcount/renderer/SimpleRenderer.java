@@ -7,7 +7,7 @@ import jp.sf.amateras.stepcounter.diffcount.object.DiffFolderResult;
 
 
 /**
- * ·•ªƒJƒEƒ“ƒg‚ÌŒ‹‰Ê‚ğƒeƒLƒXƒgŒ`®‚ÅƒŒƒ“ƒ_ƒŠƒ“ƒO‚µ‚Ü‚·B
+ * å·®åˆ†ã‚«ã‚¦ãƒ³ãƒˆã®çµæœã‚’ãƒ†ã‚­ã‚¹ãƒˆå½¢å¼ã§ãƒ¬ãƒ³ãƒ€ãƒªãƒ³ã‚°ã—ã¾ã™ã€‚
  *
  * @author Naoki Takezoe
  */
@@ -15,7 +15,7 @@ public class SimpleRenderer implements Renderer {
 
 	public byte[] render(DiffFolderResult root) {
 		StringBuilder sb = new StringBuilder();
-		sb.append("ÀsF").append(DiffCounterUtil.formatDate(new Date())).append("\n");
+		sb.append("å®Ÿè¡Œæ™‚åˆ»ï¼š").append(DiffCounterUtil.formatDate(new Date())).append("\n");
 		sb.append("--\n");
 		sb.append(root.toString());
 

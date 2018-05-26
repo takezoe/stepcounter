@@ -1,8 +1,8 @@
 package jp.sf.amateras.stepcounter;
 
 /**
- * ƒXƒeƒbƒvƒJƒEƒ“ƒ^‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‚ğ¶¬‚·‚éƒtƒ@ƒNƒgƒŠB
- * ‚±‚ÌƒNƒ‰ƒX‚ğC³‚·‚é‚±‚Æ‚ÅŠÈ’P‚É‘Î‰‚·‚éŒ`®‚ğ’Ç‰Á‚·‚é‚±‚Æ‚ª‚Å‚«‚Ü‚·B
+ * ã‚¹ãƒ†ãƒƒãƒ—ã‚«ã‚¦ãƒ³ã‚¿ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ã‚’ç”Ÿæˆã™ã‚‹ãƒ•ã‚¡ã‚¯ãƒˆãƒªã€‚
+ * ã“ã®ã‚¯ãƒ©ã‚¹ã‚’ä¿®æ­£ã™ã‚‹ã“ã¨ã§ç°¡å˜ã«å¯¾å¿œã™ã‚‹å½¢å¼ã‚’è¿½åŠ ã™ã‚‹ã“ã¨ãŒã§ãã¾ã™ã€‚
  *
  * <ul>
  *   <li>2.0.0 - Clojure, Scala</li>
@@ -14,7 +14,7 @@ package jp.sf.amateras.stepcounter;
 public class StepCounterFactory {
 
 	/**
-	 * Java—p‚ÌƒJƒEƒ“ƒ^‚ğì¬‚µ‚Ü‚·B
+	 * Javaç”¨ã®ã‚«ã‚¦ãƒ³ã‚¿ã‚’ä½œæˆã—ã¾ã™ã€‚
 	 */
 	private static DefaultStepCounter createJavaCounter(String name){
 		DefaultStepCounter counter = new DefaultStepCounter();
@@ -27,7 +27,7 @@ public class StepCounterFactory {
 	}
 
 	/**
-	 * VB—p‚ÌƒJƒEƒ“ƒ^‚ğì¬‚µ‚Ü‚·B
+	 * VBç”¨ã®ã‚«ã‚¦ãƒ³ã‚¿ã‚’ä½œæˆã—ã¾ã™ã€‚
 	 */
 	private static DefaultStepCounter createVBCounter(String name){
 		DefaultStepCounter counter = new DefaultStepCounter();
@@ -38,7 +38,7 @@ public class StepCounterFactory {
 	}
 
 	/**
-	 * ƒVƒFƒ‹ƒXƒNƒŠƒvƒg—p‚ÌƒJƒEƒ“ƒ^‚ğì¬‚µ‚Ü‚·B
+	 * ã‚·ã‚§ãƒ«ã‚¹ã‚¯ãƒªãƒ—ãƒˆç”¨ã®ã‚«ã‚¦ãƒ³ã‚¿ã‚’ä½œæˆã—ã¾ã™ã€‚
 	 */
 	private static DefaultStepCounter createShellCounter(String name){
 		DefaultStepCounter counter = new DefaultStepCounter();
@@ -48,7 +48,7 @@ public class StepCounterFactory {
 	}
 
 	/**
-	 * XML—p‚ÌƒJƒEƒ“ƒ^‚ğì¬‚µ‚Ü‚·B
+	 * XMLç”¨ã®ã‚«ã‚¦ãƒ³ã‚¿ã‚’ä½œæˆã—ã¾ã™ã€‚
 	 */
 	private static DefaultStepCounter createXMLCounter(String name){
 		DefaultStepCounter counter = new DefaultStepCounter();
@@ -58,7 +58,7 @@ public class StepCounterFactory {
 	}
 
 	/**
-	 * Lisp—p‚ÌƒJƒEƒ“ƒ^‚ğì¬‚µ‚Ü‚·B
+	 * Lispç”¨ã®ã‚«ã‚¦ãƒ³ã‚¿ã‚’ä½œæˆã—ã¾ã™ã€‚
 	 */
 	private static DefaultStepCounter createListCounter(String name){
 		DefaultStepCounter counter = new DefaultStepCounter();
@@ -68,38 +68,38 @@ public class StepCounterFactory {
 	}
 
 	/**
-	 * ƒXƒeƒbƒvƒJƒEƒ“ƒ^‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‚ğæ“¾‚µ‚Ü‚·B
-	 * –¢‘Î‰‚ÌŒ`®‚Ìê‡Anull‚ğ•Ô‚µ‚Ü‚·B
+	 * ã‚¹ãƒ†ãƒƒãƒ—ã‚«ã‚¦ãƒ³ã‚¿ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ã‚’å–å¾—ã—ã¾ã™ã€‚
+	 * æœªå¯¾å¿œã®å½¢å¼ã®å ´åˆã€nullã‚’è¿”ã—ã¾ã™ã€‚
 	 *
-	 * @param fileName ƒtƒ@ƒCƒ‹–¼
-	 * @return ƒtƒ@ƒCƒ‹–¼‚É‘Î‰‚µ‚½ƒXƒeƒbƒvƒJƒEƒ“ƒ^‚ÌƒCƒ“ƒXƒ^ƒ“ƒXB–¢‘Î‰‚Ìê‡nullB
+	 * @param fileName ãƒ•ã‚¡ã‚¤ãƒ«å
+	 * @return ãƒ•ã‚¡ã‚¤ãƒ«åã«å¯¾å¿œã—ãŸã‚¹ãƒ†ãƒƒãƒ—ã‚«ã‚¦ãƒ³ã‚¿ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ã€‚æœªå¯¾å¿œã®å ´åˆnullã€‚
 	 */
 	public static StepCounter getCounter(String fileName){
-		// ¬•¶š‚É•ÏŠ·
+		// å°æ–‡å­—ã«å¤‰æ›
 		fileName = fileName.toLowerCase();
 
 		if(fileName.endsWith(".java")){
-			// Java—pƒJƒEƒ“ƒ^‚ğì¬
+			// Javaç”¨ã‚«ã‚¦ãƒ³ã‚¿ã‚’ä½œæˆ
 			return createJavaCounter("Java");
 
 		} else if(fileName.endsWith(".scala")){
-			// Scala—pƒJƒEƒ“ƒ^‚ğì¬
+			// Scalaç”¨ã‚«ã‚¦ãƒ³ã‚¿ã‚’ä½œæˆ
 			return createJavaCounter("Scala");
 
 		} else if(fileName.endsWith(".cpp") || fileName.endsWith(".cxx") || fileName.endsWith(".cc") || fileName.endsWith(".c") || fileName.endsWith(".m") || fileName.endsWith(".mm")){
-			// C/C++/Objective-C(++)—pƒJƒEƒ“ƒ^‚ğì¬
+			// C/C++/Objective-C(++)ç”¨ã‚«ã‚¦ãƒ³ã‚¿ã‚’ä½œæˆ
 			return createJavaCounter("C/C++/ObjC");
 
 		} else if(fileName.endsWith(".h") || fileName.endsWith(".hpp") || fileName.endsWith(".hxx")){
-			//ƒwƒbƒ_ƒtƒ@ƒCƒ‹—pƒJƒEƒ“ƒ^‚ğì¬
+			//ãƒ˜ãƒƒãƒ€ãƒ•ã‚¡ã‚¤ãƒ«ç”¨ã‚«ã‚¦ãƒ³ã‚¿ã‚’ä½œæˆ
 			return createJavaCounter("h");
 
 		} else if(fileName.endsWith(".cs")){
-			// C#—pƒJƒEƒ“ƒ^‚ğì¬
+			// C#ç”¨ã‚«ã‚¦ãƒ³ã‚¿ã‚’ä½œæˆ
 			return createJavaCounter("C#");
 
 		} else if(fileName.endsWith(".jsp")){
-			// JSP—pƒJƒEƒ“ƒ^‚ğì¬
+			// JSPç”¨ã‚«ã‚¦ãƒ³ã‚¿ã‚’ä½œæˆ
 			DefaultStepCounter counter = new DefaultStepCounter();
 			counter.addLineComment("//");
 			counter.addAreaComment(new AreaComment("/*","*/"));
@@ -109,7 +109,7 @@ public class StepCounterFactory {
 			return counter;
 
 		} else if(fileName.endsWith(".php") || fileName.endsWith(".php3")){
-			// PHP—pƒJƒEƒ“ƒ^‚ğì¬
+			// PHPç”¨ã‚«ã‚¦ãƒ³ã‚¿ã‚’ä½œæˆ
 			DefaultStepCounter counter = new DefaultStepCounter();
 			counter.addLineComment("//");
 			counter.addAreaComment(new AreaComment("/*","*/"));
@@ -118,7 +118,7 @@ public class StepCounterFactory {
 			return counter;
 
 		} else if(fileName.endsWith(".asp") || fileName.endsWith(".asa")){
-			// ASP—pƒJƒEƒ“ƒ^‚ğì¬
+			// ASPç”¨ã‚«ã‚¦ãƒ³ã‚¿ã‚’ä½œæˆ
 			DefaultStepCounter counter = new DefaultStepCounter();
 			counter.addLineComment("'");
 			counter.addAreaComment(new AreaComment("<!--","-->"));
@@ -126,35 +126,35 @@ public class StepCounterFactory {
 			return counter;
 
 		} else if(fileName.endsWith(".html") || fileName.endsWith(".htm")){
-			// HTML—pƒJƒEƒ“ƒ^‚ğì¬
+			// HTMLç”¨ã‚«ã‚¦ãƒ³ã‚¿ã‚’ä½œæˆ
 			return createXMLCounter("HTML");
 
 		} else if(fileName.endsWith(".xhtml")){
-			// XHTML—pƒJƒEƒ“ƒ^‚ğì¬
+			// XHTMLç”¨ã‚«ã‚¦ãƒ³ã‚¿ã‚’ä½œæˆ
 			return createXMLCounter("XHTML");
 
 		} else if(fileName.endsWith(".js")){
-			// JavaScript—pƒJƒEƒ“ƒ^‚ğì¬
+			// JavaScriptç”¨ã‚«ã‚¦ãƒ³ã‚¿ã‚’ä½œæˆ
 			return createJavaCounter("js");
 
 		} else if(fileName.endsWith(".json")){
-			// JSON—pƒJƒEƒ“ƒ^‚ğì¬
+			// JSONç”¨ã‚«ã‚¦ãƒ³ã‚¿ã‚’ä½œæˆ
 			return createJavaCounter("JSON");
 
 		} else if(fileName.endsWith(".vbs")){
-			// VBScript—pƒJƒEƒ“ƒ^‚ğì¬
+			// VBScriptç”¨ã‚«ã‚¦ãƒ³ã‚¿ã‚’ä½œæˆ
 			return createVBCounter("vbs");
 
 		} else if(fileName.endsWith(".bas") || fileName.endsWith(".frm") || fileName.endsWith(".cls")){
-			// VB—pƒJƒEƒ“ƒ^‚ğì¬
+			// VBç”¨ã‚«ã‚¦ãƒ³ã‚¿ã‚’ä½œæˆ
 			return createVBCounter("VB");
 
 		} else if(fileName.endsWith(".vb")){
-			// VB.NET—pƒJƒEƒ“ƒ^‚ğì¬
+			// VB.NETç”¨ã‚«ã‚¦ãƒ³ã‚¿ã‚’ä½œæˆ
 			return createVBCounter("VB.NET");
 
 		} else if(fileName.endsWith(".pl") || fileName.endsWith(".pm")){
-			// Perl—pƒJƒEƒ“ƒ^‚ğì¬
+			// Perlç”¨ã‚«ã‚¦ãƒ³ã‚¿ã‚’ä½œæˆ
 			DefaultStepCounter counter = new DefaultStepCounter();
 			counter.addLineComment("#");
 			counter.addAreaComment(new AreaComment("=pod","=cut"));
@@ -162,14 +162,14 @@ public class StepCounterFactory {
 			return counter;
 
 		} else if(fileName.endsWith(".py")){
-			// Python—pƒJƒEƒ“ƒ^‚ğì¬
+			// Pythonç”¨ã‚«ã‚¦ãƒ³ã‚¿ã‚’ä½œæˆ
 //			DefaultStepCounter counter = new DefaultStepCounter();
 //			counter.addLineComment("#");
 //			counter.setFileType("Python");
 			return new PythonCounter();
 
 		} else if(fileName.endsWith(".rb")){
-			// Ruby—pƒJƒEƒ“ƒ^‚ğì¬
+			// Rubyç”¨ã‚«ã‚¦ãƒ³ã‚¿ã‚’ä½œæˆ
 			DefaultStepCounter counter = new DefaultStepCounter();
 			counter.addLineComment("#");
 			counter.addAreaComment(new AreaComment("=begin","=end"));
@@ -177,15 +177,15 @@ public class StepCounterFactory {
 			return counter;
 
 		} else if(fileName.endsWith(".tcl")){
-			// Tcl—pƒJƒEƒ“ƒ^‚ğì¬
+			// Tclç”¨ã‚«ã‚¦ãƒ³ã‚¿ã‚’ä½œæˆ
 			return createShellCounter("Tcl");
 
 		} else if(fileName.endsWith(".sh")){
-			// Shell—pƒJƒEƒ“ƒ^‚ğì¬
+			// Shellç”¨ã‚«ã‚¦ãƒ³ã‚¿ã‚’ä½œæˆ
 			return createShellCounter("Shell");
 
 		} else if(fileName.endsWith(".sql")){
-			// SQL—pƒJƒEƒ“ƒ^‚ğì¬
+			// SQLç”¨ã‚«ã‚¦ãƒ³ã‚¿ã‚’ä½œæˆ
 			DefaultStepCounter counter = new DefaultStepCounter();
 			counter.addLineComment("#");
 			counter.addLineComment("--");
@@ -195,7 +195,7 @@ public class StepCounterFactory {
 			return counter;
 
 		} else if(fileName.endsWith(".cfm")){
-			// ColdFusion—pƒJƒEƒ“ƒ^‚ğì¬
+			// ColdFusionç”¨ã‚«ã‚¦ãƒ³ã‚¿ã‚’ä½œæˆ
 			DefaultStepCounter counter = new DefaultStepCounter();
 			counter.addAreaComment(new AreaComment("<!--","-->"));
 			counter.addAreaComment(new AreaComment("<!---","--->"));
@@ -203,49 +203,49 @@ public class StepCounterFactory {
 			return counter;
 
 		} else if(fileName.endsWith(".properties")) {
-			// ƒvƒƒpƒeƒBƒtƒ@ƒCƒ‹—pƒJƒEƒ“ƒ^‚ğì¬
+			// ãƒ—ãƒ­ãƒ‘ãƒ†ã‚£ãƒ•ã‚¡ã‚¤ãƒ«ç”¨ã‚«ã‚¦ãƒ³ã‚¿ã‚’ä½œæˆ
 			return createShellCounter("Properties");
 
 		} else if(fileName.endsWith(".xml") || fileName.endsWith(".dicon")) {
-			// XML—pƒJƒEƒ“ƒ^‚ğì¬
+			// XMLç”¨ã‚«ã‚¦ãƒ³ã‚¿ã‚’ä½œæˆ
 			return createXMLCounter("XML");
 
 		} else if(fileName.endsWith(".xsl")) {
-			// XSLT—pƒJƒEƒ“ƒ^‚ğì¬
+			// XSLTç”¨ã‚«ã‚¦ãƒ³ã‚¿ã‚’ä½œæˆ
 			return createXMLCounter("XSLT");
 
 		} else if(fileName.endsWith(".xi")) {
-			// Xi—pƒJƒEƒ“ƒ^‚ğì¬
+			// Xiç”¨ã‚«ã‚¦ãƒ³ã‚¿ã‚’ä½œæˆ
 			return createXMLCounter("Xi");
 
 		} else if(fileName.endsWith(".dtd")) {
-			// DTD—pƒJƒEƒ“ƒ^‚ğì¬
+			// DTDç”¨ã‚«ã‚¦ãƒ³ã‚¿ã‚’ä½œæˆ
 			return createXMLCounter("DTD");
 
 		} else if(fileName.endsWith(".tld")) {
-			// TLD—pƒJƒEƒ“ƒ^‚ğì¬
+			// TLDç”¨ã‚«ã‚¦ãƒ³ã‚¿ã‚’ä½œæˆ
 			return createXMLCounter("TLD");
 
 		} else if(fileName.endsWith(".xsd")) {
-			// XMLSchema—pƒJƒEƒ“ƒ^‚ğì¬
+			// XMLSchemaç”¨ã‚«ã‚¦ãƒ³ã‚¿ã‚’ä½œæˆ
 			return createXMLCounter("XMLSchema");
 
 		} else if(fileName.endsWith(".bat")){
-			// BATƒtƒ@ƒCƒ‹—pƒJƒEƒ“ƒ^‚ğì¬
+			// BATãƒ•ã‚¡ã‚¤ãƒ«ç”¨ã‚«ã‚¦ãƒ³ã‚¿ã‚’ä½œæˆ
 			DefaultStepCounter counter = new DefaultStepCounter();
 			counter.addLineComment("REM");
 			counter.setFileType("BAT");
 			return counter;
 
 		} else if(fileName.endsWith(".css")){
-			// CSS—pƒJƒEƒ“ƒ^‚ğì¬
+			// CSSç”¨ã‚«ã‚¦ãƒ³ã‚¿ã‚’ä½œæˆ
 			DefaultStepCounter counter = new DefaultStepCounter();
 			counter.addAreaComment(new AreaComment("/*","*/"));
 			counter.setFileType("CSS");
 			return counter;
 
 		} else if(fileName.endsWith(".sass")){
-			// Sass—pƒJƒEƒ“ƒ^‚ğì¬
+			// Sassç”¨ã‚«ã‚¦ãƒ³ã‚¿ã‚’ä½œæˆ
 			DefaultStepCounter counter = new DefaultStepCounter();
 			counter.addLineComment("//");
 			counter.addAreaComment(new AreaComment("/*","*/"));
@@ -253,7 +253,7 @@ public class StepCounterFactory {
 			return counter;
 
 		} else if(fileName.endsWith(".scss")){
-			// SCSS—pƒJƒEƒ“ƒ^‚ğì¬
+			// SCSSç”¨ã‚«ã‚¦ãƒ³ã‚¿ã‚’ä½œæˆ
 			DefaultStepCounter counter = new DefaultStepCounter();
 			counter.addLineComment("//");
 			counter.addAreaComment(new AreaComment("/*","*/"));
@@ -261,40 +261,40 @@ public class StepCounterFactory {
 			return counter;
 
 		} else if(fileName.endsWith(".l") || fileName.endsWith(".el") || fileName.endsWith(".cl")){
-			// Lisp—pƒJƒEƒ“ƒ^‚ğì¬
+			// Lispç”¨ã‚«ã‚¦ãƒ³ã‚¿ã‚’ä½œæˆ
 			return createListCounter("Lisp");
 
 		} else if(fileName.endsWith(".clj")){
-			// Clojure—pƒJƒEƒ“ƒ^‚ğì¬
+			// Clojureç”¨ã‚«ã‚¦ãƒ³ã‚¿ã‚’ä½œæˆ
 			return createListCounter("Clojure");
 
 		} else if(fileName.endsWith(".scm")){
-			// Scheme—pƒJƒEƒ“ƒ^‚ğì¬
+			// Schemeç”¨ã‚«ã‚¦ãƒ³ã‚¿ã‚’ä½œæˆ
 			return createListCounter("Scheme");
 
 		} else if(fileName.endsWith(".st")){
-			// Smalltalk—pƒJƒEƒ“ƒ^‚ğì¬
+			// Smalltalkç”¨ã‚«ã‚¦ãƒ³ã‚¿ã‚’ä½œæˆ
 			DefaultStepCounter counter = new DefaultStepCounter();
 			counter.addAreaComment(new AreaComment("\"","\""));
 			counter.setFileType("Smalltalk");
 			return counter;
 
 		} else if(fileName.endsWith(".vm") || fileName.endsWith(".vsl")){
-			// Velocity—pƒJƒEƒ“ƒ^‚ğì¬
+			// Velocityç”¨ã‚«ã‚¦ãƒ³ã‚¿ã‚’ä½œæˆ
 			DefaultStepCounter counter = new DefaultStepCounter();
 			counter.addLineComment("##");
 			counter.setFileType("Velocity");
 			return counter;
 
 		} else if(fileName.endsWith(".ini")){
-			// INI—pƒJƒEƒ“ƒ^‚ğì¬
+			// INIç”¨ã‚«ã‚¦ãƒ³ã‚¿ã‚’ä½œæˆ
 			DefaultStepCounter counter = new DefaultStepCounter();
 			counter.addLineComment(";");
 			counter.setFileType("INI");
 			return counter;
 
 		} else if(fileName.endsWith(".lua")){
-			// LuaƒJƒEƒ“ƒ^‚ğì¬
+			// Luaã‚«ã‚¦ãƒ³ã‚¿ã‚’ä½œæˆ
 			DefaultStepCounter counter = new DefaultStepCounter();
 			counter.addLineComment("--");
 			counter.addAreaComment(new AreaComment("--[[","]]"));
@@ -303,7 +303,7 @@ public class StepCounterFactory {
 			return counter;
 
 		} else if(fileName.endsWith(".hs")){
-			// HaskellƒJƒEƒ“ƒ^‚ğì¬
+			// Haskellã‚«ã‚¦ãƒ³ã‚¿ã‚’ä½œæˆ
 			DefaultStepCounter counter = new DefaultStepCounter();
 			counter.addLineComment("--");
 			counter.addAreaComment(new AreaComment("{-","-}"));
@@ -311,33 +311,33 @@ public class StepCounterFactory {
 			return counter;
 
 		} else if(fileName.endsWith(".f") || fileName.endsWith(".for") || fileName.endsWith(".ftn")){
-			// FortraniŒÅ’èŒ`®jƒJƒEƒ“ƒ^‚ğì¬
+			// Fortranï¼ˆå›ºå®šå½¢å¼ï¼‰ã‚«ã‚¦ãƒ³ã‚¿ã‚’ä½œæˆ
 			DefaultStepCounter counter = new DefaultStepCounter();
 			counter.addLineComment("*");
 			counter.setFileType("Fortran");
 			return counter;
 
 		} else if(fileName.endsWith(".f90") || fileName.endsWith(".f95")){
-			// Fortrani©—RŒ`®jƒJƒEƒ“ƒ^‚ğì¬
+			// Fortranï¼ˆè‡ªç”±å½¢å¼ï¼‰ã‚«ã‚¦ãƒ³ã‚¿ã‚’ä½œæˆ
 			DefaultStepCounter counter = new DefaultStepCounter();
 			counter.addLineComment("!");
 			counter.setFileType("Fortran");
 			return counter;
 
 		} else if(fileName.equals("Makefile")){
-			// Makefile—pƒJƒEƒ“ƒ^‚ğì¬
+			// Makefileç”¨ã‚«ã‚¦ãƒ³ã‚¿ã‚’ä½œæˆ
 			return createShellCounter("Makefile");
 
         } else if(fileName.endsWith(".as")){
-            // ActionScript3—pƒJƒEƒ“ƒ^‚ğì¬
+            // ActionScript3ç”¨ã‚«ã‚¦ãƒ³ã‚¿ã‚’ä½œæˆ
             return createJavaCounter(".as");
             
         } else if(fileName.endsWith(".mxml")){
-        	// MXML—pƒJƒEƒ“ƒ^‚ğì¬
+        	// MXMLç”¨ã‚«ã‚¦ãƒ³ã‚¿ã‚’ä½œæˆ
         	return createXMLCounter(".mxml");
 
 		} else if(fileName.endsWith(".groovy")){
-			// Groovy—pƒJƒEƒ“ƒ^‚ğì¬
+			// Groovyç”¨ã‚«ã‚¦ãƒ³ã‚¿ã‚’ä½œæˆ
 			return createJavaCounter("Groovy");
 
 		} else {

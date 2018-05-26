@@ -1,7 +1,7 @@
 package jp.sf.amateras.stepcounter;
 
 /**
- * •¡”sƒRƒƒ“ƒg
+ * è¤‡æ•°è¡Œã‚³ãƒ¡ãƒ³ãƒˆ
  */
 public class AreaComment {
 	
@@ -9,15 +9,15 @@ public class AreaComment {
 	private String end;
 	
 	/**
-	 * ˆø”‚È‚µ‚ÌƒRƒ“ƒXƒgƒ‰ƒNƒ^
+	 * å¼•æ•°ãªã—ã®ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿
 	 */
 	public AreaComment(){ }
 	
 	/**
-	 * ŠJn•¶š—ñ‚ÆI—¹•¶š—ñ‚ğw’è‚µ‚ÄAreaComment‚ğ¶¬‚µ‚Ü‚·B
+	 * é–‹å§‹æ–‡å­—åˆ—ã¨çµ‚äº†æ–‡å­—åˆ—ã‚’æŒ‡å®šã—ã¦AreaCommentã‚’ç”Ÿæˆã—ã¾ã™ã€‚
 	 *
-	 * @param start ŠJn•¶š—ñ
-	 * @param end   I—¹•¶š—ñ
+	 * @param start é–‹å§‹æ–‡å­—åˆ—
+	 * @param end   çµ‚äº†æ–‡å­—åˆ—
 	 */
 	public AreaComment(String start,String end){
 		setStartString(start);
@@ -25,36 +25,36 @@ public class AreaComment {
 	}
 	
 	/**
-	 * ƒRƒƒ“ƒg‚ÌŠJn•¶š—ñ‚ğİ’è‚µ‚Ü‚·
+	 * ã‚³ãƒ¡ãƒ³ãƒˆã®é–‹å§‹æ–‡å­—åˆ—ã‚’è¨­å®šã—ã¾ã™
 	 *
-	 * @param start ŠJn•¶š—ñ
+	 * @param start é–‹å§‹æ–‡å­—åˆ—
 	 */
 	public void setStartString(String start){
 		this.start = start;
 	}
 
 	/**
-	 * ƒRƒƒ“ƒg‚ÌI—¹•¶š—ñ‚ğİ’è‚µ‚Ü‚·
+	 * ã‚³ãƒ¡ãƒ³ãƒˆã®çµ‚äº†æ–‡å­—åˆ—ã‚’è¨­å®šã—ã¾ã™
 	 *
-	 * @param end I—¹•¶š—ñ
+	 * @param end çµ‚äº†æ–‡å­—åˆ—
 	 */
 	public void setEndString(String end){
 		this.end = end;
 	}
 	
 	/**
-	 * ƒRƒƒ“ƒg‚ÌŠJn•¶š—ñ‚ğæ“¾‚µ‚Ü‚·
+	 * ã‚³ãƒ¡ãƒ³ãƒˆã®é–‹å§‹æ–‡å­—åˆ—ã‚’å–å¾—ã—ã¾ã™
 	 *
-	 * @return ŠJn•¶š—ñ
+	 * @return é–‹å§‹æ–‡å­—åˆ—
 	 */
 	public String getStartString(){
 		return this.start;
 	}
 
 	/**
-	 * ƒRƒƒ“ƒg‚ÌI—¹•¶š—ñ‚ğæ“¾‚µ‚Ü‚·
+	 * ã‚³ãƒ¡ãƒ³ãƒˆã®çµ‚äº†æ–‡å­—åˆ—ã‚’å–å¾—ã—ã¾ã™
 	 *
-	 * @return I—¹•¶š—ñ
+	 * @return çµ‚äº†æ–‡å­—åˆ—
 	 */
 	public String getEndString(){
 		return this.end;

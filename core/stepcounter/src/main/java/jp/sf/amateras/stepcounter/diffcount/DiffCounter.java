@@ -12,7 +12,7 @@ import jp.sf.amateras.stepcounter.diffcount.object.DiffStatus;
 
 
 /**
- * ·•ª‚ÌƒJƒEƒ“ƒgˆ—‚ğs‚¢‚Ü‚·B
+ * å·®åˆ†ã®ã‚«ã‚¦ãƒ³ãƒˆå‡¦ç†ã‚’è¡Œã„ã¾ã™ã€‚
  *
  */
 public class DiffCounter {
@@ -31,15 +31,15 @@ public class DiffCounter {
 //	}
 
 	/**
-	 * 2‚Â‚ÌƒfƒBƒŒƒNƒgƒŠ”z‰º‚Ìƒ\[ƒXƒR[ƒh‚Ì·•ª‚ğƒJƒEƒ“ƒg‚µ‚Ü‚·B
+	 * 2ã¤ã®ãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒªé…ä¸‹ã®ã‚½ãƒ¼ã‚¹ã‚³ãƒ¼ãƒ‰ã®å·®åˆ†ã‚’ã‚«ã‚¦ãƒ³ãƒˆã—ã¾ã™ã€‚
 	 *
-	 * @param oldRoot •ÏX‘O‚Ìƒ\[ƒXƒcƒŠ[‚Ìƒ‹[ƒgƒfƒBƒŒƒNƒgƒŠ
-	 * @param newRoot •ÏXŒã‚Ìƒ\[ƒXƒcƒŠ[‚Ìƒ‹[ƒgƒfƒBƒŒƒNƒgƒŠ
-	 * @return ƒJƒEƒ“ƒgŒ‹‰Ê
+	 * @param oldRoot å¤‰æ›´å‰ã®ã‚½ãƒ¼ã‚¹ãƒ„ãƒªãƒ¼ã®ãƒ«ãƒ¼ãƒˆãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒª
+	 * @param newRoot å¤‰æ›´å¾Œã®ã‚½ãƒ¼ã‚¹ãƒ„ãƒªãƒ¼ã®ãƒ«ãƒ¼ãƒˆãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒª
+	 * @return ã‚«ã‚¦ãƒ³ãƒˆçµæœ
 	 */
 	public static DiffFolderResult count(File oldRoot, File newRoot) {
 
-		// TODO ƒtƒ@ƒCƒ‹’PˆÊ‚Å‚Ì·•ª‚É‚à‘Î‰‚·‚éB
+		// TODO ãƒ•ã‚¡ã‚¤ãƒ«å˜ä½ã§ã®å·®åˆ†ã«ã‚‚å¯¾å¿œã™ã‚‹ã€‚
 
 		DiffFolderResult root = new DiffFolderResult(null);
 		root.setName(newRoot.getName());
@@ -78,14 +78,14 @@ public class DiffCounter {
 				}
 			}
 
-			// ŒÃ‚¢ƒ\[ƒXƒcƒŠ[‚ÉŒ©‚Â‚©‚ç‚È‚©‚Á‚½ê‡‚Í’Ç‰Á
+			// å¤ã„ã‚½ãƒ¼ã‚¹ãƒ„ãƒªãƒ¼ã«è¦‹ã¤ã‹ã‚‰ãªã‹ã£ãŸå ´åˆã¯è¿½åŠ 
 			if (found == false) {
 				AbstractDiffResult result = createDiffResult(parent, null,
 						newFile, Util.getFileEncoding(newFile), DiffStatus.ADDED);
 				parent.addChild(result);
 			}
 
-			// ƒfƒBƒŒƒNƒgƒŠ‚Ìê‡‚ÍÄ‹A“I‚Éˆ—
+			// ãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒªã®å ´åˆã¯å†å¸°çš„ã«å‡¦ç†
 			if (newFile.isDirectory()) {
 				DiffFolderResult newParent = (DiffFolderResult)parent.getChildren().get(
 						parent.getChildren().size() - 1);
@@ -96,7 +96,7 @@ public class DiffCounter {
 			}
 		}
 
-		// íœ‚³‚ê‚½ƒtƒHƒ‹ƒ_‚ğ’ŠoB“ñ‰ñ‚Ü‚í‚·‚Ì‚Í”ñŒø—¦‚Å‚·‚ªc
+		// å‰Šé™¤ã•ã‚ŒãŸãƒ•ã‚©ãƒ«ãƒ€ã‚’æŠ½å‡ºã€‚äºŒå›ã¾ã‚ã™ã®ã¯éåŠ¹ç‡ã§ã™ãŒâ€¦
 		for (File oldFile : oldFiles) {
 			if (DiffCounterUtil.isIgnore(oldFile)) {
 				continue;
@@ -130,7 +130,7 @@ public class DiffCounter {
 				diffResult = createDiffFileResult(parent, oldFile, newFile,
 						charset, status, cutter);
 			} else {
-				// ƒJƒbƒ^[‚ªæ“¾‚Å‚«‚È‚©‚Á‚½ê‡‚ÍƒTƒ|[ƒg‘ÎÛŠO‚Æ‚·‚é
+				// ã‚«ãƒƒã‚¿ãƒ¼ãŒå–å¾—ã§ããªã‹ã£ãŸå ´åˆã¯ã‚µãƒãƒ¼ãƒˆå¯¾è±¡å¤–ã¨ã™ã‚‹
 				diffResult = new DiffFileResult(parent);
 				diffResult.setName(newFile.getName());
 				diffResult.setStatus(DiffStatus.UNSUPPORTED);
@@ -149,7 +149,7 @@ public class DiffCounter {
 			Cutter cutter = CutterFactory.getCutter(oldFile);
 
 			if (cutter != null && status == DiffStatus.REMOVED) {
-				// íœƒtƒ@ƒCƒ‹‚Ìê‡
+				// å‰Šé™¤ãƒ•ã‚¡ã‚¤ãƒ«ã®å ´åˆ
 				DiffSource source = cutter.cut(DiffCounterUtil.getSource(
 						oldFile, charset));
 				if (source.isIgnore()) {
@@ -188,7 +188,7 @@ public class DiffCounter {
 		diffResult.setStatus(status);
 
 		if (status == DiffStatus.ADDED) {
-			// V‹Kƒtƒ@ƒCƒ‹‚Ìê‡
+			// æ–°è¦ãƒ•ã‚¡ã‚¤ãƒ«ã®å ´åˆ
 			DiffSource source = cutter.cut(DiffCounterUtil.getSource(newFile,
 					charset));
 			if (source.isIgnore()) {
@@ -197,7 +197,7 @@ public class DiffCounter {
 			diffResult.setAddCount(DiffCounterUtil.split(source.getSource()).length);
 			diffResult.setCategory(source.getCategory());
 		} else if (status == DiffStatus.MODIFIED) {
-			// •ÏXƒtƒ@ƒCƒ‹‚Ìê‡
+			// å¤‰æ›´ãƒ•ã‚¡ã‚¤ãƒ«ã®å ´åˆ
 			DiffSource oldSource = cutter.cut(DiffCounterUtil.getSource(
 					oldFile, charset));
 			DiffSource newSource = cutter.cut(DiffCounterUtil.getSource(
@@ -220,7 +220,7 @@ public class DiffCounter {
 				diffResult.setStatus(DiffStatus.NONE);
 			}
 		} else if (status == DiffStatus.REMOVED) {
-			// íœƒtƒ@ƒCƒ‹‚Ìê‡
+			// å‰Šé™¤ãƒ•ã‚¡ã‚¤ãƒ«ã®å ´åˆ
 			DiffSource source = cutter.cut(DiffCounterUtil.getSource(oldFile,
 					charset));
 			if (source.isIgnore()) {
@@ -236,14 +236,14 @@ public class DiffCounter {
 	}
 
 	/**
-	 * •ÏXs”‚ğƒJƒEƒ“ƒg‚·‚é‚½‚ß‚Ì{@link IDiffHandler}À‘•ƒNƒ‰ƒX‚Å‚·B
+	 * å¤‰æ›´è¡Œæ•°ã‚’ã‚«ã‚¦ãƒ³ãƒˆã™ã‚‹ãŸã‚ã®{@link IDiffHandler}å®Ÿè£…ã‚¯ãƒ©ã‚¹ã§ã™ã€‚
 	 */
 	private static class DiffCountHandler implements IDiffHandler {
 
-		/** ’Ç‰Ás” */
+		/** è¿½åŠ è¡Œæ•° */
 		private int	addCount	= 0;
 
-		/** íœs” */
+		/** å‰Šé™¤è¡Œæ•° */
 		private int	delCount	= 0;
 
 		/**
@@ -266,18 +266,18 @@ public class DiffCounter {
 		public void match(String text) {}
 
 		/**
-		 * ’Ç‰Ás”‚ğæ“¾‚µ‚Ü‚·B
+		 * è¿½åŠ è¡Œæ•°ã‚’å–å¾—ã—ã¾ã™ã€‚
 		 *
-		 * @return ’Ç‰Ás”
+		 * @return è¿½åŠ è¡Œæ•°
 		 */
 		public int getAddCount() {
 			return this.addCount;
 		}
 
 		/**
-		 * íœs”‚ğæ“¾‚µ‚Ü‚·B
+		 * å‰Šé™¤è¡Œæ•°ã‚’å–å¾—ã—ã¾ã™ã€‚
 		 *
-		 * @return íœs”
+		 * @return å‰Šé™¤è¡Œæ•°
 		 */
 		public int getDelCount() {
 			return this.delCount;

@@ -1,7 +1,7 @@
 package jp.sf.amateras.stepcounter.diffcount.object;
 
 /**
- * ファイルの変更状況を示すオブジェクトです。
+ * 繝輔ぃ繧､繝ｫ縺ｮ螟画峩迥ｶ豕√ｒ遉ｺ縺吶が繝悶ず繧ｧ繧ｯ繝医〒縺吶�
  *
  * @author Naoki Takezoe
  */

@@ -11,7 +11,7 @@ import jp.sf.amateras.stepcounter.format.FormatterFactory;
 import jp.sf.amateras.stepcounter.format.ResultFormatter;
 
 
-/** ƒRƒ}ƒ“ƒhƒ‰ƒCƒ“‚©‚ç‚Ì‹N“®ƒNƒ‰ƒX */
+/** ã‚³ãƒãƒ³ãƒ‰ãƒ©ã‚¤ãƒ³ã‹ã‚‰ã®èµ·å‹•ã‚¯ãƒ©ã‚¹ */
 public class Main {
 
 	private File[] files;
@@ -19,33 +19,33 @@ public class Main {
 	private OutputStream output = System.out;
 	private boolean showDirectory = false;
 
-	/** ˆø”‚Åw’è‚µ‚½ƒfƒBƒŒƒNƒgƒŠ‚©‚ç‚ÌŠK‘w‚ğ•\¦‚·‚é‚©İ’è‚µ‚Ü‚· */
+	/** å¼•æ•°ã§æŒ‡å®šã—ãŸãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒªã‹ã‚‰ã®éšå±¤ã‚’è¡¨ç¤ºã™ã‚‹ã‹è¨­å®šã—ã¾ã™ */
 	public void setShowDirectory(boolean showDirectory) {
 		this.showDirectory = showDirectory;
 	}
 
-	/** ƒtƒ@ƒCƒ‹‚ğƒZƒbƒg‚µ‚Ü‚· */
+	/** ãƒ•ã‚¡ã‚¤ãƒ«ã‚’ã‚»ãƒƒãƒˆã—ã¾ã™ */
 	public void setFiles(File[] files){
 		this.files = files;
 	}
 
-	/** ƒtƒH[ƒ}ƒbƒ^‚ğƒZƒbƒg‚µ‚Ü‚·B */
+	/** ãƒ•ã‚©ãƒ¼ãƒãƒƒã‚¿ã‚’ã‚»ãƒƒãƒˆã—ã¾ã™ã€‚ */
 	public void setFormatter(ResultFormatter formatter){
 		this.formatter = formatter;
 	}
 
-	/** o—ÍƒXƒgƒŠ[ƒ€‚ğİ’è‚µ‚Ü‚·B */
+	/** å‡ºåŠ›ã‚¹ãƒˆãƒªãƒ¼ãƒ ã‚’è¨­å®šã—ã¾ã™ã€‚ */
 	public void setOutput(OutputStream output){
 		this.output = output;
 	}
 
-	/** ƒJƒEƒ“ƒg‚ğÀs‚µ‚Ü‚· */
+	/** ã‚«ã‚¦ãƒ³ãƒˆã‚’å®Ÿè¡Œã—ã¾ã™ */
 	public void executeCount() throws IOException {
-		// ƒtƒH[ƒ}ƒbƒ^‚ªİ’è‚³‚ê‚Ä‚¢‚È‚¢ê‡‚ÍƒfƒtƒHƒ‹ƒg‚ğg—p
+		// ãƒ•ã‚©ãƒ¼ãƒãƒƒã‚¿ãŒè¨­å®šã•ã‚Œã¦ã„ãªã„å ´åˆã¯ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆã‚’ä½¿ç”¨
 		if(formatter == null){
 			formatter = FormatterFactory.getFormatter("");
 		}
-		// ‚Pƒtƒ@ƒCƒ‹ or ‚PƒfƒBƒŒƒNƒgƒŠ‚¸‚ÂƒJƒEƒ“ƒg
+		// ï¼‘ãƒ•ã‚¡ã‚¤ãƒ« or ï¼‘ãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒªãšã¤ã‚«ã‚¦ãƒ³ãƒˆ
 		ArrayList<CountResult> list = new ArrayList<CountResult>();
 		for(int i=0;i<files.length;i++){
 			CountResult[] results = count(files[i]);
@@ -56,7 +56,7 @@ public class Main {
 		CountResult[] results = (CountResult[])list.toArray(new CountResult[list.size()]);
 		if (this.showDirectory) {
 			for (CountResult result : results) {
-				// ·•ªƒfƒBƒŒƒNƒgƒŠ•t‚«‚Ìƒtƒ@ƒCƒ‹–¼‚Éã‘‚«‚µ‚Ü‚·B
+				// å·®åˆ†ãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒªä»˜ãã®ãƒ•ã‚¡ã‚¤ãƒ«åã«ä¸Šæ›¸ãã—ã¾ã™ã€‚
 				result.setFileName(getFileNameWithDir(result.getFile()));
 			}
 		}
@@ -67,7 +67,7 @@ public class Main {
 		}
 	}
 
-	/** ‚Pƒtƒ@ƒCƒ‹‚ğƒJƒEƒ“ƒg */
+	/** ï¼‘ãƒ•ã‚¡ã‚¤ãƒ«ã‚’ã‚«ã‚¦ãƒ³ãƒˆ */
 	private CountResult[] count(File file) throws IOException {
 		if(file.isDirectory()){
 			File[] files = file.listFiles();
@@ -85,7 +85,7 @@ public class Main {
 				CountResult result = counter.count(file, Util.getFileEncoding(file));
 				return new CountResult[]{result};
 			} else {
-				// –¢‘Î‰‚ÌŒ`®‚Ìê‡‚ÍŒ`®‚Énull‚ğİ’è‚µ‚Ä•Ô‚·
+				// æœªå¯¾å¿œã®å½¢å¼ã®å ´åˆã¯å½¢å¼ã«nullã‚’è¨­å®šã—ã¦è¿”ã™
 				return new CountResult[]{
 					new CountResult(file, file.getName(), null, null, 0, 0, 0)
 				};
@@ -93,7 +93,7 @@ public class Main {
 		}
 	}
 
-	/** ƒfƒBƒŒƒNƒgƒŠ•t‚«ƒtƒ@ƒCƒ‹–¼‚Ìo—ÍŒ`®‚ğæ“¾‚µ‚Ü‚·B */
+	/** ãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒªä»˜ããƒ•ã‚¡ã‚¤ãƒ«åã®å‡ºåŠ›å½¢å¼ã‚’å–å¾—ã—ã¾ã™ã€‚ */
 	private String getFileNameWithDir(File file) throws IOException {
 		if (file.isDirectory()) {
 			return file.getName();
@@ -101,13 +101,13 @@ public class Main {
 		if (this.files == null || this.files.length == 0) {
 			return file.getName();
 		}
-		// ƒtƒ@ƒCƒ‹‚Ì³‹KƒpƒX‚ğæ“¾‚µ‚Ü‚·B
+		// ãƒ•ã‚¡ã‚¤ãƒ«ã®æ­£è¦ãƒ‘ã‚¹ã‚’å–å¾—ã—ã¾ã™ã€‚
 		String filePath = file.getCanonicalPath();
 		for (File f : this.files) {
 			String parentPath = f.getCanonicalPath();
 			if (filePath.contains(parentPath)) {
-				// ˆø”‚Ì³‹KƒpƒX‚Éƒtƒ@ƒCƒ‹‚ªŠÜ‚Ü‚ê‚Ä‚¢‚éê‡A
-				// ‘I‘ğ‚³‚ê‚½ƒfƒBƒŒƒNƒgƒŠ‚©‚ç‚ÌƒpƒX‚Æƒtƒ@ƒCƒ‹–¼‚ğ•Ô‹p‚µ‚Ü‚·B
+				// å¼•æ•°ã®æ­£è¦ãƒ‘ã‚¹ã«ãƒ•ã‚¡ã‚¤ãƒ«ãŒå«ã¾ã‚Œã¦ã„ã‚‹å ´åˆã€
+				// é¸æŠã•ã‚ŒãŸãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒªã‹ã‚‰ã®ãƒ‘ã‚¹ã¨ãƒ•ã‚¡ã‚¤ãƒ«åã‚’è¿”å´ã—ã¾ã™ã€‚
 				StringBuilder builder = new StringBuilder();
 				builder.append('/');
 				builder.append(f.getName());
@@ -118,7 +118,7 @@ public class Main {
 		return file.getName();
 	}
 
-	/** ƒRƒ}ƒ“ƒhƒ‰ƒCƒ“‹N“®—pƒƒ\ƒbƒh */
+	/** ã‚³ãƒãƒ³ãƒ‰ãƒ©ã‚¤ãƒ³èµ·å‹•ç”¨ãƒ¡ã‚½ãƒƒãƒ‰ */
 	public static void main(String[] args) throws IOException {
 
 		if(args==null || args.length==0){

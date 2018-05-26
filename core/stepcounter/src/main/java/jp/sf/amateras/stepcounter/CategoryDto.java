@@ -5,43 +5,43 @@ import java.util.Comparator;
 import java.util.List;
 
 /**
- * ƒJƒeƒSƒŠ•ÊWŒv—p‚ÌDTO‚Å‚·B
+ * ã‚«ãƒ†ã‚´ãƒªåˆ¥é›†è¨ˆç”¨ã®DTOã§ã™ã€‚
  *
  * @author takanori
  *
  */
 public abstract class CategoryDto {
 
-	/** ƒJƒeƒSƒŠ */
+	/** ã‚«ãƒ†ã‚´ãƒª */
 	private String	category;
 
 	/**
-	 * ƒfƒtƒHƒ‹ƒgƒRƒ“ƒXƒgƒ‰ƒNƒ^B
+	 * ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ã€‚
 	 */
 	public CategoryDto() {}
 
 	/**
-	 * ƒJƒeƒSƒŠ‚ğæ“¾‚µ‚Ü‚·B
+	 * ã‚«ãƒ†ã‚´ãƒªã‚’å–å¾—ã—ã¾ã™ã€‚
 	 *
-	 * @return ƒJƒeƒSƒŠ
+	 * @return ã‚«ãƒ†ã‚´ãƒª
 	 */
 	public String getCategory() {
 		return category;
 	}
 
 	/**
-	 * ƒJƒeƒSƒŠ‚ğİ’è‚µ‚Ü‚·B
+	 * ã‚«ãƒ†ã‚´ãƒªã‚’è¨­å®šã—ã¾ã™ã€‚
 	 *
-	 * @param category ƒJƒeƒSƒŠ
+	 * @param category ã‚«ãƒ†ã‚´ãƒª
 	 */
 	public void setCategory(String category) {
 		this.category = category;
 	}
 
 	/**
-	 * ƒ\[ƒg‚µ‚Ü‚·B
+	 * ã‚½ãƒ¼ãƒˆã—ã¾ã™ã€‚
 	 *
-	 * @param categoryList ƒJƒeƒSƒŠDTO‚ÌƒŠƒXƒg
+	 * @param categoryList ã‚«ãƒ†ã‚´ãƒªDTOã®ãƒªã‚¹ãƒˆ
 	 */
 	public static void sort(List<? extends CategoryDto> categoryList) {
 		Collections.sort(categoryList, new Comparator<CategoryDto>() {

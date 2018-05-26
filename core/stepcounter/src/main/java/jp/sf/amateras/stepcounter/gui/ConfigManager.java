@@ -5,7 +5,7 @@ import java.util.*;
 import java.text.*;
 
 /**
- * İ’èƒtƒ@ƒCƒ‹‚ğ“Ç‚İ‚İAXV‚·‚é‚½‚ß‚Ì”Ä—pƒNƒ‰ƒXB
+ * è¨­å®šãƒ•ã‚¡ã‚¤ãƒ«ã‚’èª­ã¿è¾¼ã¿ã€æ›´æ–°ã™ã‚‹ãŸã‚ã®æ±ç”¨ã‚¯ãƒ©ã‚¹ã€‚
  *
  * @author  Naoki Takezoe
  * @version 1.0
@@ -16,18 +16,18 @@ public class ConfigManager {
 	private HashMap<String, Vector<String>> map;
 
 	/**
-	 * ƒRƒ“ƒXƒgƒ‰ƒNƒ^
+	 * ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿
 	 *
-	 * @param fileName ƒvƒƒpƒeƒBƒtƒ@ƒCƒ‹‚Ì–¼‘O
+	 * @param fileName ãƒ—ãƒ­ãƒ‘ãƒ†ã‚£ãƒ•ã‚¡ã‚¤ãƒ«ã®åå‰
 	 */
 	public ConfigManager(String fileName) {
 		this(new File(fileName));
 	}
 
 	/**
-	 * ƒRƒ“ƒXƒgƒ‰ƒNƒ^
+	 * ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿
 	 *
-	 * @param file ƒvƒƒpƒeƒBƒtƒ@ƒCƒ‹
+	 * @param file ãƒ—ãƒ­ãƒ‘ãƒ†ã‚£ãƒ•ã‚¡ã‚¤ãƒ«
 	 */
 	public ConfigManager(File file){
 		this.file = file;
@@ -40,11 +40,11 @@ public class ConfigManager {
 
 
 	/**
-	 * ƒvƒƒpƒeƒB‚ğİ’è‚µ‚Ü‚·B
-	 * “¯–¼‚Ìƒpƒ‰ƒ[ƒ^‚ª‘¶İ‚·‚éê‡Aã‘‚«‚³‚ê‚Ü‚·B
+	 * ãƒ—ãƒ­ãƒ‘ãƒ†ã‚£ã‚’è¨­å®šã—ã¾ã™ã€‚
+	 * åŒåã®ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿ãŒå­˜åœ¨ã™ã‚‹å ´åˆã€ä¸Šæ›¸ãã•ã‚Œã¾ã™ã€‚
 	 *
-	 * @param key   ƒvƒƒpƒeƒBƒL[
-	 * @param value ƒvƒƒpƒeƒB‚Ì’l
+	 * @param key   ãƒ—ãƒ­ãƒ‘ãƒ†ã‚£ã‚­ãƒ¼
+	 * @param value ãƒ—ãƒ­ãƒ‘ãƒ†ã‚£ã®å€¤
 	 */
 	public void setProperty(String key,String value){
 		String[] values = {value};
@@ -52,10 +52,10 @@ public class ConfigManager {
 	}
 
 	/**
-	 * ƒCƒ“ƒfƒbƒNƒXƒvƒƒpƒeƒB‚ğİ’è‚µ‚Ü‚·B
+	 * ã‚¤ãƒ³ãƒ‡ãƒƒã‚¯ã‚¹ãƒ—ãƒ­ãƒ‘ãƒ†ã‚£ã‚’è¨­å®šã—ã¾ã™ã€‚
 	 *
-	 * @param key    ƒvƒƒpƒeƒBƒL[
-	 * @param values ƒvƒƒpƒeƒB‚Ì’l
+	 * @param key    ãƒ—ãƒ­ãƒ‘ãƒ†ã‚£ã‚­ãƒ¼
+	 * @param values ãƒ—ãƒ­ãƒ‘ãƒ†ã‚£ã®å€¤
 	 */
 	public void setProperty(String key,String[] values){
 		Vector<String> vec = new Vector<String>();
@@ -67,10 +67,10 @@ public class ConfigManager {
 
 
 	/**
-	 * ƒvƒƒpƒeƒB‚ğæ“¾‚µ‚Ü‚·B
+	 * ãƒ—ãƒ­ãƒ‘ãƒ†ã‚£ã‚’å–å¾—ã—ã¾ã™ã€‚
 	 *
-	 * @param key ƒvƒƒpƒeƒB‚ÌƒL[
-	 * @return    ƒvƒƒpƒeƒB‚Ì’l
+	 * @param key ãƒ—ãƒ­ãƒ‘ãƒ†ã‚£ã®ã‚­ãƒ¼
+	 * @return    ãƒ—ãƒ­ãƒ‘ãƒ†ã‚£ã®å€¤
 	 */
 	public String getProperty(String key){
 		String[] values = getPropertyValues(key);
@@ -79,10 +79,10 @@ public class ConfigManager {
 	}
 
 	/**
-	 * ƒCƒ“ƒfƒbƒNƒXƒvƒƒpƒeƒB‚ğæ“¾‚µ‚Ü‚·B
+	 * ã‚¤ãƒ³ãƒ‡ãƒƒã‚¯ã‚¹ãƒ—ãƒ­ãƒ‘ãƒ†ã‚£ã‚’å–å¾—ã—ã¾ã™ã€‚
 	 *
-	 * @param key ƒvƒƒpƒeƒB‚ÌƒL[
-	 * @return    ƒvƒƒpƒeƒB‚Ì’l
+	 * @param key ãƒ—ãƒ­ãƒ‘ãƒ†ã‚£ã®ã‚­ãƒ¼
+	 * @return    ãƒ—ãƒ­ãƒ‘ãƒ†ã‚£ã®å€¤
 	 */
 	public String[] getPropertyValues(String key){
 		if(this.map.get(key)==null){ return null; }
@@ -95,17 +95,17 @@ public class ConfigManager {
 	}
 
 	/**
-	 * ƒvƒƒpƒeƒBƒtƒ@ƒCƒ‹‚ğ“Ç‚İ‚İ‚Ü‚·B
-	 * ƒCƒ“ƒXƒ^ƒ“ƒX‚Ì¶¬‚É“à•”“I‚ÉŒÄ‚Ño‚³‚ê‚Ü‚·B
+	 * ãƒ—ãƒ­ãƒ‘ãƒ†ã‚£ãƒ•ã‚¡ã‚¤ãƒ«ã‚’èª­ã¿è¾¼ã¿ã¾ã™ã€‚
+	 * ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ã®ç”Ÿæˆæ™‚ã«å†…éƒ¨çš„ã«å‘¼ã³å‡ºã•ã‚Œã¾ã™ã€‚
 	 */
 	private synchronized void read() throws IOException {
 		this.map = new HashMap<String, Vector<String>>();
 		String line;
 		BufferedReader reader = new BufferedReader(new FileReader(this.file));
 		while((line=reader.readLine())!=null){
-			// ƒgƒŠƒ€
+			// ãƒˆãƒªãƒ 
 			line.trim();
-			// #‚Ån‚Ü‚és‚ÍƒRƒƒ“ƒg
+			// #ã§å§‹ã¾ã‚‹è¡Œã¯ã‚³ãƒ¡ãƒ³ãƒˆ
 			if(!line.startsWith("#")){
 				String[] dim = StringUtility.split(line,"=");
 				if(dim.length>=2){
@@ -128,19 +128,19 @@ public class ConfigManager {
 	}
 
 	/**
-	 * ƒvƒƒpƒeƒBƒtƒ@ƒCƒ‹‚ğXVi‘¶İ‚µ‚È‚¯‚ê‚Îì¬j‚µ‚Ü‚·B
+	 * ãƒ—ãƒ­ãƒ‘ãƒ†ã‚£ãƒ•ã‚¡ã‚¤ãƒ«ã‚’æ›´æ–°ï¼ˆå­˜åœ¨ã—ãªã‘ã‚Œã°ä½œæˆï¼‰ã—ã¾ã™ã€‚
 	 */
 	public synchronized void save() throws IOException {
 		BufferedWriter writer = new BufferedWriter(new FileWriter(this.file));
-		// ƒwƒbƒ_‚ğo—Í
+		// ãƒ˜ãƒƒãƒ€ã‚’å‡ºåŠ›
 		SimpleDateFormat formatter = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
 		writer.write("# Date: " + formatter.format(new Date()));
 		writer.newLine();
 
-		// ƒL[ƒZƒbƒg‚ğæ“¾
+		// ã‚­ãƒ¼ã‚»ãƒƒãƒˆã‚’å–å¾—
 		Set<String> set = this.map.keySet();
 		Iterator<String> iterator = set.iterator();
-		// ‘‚«o‚µ
+		// æ›¸ãå‡ºã—
 		while(iterator.hasNext()){
 			String key    = (String)iterator.next();
 			Vector<String> values = this.map.get(key);
@@ -149,7 +149,7 @@ public class ConfigManager {
 				writer.newLine();
 			}
 		}
-		// ƒtƒ‰ƒbƒVƒ…
+		// ãƒ•ãƒ©ãƒƒã‚·ãƒ¥
 		writer.flush();
 		writer.close();
 	}

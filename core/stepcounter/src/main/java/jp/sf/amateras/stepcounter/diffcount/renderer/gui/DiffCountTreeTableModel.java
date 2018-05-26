@@ -32,13 +32,13 @@ public class DiffCountTreeTableModel extends DefaultTreeTableModel {
 	public String getColumnName(int column) {
 		switch (column) {
 		case INDEX_NAME:
-			return "名前";
+			return "蜷榊燕";
 		case INDEX_STATUS:
-			return "ステータス";
+			return "繧ｹ繝�繝ｼ繧ｿ繧ｹ";
 		case INDEX_ADD:
-			return "追加行数";
+			return "霑ｽ蜉陦梧焚";
 		case INDEX_DEL:
-			return "削除行数";
+			return "蜑企勁陦梧焚";
 		default:
 			return null;
 		}

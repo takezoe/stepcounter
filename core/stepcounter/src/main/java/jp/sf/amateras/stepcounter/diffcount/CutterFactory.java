@@ -7,19 +7,19 @@ import jp.sf.amateras.stepcounter.StepCounterFactory;
 
 
 /**
- * {@link Cutter}�̃t�@�N�g���ł��B
- * �t�@�C���̊g���q����K�؂�{@link Cutter}�̎�����ԋp���܂��B
+ * {@link Cutter}のファクトリです。
+ * ファイルの拡張子から適切な{@link Cutter}の実装を返却します。
  *
  * @author Naoki Takezoe
  */
 public class CutterFactory {
 
 	/**
-	 * �t�@�C���̊g���q����K�؂�{@link Cutter}�̎�����ԋp���܂��B
-	 * �Ή�����{@link Cutter}�̎��������݂��Ȃ��ꍇ��null��Ԃ��܂��B
+	 * ファイルの拡張子から適切な{@link Cutter}の実装を返却します。
+	 * 対応する{@link Cutter}の実装が存在しない場合はnullを返します。
 	 *
-	 * @param file �t�@�C��
-	 * @return �t�@�C���ɑΉ�����{@link Cutter}�̎���
+	 * @param file ファイル
+	 * @return ファイルに対応する{@link Cutter}の実装
 	 */
 	public static Cutter getCutter(File file) {
 		StepCounter counter = StepCounterFactory.getCounter(file.getName());
@@ -30,11 +30,11 @@ public class CutterFactory {
 	}
 
 	/**
-	 * �t�@�C���̎�ʂ�ԋp���܂��B
-	 * �T�|�[�g����Ă��Ȃ��t�@�C���`���̏ꍇ�� "Unknown" ��ԋp���܂��B
+	 * ファイルの種別を返却します。
+	 * サポートされていないファイル形式の場合は "Unknown" を返却します。
 	 *
-	 * @param file �t�@�C��
-	 * @return �t�@�C�����
+	 * @param file ファイル
+	 * @return ファイル種別
 	 */
 	public static String getFileType(File file){
 		Cutter cutter = getCutter(file);

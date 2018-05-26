@@ -68,7 +68,7 @@ public class Main {
 				}
 			}
 
-//			System.out.println(outputFile.getAbsolutePath() + "‚ÉƒJƒEƒ“ƒgŒ‹‰Ê‚ğo—Í‚µ‚Ü‚µ‚½B");
+//			System.out.println(outputFile.getAbsolutePath() + "ã«ã‚«ã‚¦ãƒ³ãƒˆçµæœã‚’å‡ºåŠ›ã—ã¾ã—ãŸã€‚");
 
 		} catch(Throwable t){
 			t.printStackTrace();

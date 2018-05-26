@@ -1,39 +1,39 @@
 package jp.sf.amateras.stepcounter.format;
 
 /**
- * ƒtƒH[ƒ}ƒbƒ^‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‚ğì¬‚·‚é‚½‚ß‚Ìƒtƒ@ƒNƒgƒŠƒNƒ‰ƒXB
+ * ãƒ•ã‚©ãƒ¼ãƒãƒƒã‚¿ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ã‚’ä½œæˆã™ã‚‹ãŸã‚ã®ãƒ•ã‚¡ã‚¯ãƒˆãƒªã‚¯ãƒ©ã‚¹ã€‚
  */
 public class FormatterFactory {
 
 	/**
-	 * ƒtƒH[ƒ}ƒbƒ^‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‚ğ¶¬‚µ‚Ü‚·B
+	 * ãƒ•ã‚©ãƒ¼ãƒãƒƒã‚¿ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ã‚’ç”Ÿæˆã—ã¾ã™ã€‚
 	 *
-	 * @param format ƒtƒH[ƒ}ƒbƒg
-	 * @return ƒtƒH[ƒ}ƒbƒ^‚ÌƒCƒ“ƒXƒ^ƒ“ƒX
+	 * @param format ãƒ•ã‚©ãƒ¼ãƒãƒƒãƒˆ
+	 * @return ãƒ•ã‚©ãƒ¼ãƒãƒƒã‚¿ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹
 	 */
 	public static ResultFormatter getFormatter(String format){
-		// null‚Ìê‡‚ÍƒfƒtƒHƒ‹ƒgƒtƒH[ƒ}ƒbƒg
+		// nullã®å ´åˆã¯ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆãƒ•ã‚©ãƒ¼ãƒãƒƒãƒˆ
 		if(format==null){
 			return new DefaultFormatter();
 		}
 		String name = format.toLowerCase();
-		// CSVƒtƒH[ƒ}ƒbƒg
+		// CSVãƒ•ã‚©ãƒ¼ãƒãƒƒãƒˆ
 		if(name.equals("csv")){
 			return new CSVFormatter();
 			
-		// XMLƒtƒH[ƒ}ƒbƒg
+		// XMLãƒ•ã‚©ãƒ¼ãƒãƒƒãƒˆ
 		} else if(name.equals("xml")){
 			return new XMLFormatter();
 			
-		// JSONƒtƒH[ƒ}ƒbƒg
+		// JSONãƒ•ã‚©ãƒ¼ãƒãƒƒãƒˆ
 		} else if(name.equals("json")){
 			return new JSONFormatter();
 			
-		// ExcelƒtƒH[ƒ}ƒbƒg
+		// Excelãƒ•ã‚©ãƒ¼ãƒãƒƒãƒˆ
 		} else if(name.equals("excel")){
 			return new ExcelFormatter();
 
-		// ƒfƒtƒHƒ‹ƒgƒtƒH[ƒ}ƒbƒg
+		// ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆãƒ•ã‚©ãƒ¼ãƒãƒƒãƒˆ
 		} else {
 			return new DefaultFormatter();
 		}

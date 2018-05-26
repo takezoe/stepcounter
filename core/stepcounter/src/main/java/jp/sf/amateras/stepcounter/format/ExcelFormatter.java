@@ -16,7 +16,7 @@ import net.sf.jxls.transformer.XLSTransformer;
 import org.apache.poi.ss.usermodel.Workbook;
 
 /**
- * ƒJƒEƒ“ƒgŒ‹‰Ê‚ğExcel‚Åo—Í‚µ‚Ü‚·B
+ * ã‚«ã‚¦ãƒ³ãƒˆçµæœã‚’Excelã§å‡ºåŠ›ã—ã¾ã™ã€‚
  *
  * @author Naoki Takezoe
  */
@@ -62,13 +62,13 @@ public class ExcelFormatter implements ResultFormatter {
 				}
 			});
 
-			// ƒJƒeƒSƒŠEƒtƒ@ƒCƒ‹ƒ^ƒCƒv‚ª–³w’è‚Ìê‡‚Ínull‚©‚ç‹ó•¶š‚ÉC³‚·‚éB(fishplate‘Î‰)
+			// ã‚«ãƒ†ã‚´ãƒªãƒ»ãƒ•ã‚¡ã‚¤ãƒ«ã‚¿ã‚¤ãƒ—ãŒç„¡æŒ‡å®šã®å ´åˆã¯nullã‹ã‚‰ç©ºæ–‡å­—ã«ä¿®æ­£ã™ã‚‹ã€‚(fishplateå¯¾å¿œ)
 			for (CountResult r : result) {
 				if (r.getCategory() == null) {
 					r.setCategory("");
 				}
 				if (r.getFileType() == null) {
-					r.setFileType("–¢‘Î‰");
+					r.setFileType("æœªå¯¾å¿œ");
 				}
 			}
 
@@ -84,8 +84,8 @@ public class ExcelFormatter implements ResultFormatter {
 	}
 
 	/**
-	 * jXLS‚ğg—p‚µ‚ÄExcelƒtƒ@ƒCƒ‹‚ğ¶¬‚µ‚Ü‚·B
-	 * ˆø”‚Å—^‚¦‚½ƒeƒ“ƒvƒŒ[ƒg‚Ì“ü—ÍƒXƒgƒŠ[ƒ€‚Í‚±‚Ìƒƒ\ƒbƒh“à‚ÅƒNƒ[ƒY‚³‚ê‚Ü‚·B
+	 * jXLSã‚’ä½¿ç”¨ã—ã¦Excelãƒ•ã‚¡ã‚¤ãƒ«ã‚’ç”Ÿæˆã—ã¾ã™ã€‚
+	 * å¼•æ•°ã§ä¸ãˆãŸãƒ†ãƒ³ãƒ—ãƒ¬ãƒ¼ãƒˆã®å…¥åŠ›ã‚¹ãƒˆãƒªãƒ¼ãƒ ã¯ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰å†…ã§ã‚¯ãƒ­ãƒ¼ã‚ºã•ã‚Œã¾ã™ã€‚
 	 */
 	private static byte[] merge(InputStream in, Map<String, Object> data) throws Exception {
 		XLSTransformer transformer = new XLSTransformer();

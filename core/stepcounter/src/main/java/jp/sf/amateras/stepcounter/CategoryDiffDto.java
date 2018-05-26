@@ -3,21 +3,21 @@ package jp.sf.amateras.stepcounter;
 import java.util.List;
 
 /**
- * ·•ªƒJƒEƒ“ƒg‚ÌƒJƒeƒSƒŠ•Ê‚ÌWŒv—pDTO‚Å‚·B
+ * å·®åˆ†ã‚«ã‚¦ãƒ³ãƒˆæ™‚ã®ã‚«ãƒ†ã‚´ãƒªåˆ¥ã®é›†è¨ˆç”¨DTOã§ã™ã€‚
  *
  * @author takanori
  *
  */
 public class CategoryDiffDto extends CategoryDto {
 
-	/** ’Ç‰Ás” */
+	/** è¿½åŠ è¡Œæ•° */
 	private long	addCount	= 0;
 
-	/** íœs” */
+	/** å‰Šé™¤è¡Œæ•° */
 	private long	delCount	= 0;
 
 	/**
-	 * ƒfƒtƒHƒ‹ƒgƒRƒ“ƒXƒgƒ‰ƒNƒ^B
+	 * ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ã€‚
 	 */
 	public CategoryDiffDto() {}
 
@@ -38,11 +38,11 @@ public class CategoryDiffDto extends CategoryDto {
 	}
 
 	/**
-	 * ƒJƒeƒSƒŠDTO‚ÌƒŠƒXƒg‚©‚çAw’è‚³‚ê‚½ƒJƒeƒSƒŠ‚ÌDTO‚ğæ“¾‚µ‚Ü‚·B
+	 * ã‚«ãƒ†ã‚´ãƒªDTOã®ãƒªã‚¹ãƒˆã‹ã‚‰ã€æŒ‡å®šã•ã‚ŒãŸã‚«ãƒ†ã‚´ãƒªã®DTOã‚’å–å¾—ã—ã¾ã™ã€‚
 	 *
-	 * @param categoryList ƒJƒeƒSƒŠDTO‚ÌƒŠƒXƒg
-	 * @param category ƒJƒeƒSƒŠ
-	 * @return ƒJƒeƒSƒŠDTO
+	 * @param categoryList ã‚«ãƒ†ã‚´ãƒªDTOã®ãƒªã‚¹ãƒˆ
+	 * @param category ã‚«ãƒ†ã‚´ãƒª
+	 * @return ã‚«ãƒ†ã‚´ãƒªDTO
 	 */
 	public static CategoryDiffDto getDto(List<CategoryDiffDto> categoryList,
 			String category) {

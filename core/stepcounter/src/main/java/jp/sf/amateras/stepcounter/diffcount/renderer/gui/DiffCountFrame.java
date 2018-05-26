@@ -81,7 +81,7 @@ public class DiffCountFrame extends JFrame {
 	private JButton getExecuteDiffCount() {
 		if (executeDiffCount == null) {
 			executeDiffCount = new JButton();
-			executeDiffCount.setText("ƒXƒeƒbƒv”‚Ì·•ª‚ğ‘ª’è");
+			executeDiffCount.setText("ã‚¹ãƒ†ãƒƒãƒ—æ•°ã®å·®åˆ†ã‚’æ¸¬å®š");
 			executeDiffCount.setEnabled(false);
 			executeDiffCount.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent event) {
@@ -95,7 +95,7 @@ public class DiffCountFrame extends JFrame {
 	private JButton getBrowseNewRoot() {
 		if (browseNewRoot == null) {
 			browseNewRoot = new JButton();
-			browseNewRoot.setText("QÆ...");
+			browseNewRoot.setText("å‚ç…§...");
 			browseNewRoot.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent event) {
 					browseNewRootActionActionPerformed(event);
@@ -108,7 +108,7 @@ public class DiffCountFrame extends JFrame {
 	private JButton getBrowseOldRoot() {
 		if (browseOldRoot == null) {
 			browseOldRoot = new JButton();
-			browseOldRoot.setText("QÆ...");
+			browseOldRoot.setText("å‚ç…§...");
 			browseOldRoot.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent event) {
 					browseOldRootActionActionPerformed(event);
@@ -161,7 +161,7 @@ public class DiffCountFrame extends JFrame {
 	private JLabel getJLabel1() {
 		if (jLabel1 == null) {
 			jLabel1 = new JLabel();
-			jLabel1.setText("•ÏXŒã‚Ìƒ\[ƒXƒcƒŠ[:");
+			jLabel1.setText("å¤‰æ›´å¾Œã®ã‚½ãƒ¼ã‚¹ãƒ„ãƒªãƒ¼:");
 		}
 		return jLabel1;
 	}
@@ -169,7 +169,7 @@ public class DiffCountFrame extends JFrame {
 	private JLabel getJLabel0() {
 		if (jLabel0 == null) {
 			jLabel0 = new JLabel();
-			jLabel0.setText("•ÏX‘O‚Ìƒ\[ƒXƒcƒŠ[:");
+			jLabel0.setText("å¤‰æ›´å‰ã®ã‚½ãƒ¼ã‚¹ãƒ„ãƒªãƒ¼:");
 		}
 		return jLabel0;
 	}
@@ -196,7 +196,7 @@ public class DiffCountFrame extends JFrame {
 			public void run() {
 				DiffCountFrame frame = new DiffCountFrame();
 				frame.setDefaultCloseOperation(DiffCountFrame.EXIT_ON_CLOSE);
-				frame.setTitle("·•ª‘ª’èƒJƒEƒ“ƒ^");
+				frame.setTitle("å·®åˆ†æ¸¬å®šã‚«ã‚¦ãƒ³ã‚¿");
 				frame.getContentPane().setPreferredSize(frame.getSize());
 				frame.pack();
 				frame.setLocationRelativeTo(null);
@@ -206,9 +206,9 @@ public class DiffCountFrame extends JFrame {
 	}
 
 	/**
-	 * •ÏX‘O‚Ìƒ\[ƒXƒcƒŠ[‚ÌQÆƒ{ƒ^ƒ“‚ÌƒNƒŠƒbƒN‚ÉŒÄ‚Ño‚³‚ê‚éƒCƒxƒ“ƒgƒnƒ“ƒhƒ‰‚Å‚·B
+	 * å¤‰æ›´å‰ã®ã‚½ãƒ¼ã‚¹ãƒ„ãƒªãƒ¼ã®å‚ç…§ãƒœã‚¿ãƒ³ã®ã‚¯ãƒªãƒƒã‚¯æ™‚ã«å‘¼ã³å‡ºã•ã‚Œã‚‹ã‚¤ãƒ™ãƒ³ãƒˆãƒãƒ³ãƒ‰ãƒ©ã§ã™ã€‚
 	 *
-	 * @param event ƒCƒxƒ“ƒg
+	 * @param event ã‚¤ãƒ™ãƒ³ãƒˆ
 	 */
 	private void browseOldRootActionActionPerformed(ActionEvent event) {
 		File file = chooseFolder();
@@ -219,9 +219,9 @@ public class DiffCountFrame extends JFrame {
 	}
 
 	/**
-	 * •ÏXŒã‚Ìƒ\[ƒXƒcƒŠ[‚ÌQÆƒ{ƒ^ƒ“‚ÌƒNƒŠƒbƒN‚ÉŒÄ‚Ño‚³‚ê‚éƒCƒxƒ“ƒgƒnƒ“ƒhƒ‰‚Å‚·B
+	 * å¤‰æ›´å¾Œã®ã‚½ãƒ¼ã‚¹ãƒ„ãƒªãƒ¼ã®å‚ç…§ãƒœã‚¿ãƒ³ã®ã‚¯ãƒªãƒƒã‚¯æ™‚ã«å‘¼ã³å‡ºã•ã‚Œã‚‹ã‚¤ãƒ™ãƒ³ãƒˆãƒãƒ³ãƒ‰ãƒ©ã§ã™ã€‚
 	 *
-	 * @param event ƒCƒxƒ“ƒg
+	 * @param event ã‚¤ãƒ™ãƒ³ãƒˆ
 	 */
 	private void browseNewRootActionActionPerformed(ActionEvent event) {
 		File file = chooseFolder();
@@ -232,9 +232,9 @@ public class DiffCountFrame extends JFrame {
 	}
 
 	/**
-	 * ƒfƒBƒŒƒNƒgƒŠ‘I‘ğƒ_ƒCƒAƒƒO‚ÅƒfƒBƒŒƒNƒgƒŠ‚ğ‘I‘ğ‚µ‚Ü‚·B
+	 * ãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒªé¸æŠãƒ€ã‚¤ã‚¢ãƒ­ã‚°ã§ãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒªã‚’é¸æŠã—ã¾ã™ã€‚
 	 *
-	 * @return ‘I‘ğ‚³‚ê‚½ƒfƒBƒŒƒNƒgƒŠBƒLƒƒƒ“ƒZƒ‹‚³‚ê‚½ê‡‚Ínull‚ğ•Ô‚µ‚Ü‚·B
+	 * @return é¸æŠã•ã‚ŒãŸãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒªã€‚ã‚­ãƒ£ãƒ³ã‚»ãƒ«ã•ã‚ŒãŸå ´åˆã¯nullã‚’è¿”ã—ã¾ã™ã€‚
 	 */
 	private File chooseFolder(){
 		JFileChooser chooser = new JFileChooser();
@@ -246,7 +246,7 @@ public class DiffCountFrame extends JFrame {
 	}
 
 	/**
-	 * ƒXƒeƒbƒv”‚Ì·•ª‚ğ‘ª’èƒ{ƒ^ƒ“‚Ìó‘Ô‚ğXV‚µ‚Ü‚·B
+	 * ã‚¹ãƒ†ãƒƒãƒ—æ•°ã®å·®åˆ†ã‚’æ¸¬å®šãƒœã‚¿ãƒ³ã®çŠ¶æ…‹ã‚’æ›´æ–°ã—ã¾ã™ã€‚
 	 */
 	private void updateStatus(){
 		executeDiffCount.setEnabled(false);
@@ -267,11 +267,11 @@ public class DiffCountFrame extends JFrame {
 	}
 
 	/**
-	 * ƒXƒeƒbƒv”‚Ì·•ª‚ğ‘ª’èƒ{ƒ^ƒ“‚ÌƒNƒŠƒbƒN‚ÉŒÄ‚Ño‚³‚ê‚éƒCƒxƒ“ƒgƒnƒ“ƒhƒ‰‚Å‚·B
+	 * ã‚¹ãƒ†ãƒƒãƒ—æ•°ã®å·®åˆ†ã‚’æ¸¬å®šãƒœã‚¿ãƒ³ã®ã‚¯ãƒªãƒƒã‚¯æ™‚ã«å‘¼ã³å‡ºã•ã‚Œã‚‹ã‚¤ãƒ™ãƒ³ãƒˆãƒãƒ³ãƒ‰ãƒ©ã§ã™ã€‚
 	 * <p>
-	 * ƒXƒeƒbƒv”‚Ì·•ª‚ğ‘ª’è‚µA<code>JTable</code>‚É‘ª’èŒ‹‰Ê‚ğ•\¦‚µ‚Ü‚·B
+	 * ã‚¹ãƒ†ãƒƒãƒ—æ•°ã®å·®åˆ†ã‚’æ¸¬å®šã—ã€<code>JTable</code>ã«æ¸¬å®šçµæœã‚’è¡¨ç¤ºã—ã¾ã™ã€‚
 	 *
-	 * @param event ƒCƒxƒ“ƒg
+	 * @param event ã‚¤ãƒ™ãƒ³ãƒˆ
 	 */
 	private void executeDiffCountActionActionPerformed(ActionEvent event) {
 		File oldRoot = new File(this.oldRoot.getText());
@@ -284,7 +284,7 @@ public class DiffCountFrame extends JFrame {
 	}
 
 	/**
-	 * ƒJƒEƒ“ƒgŒ‹‰Ê‚ğJXTreeTable‚Å•\¦‚·‚é‚½‚ß‚ÉDefaultMutableTreeTableNode‚Åƒ‰ƒbƒv‚µ‚Ü‚·B
+	 * ã‚«ã‚¦ãƒ³ãƒˆçµæœã‚’JXTreeTableã§è¡¨ç¤ºã™ã‚‹ãŸã‚ã«DefaultMutableTreeTableNodeã§ãƒ©ãƒƒãƒ—ã—ã¾ã™ã€‚
 	 */
 	private DefaultMutableTreeTableNode wrapToTreeTableModel(DiffFolderResult folder){
 

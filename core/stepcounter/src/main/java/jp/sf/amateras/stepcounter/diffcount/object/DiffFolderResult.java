@@ -8,7 +8,7 @@ import jp.sf.amateras.stepcounter.diffcount.FileComparator;
 
 
 /**
- * �f�B���N�g���̕ύX���������I�u�W�F�N�g�ł��B
+ * ディレクトリの変更情報を示すオブジェクトです。
  *
  * @author Naoki Takezoe
  */
@@ -77,7 +77,7 @@ public class DiffFolderResult extends AbstractDiffResult {
 			sb.append(obj.render(nest + 1)).append("\n");
 		}
 
-		// �����̉��s���폜���ĕԋp
+		// 末尾の改行を削除して返却
 		return sb.toString().replaceFirst("\n$", "");
 	}
 

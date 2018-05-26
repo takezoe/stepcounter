@@ -3,7 +3,7 @@ package jp.sf.amateras.stepcounter.format;
 import jp.sf.amateras.stepcounter.CountResult;
 
 /**
- * カウント結果のフォーマッタ
+ * 繧ｫ繧ｦ繝ｳ繝育ｵ先棡縺ｮ繝輔か繝ｼ繝槭ャ繧ｿ
  */
 public interface ResultFormatter {
 

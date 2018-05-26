@@ -1,59 +1,59 @@
 package jp.sf.amateras.stepcounter.diffcount.object;
 
 /**
- * ƒtƒ@ƒCƒ‹AƒfƒBƒŒƒNƒgƒŠ‚Ì•ÏXó‹µ‚ğ¦‚·—ñ‹“Œ^‚Å‚·B
+ * ãƒ•ã‚¡ã‚¤ãƒ«ã€ãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒªã®å¤‰æ›´çŠ¶æ³ã‚’ç¤ºã™åˆ—æŒ™å‹ã§ã™ã€‚
  *
  * @author Naoki Takezoe
  */
 public enum DiffStatus {
 
 	/**
-	 * •ÏX‚È‚µ‚ğ¦‚·ƒXƒe[ƒ^ƒX‚Å‚·B
+	 * å¤‰æ›´ãªã—ã‚’ç¤ºã™ã‚¹ãƒ†ãƒ¼ã‚¿ã‚¹ã§ã™ã€‚
 	 */
 	NONE {
 		@Override
 		public String toString() {
-			return "•ÏX‚È‚µ";
+			return "å¤‰æ›´ãªã—";
 		}
 	},
 
 	/**
-	 * ’Ç‰Á‚ğ¦‚·ƒXƒe[ƒ^ƒX‚Å‚·B
+	 * è¿½åŠ ã‚’ç¤ºã™ã‚¹ãƒ†ãƒ¼ã‚¿ã‚¹ã§ã™ã€‚
 	 */
 	ADDED {
 		@Override
 		public String toString() {
-			return "V‹K";
+			return "æ–°è¦";
 		}
 	},
 
 	/**
-	 * •ÏX‚ğ¦‚·ƒXƒe[ƒ^ƒX‚Å‚·B
+	 * å¤‰æ›´ã‚’ç¤ºã™ã‚¹ãƒ†ãƒ¼ã‚¿ã‚¹ã§ã™ã€‚
 	 */
 	MODIFIED {
 		@Override
 		public String toString() {
-			return "•ÏX";
+			return "å¤‰æ›´";
 		}
 	},
 
 	/**
-	 * íœ‚ğ¦‚·ƒXƒe[ƒ^ƒX‚Å‚·B
+	 * å‰Šé™¤ã‚’ç¤ºã™ã‚¹ãƒ†ãƒ¼ã‚¿ã‚¹ã§ã™ã€‚
 	 */
 	REMOVED {
 		@Override
 		public String toString() {
-			return "íœ";
+			return "å‰Šé™¤";
 		}
 	},
 
 	/**
-	 * ƒTƒ|[ƒg‘ÎÛŠO‚ğ¦‚·ƒXƒe[ƒ^ƒX‚Å‚·B
+	 * ã‚µãƒãƒ¼ãƒˆå¯¾è±¡å¤–ã‚’ç¤ºã™ã‚¹ãƒ†ãƒ¼ã‚¿ã‚¹ã§ã™ã€‚
 	 */
 	UNSUPPORTED {
 		@Override
 		public String toString() {
-			return "ƒTƒ|[ƒg‘ÎÛŠO";
+			return "ã‚µãƒãƒ¼ãƒˆå¯¾è±¡å¤–";
 		}
 	}
 }

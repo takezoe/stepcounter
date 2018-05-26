@@ -8,7 +8,7 @@ import jp.sf.amateras.stepcounter.diffcount.object.DiffFolderResult;
 
 
 /**
- * ·•ªƒJƒEƒ“ƒg‚ÌŒ‹‰Ê‚ğHTMLŒ`®‚ÅƒŒƒ“ƒ_ƒŠƒ“ƒO‚µ‚Ü‚·B
+ * å·®åˆ†ã‚«ã‚¦ãƒ³ãƒˆã®çµæœã‚’HTMLå½¢å¼ã§ãƒ¬ãƒ³ãƒ€ãƒªãƒ³ã‚°ã—ã¾ã™ã€‚
  *
  * @author Naoki Takezoe
  */
@@ -18,7 +18,7 @@ public class HTMLRenderer implements Renderer {
 		StringBuilder sb = new StringBuilder();
 		sb.append("<html>\n");
 		sb.append("<head>\n");
-		sb.append("<title>•ÏXƒXƒeƒbƒv”</title>\n");
+		sb.append("<title>å¤‰æ›´ã‚¹ãƒ†ãƒƒãƒ—æ•°</title>\n");
 		sb.append("<script type=\"text/javascript\">\n");
 		sb.append("function switchDir(dirId){\n");
 		sb.append("  var trList = document.getElementsByTagName('tr');\n");
@@ -57,15 +57,15 @@ public class HTMLRenderer implements Renderer {
 		sb.append("</head>\n");
 		sb.append("<body>\n");
 
-		sb.append("ÀsF").append(DiffCounterUtil.formatDate(new Date())).append(
+		sb.append("å®Ÿè¡Œæ™‚åˆ»ï¼š").append(DiffCounterUtil.formatDate(new Date())).append(
 				"\n");
-		sb.append("<input type=\"button\" onclick=\"showAll();\" value=\"‚·‚×‚Ä“WŠJ\">");
-		sb.append("<input type=\"button\" onclick=\"hideAll();\" value=\"‚·‚×‚Äû”[\">");
+		sb.append("<input type=\"button\" onclick=\"showAll();\" value=\"ã™ã¹ã¦å±•é–‹\">");
+		sb.append("<input type=\"button\" onclick=\"hideAll();\" value=\"ã™ã¹ã¦åç´\">");
 
 		sb.append("<table border=\"1\" width=\"100%\">\n");
 
 		sb.append("<tr>");
-		sb.append("<th width=\"80%\">–¼‘O</th><th width=\"10%\">ó‘Ô</th><th width=\"10%\">’Ç‰ÁE•ÏXs”</th><th>íœs”</th>");
+		sb.append("<th width=\"80%\">åå‰</th><th width=\"10%\">çŠ¶æ…‹</th><th width=\"10%\">è¿½åŠ ãƒ»å¤‰æ›´è¡Œæ•°</th><th>å‰Šé™¤è¡Œæ•°</th>");
 		sb.append("</tr>\n");
 
 		for (AbstractDiffResult obj : root.getSortedChildren()) {

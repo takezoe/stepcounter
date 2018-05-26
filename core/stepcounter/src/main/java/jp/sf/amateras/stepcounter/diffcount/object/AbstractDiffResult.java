@@ -1,7 +1,7 @@
 package jp.sf.amateras.stepcounter.diffcount.object;
 
 /**
- * ƒtƒ@ƒCƒ‹AƒfƒBƒŒƒNƒgƒŠ‚Ì•ÏXî•ñ‚ğ¦‚·ƒIƒuƒWƒFƒNƒg‚Ì’ŠÛŠî’êƒNƒ‰ƒX‚Å‚·B
+ * ãƒ•ã‚¡ã‚¤ãƒ«ã€ãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒªã®å¤‰æ›´æƒ…å ±ã‚’ç¤ºã™ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã®æŠ½è±¡åŸºåº•ã‚¯ãƒ©ã‚¹ã§ã™ã€‚
  *
  * @author Naoki Takezoe
  */
@@ -69,7 +69,7 @@ public abstract class AbstractDiffResult {
 		return render(0);
 	}
 
-	// TODO e‚©‚ço‚µ‚½‚Ù‚¤‚ª‚æ‚¢‚Å‚·‚Ë‚¥
+	// TODO è¦ªã‹ã‚‰å‡ºã—ãŸã»ã†ãŒã‚ˆã„ã§ã™ã­ã‡
 	public String getClassName() {
 		AbstractDiffResult obj = this;
 

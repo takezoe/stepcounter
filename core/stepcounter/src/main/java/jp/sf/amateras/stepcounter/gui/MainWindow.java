@@ -9,13 +9,13 @@ import java.io.*;
 import jp.sf.amateras.stepcounter.*;
 import jp.sf.amateras.stepcounter.format.*;
 
-/** ƒXƒeƒbƒvƒJƒEƒ“ƒ^‚ÌƒƒCƒ“ƒEƒBƒ“ƒhƒE */
+/** ã‚¹ãƒ†ãƒƒãƒ—ã‚«ã‚¦ãƒ³ã‚¿ã®ãƒ¡ã‚¤ãƒ³ã‚¦ã‚£ãƒ³ãƒ‰ã‚¦ */
 @SuppressWarnings({"rawtypes", "unchecked", "deprecation"})
 public class MainWindow extends JFrame implements ActionListener {
 
 	private static final long serialVersionUID = 5954076353117692515L;
 
-	private String fontName = "‚l‚r ƒSƒVƒbƒN";
+	private String fontName = "ï¼­ï¼³ ã‚´ã‚·ãƒƒã‚¯";
 	private int    fontSize = 12;
 
 	private JRadioButton radioDirectory = new JRadioButton("Directory", false);
@@ -40,14 +40,14 @@ public class MainWindow extends JFrame implements ActionListener {
 
 //	private ByteArrayOutputStream out = new ByteArrayOutputStream();
 
-	/** ƒRƒ“ƒXƒgƒ‰ƒNƒ^ */
+	/** ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ */
 	public MainWindow(){
 		loadConfig();
 		initComponents();
 		setSize(600,450);
 	}
 
-	/** ƒRƒ“ƒ|[ƒlƒ“ƒg‚Ì‰Šú‰» */
+	/** ã‚³ãƒ³ãƒãƒ¼ãƒãƒ³ãƒˆã®åˆæœŸåŒ– */
 	private void initComponents(){
 
 		setTitle("STEP COUNTER");
@@ -66,39 +66,39 @@ public class MainWindow extends JFrame implements ActionListener {
 		JScrollPane scrText = new JScrollPane(textArea);
 		JScrollPane scrList = new JScrollPane(list);
 		list.setSelectionMode(ListSelectionModel.MULTIPLE_INTERVAL_SELECTION);
-		// ã•”iƒtƒ@ƒCƒ‹ˆê——j‚ğ”z’u
+		// ä¸Šéƒ¨ï¼ˆãƒ•ã‚¡ã‚¤ãƒ«ä¸€è¦§ï¼‰ã‚’é…ç½®
 		JPanel panel1 = new JPanel();
 		panel1.setLayout(new BorderLayout());
 		panel1.add(scrList,BorderLayout.CENTER);
 		panel1.add(new JLabel("Search Files"),BorderLayout.NORTH);
-		// ƒtƒ@ƒCƒ‹‚Ì’Ç‰ÁAíœƒ{ƒ^ƒ“‚ğ”z’u
+		// ãƒ•ã‚¡ã‚¤ãƒ«ã®è¿½åŠ ã€å‰Šé™¤ãƒœã‚¿ãƒ³ã‚’é…ç½®
 		JPanel panel3 = new JPanel();
 		panel3.add(buttonAdd);
 		panel3.add(buttonRemove);
 
-		// ƒfƒBƒŒƒNƒgƒŠ‚Æ’P‘Ìƒtƒ@ƒCƒ‹‚Åo—ÍŒ`®‚ğ‘I‘ğ‚·‚éƒ‰ƒWƒIƒ{ƒ^ƒ“‚ğ”z’u
+		// ãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒªã¨å˜ä½“ãƒ•ã‚¡ã‚¤ãƒ«ã§å‡ºåŠ›å½¢å¼ã‚’é¸æŠã™ã‚‹ãƒ©ã‚¸ã‚ªãƒœã‚¿ãƒ³ã‚’é…ç½®
 		JPanel panel6 = new JPanel();
 		panel6.add(radioDirectory);
 		panel6.add(radioFile);
 
-		// ƒtƒH[ƒ}ƒbƒg‘I‘ğƒRƒ“ƒ{‚ÆÀsƒ{ƒ^ƒ“‚ğ”z’u
+		// ãƒ•ã‚©ãƒ¼ãƒãƒƒãƒˆé¸æŠã‚³ãƒ³ãƒœã¨å®Ÿè¡Œãƒœã‚¿ãƒ³ã‚’é…ç½®
 		JPanel panel5 = new JPanel();
 		panel5.setLayout(new FlowLayout(FlowLayout.LEFT));
 		panel5.add(new JLabel("Format"));
 		panel5.add(comboFormat);
 		panel5.add(buttonExecute);
-		// ’†ŠÔ•”•ªiƒ{ƒ^ƒ“—Şj‚ğ”z’u
+		// ä¸­é–“éƒ¨åˆ†ï¼ˆãƒœã‚¿ãƒ³é¡ï¼‰ã‚’é…ç½®
 		JPanel panel2 = new JPanel();
 		panel2.setLayout(new BorderLayout());
 		panel2.add(panel3,BorderLayout.WEST);
 		panel2.add(panel6,BorderLayout.CENTER);
 		panel2.add(panel5,BorderLayout.EAST);
-		// ’†ŠÔ•”•ª‚Æ‰º•”iŒ‹‰Êo—ÍƒGƒŠƒAj‚ğ”z’u
+		// ä¸­é–“éƒ¨åˆ†ã¨ä¸‹éƒ¨ï¼ˆçµæœå‡ºåŠ›ã‚¨ãƒªã‚¢ï¼‰ã‚’é…ç½®
 		JPanel panel4 = new JPanel();
 		panel4.setLayout(new BorderLayout());
 		panel4.add(panel2,BorderLayout.NORTH);
 		panel4.add(scrText,BorderLayout.CENTER);
-		// ‘S‘Ì‚ğ”z’u
+		// å…¨ä½“ã‚’é…ç½®
 		Container cp = getContentPane();
 		cp.setLayout(new BorderLayout());
 
@@ -109,7 +109,7 @@ public class MainWindow extends JFrame implements ActionListener {
 	}
 
 	/**
-	 * ƒeƒLƒXƒgƒGƒŠƒA‚ÉƒeƒLƒXƒg‚ğ’Ç‰Á‚µ‚Ü‚·B
+	 * ãƒ†ã‚­ã‚¹ãƒˆã‚¨ãƒªã‚¢ã«ãƒ†ã‚­ã‚¹ãƒˆã‚’è¿½åŠ ã—ã¾ã™ã€‚
 	 */
 	public void appendText(String text){
 		textArea.append(text);
@@ -117,14 +117,14 @@ public class MainWindow extends JFrame implements ActionListener {
 	}
 
 	/**
-	 * ƒeƒLƒXƒgƒGƒŠƒA‚ğƒNƒŠƒA‚µ‚Ü‚·B
+	 * ãƒ†ã‚­ã‚¹ãƒˆã‚¨ãƒªã‚¢ã‚’ã‚¯ãƒªã‚¢ã—ã¾ã™ã€‚
 	 */
 	public void clearText(){
 		textArea.setText("");
 	}
 
 	/**
-	 * İ’è‚ğ•Û‘¶‚µ‚Ü‚·BI—¹‚ÉŒÄ‚Ño‚³‚ê‚Ü‚·B
+	 * è¨­å®šã‚’ä¿å­˜ã—ã¾ã™ã€‚çµ‚äº†æ™‚ã«å‘¼ã³å‡ºã•ã‚Œã¾ã™ã€‚
 	 */
 	public void saveConfig(){
 		try {
@@ -140,7 +140,7 @@ public class MainWindow extends JFrame implements ActionListener {
 	}
 
 	/**
-	 * İ’è‚ğ“Ç‚İ‚İ‚Ü‚·B‹N“®‚ÉŒÄ‚Ño‚³‚ê‚Ü‚·B
+	 * è¨­å®šã‚’èª­ã¿è¾¼ã¿ã¾ã™ã€‚èµ·å‹•æ™‚ã«å‘¼ã³å‡ºã•ã‚Œã¾ã™ã€‚
 	 */
 	public void loadConfig(){
 		try {
@@ -160,10 +160,10 @@ public class MainWindow extends JFrame implements ActionListener {
 	}
 
 
-	/** ƒAƒNƒVƒ‡ƒ“ƒCƒxƒ“ƒg‚ÌƒCƒxƒ“ƒgƒnƒ“ƒhƒ‰ */
+	/** ã‚¢ã‚¯ã‚·ãƒ§ãƒ³ã‚¤ãƒ™ãƒ³ãƒˆã®ã‚¤ãƒ™ãƒ³ãƒˆãƒãƒ³ãƒ‰ãƒ© */
 	public void actionPerformed(ActionEvent evt){
 		Object obj = evt.getSource();
-		if(obj == buttonExecute){ // Às
+		if(obj == buttonExecute){ // å®Ÿè¡Œ
 			File[] files = new File[model.getSize()];
 			for(int i=0;i<model.getSize();i++){
 				files[i] = (File)model.getElementAt(i);
@@ -187,7 +187,7 @@ public class MainWindow extends JFrame implements ActionListener {
 			} catch(IOException ioEx){
 				ioEx.printStackTrace();
 			}
-		} else if(obj == buttonAdd){ // ’Ç‰Á
+		} else if(obj == buttonAdd){ // è¿½åŠ 
 			JFileChooser chooser = new JFileChooser(lastDirectory);
 			chooser.setFileSelectionMode(JFileChooser.FILES_AND_DIRECTORIES);
 			chooser.setMultiSelectionEnabled(true);
@@ -200,7 +200,7 @@ public class MainWindow extends JFrame implements ActionListener {
 					lastDirectory = files[0].getParentFile();
 				}
 			}
-		} else if(obj == buttonRemove){ // íœ
+		} else if(obj == buttonRemove){ // å‰Šé™¤
 			Object[] files = list.getSelectedValues();
 			if(files!=null){
 				for(int i=0;i<files.length;i++){
@@ -211,7 +211,7 @@ public class MainWindow extends JFrame implements ActionListener {
 	}
 
 	/**
-	 * ‹N“®ƒƒ\ƒbƒh<BR>
+	 * èµ·å‹•ãƒ¡ã‚½ãƒƒãƒ‰<BR>
 	 * java -cp stepcounter.jar tk.stepcounter.gui.MainWindow
 	 */
 	public static void main(String[] args){

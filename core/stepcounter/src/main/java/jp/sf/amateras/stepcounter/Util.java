@@ -5,7 +5,7 @@ import java.io.File;
 import java.util.ArrayList;
 
 /**
- * Šeíƒ†[ƒeƒBƒŠƒeƒBƒƒ\ƒbƒh‚ğ’ñ‹Ÿ‚·‚éƒNƒ‰ƒX
+ * å„ç¨®ãƒ¦ãƒ¼ãƒ†ã‚£ãƒªãƒ†ã‚£ãƒ¡ã‚½ãƒƒãƒ‰ã‚’æä¾›ã™ã‚‹ã‚¯ãƒ©ã‚¹
  */
 public class Util {
 
@@ -13,11 +13,11 @@ public class Util {
 	private static FileEncodingDetector fileEncodingDetector = null;
 
 	/**
-	 * •¶š—ñ‚ğw’è•¶š—ñ‚Å•ªŠ„‚µA”z—ñ‚Å•Ô‹p‚µ‚Ü‚·B
+	 * æ–‡å­—åˆ—ã‚’æŒ‡å®šæ–‡å­—åˆ—ã§åˆ†å‰²ã—ã€é…åˆ—ã§è¿”å´ã—ã¾ã™ã€‚
 	 *
-	 * @param str •¶š—ñ
-	 * @param del ‹æØ‚è•¶š—ñ
-	 * @return •ªŠ„‚³‚ê‚½•¶š—ñ‚ğŠi”[‚µ‚½”z—ñ
+	 * @param str æ–‡å­—åˆ—
+	 * @param del åŒºåˆ‡ã‚Šæ–‡å­—åˆ—
+	 * @return åˆ†å‰²ã•ã‚ŒãŸæ–‡å­—åˆ—ã‚’æ ¼ç´ã—ãŸé…åˆ—
 	 */
 	public static String[] split(String str,String del){
 		ArrayList<String> list = new ArrayList<String>();
@@ -32,12 +32,12 @@ public class Util {
 	}
 
 	/**
-	 * “n‚³‚ê‚½•¶š—ñ‚ğw’èƒGƒ“ƒR[ƒfƒBƒ“ƒO‚Ìw’èƒoƒCƒg”‚Åæ“ª‚©‚çØ‚èo‚·B
-	 * ƒJƒ^ƒJƒi‚Ì”»’è‚Í³‚µ‚­s‚¤‚±‚Æ‚ª‚Å‚«‚È‚¢B
+	 * æ¸¡ã•ã‚ŒãŸæ–‡å­—åˆ—ã‚’æŒ‡å®šã‚¨ãƒ³ã‚³ãƒ¼ãƒ‡ã‚£ãƒ³ã‚°ã®æŒ‡å®šãƒã‚¤ãƒˆæ•°ã§å…ˆé ­ã‹ã‚‰åˆ‡ã‚Šå‡ºã™ã€‚
+	 * ã‚«ã‚¿ã‚«ãƒŠã®åˆ¤å®šã¯æ­£ã—ãè¡Œã†ã“ã¨ãŒã§ããªã„ã€‚
 	 *
-	 * @param   s    Ø‚èo‚µ‘ÎÛ•¶š—ñ
-	 * @param   cnt  Ø‚èo‚µƒoƒCƒg”
-	 * @return  Œ‹‰Ê•¶š—ñ
+	 * @param   s    åˆ‡ã‚Šå‡ºã—å¯¾è±¡æ–‡å­—åˆ—
+	 * @param   cnt  åˆ‡ã‚Šå‡ºã—ãƒã‚¤ãƒˆæ•°
+	 * @return  çµæœæ–‡å­—åˆ—
 	 */
 	public static String substring(String str,int length){
 		String resultStr = null;
@@ -46,17 +46,17 @@ public class Util {
 		int loopCnt     = length;
 		byte[] resBytes = new byte[length];
 		byte[] bytes    = str.getBytes();
-		// w’èƒoƒCƒg”ˆÈ‰º‚Ìê‡‚Í‚»‚Ì‚Ü‚Ü•Ô‹p
+		// æŒ‡å®šãƒã‚¤ãƒˆæ•°ä»¥ä¸‹ã®å ´åˆã¯ãã®ã¾ã¾è¿”å´
 		if(bytes.length <= length) {
 			return str;
 		}
 		for (int i=0; i < length; i++) {
 			if (bytes[i] < 0) {
-				// bytes[i]‚Ì8ƒrƒbƒg–Ú‚ª—§‚Á‚Ä‚¢‚é(‘SŠp)
+				// bytes[i]ã®8ãƒ“ãƒƒãƒˆç›®ãŒç«‹ã£ã¦ã„ã‚‹(å…¨è§’)
 				zenCnt ++;
 			}
 		}
-		// ‘SŠpƒoƒCƒg‚Ì”‚ªŠï”‚Ìê‡
+		// å…¨è§’ãƒã‚¤ãƒˆã®æ•°ãŒå¥‡æ•°ã®å ´åˆ
 		if(zenCnt % 2 == 1) {
 			loopCnt--;
 		}
@@ -68,10 +68,10 @@ public class Util {
 	}
 
 	/**
-	 * ˆø”‚Å“n‚µ‚½•¶š—ñ‚ÌƒoƒCƒg’·‚ğ•Ô‚µ‚Ü‚·B
+	 * å¼•æ•°ã§æ¸¡ã—ãŸæ–‡å­—åˆ—ã®ãƒã‚¤ãƒˆé•·ã‚’è¿”ã—ã¾ã™ã€‚
 	 *
-	 * @param str •¶š—ñ
-	 * @return ƒoƒCƒg’·
+	 * @param str æ–‡å­—åˆ—
+	 * @return ãƒã‚¤ãƒˆé•·
 	 */
 	public static int getByteLength(String str){
 		try {
@@ -83,10 +83,10 @@ public class Util {
 	}
 
 	/**
-	 * HTML/XML‚Ì“Áê•¶š‚ğÀ‘ÔQÆ‚É•ÏŠ·‚µ‚Ü‚·B
+	 * HTML/XMLã®ç‰¹æ®Šæ–‡å­—ã‚’å®Ÿæ…‹å‚ç…§ã«å¤‰æ›ã—ã¾ã™ã€‚
 	 *
-	 * @param str •¶š—ñ
-	 * @return •ÏŠ·Œã‚Ì•¶š—ñ
+	 * @param str æ–‡å­—åˆ—
+	 * @return å¤‰æ›å¾Œã®æ–‡å­—åˆ—
 	 */
 	public static String escapeXML(String str){
 		str.replaceAll("&" ,"&amp;");
@@ -97,9 +97,9 @@ public class Util {
 	}
 
 	/**
-	 * ƒXƒgƒŠ[ƒ€‚ğ‹­§“I‚ÉƒNƒ[ƒY‚µ‚Ü‚·B
+	 * ã‚¹ãƒˆãƒªãƒ¼ãƒ ã‚’å¼·åˆ¶çš„ã«ã‚¯ãƒ­ãƒ¼ã‚ºã—ã¾ã™ã€‚
 	 *
-	 * @param closeable ƒXƒgƒŠ[ƒ€
+	 * @param closeable ã‚¹ãƒˆãƒªãƒ¼ãƒ 
 	 */
 	public static void close(Closeable closeable){
 		if(closeable != null){

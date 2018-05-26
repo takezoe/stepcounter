@@ -3,7 +3,7 @@ package jp.sf.amateras.stepcounter;
 import java.io.File;
 
 /**
- * ƒtƒ@ƒCƒ‹‚Ì•¶šƒR[ƒhŒŸo‚ğŠg’£‚·‚é‚½‚ß‚ÌƒCƒ“ƒ^[ƒtƒF[ƒX‚Å‚·B
+ * ãƒ•ã‚¡ã‚¤ãƒ«ã®æ–‡å­—ã‚³ãƒ¼ãƒ‰æ¤œå‡ºã‚’æ‹¡å¼µã™ã‚‹ãŸã‚ã®ã‚¤ãƒ³ã‚¿ãƒ¼ãƒ•ã‚§ãƒ¼ã‚¹ã§ã™ã€‚
  *
  * @see Util#setFileEncodingDetector(FileEncodingDetector)
  * @see Util#getFileEncoding(File)
@@ -13,10 +13,10 @@ import java.io.File;
 public interface FileEncodingDetector {
 
 	/**
-	 * ƒtƒ@ƒCƒ‹‚Ì•¶šƒR[ƒh‚ğ•Ô‚µ‚Ü‚·BŒŸo‚Å‚«‚È‚¢ê‡‚Ínull‚ğ•Ô‚µ‚Ü‚·B
+	 * ãƒ•ã‚¡ã‚¤ãƒ«ã®æ–‡å­—ã‚³ãƒ¼ãƒ‰ã‚’è¿”ã—ã¾ã™ã€‚æ¤œå‡ºã§ããªã„å ´åˆã¯nullã‚’è¿”ã—ã¾ã™ã€‚
 	 *
-	 * @param file ƒtƒ@ƒCƒ‹
-	 * @return •¶šƒR[ƒh
+	 * @param file ãƒ•ã‚¡ã‚¤ãƒ«
+	 * @return æ–‡å­—ã‚³ãƒ¼ãƒ‰
 	 */
 	public String getEncoding(File file);
 

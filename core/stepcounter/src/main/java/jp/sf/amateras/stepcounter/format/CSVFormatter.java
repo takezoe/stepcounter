@@ -3,35 +3,35 @@ package jp.sf.amateras.stepcounter.format;
 import jp.sf.amateras.stepcounter.CountResult;
 
 /**
- * ƒJƒEƒ“ƒgŒ‹‰Ê‚ğCSVŒ`®‚ÅƒtƒH[ƒ}ƒbƒg‚µ‚Ü‚·B
+ * ã‚«ã‚¦ãƒ³ãƒˆçµæœã‚’CSVå½¢å¼ã§ãƒ•ã‚©ãƒ¼ãƒãƒƒãƒˆã—ã¾ã™ã€‚
  *
- * TODO ‘Û‰»
+ * TODO å›½éš›åŒ–
  */
 public class CSVFormatter implements ResultFormatter {
 
-//	private String fileHeader    = "ƒtƒ@ƒCƒ‹";
-//	private String stepHeader    = "Às";
-//	private String nonHeader     = "‹ós";
-//	private String commentHeader = "ºÒİÄ";
-//	private String typeHeader    = "í—Ş";
-//	private String sumHeader     = "‡Œv";
+//	private String fileHeader    = "ãƒ•ã‚¡ã‚¤ãƒ«";
+//	private String stepHeader    = "å®Ÿè¡Œ";
+//	private String nonHeader     = "ç©ºè¡Œ";
+//	private String commentHeader = "ã‚³ãƒ¡ãƒ³ãƒˆ";
+//	private String typeHeader    = "ç¨®é¡";
+//	private String sumHeader     = "åˆè¨ˆ";
 
 	public byte[] format(CountResult[] results){
 		StringBuffer sb = new StringBuffer();
 		for(int i=0;i<results.length;i++){
 			CountResult result = results[i];
-			// –¢‘Î‰‚ÌŒ`®‚ğƒtƒH[ƒ}ƒbƒg
+			// æœªå¯¾å¿œã®å½¢å¼ã‚’ãƒ•ã‚©ãƒ¼ãƒãƒƒãƒˆ
 			if(result.getFileType()==null){
 				sb.append(result.getFileName());
 				sb.append(",");
-				sb.append("–¢‘Î‰");
+				sb.append("æœªå¯¾å¿œ");
 				sb.append(",");
 				sb.append(",");
 				sb.append(",");
 				sb.append(",");
 				sb.append(",");
 				sb.append("\n");
-			// ³í‚ÉƒJƒEƒ“ƒg‚³‚ê‚½‚à‚Ì‚ğƒtƒH[ƒ}ƒbƒg
+			// æ­£å¸¸ã«ã‚«ã‚¦ãƒ³ãƒˆã•ã‚ŒãŸã‚‚ã®ã‚’ãƒ•ã‚©ãƒ¼ãƒãƒƒãƒˆ
 			} else {
 				sb.append(result.getFileName());
 				sb.append(",");

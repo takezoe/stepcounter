@@ -8,7 +8,7 @@ import java.io.Writer;
 import jp.sf.amateras.stepcounter.CountResult;
 
 /**
- * ƒJƒEƒ“ƒgŒ‹‰Ê‚ğJSONŒ`®‚ÅƒtƒH[ƒ}ƒbƒg‚µ‚Ü‚·B
+ * ã‚«ã‚¦ãƒ³ãƒˆçµæœã‚’JSONå½¢å¼ã§ãƒ•ã‚©ãƒ¼ãƒãƒƒãƒˆã—ã¾ã™ã€‚
  */
 public class JSONFormatter implements ResultFormatter {
 	private static final int[] ESCAPE_CHARS = new int[128];
@@ -48,10 +48,10 @@ public class JSONFormatter implements ResultFormatter {
 				escape(writer, result.getFileName());
 				writer.append("\", ");
 				
-				// –¢‘Î‰‚ÌŒ`®‚ğƒtƒH[ƒ}ƒbƒg
+				// æœªå¯¾å¿œã®å½¢å¼ã‚’ãƒ•ã‚©ãƒ¼ãƒãƒƒãƒˆ
 				if (result.getFileType() == null || result.getFileType().length() == 0) {
 					writer.append("\"type\": \"unknown\"");
-				// ³í‚ÉƒJƒEƒ“ƒg‚³‚ê‚½‚à‚Ì‚ğƒtƒH[ƒ}ƒbƒg
+				// æ­£å¸¸ã«ã‚«ã‚¦ãƒ³ãƒˆã•ã‚ŒãŸã‚‚ã®ã‚’ãƒ•ã‚©ãƒ¼ãƒãƒƒãƒˆ
 				} else {
 					writer.append("\"type\": \"");
 					escape(writer, result.getFileType());

@@ -2,7 +2,7 @@ package jp.sf.amateras.stepcounter;
 
 import java.io.File;
 
-/** ƒJƒEƒ“ƒgŒ‹‰Êi‚Pƒtƒ@ƒCƒ‹j */
+/** ã‚«ã‚¦ãƒ³ãƒˆçµæœï¼ˆï¼‘ãƒ•ã‚¡ã‚¤ãƒ«ï¼‰ */
 public class CountResult {
 
 	private File file;
@@ -13,7 +13,7 @@ public class CountResult {
 	private long non;
 	private long comment;
 
-	/** ˆø”‚È‚µ‚ÌƒRƒ“ƒXƒgƒ‰ƒNƒ^ */
+	/** å¼•æ•°ãªã—ã®ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ */
 	public CountResult(){ }
 
 
@@ -28,77 +28,77 @@ public class CountResult {
 	}
 
 
-	/** ƒtƒ@ƒCƒ‹–¼‚ğİ’è‚µ‚Ü‚· */
+	/** ãƒ•ã‚¡ã‚¤ãƒ«åã‚’è¨­å®šã—ã¾ã™ */
 	public void setFileName(String fileName){
 		this.fileName = fileName;
 	}
 
-	/** ƒtƒ@ƒCƒ‹‚Ìí—Ş‚ğİ’è‚µ‚Ü‚· */
+	/** ãƒ•ã‚¡ã‚¤ãƒ«ã®ç¨®é¡ã‚’è¨­å®šã—ã¾ã™ */
 	public void setFileType(String fileType){
 		this.fileType = fileType;
 	}
 
-	/** ÀsƒXƒeƒbƒv”‚ğİ’è‚µ‚Ü‚· */
+	/** å®Ÿè¡Œã‚¹ãƒ†ãƒƒãƒ—æ•°ã‚’è¨­å®šã—ã¾ã™ */
 	public void setStep(long step){
 		this.step = step;
 	}
 
-	/** ‹ós”‚ğİ’è‚µ‚Ü‚· */
+	/** ç©ºè¡Œæ•°ã‚’è¨­å®šã—ã¾ã™ */
 	public void setNon(long non){
 		this.non = non;
 	}
 
-	/** ƒRƒƒ“ƒgs”‚ğİ’è‚µ‚Ü‚· */
+	/** ã‚³ãƒ¡ãƒ³ãƒˆè¡Œæ•°ã‚’è¨­å®šã—ã¾ã™ */
 	public void setComment(long comment){
 		this.comment = comment;
 	}
 
-	/** ƒtƒ@ƒCƒ‹–¼‚ğæ“¾‚µ‚Ü‚· */
+	/** ãƒ•ã‚¡ã‚¤ãƒ«åã‚’å–å¾—ã—ã¾ã™ */
 	public String getFileName(){
 		return this.fileName;
 	}
 
-	/** ƒtƒ@ƒCƒ‹‚Ìí—Ş‚ğæ“¾‚µ‚Ü‚· */
+	/** ãƒ•ã‚¡ã‚¤ãƒ«ã®ç¨®é¡ã‚’å–å¾—ã—ã¾ã™ */
 	public String getFileType(){
 		return this.fileType;
 	}
 
-	/** ÀsƒXƒeƒbƒv”‚ğæ“¾‚µ‚Ü‚· */
+	/** å®Ÿè¡Œã‚¹ãƒ†ãƒƒãƒ—æ•°ã‚’å–å¾—ã—ã¾ã™ */
 	public long getStep(){
 		return this.step;
 	}
 
-	/** ‹ós”‚ğæ“¾‚µ‚Ü‚· */
+	/** ç©ºè¡Œæ•°ã‚’å–å¾—ã—ã¾ã™ */
 	public long getNon(){
 		return this.non;
 	}
 
-	/** ƒRƒƒ“ƒgs”‚ğæ“¾‚µ‚Ü‚· */
+	/** ã‚³ãƒ¡ãƒ³ãƒˆè¡Œæ•°ã‚’å–å¾—ã—ã¾ã™ */
 	public long getComment(){
 		return this.comment;
 	}
 
-	/** ƒJƒEƒ“ƒgŒ‹‰Ê‚ğ•¶š—ñ‚Åæ“¾‚µ‚Ü‚· */
+	/** ã‚«ã‚¦ãƒ³ãƒˆçµæœã‚’æ–‡å­—åˆ—ã§å–å¾—ã—ã¾ã™ */
 	public String getResultString(){
 		return toString();
 	}
 
-	/** ƒtƒ@ƒCƒ‹‚ÌƒJƒeƒSƒŠ‚ğæ“¾‚µ‚Ü‚· */
+	/** ãƒ•ã‚¡ã‚¤ãƒ«ã®ã‚«ãƒ†ã‚´ãƒªã‚’å–å¾—ã—ã¾ã™ */
 	public String getCategory() {
 		return category;
 	}
 
-	/** ƒtƒ@ƒCƒ‹‚ÌƒJƒeƒSƒŠ‚ğİ’è‚µ‚Ü‚· */
+	/** ãƒ•ã‚¡ã‚¤ãƒ«ã®ã‚«ãƒ†ã‚´ãƒªã‚’è¨­å®šã—ã¾ã™ */
 	public void setCategory(String category) {
 		this.category = category;
 	}
 
-	/** ƒtƒ@ƒCƒ‹ƒIƒuƒWƒFƒNƒg‚ğİ’è‚µ‚Ü‚· */
+	/** ãƒ•ã‚¡ã‚¤ãƒ«ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã‚’è¨­å®šã—ã¾ã™ */
 	public void setFile(File file) {
 		this.file = file;
 	}
 
-	/** ƒtƒ@ƒCƒ‹ƒIƒuƒWƒFƒNƒg‚ğ•Ô‹p‚µ‚Ü‚· */
+	/** ãƒ•ã‚¡ã‚¤ãƒ«ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã‚’è¿”å´ã—ã¾ã™ */
 	public File getFile() {
 		return this.file;
 	}
@@ -106,9 +106,9 @@ public class CountResult {
 	public String toString(){
 		StringBuffer sb = new StringBuffer();
 		sb.append(getFileName()).append(" ");
-		sb.append("Às:").append(Long.toString(getStep())).append(" ");
-		sb.append("‹ós:").append(Long.toString(getNon())).append(" ");
-		sb.append("ƒRƒƒ“ƒg:").append(Long.toString(getComment()));
+		sb.append("å®Ÿè¡Œ:").append(Long.toString(getStep())).append(" ");
+		sb.append("ç©ºè¡Œ:").append(Long.toString(getNon())).append(" ");
+		sb.append("ã‚³ãƒ¡ãƒ³ãƒˆ:").append(Long.toString(getComment()));
 		return sb.toString();
 	}
 }

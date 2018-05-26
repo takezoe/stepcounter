@@ -12,7 +12,7 @@ import difflib.InsertDelta;
 import difflib.Patch;
 
 /**
- * •¶š—ñ‚Ì·•ªæ“¾‚ğs‚¤‚½‚ß‚ÌDiffƒGƒ“ƒWƒ“‚Å‚·B
+ * æ–‡å­—åˆ—ã®å·®åˆ†å–å¾—ã‚’è¡Œã†ãŸã‚ã®Diffã‚¨ãƒ³ã‚¸ãƒ³ã§ã™ã€‚
  *
  * @author Naoki Takezoe
  */
@@ -25,11 +25,11 @@ public class DiffEngine {
 	private List<String>	text2;
 
 	/**
-	 * ƒRƒ“ƒXƒgƒ‰ƒNƒ^B
+	 * ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ã€‚
 	 *
-	 * @param handler ƒnƒ“ƒhƒ‰
-	 * @param text1   •ÒW‘O‚Ì•¶š—ñinull‚Ìê‡‚Í‹ó•¶š—ñ‚Æ‚µ‚Äˆµ‚¢‚Ü‚·j
-	 * @param text2   •ÒWŒã‚Ì•¶š—ñinull‚Ìê‡‚Í‹ó•¶š—ñ‚Æ‚µ‚Äˆµ‚¢‚Ü‚·j
+	 * @param handler ãƒãƒ³ãƒ‰ãƒ©
+	 * @param text1   ç·¨é›†å‰ã®æ–‡å­—åˆ—ï¼ˆnullã®å ´åˆã¯ç©ºæ–‡å­—åˆ—ã¨ã—ã¦æ‰±ã„ã¾ã™ï¼‰
+	 * @param text2   ç·¨é›†å¾Œã®æ–‡å­—åˆ—ï¼ˆnullã®å ´åˆã¯ç©ºæ–‡å­—åˆ—ã¨ã—ã¦æ‰±ã„ã¾ã™ï¼‰
 	 */
 	public DiffEngine(IDiffHandler handler, String text1, String text2) {
 		if (text1 == null) {
@@ -44,7 +44,7 @@ public class DiffEngine {
 	}
 
 	/**
-	 * ·•ªæ“¾ˆ—‚ğÀs‚µ‚Ü‚·B
+	 * å·®åˆ†å–å¾—å‡¦ç†ã‚’å®Ÿè¡Œã—ã¾ã™ã€‚
 	 */
 	public void doDiff() {
 
@@ -98,10 +98,10 @@ public class DiffEngine {
 	}
 
 	/**
-	 * •¶š—ñ‚ğ‚Ps‚²‚Æ‚É•ªŠ„‚µ‚Ü‚·B
+	 * æ–‡å­—åˆ—ã‚’ï¼‘è¡Œã”ã¨ã«åˆ†å‰²ã—ã¾ã™ã€‚
 	 *
-	 * @param text •¶š—ñ
-	 * @return ‚Ps‚²‚Æ‚É•ªŠ„‚³‚ê‚½•¶š—ñ
+	 * @param text æ–‡å­—åˆ—
+	 * @return ï¼‘è¡Œã”ã¨ã«åˆ†å‰²ã•ã‚ŒãŸæ–‡å­—åˆ—
 	 */
 	private static List<String> splitLine(String text) {
 		return Arrays.asList(text.split("\r?\n|\r"));

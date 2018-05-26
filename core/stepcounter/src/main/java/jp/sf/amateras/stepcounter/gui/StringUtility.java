@@ -3,7 +3,7 @@ package jp.sf.amateras.stepcounter.gui;
 import java.util.*;
 
 /**
- * •¶š—ñ‚Ì‘€ì‚ğs‚¤Šeístaticƒƒ\ƒbƒh‚ğ’ñ‹Ÿ‚·‚éƒNƒ‰ƒX‚Å‚·B
+ * æ–‡å­—åˆ—ã®æ“ä½œã‚’è¡Œã†å„ç¨®staticãƒ¡ã‚½ãƒƒãƒ‰ã‚’æä¾›ã™ã‚‹ã‚¯ãƒ©ã‚¹ã§ã™ã€‚
  *
  * @author  Naoki Takezoe
  * @version 2.0
@@ -11,7 +11,7 @@ import java.util.*;
 public class StringUtility {
 
 	/*
-	// “®ìŠm”F—p‹N“®ƒƒ\ƒbƒh
+	// å‹•ä½œç¢ºèªç”¨èµ·å‹•ãƒ¡ã‚½ãƒƒãƒ‰
 	public static void main(String[] args){
 
 
@@ -24,11 +24,11 @@ public class StringUtility {
 	*/
 
 	/**
-	 * HTML‚Ì“Áê‹L†‚ğÀ‘ÔQÆ‚É•ÏŠ·‚µ‚Ü‚·B
-	 * ‰üsƒR[ƒh‚à&lt;BR&gt;ƒ^ƒO‚É•ÏŠ·‚µ‚Ü‚·B
+	 * HTMLã®ç‰¹æ®Šè¨˜å·ã‚’å®Ÿæ…‹å‚ç…§ã«å¤‰æ›ã—ã¾ã™ã€‚
+	 * æ”¹è¡Œã‚³ãƒ¼ãƒ‰ã‚‚&lt;BR&gt;ã‚¿ã‚°ã«å¤‰æ›ã—ã¾ã™ã€‚
 	 *
-	 * @param str •ÏŠ·‘ÎÛ‚Ì•¶š—ñ
-	 * @return •ÏŠ·Œã‚Ì•¶š—ñ
+	 * @param str å¤‰æ›å¯¾è±¡ã®æ–‡å­—åˆ—
+	 * @return å¤‰æ›å¾Œã®æ–‡å­—åˆ—
 	 */
 	public static String tagFilter(String str){
 
@@ -43,12 +43,12 @@ public class StringUtility {
 	}
 
 	/**
-	 * HTML‚Ì“Áê‹L†‚ğÀ‘ÔQÆ‚É•ÏŠ·‚µ‚Ü‚·B
-	 * ‚½‚¾‚µ‰üsƒR[ƒh‚Í•ÏŠ·‚µ‚Ü‚¹‚ñB
-	 * ƒtƒH[ƒ€‚É‘®«’l‚ğŠi”[‚·‚éÛ‚È‚Ç‚Ég—p‚µ‚Ä‚­‚¾‚³‚¢B
+	 * HTMLã®ç‰¹æ®Šè¨˜å·ã‚’å®Ÿæ…‹å‚ç…§ã«å¤‰æ›ã—ã¾ã™ã€‚
+	 * ãŸã ã—æ”¹è¡Œã‚³ãƒ¼ãƒ‰ã¯å¤‰æ›ã—ã¾ã›ã‚“ã€‚
+	 * ãƒ•ã‚©ãƒ¼ãƒ ã«å±æ€§å€¤ã‚’æ ¼ç´ã™ã‚‹éš›ãªã©ã«ä½¿ç”¨ã—ã¦ãã ã•ã„ã€‚
 	 *
-	 * @param str •ÏŠ·‘ÎÛ‚Ì•¶š—ñ
-	 * @return •ÏŠ·Œã‚Ì•¶š—ñ
+	 * @param str å¤‰æ›å¯¾è±¡ã®æ–‡å­—åˆ—
+	 * @return å¤‰æ›å¾Œã®æ–‡å­—åˆ—
 	 */
 	public static String formFilter(String str){
 
@@ -60,16 +60,16 @@ public class StringUtility {
 	}
 
 	/**
-	 * •¶š—ñ’†‚Ì”CˆÓ‚Ì•¶š—ñ‚ğw’è‚µ‚½•¶š—ñ‚É’uŠ·‚µ‚Ü‚·B
+	 * æ–‡å­—åˆ—ä¸­ã®ä»»æ„ã®æ–‡å­—åˆ—ã‚’æŒ‡å®šã—ãŸæ–‡å­—åˆ—ã«ç½®æ›ã—ã¾ã™ã€‚
 	 *
-	 * @param s •ÏŠ·‘ÎÛ‚Ì•¶š—ñB
-	 * @param s1 s2‚É’u‚«Š·‚í‚é•¶š—ñB
-	 * @param s2 s1‚É’u‚«Š·‚¦‚é•¶š—ñB
-	 * @return •ÏŠ·Œã‚Ì•¶š—ñBs‚ªnull‚Ìê‡‚Í‹ó•¶š—ñ‚ğ•Ô‚µ‚Ü‚·B
+	 * @param s å¤‰æ›å¯¾è±¡ã®æ–‡å­—åˆ—ã€‚
+	 * @param s1 s2ã«ç½®ãæ›ã‚ã‚‹æ–‡å­—åˆ—ã€‚
+	 * @param s2 s1ã«ç½®ãæ›ãˆã‚‹æ–‡å­—åˆ—ã€‚
+	 * @return å¤‰æ›å¾Œã®æ–‡å­—åˆ—ã€‚sãŒnullã®å ´åˆã¯ç©ºæ–‡å­—åˆ—ã‚’è¿”ã—ã¾ã™ã€‚
 	 */
 	public static String replace(String s,String s1,String s2){
 
-		// s ‚ªNULL‚¾‚Á‚½ê‡A‹ó•¶š—ñ‚ğ•Ô‚·
+		// s ãŒNULLã ã£ãŸå ´åˆã€ç©ºæ–‡å­—åˆ—ã‚’è¿”ã™
 		if(s==null){ return ""; }
 
 		StringBuffer sb = new StringBuffer();
@@ -85,12 +85,12 @@ public class StringUtility {
 	}
 
 	/**
-	 * •¶š—ñ‚ªw’è‚ÌƒoƒCƒg’·‚æ‚è‚à’Z‚©‚Á‚½ê‡‚É¶‘¤‚ğƒXƒy[ƒX‚Å–„‚ß‚Ü‚·B
-	 * w’è‚ÌƒoƒCƒg’·‚æ‚è‚à’·‚©‚Á‚½ê‡‚Í‚È‚É‚à‚µ‚Ü‚¹‚ñB
+	 * æ–‡å­—åˆ—ãŒæŒ‡å®šã®ãƒã‚¤ãƒˆé•·ã‚ˆã‚Šã‚‚çŸ­ã‹ã£ãŸå ´åˆã«å·¦å´ã‚’ã‚¹ãƒšãƒ¼ã‚¹ã§åŸ‹ã‚ã¾ã™ã€‚
+	 * æŒ‡å®šã®ãƒã‚¤ãƒˆé•·ã‚ˆã‚Šã‚‚é•·ã‹ã£ãŸå ´åˆã¯ãªã«ã‚‚ã—ã¾ã›ã‚“ã€‚
 	 *
-	 * @param str •ÏŠ·‘ÎÛ‚Ì•¶š—ñ
-	 * @param length ƒoƒCƒg’·
-	 * @return •ÏŠ·Œã‚Ì•¶š—ñ
+	 * @param str å¤‰æ›å¯¾è±¡ã®æ–‡å­—åˆ—
+	 * @param length ãƒã‚¤ãƒˆé•·
+	 * @return å¤‰æ›å¾Œã®æ–‡å­—åˆ—
 	 */
 	public static String fillLeftSpace(String str,int length){
 		StringBuffer sb = new StringBuffer();
@@ -102,12 +102,12 @@ public class StringUtility {
 	}
 
 	/**
-	 * •¶š—ñ‚ªw’è‚ÌƒoƒCƒg’·‚æ‚è‚à’Z‚©‚Á‚½ê‡‚É‰E‘¤‚ğƒXƒy[ƒX‚Å–„‚ß‚Ü‚·B
-	 * w’è‚ÌƒoƒCƒg’·‚æ‚è‚à’·‚©‚Á‚½ê‡‚Í‚È‚É‚à‚µ‚Ü‚¹‚ñB
+	 * æ–‡å­—åˆ—ãŒæŒ‡å®šã®ãƒã‚¤ãƒˆé•·ã‚ˆã‚Šã‚‚çŸ­ã‹ã£ãŸå ´åˆã«å³å´ã‚’ã‚¹ãƒšãƒ¼ã‚¹ã§åŸ‹ã‚ã¾ã™ã€‚
+	 * æŒ‡å®šã®ãƒã‚¤ãƒˆé•·ã‚ˆã‚Šã‚‚é•·ã‹ã£ãŸå ´åˆã¯ãªã«ã‚‚ã—ã¾ã›ã‚“ã€‚
 	 *
-	 * @param str •ÏŠ·‘ÎÛ‚Ì•¶š—ñ
-	 * @param length ƒoƒCƒg’·
-	 * @return •ÏŠ·Œã‚Ì•¶š—ñ
+	 * @param str å¤‰æ›å¯¾è±¡ã®æ–‡å­—åˆ—
+	 * @param length ãƒã‚¤ãƒˆé•·
+	 * @return å¤‰æ›å¾Œã®æ–‡å­—åˆ—
 	 */
 	public static String fillRightSpace(String str,int length){
 
@@ -120,13 +120,13 @@ public class StringUtility {
 	}
 
 	/**
-	 * •¶š—ñ‚ªw’è‚Ì•¶š”iƒoƒCƒg’·‚Å‚Í‚È‚¢j‚ğ’´‚¦‚éê‡‚ÉA
-	 * ’´‚¦‚½•ª‚ğƒJƒbƒg‚µ‚½•¶š—ñ‚ğ•Ô‚µ‚Ü‚·B
-	 * w’è‚Ì•¶š”‚æ‚è­‚È‚¢ê‡‚Í‰½‚à‚¹‚¸‚É•Ô‚µ‚Ü‚·B
+	 * æ–‡å­—åˆ—ãŒæŒ‡å®šã®æ–‡å­—æ•°ï¼ˆãƒã‚¤ãƒˆé•·ã§ã¯ãªã„ï¼‰ã‚’è¶…ãˆã‚‹å ´åˆã«ã€
+	 * è¶…ãˆãŸåˆ†ã‚’ã‚«ãƒƒãƒˆã—ãŸæ–‡å­—åˆ—ã‚’è¿”ã—ã¾ã™ã€‚
+	 * æŒ‡å®šã®æ–‡å­—æ•°ã‚ˆã‚Šå°‘ãªã„å ´åˆã¯ä½•ã‚‚ã›ãšã«è¿”ã—ã¾ã™ã€‚
 	 *
-	 * @param str •ÏŠ·‘ÎÛ‚Ì•¶š—ñ
-	 * @param length •¶š”
-	 * @return •ÏŠ·Œã‚Ì•¶š—ñ
+	 * @param str å¤‰æ›å¯¾è±¡ã®æ–‡å­—åˆ—
+	 * @param length æ–‡å­—æ•°
+	 * @return å¤‰æ›å¾Œã®æ–‡å­—åˆ—
 	 */
 	public static String cut(String str,int length){
 		if(str.length() <= length){ return str; }
@@ -134,20 +134,20 @@ public class StringUtility {
 	}
 
 	/**
-	 * •¶š—ñ‚ªNULL‚¾‚Á‚½ê‡‚É‹ó•¶š—ñ‚É•ÏŠ·‚µ‚Ü‚·B
+	 * æ–‡å­—åˆ—ãŒNULLã ã£ãŸå ´åˆã«ç©ºæ–‡å­—åˆ—ã«å¤‰æ›ã—ã¾ã™ã€‚
 	 *
-	 * @param s •ÏŠ·‘ÎÛ‚Ì•¶š—ñB
-	 * @return s‚ªnull‚Ìê‡‚Í‹ó•¶š—ñ‚ğA‚»‚êˆÈŠO‚Ìê‡‚ÍŒ³‚Ì•¶š—ñ‚ğ•Ô‚µ‚Ü‚·B
+	 * @param s å¤‰æ›å¯¾è±¡ã®æ–‡å­—åˆ—ã€‚
+	 * @return sãŒnullã®å ´åˆã¯ç©ºæ–‡å­—åˆ—ã‚’ã€ãã‚Œä»¥å¤–ã®å ´åˆã¯å…ƒã®æ–‡å­—åˆ—ã‚’è¿”ã—ã¾ã™ã€‚
 	 */
 	public static String nullConvert(String s){
 		if(s==null){ return ""; } else { return s; }
 	}
 
 	/**
-	 * •¶š—ñ‚ªNULL‚¾‚Á‚½ê‡‚Éw’è‚µ‚½•¶š—ñ‚É•ÏŠ·‚µ‚Ü‚·B
+	 * æ–‡å­—åˆ—ãŒNULLã ã£ãŸå ´åˆã«æŒ‡å®šã—ãŸæ–‡å­—åˆ—ã«å¤‰æ›ã—ã¾ã™ã€‚
 	 *
-	 * @param s •ÏŠ·‘ÎÛ‚Ì•¶š—ñB
-	 * @return s‚ªnull‚Ìê‡‚Íw’è‚µ‚½•¶š—ñ‚ğA‚»‚êˆÈŠO‚Ìê‡‚ÍŒ³‚Ì•¶š—ñ‚ğ•Ô‚µ‚Ü‚·B
+	 * @param s å¤‰æ›å¯¾è±¡ã®æ–‡å­—åˆ—ã€‚
+	 * @return sãŒnullã®å ´åˆã¯æŒ‡å®šã—ãŸæ–‡å­—åˆ—ã‚’ã€ãã‚Œä»¥å¤–ã®å ´åˆã¯å…ƒã®æ–‡å­—åˆ—ã‚’è¿”ã—ã¾ã™ã€‚
 	 */
 	public static String nullConvert(String s1,String s2){
 		if(s1==null){ return s1; } else { return s2; }
@@ -155,11 +155,11 @@ public class StringUtility {
 
 
 	/**
-	 * •¶š—ñ‚ğw’è‚µ‚½•¶š—ñ‚Å•ªŠ„‚µA”z—ñ‚Å•Ô‚µ‚Ü‚·B
+	 * æ–‡å­—åˆ—ã‚’æŒ‡å®šã—ãŸæ–‡å­—åˆ—ã§åˆ†å‰²ã—ã€é…åˆ—ã§è¿”ã—ã¾ã™ã€‚
 	 *
-	 * @param s1 •ªŠ„‘ÎÛ‚Ì•¶š—ñB
-	 * @param s2 •ªŠ„‚Ì‹æØ‚è‚Ég—p‚·‚é•¶š—ñB
-	 * @return •ªŠ„Œ‹‰Ê‚ğ”z—ñ‚Å•Ô‚µ‚Ü‚·Bs1‚ªnull‚Ìê‡‚Ínull‚ğ•Ô‚µ‚Ü‚·B
+	 * @param s1 åˆ†å‰²å¯¾è±¡ã®æ–‡å­—åˆ—ã€‚
+	 * @param s2 åˆ†å‰²æ™‚ã®åŒºåˆ‡ã‚Šã«ä½¿ç”¨ã™ã‚‹æ–‡å­—åˆ—ã€‚
+	 * @return åˆ†å‰²çµæœã‚’é…åˆ—ã§è¿”ã—ã¾ã™ã€‚s1ãŒnullã®å ´åˆã¯nullã‚’è¿”ã—ã¾ã™ã€‚
 	 */
 	public static String[] split(String s1,String s2){
 		if(s1 == null){ return null; }
@@ -184,44 +184,44 @@ public class StringUtility {
 	}
 
 	/**
-	 * •¶š—ñ‚ÌƒoƒCƒg’·‚ğ•Ô‚·ƒƒ\ƒbƒh‚Å‚·B
+	 * æ–‡å­—åˆ—ã®ãƒã‚¤ãƒˆé•·ã‚’è¿”ã™ãƒ¡ã‚½ãƒƒãƒ‰ã§ã™ã€‚
 	 *
-	 * @param str ŒŸ¸‘ÎÛ‚Ì•¶š—ñB
-	 * @return ˆø”‚Ì•¶š—ñs‚ÌƒoƒCƒg’·B
+	 * @param str æ¤œæŸ»å¯¾è±¡ã®æ–‡å­—åˆ—ã€‚
+	 * @return å¼•æ•°ã®æ–‡å­—åˆ—sã®ãƒã‚¤ãƒˆé•·ã€‚
 	 */
 	public static int getBytes(String str){ return str.getBytes().length; }
 
 
 	/**
-	 * •¶š—ñ‚Ìæ“ª‚Æ––”ö‚Ìƒ^ƒuAƒXƒy[ƒX‚ğ”rœ‚µ‚Ü‚·Bˆø”‚ªNULL‚Ìê‡‚Í‹ó•¶š—ñ‚ğ•Ô‚µ‚Ü‚·B
+	 * æ–‡å­—åˆ—ã®å…ˆé ­ã¨æœ«å°¾ã®ã‚¿ãƒ–ã€ã‚¹ãƒšãƒ¼ã‚¹ã‚’æ’é™¤ã—ã¾ã™ã€‚å¼•æ•°ãŒNULLã®å ´åˆã¯ç©ºæ–‡å­—åˆ—ã‚’è¿”ã—ã¾ã™ã€‚
 	 *
-	 * @param str •¶š—ñB
-	 * @return ˆø”‚Ì•¶š—ñstr‚©‚çƒ^ƒuAƒXƒy[ƒX‚ğæ‚èœ‚¢‚½•¶š—ñB
+	 * @param str æ–‡å­—åˆ—ã€‚
+	 * @return å¼•æ•°ã®æ–‡å­—åˆ—strã‹ã‚‰ã‚¿ãƒ–ã€ã‚¹ãƒšãƒ¼ã‚¹ã‚’å–ã‚Šé™¤ã„ãŸæ–‡å­—åˆ—ã€‚
 	 */
 	public static String trim(String str){
-		// NULL‚Ìê‡A‹ó•¶š—ñ‚ğ•Ô‚·
+		// NULLã®å ´åˆã€ç©ºæ–‡å­—åˆ—ã‚’è¿”ã™
 		if(str==null){ return ""; }
 
 		StringBuffer sb = new StringBuffer();
 		for(int i=0;i<str.length();i++){
 			char c = str.charAt(i);
-			if(c!=' ' && c!='\t' && c!='@'){ sb.append(c); }
+			if(c!=' ' && c!='\t' && c!='ã€€'){ sb.append(c); }
 		}
 		return sb.toString();
 	}
 
 	/**
-	 * •¶š—ñ‚Ì––”ö‚Ìƒ^ƒuAƒXƒy[ƒX‚ğ”rœ‚µ‚Ü‚·Bˆø”‚ªNULL‚Ìê‡‚Í‹ó•¶š—ñ‚ğ•Ô‚µ‚Ü‚·B
+	 * æ–‡å­—åˆ—ã®æœ«å°¾ã®ã‚¿ãƒ–ã€ã‚¹ãƒšãƒ¼ã‚¹ã‚’æ’é™¤ã—ã¾ã™ã€‚å¼•æ•°ãŒNULLã®å ´åˆã¯ç©ºæ–‡å­—åˆ—ã‚’è¿”ã—ã¾ã™ã€‚
 	 *
-	 * @param str •¶š—ñB
-	 * @return ˆø”‚Ì•¶š—ñstr‚Ì––”ö‚©‚çƒ^ƒuAƒXƒy[ƒX‚ğæ‚èœ‚¢‚½•¶š—ñB
+	 * @param str æ–‡å­—åˆ—ã€‚
+	 * @return å¼•æ•°ã®æ–‡å­—åˆ—strã®æœ«å°¾ã‹ã‚‰ã‚¿ãƒ–ã€ã‚¹ãƒšãƒ¼ã‚¹ã‚’å–ã‚Šé™¤ã„ãŸæ–‡å­—åˆ—ã€‚
 	 */
 	public static String rTrim(String str){
-		// NULL‚Ìê‡A‹ó•¶š—ñ‚ğ•Ô‚·
+		// NULLã®å ´åˆã€ç©ºæ–‡å­—åˆ—ã‚’è¿”ã™
 		if(str==null){ return ""; }
 		char c = ' ';
 		int index = str.length();
-		while((c==' ' || c=='@' || c=='\t') && index > 0){
+		while((c==' ' || c=='ã€€' || c=='\t') && index > 0){
 			index = index - 1;
 			c = str.charAt(index);
 		}
@@ -229,17 +229,17 @@ public class StringUtility {
 	}
 
 	/**
-	 * •¶š—ñ‚Ìæ“ª‚Ìƒ^ƒuAƒXƒy[ƒX‚ğ”rœ‚µ‚Ü‚·Bˆø”‚ªNULL‚Ìê‡‚Í‹ó•¶š—ñ‚ğ•Ô‚µ‚Ü‚·B
+	 * æ–‡å­—åˆ—ã®å…ˆé ­ã®ã‚¿ãƒ–ã€ã‚¹ãƒšãƒ¼ã‚¹ã‚’æ’é™¤ã—ã¾ã™ã€‚å¼•æ•°ãŒNULLã®å ´åˆã¯ç©ºæ–‡å­—åˆ—ã‚’è¿”ã—ã¾ã™ã€‚
 	 *
-	 * @param str •¶š—ñB
-	 * @return ˆø”‚Ì•¶š—ñstr‚Ìæ“ª‚©‚çƒ^ƒuAƒXƒy[ƒX‚ğæ‚èœ‚¢‚½•¶š—ñB
+	 * @param str æ–‡å­—åˆ—ã€‚
+	 * @return å¼•æ•°ã®æ–‡å­—åˆ—strã®å…ˆé ­ã‹ã‚‰ã‚¿ãƒ–ã€ã‚¹ãƒšãƒ¼ã‚¹ã‚’å–ã‚Šé™¤ã„ãŸæ–‡å­—åˆ—ã€‚
 	 */
 	public static String lTrim(String str){
-		// NULL‚Ìê‡A‹ó•¶š—ñ‚ğ•Ô‚·
+		// NULLã®å ´åˆã€ç©ºæ–‡å­—åˆ—ã‚’è¿”ã™
 		if(str==null){ return ""; }
 		char c = ' ';
 		int index = -1;
-		while((c==' ' || c=='@' || c=='\t') && index < str.length()){
+		while((c==' ' || c=='ã€€' || c=='\t') && index < str.length()){
 			index = index + 1;
 			c = str.charAt(index);
 		}
@@ -247,10 +247,10 @@ public class StringUtility {
 	}
 
 	/**
-	 * ƒXƒy[ƒX‚©‚ç¬‚éw’è‚Ì’·‚³‚Ì•¶š—ñ‚ğì¬‚µ‚Ü‚·B
+	 * ã‚¹ãƒšãƒ¼ã‚¹ã‹ã‚‰æˆã‚‹æŒ‡å®šã®é•·ã•ã®æ–‡å­—åˆ—ã‚’ä½œæˆã—ã¾ã™ã€‚
 	 *
-	 * @param num ì¬‚·‚éƒXƒy[ƒX•¶š—ñ‚Ì’·‚³B
-	 * @return ƒXƒy[ƒX‚©‚ç¬‚é•¶š—ñB
+	 * @param num ä½œæˆã™ã‚‹ã‚¹ãƒšãƒ¼ã‚¹æ–‡å­—åˆ—ã®é•·ã•ã€‚
+	 * @return ã‚¹ãƒšãƒ¼ã‚¹ã‹ã‚‰æˆã‚‹æ–‡å­—åˆ—ã€‚
 	 */
 	public static String createSpace(int num){
 		if(num <= 0){ return ""; }
@@ -260,11 +260,11 @@ public class StringUtility {
 	}
 
 	/**
-	 * •¶š—ñŒ^”z—ñ‚ÌŠe—v‘f‚ğw’è‚µ‚½‹«ŠE•¶š—ñ‚ğg‚Á‚Ä˜AŒ‹‚µ‚Ü‚·B
+	 * æ–‡å­—åˆ—å‹é…åˆ—ã®å„è¦ç´ ã‚’æŒ‡å®šã—ãŸå¢ƒç•Œæ–‡å­—åˆ—ã‚’ä½¿ã£ã¦é€£çµã—ã¾ã™ã€‚
 	 *
-	 * @param str ˜AŒ‹‚·‚é•¶š—ñŒ^‚Ì‚PŸŒ³”z—ñB
-	 * @param del ˜AŒ‹‚Ì‹«ŠE•¶š—ñB
-	 * @return ˜AŒ‹‚µ‚½•¶š—ñB
+	 * @param str é€£çµã™ã‚‹æ–‡å­—åˆ—å‹ã®ï¼‘æ¬¡å…ƒé…åˆ—ã€‚
+	 * @param del é€£çµæ™‚ã®å¢ƒç•Œæ–‡å­—åˆ—ã€‚
+	 * @return é€£çµã—ãŸæ–‡å­—åˆ—ã€‚
 	 */
 	public static String join(String[] str,String del){
 		StringBuffer sb = new StringBuffer();
@@ -276,9 +276,9 @@ public class StringUtility {
 	}
 
 	/**
-	 * ––”ö‚Ì‰üsƒR[ƒh‚ğØ‚è—‚Æ‚µ‚½•¶š—ñ‚ğ•Ô‚µ‚Ü‚·B
-	 * @param str •¶š—ñB
-	 * @return ˆø”‚Ì•¶š—ñ‚©‚ç––”ö‚Ì‰üsƒR[ƒh‚ğØ‚è—‚Æ‚µ‚½•¶š—ñB
+	 * æœ«å°¾ã®æ”¹è¡Œã‚³ãƒ¼ãƒ‰ã‚’åˆ‡ã‚Šè½ã¨ã—ãŸæ–‡å­—åˆ—ã‚’è¿”ã—ã¾ã™ã€‚
+	 * @param str æ–‡å­—åˆ—ã€‚
+	 * @return å¼•æ•°ã®æ–‡å­—åˆ—ã‹ã‚‰æœ«å°¾ã®æ”¹è¡Œã‚³ãƒ¼ãƒ‰ã‚’åˆ‡ã‚Šè½ã¨ã—ãŸæ–‡å­—åˆ—ã€‚
 	 */
 	public static String chomp(String str){
 		if(str.endsWith("\r\n")){ return str.substring(0,str.length()-2); }
