@@ -1,0 +1,10 @@
+root2/[変更] +6 -43
+ src/[変更] +6 -43
+  jp/[変更] +1 -1
+   sf/[削除] +0 -0
+   FileObj.java[変更] +1 -1
+  JavaCutter.java[変更] +1 -0
+  Status.java[新規] +4 -0
+  StringUtil.java[削除] +0 -42
+ test/[変更なし] +0 -0
+  Utils.java[変更なし] +0 -0
