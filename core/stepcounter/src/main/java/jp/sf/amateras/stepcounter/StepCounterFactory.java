@@ -98,7 +98,7 @@ public class StepCounterFactory {
 			// C#用カウンタを作成
 			return createJavaCounter("C#");
 
-		} else if(fileName.endsWith(".jsp")){
+		} else if(fileName.endsWith(".jsp") || fileName.endsWith(".jspf") || fileName.endsWith(".tag")){
 			// JSP用カウンタを作成
 			DefaultStepCounter counter = new DefaultStepCounter();
 			counter.addLineComment("//");
@@ -184,7 +184,7 @@ public class StepCounterFactory {
 			// Shell用カウンタを作成
 			return createShellCounter("Shell");
 
-		} else if(fileName.endsWith(".sql")){
+		} else if(fileName.endsWith(".sql") || fileName.endsWith(".ddl")){
 			// SQL用カウンタを作成
 			DefaultStepCounter counter = new DefaultStepCounter();
 			counter.addLineComment("#");
