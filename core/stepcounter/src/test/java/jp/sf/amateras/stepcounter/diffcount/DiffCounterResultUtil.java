@@ -13,15 +13,13 @@ import org.junit.Assert;
 
 public class DiffCounterResultUtil {
 
-	public static String encode	= System.getProperty("file.encoding");
-
 	private DiffCounterResultUtil() {}
 
 	public static String load(URL url) {
 		BufferedReader reader = null;
 		try {
 			reader = new BufferedReader(new InputStreamReader(
-					new FileInputStream(new File(url.getFile())), encode));
+					new FileInputStream(new File(url.getFile())), "UTF-8"));
 		} catch (FileNotFoundException ex) {
 			ex.printStackTrace();
 			return null;
