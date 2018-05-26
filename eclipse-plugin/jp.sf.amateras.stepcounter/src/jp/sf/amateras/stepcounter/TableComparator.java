@@ -3,7 +3,7 @@ package jp.sf.amateras.stepcounter;
 import java.util.Comparator;
 
 /**
- * ƒtƒ@ƒCƒ‹•Êƒe[ƒuƒ‹‚ÌŠes‚ğƒ\[ƒg‚·‚éComparator
+ * ãƒ•ã‚¡ã‚¤ãƒ«åˆ¥ãƒ†ãƒ¼ãƒ–ãƒ«ã®å„è¡Œã‚’ã‚½ãƒ¼ãƒˆã™ã‚‹Comparator
  */
 public class TableComparator implements Comparator<String[]> {
 
@@ -15,10 +15,10 @@ public class TableComparator implements Comparator<String[]> {
 	private int order					= ASC;
 
 	/**
-	 * ƒRƒ“ƒXƒgƒ‰ƒNƒ^
+	 * ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿
 	 *
-	 * @param index ƒ\[ƒg‚·‚éƒJƒ‰ƒ€‚ÌƒCƒ“ƒfƒbƒNƒX
-	 * @param firstNumberColumnIndex æ“ª‚Ì”šƒJƒ‰ƒ€‚ÌƒCƒ“ƒfƒbƒNƒX
+	 * @param index ã‚½ãƒ¼ãƒˆã™ã‚‹ã‚«ãƒ©ãƒ ã®ã‚¤ãƒ³ãƒ‡ãƒƒã‚¯ã‚¹
+	 * @param firstNumberColumnIndex å…ˆé ­ã®æ•°å­—ã‚«ãƒ©ãƒ ã®ã‚¤ãƒ³ãƒ‡ãƒƒã‚¯ã‚¹
 	 */
 	public TableComparator(int index, int firstNumberColumnIndex, int order) {
 		this.index = index;
@@ -30,7 +30,7 @@ public class TableComparator implements Comparator<String[]> {
 		String[] data1 = obj1;
 		String[] data2 = obj2;
 
-		// ‡Œvs‚Íí‚Éˆê”Ô‰º
+		// åˆè¨ˆè¡Œã¯å¸¸ã«ä¸€ç•ªä¸‹
 		if(data1[0].equals(TOTAL)){
 			return 1;
 		} else if(data2[0].equals(TOTAL)){
@@ -38,7 +38,7 @@ public class TableComparator implements Comparator<String[]> {
 		}
 
 		if (this.index >= this.firstNumberColumnIndex) {
-			// ”’lƒ\[ƒg
+			// æ•°å€¤ã‚½ãƒ¼ãƒˆ
 			long value1 = 0;
 			long value2 = 0;
 			if (data1[this.index] != null && !data1[this.index].equals("")) { //$NON-NLS-1$
@@ -58,7 +58,7 @@ public class TableComparator implements Comparator<String[]> {
 			}
 			return result * this.order;
 		} else {
-			// •¶š—ñƒ\[ƒg
+			// æ–‡å­—åˆ—ã‚½ãƒ¼ãƒˆ
 			String value1 = data1[this.index];
 			String value2 = data2[this.index];
 

@@ -5,7 +5,7 @@ import org.eclipse.swt.events.SelectionEvent;
 import org.eclipse.swt.widgets.Table;
 
 /**
- * �e�[�u���̑S�Ă̍s��I�����邽�߂̃��X�i�B
+ * テーブルの全ての行を選択するためのリスナ。
  */
 public class TableSelectAllListener extends SelectionAdapter {
 

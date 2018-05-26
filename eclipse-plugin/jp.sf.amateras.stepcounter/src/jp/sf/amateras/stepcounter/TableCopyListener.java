@@ -9,7 +9,7 @@ import org.eclipse.swt.widgets.Table;
 import org.eclipse.swt.widgets.TableItem;
 
 /**
- * ƒe[ƒuƒ‹‚Ì‘I‘ğ•”•ª‚ğƒNƒŠƒbƒvƒ{[ƒh‚ÉƒRƒs[‚·‚é‚½‚ß‚ÌƒŠƒXƒi
+ * ãƒ†ãƒ¼ãƒ–ãƒ«ã®é¸æŠéƒ¨åˆ†ã‚’ã‚¯ãƒªãƒƒãƒ—ãƒœãƒ¼ãƒ‰ã«ã‚³ãƒ”ãƒ¼ã™ã‚‹ãŸã‚ã®ãƒªã‚¹ãƒŠ
  */
 public class TableCopyListener extends SelectionAdapter {
 

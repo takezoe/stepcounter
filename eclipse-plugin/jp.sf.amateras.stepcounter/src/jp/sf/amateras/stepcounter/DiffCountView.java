@@ -46,7 +46,7 @@ import org.eclipse.ui.ide.IDE;
 import org.eclipse.ui.part.ViewPart;
 
 /**
- * ·•ªƒJƒEƒ“ƒgŒ‹‰Ê‚ğ•\¦‚·‚é‚½‚ß‚ÌViewPartB
+ * å·®åˆ†ã‚«ã‚¦ãƒ³ãƒˆçµæœã‚’è¡¨ç¤ºã™ã‚‹ãŸã‚ã®ViewPartã€‚
  *
  * @author takanori
  */
@@ -78,7 +78,7 @@ public class DiffCountView extends ViewPart {
 	private DiffFolderResult	results		= null;
 
 	/**
-	 * ƒfƒtƒHƒ‹ƒgƒRƒ“ƒXƒgƒ‰ƒNƒ^B
+	 * ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ã€‚
 	 */
 	public DiffCountView() {}
 
@@ -87,10 +87,10 @@ public class DiffCountView extends ViewPart {
 	 */
 	@Override
 	public void createPartControl(Composite parent) {
-		// ƒ^ƒu‚ğì¬
+		// ã‚¿ãƒ–ã‚’ä½œæˆ
 		this.tabFolder = new TabFolder(parent, SWT.NULL);
 
-		// ƒNƒŠƒbƒvƒ{[ƒh‚Ì€”õ
+		// ã‚¯ãƒªãƒƒãƒ—ãƒœãƒ¼ãƒ‰ã®æº–å‚™
 		this.clipboard = new Clipboard(parent.getDisplay());
 
 		createFileTable(this.tabFolder);
@@ -108,7 +108,7 @@ public class DiffCountView extends ViewPart {
 		fileComposite.setLayout(new FillLayout());
 		fileTabItem.setControl(fileComposite);
 
-		// ƒtƒ@ƒCƒ‹•Ê‚Ìƒe[ƒuƒ‹‚ğì¬
+		// ãƒ•ã‚¡ã‚¤ãƒ«åˆ¥ã®ãƒ†ãƒ¼ãƒ–ãƒ«ã‚’ä½œæˆ
 		this.fileTable = new Table(fileComposite, SWT.FULL_SELECTION
 				| SWT.MULTI);
 		this.fileTable.setHeaderVisible(true);
@@ -133,7 +133,7 @@ public class DiffCountView extends ViewPart {
 			col.addSelectionListener(new FileTableHeaderListener());
 		}
 
-		// ƒJƒeƒSƒŠ•Ê‚Ìƒ^ƒu‚ğì¬
+		// ã‚«ãƒ†ã‚´ãƒªåˆ¥ã®ã‚¿ãƒ–ã‚’ä½œæˆ
 		TabItem tabItem2 = new TabItem(tabFolder, SWT.NULL);
 		tabItem2.setText(StepCounterPlugin.getResourceString("StepCountView.tabCategory"));
 
@@ -163,7 +163,7 @@ public class DiffCountView extends ViewPart {
 			col.addSelectionListener(new CategoryTableHeaderListener());
 		}
 
-		// ƒtƒ@ƒCƒ‹•Êƒe[ƒuƒ‹‚Éƒ|ƒbƒvƒAƒbƒvƒƒjƒ…[‚ğ’Ç‰Á
+		// ãƒ•ã‚¡ã‚¤ãƒ«åˆ¥ãƒ†ãƒ¼ãƒ–ãƒ«ã«ãƒãƒƒãƒ—ã‚¢ãƒƒãƒ—ãƒ¡ãƒ‹ãƒ¥ãƒ¼ã‚’è¿½åŠ 
 		this.fileMenu = new Menu(this.fileTable.getShell(), SWT.POP_UP);
 
 		this.openMenuItem = new MenuItem(this.fileMenu, SWT.PUSH);
@@ -194,7 +194,7 @@ public class DiffCountView extends ViewPart {
 		this.clearMenuItem1.setText(StepCounterPlugin.getResourceString("DiffCountView.menuClear")); //$NON-NLS-1$
 		this.clearMenuItem1.addSelectionListener(new TableClearListener());
 
-		// ƒJƒeƒSƒŠ•Êƒe[ƒuƒ‹‚Éƒ|ƒbƒvƒAƒbƒvƒƒjƒ…[‚ğ’Ç‰Á
+		// ã‚«ãƒ†ã‚´ãƒªåˆ¥ãƒ†ãƒ¼ãƒ–ãƒ«ã«ãƒãƒƒãƒ—ã‚¢ãƒƒãƒ—ãƒ¡ãƒ‹ãƒ¥ãƒ¼ã‚’è¿½åŠ 
 		this.categoryMenu = new Menu(this.categoryTable.getShell(), SWT.POP_UP);
 
 		this.copyMenuItem2 = new MenuItem(this.categoryMenu, SWT.PUSH);
@@ -223,7 +223,7 @@ public class DiffCountView extends ViewPart {
 	}
 
 	private void saveToExcel() {
-		// ƒGƒNƒXƒ|[ƒgæ‚Ìƒtƒ@ƒCƒ‹‚ğw’è
+		// ã‚¨ã‚¯ã‚¹ãƒãƒ¼ãƒˆå…ˆã®ãƒ•ã‚¡ã‚¤ãƒ«ã‚’æŒ‡å®š
 		FileDialog dialog = new FileDialog(
 				Display.getDefault().getActiveShell(), SWT.SAVE);
 		dialog.setFilterExtensions(new String[] { "*.xls" });
@@ -237,7 +237,7 @@ public class DiffCountView extends ViewPart {
 				out = new FileOutputStream(path);
 				out.write(data);
 			} catch (Exception ex) {
-				// TODO RuntimeException‚Å‚¢‚¢‚Ì‚©H
+				// TODO RuntimeExceptionã§ã„ã„ã®ã‹ï¼Ÿ
 				throw new RuntimeException(ex);
 			} finally {
 				Util.close(out);
@@ -254,10 +254,10 @@ public class DiffCountView extends ViewPart {
 	}
 
 	/**
-	 * ·•ª‚ÌƒJƒEƒ“ƒg‚ğs‚¢‚Ü‚·B
+	 * å·®åˆ†ã®ã‚«ã‚¦ãƒ³ãƒˆã‚’è¡Œã„ã¾ã™ã€‚
 	 *
-	 * @param selection ‘I‘ğ—v‘f
-	 * @param comparePath ·•ª‚Ì”äŠr‘ÎÛ‚Ìƒ‹[ƒgƒpƒX
+	 * @param selection é¸æŠè¦ç´ 
+	 * @param comparePath å·®åˆ†ã®æ¯”è¼ƒå¯¾è±¡ã®ãƒ«ãƒ¼ãƒˆãƒ‘ã‚¹
 	 */
 	public void count(ISelection selection, String comparePath) {
 		this.fileTable.removeAll();
@@ -281,7 +281,7 @@ public class DiffCountView extends ViewPart {
 		} else if (obj instanceof IResource) {
 			IResource resource = (IResource)obj;
 
-			// ”äŠr‘ÎÛ‚ğ•Û‘¶‚µ‚Ä‚¨‚­
+			// æ¯”è¼ƒå¯¾è±¡ã‚’ä¿å­˜ã—ã¦ãŠã
 			try {
 				resource.setPersistentProperty(new QualifiedName(
 						StepCounterPlugin.PLUGIN_ID, "comparePath"),
@@ -294,11 +294,11 @@ public class DiffCountView extends ViewPart {
 			String targetPath = resource.getLocation().toOSString();
 			this.results = count(targetPath, comparePath);
 
-			// ƒtƒ@ƒCƒ‹•Êƒe[ƒuƒ‹‚ÌXV
+			// ãƒ•ã‚¡ã‚¤ãƒ«åˆ¥ãƒ†ãƒ¼ãƒ–ãƒ«ã®æ›´æ–°
 			List<DiffFileResult> diffFileResults = DiffCounterUtil.convertToList(this.results);
 			viewFileTable((IResource)obj, diffFileResults);
 
-			// ƒJƒeƒSƒŠ•Êƒe[ƒuƒ‹‚ÌXV
+			// ã‚«ãƒ†ã‚´ãƒªåˆ¥ãƒ†ãƒ¼ãƒ–ãƒ«ã®æ›´æ–°
 			List<CategoryDiffDto> categoryList = new ArrayList<CategoryDiffDto>();
 			for (DiffFileResult fileResult : diffFileResults) {
 				CategoryDiffDto category = CategoryDiffDto.getDto(
@@ -316,9 +316,9 @@ public class DiffCountView extends ViewPart {
 	}
 
 	/**
-	 * ƒtƒ@ƒCƒ‹•Êƒe[ƒuƒ‹‚Ì•\¦“à—e‚ğXV‚µ‚Ü‚·B
+	 * ãƒ•ã‚¡ã‚¤ãƒ«åˆ¥ãƒ†ãƒ¼ãƒ–ãƒ«ã®è¡¨ç¤ºå†…å®¹ã‚’æ›´æ–°ã—ã¾ã™ã€‚
 	 *
-	 * @param diffElemList ·•ªƒJƒEƒ“ƒgŒ‹‰Ê‚ÌƒŠƒXƒg
+	 * @param diffElemList å·®åˆ†ã‚«ã‚¦ãƒ³ãƒˆçµæœã®ãƒªã‚¹ãƒˆ
 	 */
 	private void viewFileTable(IResource resource,
 			List<DiffFileResult> diffElemList) {
@@ -349,7 +349,7 @@ public class DiffCountView extends ViewPart {
 			totalDelCount += fileObj.getDelCount();
 		}
 
-		// ‡Œvs‚ğ•\¦
+		// åˆè¨ˆè¡Œã‚’è¡¨ç¤º
 		{
 			String[] totalData = { TOTAL, "", "", "",
 					String.valueOf(totalAddCount),
@@ -360,9 +360,9 @@ public class DiffCountView extends ViewPart {
 	}
 
 	/**
-	 * ƒJƒeƒSƒŠ•Êƒe[ƒuƒ‹‚Ì•\¦“à—e‚ğXV‚µ‚Ü‚·B
+	 * ã‚«ãƒ†ã‚´ãƒªåˆ¥ãƒ†ãƒ¼ãƒ–ãƒ«ã®è¡¨ç¤ºå†…å®¹ã‚’æ›´æ–°ã—ã¾ã™ã€‚
 	 *
-	 * @param categoryList ƒJƒeƒSƒŠ•Ê·•ªƒJƒEƒ“ƒgŒ‹‰Ê‚ÌƒŠƒXƒg
+	 * @param categoryList ã‚«ãƒ†ã‚´ãƒªåˆ¥å·®åˆ†ã‚«ã‚¦ãƒ³ãƒˆçµæœã®ãƒªã‚¹ãƒˆ
 	 */
 	private void viewCategoryTable(List<CategoryDiffDto> categoryList) {
 
@@ -381,7 +381,7 @@ public class DiffCountView extends ViewPart {
 			totalDel += categoryDto.getDelCount();
 		}
 		{
-			// ƒJƒeƒSƒŠ’PˆÊ‚Ì‡Œvs‚ğ•\¦
+			// ã‚«ãƒ†ã‚´ãƒªå˜ä½ã®åˆè¨ˆè¡Œã‚’è¡¨ç¤º
 			String[] data = { TOTAL, String.valueOf(totalAdd),
 					String.valueOf(totalDel) };
 			TableItem item = new TableItem(categoryTable, SWT.NULL);
@@ -390,11 +390,11 @@ public class DiffCountView extends ViewPart {
 	}
 
 	/**
-	 * w’è‚³‚ê‚½ƒŠƒ\[ƒX‚Ì·•ª‚ğƒJƒEƒ“ƒg‚µ‚Ü‚·B
+	 * æŒ‡å®šã•ã‚ŒãŸãƒªã‚½ãƒ¼ã‚¹ã®å·®åˆ†ã‚’ã‚«ã‚¦ãƒ³ãƒˆã—ã¾ã™ã€‚
 	 *
-	 * @param targetPath ·•ª‚ÌƒJƒEƒ“ƒg‘ÎÛ‚Ìƒ‹[ƒgƒpƒX
-	 * @param comparePath ·•ª‚Ì”äŠr‘ÎÛ‚Ìƒ‹[ƒgƒpƒX
-	 * @return ·•ªƒJƒEƒ“ƒg‚ÌŒ‹‰Ê
+	 * @param targetPath å·®åˆ†ã®ã‚«ã‚¦ãƒ³ãƒˆå¯¾è±¡ã®ãƒ«ãƒ¼ãƒˆãƒ‘ã‚¹
+	 * @param comparePath å·®åˆ†ã®æ¯”è¼ƒå¯¾è±¡ã®ãƒ«ãƒ¼ãƒˆãƒ‘ã‚¹
+	 * @return å·®åˆ†ã‚«ã‚¦ãƒ³ãƒˆã®çµæœ
 	 */
 	private DiffFolderResult count(String targetPath, String comparePath) {
 		File oldRoot = new File(comparePath);
@@ -404,7 +404,7 @@ public class DiffCountView extends ViewPart {
 	}
 
 	/**
-	 * ƒe[ƒuƒ‹‚Å‘I‘ğó‘Ô‚É‚È‚Á‚Ä‚¢‚éƒtƒ@ƒCƒ‹‚ğƒGƒfƒBƒ^‚ÅŠJ‚«‚Ü‚·B
+	 * ãƒ†ãƒ¼ãƒ–ãƒ«ã§é¸æŠçŠ¶æ…‹ã«ãªã£ã¦ã„ã‚‹ãƒ•ã‚¡ã‚¤ãƒ«ã‚’ã‚¨ãƒ‡ã‚£ã‚¿ã§é–‹ãã¾ã™ã€‚
 	 */
 	private void openEditor() {
 		TableItem[] items = this.fileTable.getSelection();
@@ -425,10 +425,10 @@ public class DiffCountView extends ViewPart {
 	}
 
 	/**
-	 * ƒtƒ@ƒCƒ‹•Êƒe[ƒuƒ‹‚Ìƒ|ƒbƒvƒAƒbƒvƒƒjƒ…[‚Ìó‘Ô‚ğXV‚µ‚Ü‚·B
+	 * ãƒ•ã‚¡ã‚¤ãƒ«åˆ¥ãƒ†ãƒ¼ãƒ–ãƒ«ã®ãƒãƒƒãƒ—ã‚¢ãƒƒãƒ—ãƒ¡ãƒ‹ãƒ¥ãƒ¼ã®çŠ¶æ…‹ã‚’æ›´æ–°ã—ã¾ã™ã€‚
 	 */
 	private void updateFileMenu() {
-		// €–Ú‚ª1‚ÂˆÈã‚ ‚ê‚Îu‘S‚Ä‘I‘ğvuƒNƒŠƒAv‚ğŠˆ«‰»
+		// é …ç›®ãŒ1ã¤ä»¥ä¸Šã‚ã‚Œã°ã€Œå…¨ã¦é¸æŠã€ã€Œã‚¯ãƒªã‚¢ã€ã‚’æ´»æ€§åŒ–
 		TableItem[] items = this.fileTable.getItems();
 		if (items.length == 0) {
 			this.selectAllMenuItem1.setEnabled(false);
@@ -440,7 +440,7 @@ public class DiffCountView extends ViewPart {
 			this.saveExcelMenuItem1.setEnabled(true);
 		}
 
-		// €–Ú‚ª1‚Â‚Å‚à‘I‘ğ‚³‚ê‚Ä‚¢‚ê‚ÎuƒRƒs[v‚ğŠˆ«‰»
+		// é …ç›®ãŒ1ã¤ã§ã‚‚é¸æŠã•ã‚Œã¦ã„ã‚Œã°ã€Œã‚³ãƒ”ãƒ¼ã€ã‚’æ´»æ€§åŒ–
 		TableItem[] selection = this.fileTable.getSelection();
 		if (selection.length == 0) {
 			this.copyMenuItem1.setEnabled(false);
@@ -448,7 +448,7 @@ public class DiffCountView extends ViewPart {
 			this.copyMenuItem1.setEnabled(true);
 		}
 
-		// ƒtƒ@ƒCƒ‹‚ª‚P‚Â‚Å‚à‘I‘ğ‚³‚ê‚Ä‚¢‚ê‚ÎuŠJ‚­v‚ğŠˆ«‰»
+		// ãƒ•ã‚¡ã‚¤ãƒ«ãŒï¼‘ã¤ã§ã‚‚é¸æŠã•ã‚Œã¦ã„ã‚Œã°ã€Œé–‹ãã€ã‚’æ´»æ€§åŒ–
 		openMenuItem.setEnabled(false);
 		for (TableItem item : selection) {
 			if (item.getText(0).equals(TOTAL)) {
@@ -463,7 +463,7 @@ public class DiffCountView extends ViewPart {
 	}
 
 	private void updateCategoryMenu() {
-		// €–Ú‚ª1‚ÂˆÈã‚ ‚ê‚Îu‘S‚Ä‘I‘ğvuƒNƒŠƒAv‚ğŠˆ«‰»
+		// é …ç›®ãŒ1ã¤ä»¥ä¸Šã‚ã‚Œã°ã€Œå…¨ã¦é¸æŠã€ã€Œã‚¯ãƒªã‚¢ã€ã‚’æ´»æ€§åŒ–
 		TableItem[] items = this.categoryTable.getItems();
 		if (items.length == 0) {
 			this.selectAllMenuItem2.setEnabled(false);
@@ -475,7 +475,7 @@ public class DiffCountView extends ViewPart {
 			this.saveExcelMenuItem2.setEnabled(true);
 		}
 
-		// €–Ú‚ª1‚Â‚Å‚à‘I‘ğ‚³‚ê‚Ä‚¢‚ê‚ÎuƒRƒs[v‚ğŠˆ«‰»
+		// é …ç›®ãŒ1ã¤ã§ã‚‚é¸æŠã•ã‚Œã¦ã„ã‚Œã°ã€Œã‚³ãƒ”ãƒ¼ã€ã‚’æ´»æ€§åŒ–
 		TableItem[] selection = this.categoryTable.getSelection();
 		if (selection.length == 0) {
 			this.copyMenuItem2.setEnabled(false);
@@ -485,7 +485,7 @@ public class DiffCountView extends ViewPart {
 	}
 
 	/**
-	 * ƒtƒ@ƒCƒ‹•Êƒe[ƒuƒ‹‚Ìƒ|ƒbƒvƒAƒbƒvƒƒjƒ…[‚ğ•\¦‚·‚é‚½‚ß‚Ìƒ}ƒEƒXƒŠƒXƒiB
+	 * ãƒ•ã‚¡ã‚¤ãƒ«åˆ¥ãƒ†ãƒ¼ãƒ–ãƒ«ã®ãƒãƒƒãƒ—ã‚¢ãƒƒãƒ—ãƒ¡ãƒ‹ãƒ¥ãƒ¼ã‚’è¡¨ç¤ºã™ã‚‹ãŸã‚ã®ãƒã‚¦ã‚¹ãƒªã‚¹ãƒŠã€‚
 	 */
 	private class FileTableMouseListener extends MouseAdapter {
 		public void mouseUp(MouseEvent e) {
@@ -501,7 +501,7 @@ public class DiffCountView extends ViewPart {
 	}
 
 	/**
-	 * ƒtƒ@ƒCƒ‹•Êƒe[ƒuƒ‹‚Ìƒ|ƒbƒvƒAƒbƒvƒƒjƒ…[‚ğ•\¦‚·‚é‚½‚ß‚Ìƒ}ƒEƒXƒŠƒXƒiB
+	 * ãƒ•ã‚¡ã‚¤ãƒ«åˆ¥ãƒ†ãƒ¼ãƒ–ãƒ«ã®ãƒãƒƒãƒ—ã‚¢ãƒƒãƒ—ãƒ¡ãƒ‹ãƒ¥ãƒ¼ã‚’è¡¨ç¤ºã™ã‚‹ãŸã‚ã®ãƒã‚¦ã‚¹ãƒªã‚¹ãƒŠã€‚
 	 */
 	private class CategoryTableMouseListener extends MouseAdapter {
 		public void mouseUp(MouseEvent e) {
@@ -513,7 +513,7 @@ public class DiffCountView extends ViewPart {
 	}
 
 	/**
-	 * ƒtƒ@ƒCƒ‹’PˆÊ‚Ìƒe[ƒuƒ‹‚Ìƒwƒbƒ_‚ªƒNƒŠƒbƒN‚³‚ê‚½Û‚Éƒ\[ƒg‚ğs‚¤ƒŠƒXƒi
+	 * ãƒ•ã‚¡ã‚¤ãƒ«å˜ä½ã®ãƒ†ãƒ¼ãƒ–ãƒ«ã®ãƒ˜ãƒƒãƒ€ãŒã‚¯ãƒªãƒƒã‚¯ã•ã‚ŒãŸéš›ã«ã‚½ãƒ¼ãƒˆã‚’è¡Œã†ãƒªã‚¹ãƒŠ
 	 */
 	private class FileTableHeaderListener extends SelectionAdapter {
 
@@ -524,7 +524,7 @@ public class DiffCountView extends ViewPart {
 		@Override
 		public void widgetSelected(SelectionEvent e) {
 			try {
-				// ƒ\[ƒg‚·‚éƒJƒ‰ƒ€‚ğŒˆ’è
+				// ã‚½ãƒ¼ãƒˆã™ã‚‹ã‚«ãƒ©ãƒ ã‚’æ±ºå®š
 				TableColumn column = (TableColumn)e.getSource();
 				String name = column.getText();
 				int selectColumn = 0;
@@ -547,7 +547,7 @@ public class DiffCountView extends ViewPart {
 				}
 				this.sortColumn = selectColumn;
 
-				// ƒf[ƒ^‚ğ‚¢‚Á‚½‚ñArrayList‚ÉŠi”[
+				// ãƒ‡ãƒ¼ã‚¿ã‚’ã„ã£ãŸã‚“ArrayListã«æ ¼ç´
 				TableItem[] items = DiffCountView.this.fileTable.getItems();
 				ArrayList<String[]> list = new ArrayList<String[]>();
 				for (int i = 0; i < items.length; i++) {
@@ -556,12 +556,12 @@ public class DiffCountView extends ViewPart {
 							items[i].getText(3), items[i].getText(4) });
 				}
 
-				// ƒ\[ƒg‚·‚é
+				// ã‚½ãƒ¼ãƒˆã™ã‚‹
 				String[][] datas = list.toArray(new String[list.size()][]);
 				Arrays.sort(datas, new TableComparator(this.sortColumn, 4, this.sortOrder));
 				this.sortOrder = this.sortOrder * -1;
 
-				// ƒf[ƒ^‚ğÄ•\¦
+				// ãƒ‡ãƒ¼ã‚¿ã‚’å†è¡¨ç¤º
 				DiffCountView.this.fileTable.removeAll();
 				for (int i = 0; i < datas.length; i++) {
 					TableItem item = new TableItem(DiffCountView.this.fileTable, SWT.NULL);
@@ -574,7 +574,7 @@ public class DiffCountView extends ViewPart {
 	}
 
 	/**
-	 * ƒJƒeƒSƒŠ’PˆÊ‚Ìƒe[ƒuƒ‹‚Ìƒwƒbƒ_‚ªƒNƒŠƒbƒN‚³‚ê‚½Û‚Éƒ\[ƒg‚ğs‚¤ƒŠƒXƒi
+	 * ã‚«ãƒ†ã‚´ãƒªå˜ä½ã®ãƒ†ãƒ¼ãƒ–ãƒ«ã®ãƒ˜ãƒƒãƒ€ãŒã‚¯ãƒªãƒƒã‚¯ã•ã‚ŒãŸéš›ã«ã‚½ãƒ¼ãƒˆã‚’è¡Œã†ãƒªã‚¹ãƒŠ
 	 */
 	private class CategoryTableHeaderListener extends SelectionAdapter {
 
@@ -584,7 +584,7 @@ public class DiffCountView extends ViewPart {
 
 		public void widgetSelected(SelectionEvent e) {
 			try {
-				// ƒ\[ƒg‚·‚éƒJƒ‰ƒ€‚ğŒˆ’è
+				// ã‚½ãƒ¼ãƒˆã™ã‚‹ã‚«ãƒ©ãƒ ã‚’æ±ºå®š
 				TableColumn column = (TableColumn)e.getSource();
 				int selectColumn = 0;
 				String name = column.getText();
@@ -601,7 +601,7 @@ public class DiffCountView extends ViewPart {
 				}
 				this.sortColumn = selectColumn;
 
-				// ƒf[ƒ^‚ğ‚¢‚Á‚½‚ñArrayList‚ÉŠi”[
+				// ãƒ‡ãƒ¼ã‚¿ã‚’ã„ã£ãŸã‚“ArrayListã«æ ¼ç´
 				TableItem[] items = categoryTable.getItems();
 				ArrayList<String[]> list = new ArrayList<String[]>();
 				for (int i = 0; i < items.length; i++) {
@@ -611,12 +611,12 @@ public class DiffCountView extends ViewPart {
 							items[i].getText(2)});
 				}
 
-				// ƒ\[ƒg‚·‚é
+				// ã‚½ãƒ¼ãƒˆã™ã‚‹
 				String[][] datas = list.toArray(new String[list.size()][]);
 				Arrays.sort(datas, new TableComparator(this.sortColumn, 1, this.sortOrder));
 				this.sortOrder = this.sortOrder * -1;
 
-				// ƒf[ƒ^‚ğÄ•\¦
+				// ãƒ‡ãƒ¼ã‚¿ã‚’å†è¡¨ç¤º
 				categoryTable.removeAll();
 				for (int i = 0; i < datas.length; i++) {
 					TableItem item = new TableItem(categoryTable, SWT.NULL);
@@ -629,7 +629,7 @@ public class DiffCountView extends ViewPart {
 	}
 
 	/**
-	 * ƒe[ƒuƒ‹‚Å‘I‘ğ‚³‚ê‚½ƒtƒ@ƒCƒ‹‚ğŠJ‚­‚½‚ß‚ÌƒŠƒXƒiB
+	 * ãƒ†ãƒ¼ãƒ–ãƒ«ã§é¸æŠã•ã‚ŒãŸãƒ•ã‚¡ã‚¤ãƒ«ã‚’é–‹ããŸã‚ã®ãƒªã‚¹ãƒŠã€‚
 	 */
 	private class TableOpenListener extends SelectionAdapter {
 		public void widgetSelected(SelectionEvent e) {
@@ -638,7 +638,7 @@ public class DiffCountView extends ViewPart {
 	}
 
 	/**
-	 * ƒe[ƒuƒ‹‚Ì•\¦“à—e‚ğƒNƒŠƒA‚·‚é‚½‚ß‚ÌƒŠƒXƒiB
+	 * ãƒ†ãƒ¼ãƒ–ãƒ«ã®è¡¨ç¤ºå†…å®¹ã‚’ã‚¯ãƒªã‚¢ã™ã‚‹ãŸã‚ã®ãƒªã‚¹ãƒŠã€‚
 	 */
 	private class TableClearListener extends SelectionAdapter {
 		public void widgetSelected(SelectionEvent e) {

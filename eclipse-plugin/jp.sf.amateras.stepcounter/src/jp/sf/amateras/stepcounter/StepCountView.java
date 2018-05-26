@@ -39,7 +39,7 @@ import org.eclipse.ui.ide.IDE;
 import org.eclipse.ui.part.ViewPart;
 
 /**
- * ƒJƒEƒ“ƒgŒ‹‰Ê‚ğ•\¦‚·‚é‚½‚ß‚ÌViewPart
+ * ã‚«ã‚¦ãƒ³ãƒˆçµæœã‚’è¡¨ç¤ºã™ã‚‹ãŸã‚ã®ViewPart
  *
  * @see ViewPart
  */
@@ -74,19 +74,19 @@ public class StepCountView extends ViewPart {
 	private List<CountResult>		results		= new ArrayList<CountResult>();
 
 	/**
-	 * ƒRƒ“ƒXƒgƒ‰ƒNƒ^
+	 * ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿
 	 */
 	public StepCountView() {
 		super();
 	}
 
 	/**
-	 * ViewPart‚Ì’†g‚ğì¬B
+	 * ViewPartã®ä¸­èº«ã‚’ä½œæˆã€‚
 	 *
 	 * @see ViewPart#createPartControl
 	 */
 	public void createPartControl(Composite parent) {
-		// ƒ^ƒu‚ğì¬
+		// ã‚¿ãƒ–ã‚’ä½œæˆ
 		tabFolder = new TabFolder(parent, SWT.NULL);
 
 		TabItem tabItem1 = new TabItem(tabFolder, SWT.NULL);
@@ -96,7 +96,7 @@ public class StepCountView extends ViewPart {
 		composite1.setLayout(new FillLayout());
 		tabItem1.setControl(composite1);
 
-		// ƒtƒ@ƒCƒ‹•Ê‚Ìƒe[ƒuƒ‹‚ğì¬
+		// ãƒ•ã‚¡ã‚¤ãƒ«åˆ¥ã®ãƒ†ãƒ¼ãƒ–ãƒ«ã‚’ä½œæˆ
 		fileTable = new Table(composite1, SWT.FULL_SELECTION | SWT.MULTI);
 		fileTable.setHeaderVisible(true);
 		fileTable.setLinesVisible(true);
@@ -117,7 +117,7 @@ public class StepCountView extends ViewPart {
 			col.addSelectionListener(new FileTableHeaderListener());
 		}
 
-		// ƒJƒeƒSƒŠ•Ê‚Ìƒe[ƒuƒ‹‚ğì¬
+		// ã‚«ãƒ†ã‚´ãƒªåˆ¥ã®ãƒ†ãƒ¼ãƒ–ãƒ«ã‚’ä½œæˆ
 		TabItem tabItem2 = new TabItem(tabFolder, SWT.NULL);
 		tabItem2.setText(StepCounterPlugin.getResourceString("StepCountView.tabCategory"));
 
@@ -145,10 +145,10 @@ public class StepCountView extends ViewPart {
 			col.addSelectionListener(new CategoryTableHeaderListener());
 		}
 
-		// ƒNƒŠƒbƒvƒ{[ƒh‚Ì€”õ
+		// ã‚¯ãƒªãƒƒãƒ—ãƒœãƒ¼ãƒ‰ã®æº–å‚™
 		clipboard = new Clipboard(parent.getDisplay());
 
-		// ƒe[ƒuƒ‹‚Éƒ|ƒbƒvƒAƒbƒvƒƒjƒ…[‚ğ’Ç‰Á
+		// ãƒ†ãƒ¼ãƒ–ãƒ«ã«ãƒãƒƒãƒ—ã‚¢ãƒƒãƒ—ãƒ¡ãƒ‹ãƒ¥ãƒ¼ã‚’è¿½åŠ 
 		{
 			filePopup = new Menu(fileTable.getShell(), SWT.POP_UP);
 
@@ -214,7 +214,7 @@ public class StepCountView extends ViewPart {
 	}
 
 	private void saveToExcel() {
-		// ƒGƒNƒXƒ|[ƒgæ‚Ìƒtƒ@ƒCƒ‹‚ğw’è
+		// ã‚¨ã‚¯ã‚¹ãƒãƒ¼ãƒˆå…ˆã®ãƒ•ã‚¡ã‚¤ãƒ«ã‚’æŒ‡å®š
 		FileDialog dialog = new FileDialog(
 				Display.getDefault().getActiveShell(), SWT.SAVE);
 		dialog.setFilterExtensions(new String[] { "*.xls" });
@@ -227,7 +227,7 @@ public class StepCountView extends ViewPart {
 				out = new FileOutputStream(path);
 				out.write(data);
 			} catch (Exception ex) {
-				// TODO RuntimeException‚Å‚¢‚¢‚Ì‚©H
+				// TODO RuntimeExceptionã§ã„ã„ã®ã‹ï¼Ÿ
 				throw new RuntimeException(ex);
 			} finally {
 				Util.close(out);
@@ -236,12 +236,12 @@ public class StepCountView extends ViewPart {
 	}
 
 	/**
-	 * ƒJƒEƒ“ƒg‚ğÀs
+	 * ã‚«ã‚¦ãƒ³ãƒˆã‚’å®Ÿè¡Œ
 	 *
 	 * @param selection ISelection
 	 */
 	public void count(ISelection selection) {
-		// ‚·‚×‚Äíœ
+		// ã™ã¹ã¦å‰Šé™¤
 		fileTable.removeAll();
 		files.clear();
 		results.clear();
@@ -262,18 +262,18 @@ public class StepCountView extends ViewPart {
 				Object obj = ite.next();
 				CountResult result = null;
 				if (obj instanceof ICompilationUnit) {
-					// Javaƒ\[ƒXƒtƒ@ƒCƒ‹iJDTj
+					// Javaã‚½ãƒ¼ã‚¹ãƒ•ã‚¡ã‚¤ãƒ«ï¼ˆJDTï¼‰
 					ICompilationUnit file = (ICompilationUnit)obj;
 					result = countFile((IFile)file.getResource(), categoryResult);
 				} else if (obj instanceof IPackageFragment) {
-					// JavaƒpƒbƒP[ƒWiJDTj
+					// Javaãƒ‘ãƒƒã‚±ãƒ¼ã‚¸ï¼ˆJDTï¼‰
 					IPackageFragment pkg = (IPackageFragment)obj;
 					result = countPackage(pkg, categoryResult);
 				} else if (obj instanceof IFile) {
-					// ƒtƒ@ƒCƒ‹
+					// ãƒ•ã‚¡ã‚¤ãƒ«
 					result = countFile((IFile)obj, categoryResult);
 				} else if (obj instanceof IContainer) {
-					// ƒfƒBƒŒƒNƒgƒŠ
+					// ãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒª
 					result = countFolder((IContainer)obj, categoryResult);
 				}
 				if (result != null) {
@@ -283,7 +283,7 @@ public class StepCountView extends ViewPart {
 				}
 			}
 			{
-				// ƒtƒ@ƒCƒ‹’PˆÊ‚Ì‡Œvs‚ğ•\¦
+				// ãƒ•ã‚¡ã‚¤ãƒ«å˜ä½ã®åˆè¨ˆè¡Œã‚’è¡¨ç¤º
 				String[] data = {
 						TOTAL,
 						"", //$NON-NLS-1$
@@ -295,12 +295,12 @@ public class StepCountView extends ViewPart {
 				item.setText(data);
 			}
 
-			// ƒJƒeƒSƒŠ•Ê‚ÌWŒv’l‚ğ•\¦
+			// ã‚«ãƒ†ã‚´ãƒªåˆ¥ã®é›†è¨ˆå€¤ã‚’è¡¨ç¤º
 			totalStep = 0;
 			totalNone = 0;
 			totalComment = 0;
 
-			// ƒJƒeƒSƒŠ‚ğƒ\[ƒg
+			// ã‚«ãƒ†ã‚´ãƒªã‚’ã‚½ãƒ¼ãƒˆ
 			CategoryDto.sort(categoryResult);
 
 			for (CategoryStepDto categoryDto : categoryResult) {
@@ -321,7 +321,7 @@ public class StepCountView extends ViewPart {
 				totalComment += categoryDto.getComment();
 			}
 			{
-				// ƒJƒeƒSƒŠ’PˆÊ‚Ì‡Œvs‚ğ•\¦
+				// ã‚«ãƒ†ã‚´ãƒªå˜ä½ã®åˆè¨ˆè¡Œã‚’è¡¨ç¤º
 				String[] data = { TOTAL, String.valueOf(totalStep),
 						String.valueOf(totalNone),
 						String.valueOf(totalComment),
@@ -333,10 +333,10 @@ public class StepCountView extends ViewPart {
 	}
 
 	/**
-	 * ‚Pƒtƒ@ƒCƒ‹‚ğƒJƒEƒ“ƒg
+	 * ï¼‘ãƒ•ã‚¡ã‚¤ãƒ«ã‚’ã‚«ã‚¦ãƒ³ãƒˆ
 	 *
-	 * @param file ƒtƒ@ƒCƒ‹
-	 * @return ‚±‚Ìƒtƒ@ƒCƒ‹‚ÌƒJƒEƒ“ƒgŒ‹‰Ê
+	 * @param file ãƒ•ã‚¡ã‚¤ãƒ«
+	 * @return ã“ã®ãƒ•ã‚¡ã‚¤ãƒ«ã®ã‚«ã‚¦ãƒ³ãƒˆçµæœ
 	 */
 	private CountResult countFile(IFile file, List<CategoryStepDto> categoryResult) {
 		if(files.containsValue(file)){
@@ -345,12 +345,12 @@ public class StepCountView extends ViewPart {
 		try {
 			StepCounter counter = StepCounterFactory.getCounter(file.getName());
 			if (counter != null) {
-				// ‘Î‰‚·‚éƒJƒEƒ“ƒ^‚ª‘¶İ‚·‚éê‡
+				// å¯¾å¿œã™ã‚‹ã‚«ã‚¦ãƒ³ã‚¿ãŒå­˜åœ¨ã™ã‚‹å ´åˆ
 				CountResult result = counter.count(
 						file.getLocation().makeAbsolute().toFile(),
 						file.getCharset());
 				if (result == null) {
-					// ƒJƒEƒ“ƒg‘ÎÛŠO
+					// ã‚«ã‚¦ãƒ³ãƒˆå¯¾è±¡å¤–
 					return null;
 				}
 
@@ -380,7 +380,7 @@ public class StepCountView extends ViewPart {
 				return result;
 
 			} else {
-				// ‘Î‰‚·‚éƒJƒEƒ“ƒ^‚ª‘¶İ‚µ‚È‚¢ê‡
+				// å¯¾å¿œã™ã‚‹ã‚«ã‚¦ãƒ³ã‚¿ãŒå­˜åœ¨ã—ãªã„å ´åˆ
 				String[] data = {
 						file.getFullPath().toString(),
 						//FILE.getName(),
@@ -397,16 +397,16 @@ public class StepCountView extends ViewPart {
 			}
 		} catch (Exception ex) {
 			ex.printStackTrace();
-			System.out.println(file.getName() + "‚ÅƒGƒ‰[‚ª”­¶‚µ‚Ü‚µ‚½I");
+			System.out.println(file.getName() + "ã§ã‚¨ãƒ©ãƒ¼ãŒç™ºç”Ÿã—ã¾ã—ãŸï¼");
 			return null;
 		}
 	}
 
 	/**
-	 * ƒtƒHƒ‹ƒ_‚ğƒJƒEƒ“ƒg
+	 * ãƒ•ã‚©ãƒ«ãƒ€ã‚’ã‚«ã‚¦ãƒ³ãƒˆ
 	 *
-	 * @param container ƒtƒHƒ‹ƒ_
-	 * @return ƒtƒHƒ‹ƒ_“à‚ÌƒJƒEƒ“ƒg‡Œv
+	 * @param container ãƒ•ã‚©ãƒ«ãƒ€
+	 * @return ãƒ•ã‚©ãƒ«ãƒ€å†…ã®ã‚«ã‚¦ãƒ³ãƒˆåˆè¨ˆ
 	 */
 	private CountResult countFolder(IContainer container,
 			List<CategoryStepDto> categoryResult) {
@@ -438,10 +438,10 @@ public class StepCountView extends ViewPart {
 	}
 
 	/**
-	 * ƒpƒbƒP[ƒW‚ğƒJƒEƒ“ƒg
+	 * ãƒ‘ãƒƒã‚±ãƒ¼ã‚¸ã‚’ã‚«ã‚¦ãƒ³ãƒˆ
 	 *
-	 * @param pkg ƒpƒbƒP[ƒW
-	 * @return ƒpƒbƒP[ƒW“à‚ÌƒJƒEƒ“ƒg‡Œv
+	 * @param pkg ãƒ‘ãƒƒã‚±ãƒ¼ã‚¸
+	 * @return ãƒ‘ãƒƒã‚±ãƒ¼ã‚¸å†…ã®ã‚«ã‚¦ãƒ³ãƒˆåˆè¨ˆ
 	 */
 	private CountResult countPackage(IPackageFragment pkg, List<CategoryStepDto> categoryResult) {
 		CountResult result = new CountResult();
@@ -481,10 +481,10 @@ public class StepCountView extends ViewPart {
 	}
 
 	/**
-	 * ƒtƒ@ƒCƒ‹•Êƒe[ƒuƒ‹‚Ìƒ|ƒbƒvƒAƒbƒvƒƒjƒ…[‚Ìó‘Ô‚ğXV‚µ‚Ü‚·B
+	 * ãƒ•ã‚¡ã‚¤ãƒ«åˆ¥ãƒ†ãƒ¼ãƒ–ãƒ«ã®ãƒãƒƒãƒ—ã‚¢ãƒƒãƒ—ãƒ¡ãƒ‹ãƒ¥ãƒ¼ã®çŠ¶æ…‹ã‚’æ›´æ–°ã—ã¾ã™ã€‚
 	 */
 	private void updatePopupMenu1() {
-		// €–Ú‚ª‚P‚ÂˆÈã‚ ‚ê‚Îu‘S‚Ä‘I‘ğvuƒNƒŠƒAvuExcelƒtƒ@ƒCƒ‹‚É•Û‘¶v‚ğŠˆ«‰»
+		// é …ç›®ãŒï¼‘ã¤ä»¥ä¸Šã‚ã‚Œã°ã€Œå…¨ã¦é¸æŠã€ã€Œã‚¯ãƒªã‚¢ã€ã€ŒExcelãƒ•ã‚¡ã‚¤ãƒ«ã«ä¿å­˜ã€ã‚’æ´»æ€§åŒ–
 		TableItem[] items = fileTable.getItems();
 		if (items.length == 0) {
 			selectAll1.setEnabled(false);
@@ -495,14 +495,14 @@ public class StepCountView extends ViewPart {
 			clear1.setEnabled(true);
 			saveExcel1.setEnabled(true);
 		}
-		// €–Ú‚ª‚P‚Â‚Å‚à‘I‘ğ‚³‚ê‚Ä‚¢‚ê‚ÎuƒRƒs[v‚ğŠˆ«‰»
+		// é …ç›®ãŒï¼‘ã¤ã§ã‚‚é¸æŠã•ã‚Œã¦ã„ã‚Œã°ã€Œã‚³ãƒ”ãƒ¼ã€ã‚’æ´»æ€§åŒ–
 		TableItem[] selection = fileTable.getSelection();
 		if (selection.length == 0) {
 			copy1.setEnabled(false);
 		} else {
 			copy1.setEnabled(true);
 		}
-		// ƒtƒ@ƒCƒ‹‚ª‚P‚Â‚Å‚à‘I‘ğ‚³‚ê‚Ä‚¢‚ê‚ÎuŠJ‚­v‚ğŠˆ«‰»
+		// ãƒ•ã‚¡ã‚¤ãƒ«ãŒï¼‘ã¤ã§ã‚‚é¸æŠã•ã‚Œã¦ã„ã‚Œã°ã€Œé–‹ãã€ã‚’æ´»æ€§åŒ–
 		open.setEnabled(false);
 		for (int i = 0; i < selection.length; i++) {
 			String filePath = selection[i].getText(0);
@@ -514,10 +514,10 @@ public class StepCountView extends ViewPart {
 	}
 
 	/**
-	 * ƒJƒeƒSƒŠ•Êƒe[ƒuƒ‹‚Ìƒ|ƒbƒvƒAƒbƒvƒƒjƒ…[‚Ìó‘Ô‚ğXV‚µ‚Ü‚·B
+	 * ã‚«ãƒ†ã‚´ãƒªåˆ¥ãƒ†ãƒ¼ãƒ–ãƒ«ã®ãƒãƒƒãƒ—ã‚¢ãƒƒãƒ—ãƒ¡ãƒ‹ãƒ¥ãƒ¼ã®çŠ¶æ…‹ã‚’æ›´æ–°ã—ã¾ã™ã€‚
 	 */
 	private void updatePopupMenu2() {
-		// €–Ú‚ª‚P‚ÂˆÈã‚ ‚ê‚Îu‘S‚Ä‘I‘ğvuƒNƒŠƒAvuExcelƒtƒ@ƒCƒ‹‚É•Û‘¶v‚ğŠˆ«‰»
+		// é …ç›®ãŒï¼‘ã¤ä»¥ä¸Šã‚ã‚Œã°ã€Œå…¨ã¦é¸æŠã€ã€Œã‚¯ãƒªã‚¢ã€ã€ŒExcelãƒ•ã‚¡ã‚¤ãƒ«ã«ä¿å­˜ã€ã‚’æ´»æ€§åŒ–
 		TableItem[] items = categoryTable.getItems();
 		if (items.length == 0) {
 			selectAll2.setEnabled(false);
@@ -528,7 +528,7 @@ public class StepCountView extends ViewPart {
 			clear2.setEnabled(true);
 			saveExcel2.setEnabled(true);
 		}
-		// €–Ú‚ª‚P‚Â‚Å‚à‘I‘ğ‚³‚ê‚Ä‚¢‚ê‚ÎuƒRƒs[v‚ğŠˆ«‰»
+		// é …ç›®ãŒï¼‘ã¤ã§ã‚‚é¸æŠã•ã‚Œã¦ã„ã‚Œã°ã€Œã‚³ãƒ”ãƒ¼ã€ã‚’æ´»æ€§åŒ–
 		TableItem[] selection = categoryTable.getSelection();
 		if (selection.length == 0) {
 			copy2.setEnabled(false);
@@ -538,7 +538,7 @@ public class StepCountView extends ViewPart {
 	}
 
 	/**
-	 * ƒe[ƒuƒ‹‚Å‘I‘ğó‘Ô‚É‚È‚Á‚Ä‚¢‚éƒtƒ@ƒCƒ‹‚ğƒGƒfƒBƒ^‚ÅŠJ‚«‚Ü‚·B
+	 * ãƒ†ãƒ¼ãƒ–ãƒ«ã§é¸æŠçŠ¶æ…‹ã«ãªã£ã¦ã„ã‚‹ãƒ•ã‚¡ã‚¤ãƒ«ã‚’ã‚¨ãƒ‡ã‚£ã‚¿ã§é–‹ãã¾ã™ã€‚
 	 */
 	private void openEditor() {
 		TableItem[] items = fileTable.getSelection();
@@ -547,18 +547,18 @@ public class StepCountView extends ViewPart {
 				String filePath = items[i].getText(0);
 				if (files.get(filePath) != null) {
 					IWorkbenchWindow window = PlatformUI.getWorkbench().getActiveWorkbenchWindow();
-					// Eclipse 3.0‘Î‰
+					// Eclipse 3.0å¯¾å¿œ
 					IDE.openEditor(window.getActivePage(),
 							(IFile)files.get(filePath), true);
 				}
 			} catch (Exception ex) {
-				// TODO —áŠO‚Íˆ¬‚è‚Â‚Ô‚µ‚Ä‚¨‚«‚Ü‚·c
+				// TODO ä¾‹å¤–ã¯æ¡ã‚Šã¤ã¶ã—ã¦ãŠãã¾ã™â€¦
 			}
 		}
 	}
 
 	/**
-	 * ƒtƒ@ƒCƒ‹’PˆÊ‚Ìƒe[ƒuƒ‹‚Ìƒwƒbƒ_‚ªƒNƒŠƒbƒN‚³‚ê‚½Û‚Éƒ\[ƒg‚ğs‚¤ƒŠƒXƒi
+	 * ãƒ•ã‚¡ã‚¤ãƒ«å˜ä½ã®ãƒ†ãƒ¼ãƒ–ãƒ«ã®ãƒ˜ãƒƒãƒ€ãŒã‚¯ãƒªãƒƒã‚¯ã•ã‚ŒãŸéš›ã«ã‚½ãƒ¼ãƒˆã‚’è¡Œã†ãƒªã‚¹ãƒŠ
 	 */
 	private class FileTableHeaderListener extends SelectionAdapter {
 
@@ -568,7 +568,7 @@ public class StepCountView extends ViewPart {
 
 		public void widgetSelected(SelectionEvent e) {
 			try {
-				// ƒ\[ƒg‚·‚éƒJƒ‰ƒ€‚ğŒˆ’è
+				// ã‚½ãƒ¼ãƒˆã™ã‚‹ã‚«ãƒ©ãƒ ã‚’æ±ºå®š
 				TableColumn column = (TableColumn)e.getSource();
 				int selectColumn = 0;
 				String name = column.getText();
@@ -593,7 +593,7 @@ public class StepCountView extends ViewPart {
 				}
 				this.sortColumn = selectColumn;
 
-				// ƒf[ƒ^‚ğ‚¢‚Á‚½‚ñArrayList‚ÉŠi”[
+				// ãƒ‡ãƒ¼ã‚¿ã‚’ã„ã£ãŸã‚“ArrayListã«æ ¼ç´
 				TableItem[] items = fileTable.getItems();
 				ArrayList<String[]> list = new ArrayList<String[]>();
 				for (int i = 0; i < items.length; i++) {
@@ -603,13 +603,13 @@ public class StepCountView extends ViewPart {
 							items[i].getText(5), items[i].getText(6) });
 				}
 
-				// ƒ\[ƒg‚·‚é
+				// ã‚½ãƒ¼ãƒˆã™ã‚‹
 				String[][] datas = list.toArray(new String[list.size()][]);
 				Arrays.sort(datas, new TableComparator(sortColumn, 3,
 						TableComparator.ASC));
 				this.sortOrder = this.sortOrder * -1;
 
-				// ƒf[ƒ^‚ğÄ•\¦
+				// ãƒ‡ãƒ¼ã‚¿ã‚’å†è¡¨ç¤º
 				fileTable.removeAll();
 				for (int i = 0; i < datas.length; i++) {
 					TableItem item = new TableItem(fileTable, SWT.NULL);
@@ -622,7 +622,7 @@ public class StepCountView extends ViewPart {
 	}
 
 	/**
-	 * ƒJƒeƒSƒŠ’PˆÊ‚Ìƒe[ƒuƒ‹‚Ìƒwƒbƒ_‚ªƒNƒŠƒbƒN‚³‚ê‚½Û‚Éƒ\[ƒg‚ğs‚¤ƒŠƒXƒi
+	 * ã‚«ãƒ†ã‚´ãƒªå˜ä½ã®ãƒ†ãƒ¼ãƒ–ãƒ«ã®ãƒ˜ãƒƒãƒ€ãŒã‚¯ãƒªãƒƒã‚¯ã•ã‚ŒãŸéš›ã«ã‚½ãƒ¼ãƒˆã‚’è¡Œã†ãƒªã‚¹ãƒŠ
 	 */
 	private class CategoryTableHeaderListener extends SelectionAdapter {
 
@@ -632,7 +632,7 @@ public class StepCountView extends ViewPart {
 
 		public void widgetSelected(SelectionEvent e) {
 			try {
-				// ƒ\[ƒg‚·‚éƒJƒ‰ƒ€‚ğŒˆ’è
+				// ã‚½ãƒ¼ãƒˆã™ã‚‹ã‚«ãƒ©ãƒ ã‚’æ±ºå®š
 				TableColumn column = (TableColumn)e.getSource();
 				int selectColumn = 0;
 				String name = column.getText();
@@ -653,7 +653,7 @@ public class StepCountView extends ViewPart {
 				}
 				this.sortColumn = selectColumn;
 
-				// ƒf[ƒ^‚ğ‚¢‚Á‚½‚ñArrayList‚ÉŠi”[
+				// ãƒ‡ãƒ¼ã‚¿ã‚’ã„ã£ãŸã‚“ArrayListã«æ ¼ç´
 				TableItem[] items = categoryTable.getItems();
 				ArrayList<String[]> list = new ArrayList<String[]>();
 				for (int i = 0; i < items.length; i++) {
@@ -662,13 +662,13 @@ public class StepCountView extends ViewPart {
 							items[i].getText(3), items[i].getText(4) });
 				}
 
-				// ƒ\[ƒg‚·‚é
+				// ã‚½ãƒ¼ãƒˆã™ã‚‹
 				String[][] datas = list.toArray(new String[list.size()][]);
 				Arrays.sort(datas, new TableComparator(sortColumn, 1,
 						TableComparator.ASC));
 				this.sortOrder = this.sortOrder * -1;
 
-				// ƒf[ƒ^‚ğÄ•\¦
+				// ãƒ‡ãƒ¼ã‚¿ã‚’å†è¡¨ç¤º
 				categoryTable.removeAll();
 				for (int i = 0; i < datas.length; i++) {
 					TableItem item = new TableItem(categoryTable, SWT.NULL);
@@ -680,7 +680,7 @@ public class StepCountView extends ViewPart {
 		}
 	}
 
-	/** ƒtƒ@ƒCƒ‹•Êƒe[ƒuƒ‹‚Ìƒ|ƒbƒvƒAƒbƒvƒƒjƒ…[‚ğ•\¦‚·‚é‚½‚ß‚Ìƒ}ƒEƒXƒŠƒXƒi */
+	/** ãƒ•ã‚¡ã‚¤ãƒ«åˆ¥ãƒ†ãƒ¼ãƒ–ãƒ«ã®ãƒãƒƒãƒ—ã‚¢ãƒƒãƒ—ãƒ¡ãƒ‹ãƒ¥ãƒ¼ã‚’è¡¨ç¤ºã™ã‚‹ãŸã‚ã®ãƒã‚¦ã‚¹ãƒªã‚¹ãƒŠ */
 	private class TableMouseListener1 extends MouseAdapter {
 		public void mouseUp(MouseEvent e) {
 			if (e.button == 3) {
@@ -694,7 +694,7 @@ public class StepCountView extends ViewPart {
 		}
 	}
 
-	/** ƒJƒeƒSƒŠ•Êƒe[ƒuƒ‹‚Ìƒ|ƒbƒvƒAƒbƒvƒƒjƒ…[‚ğ•\¦‚·‚é‚½‚ß‚Ìƒ}ƒEƒXƒŠƒXƒi */
+	/** ã‚«ãƒ†ã‚´ãƒªåˆ¥ãƒ†ãƒ¼ãƒ–ãƒ«ã®ãƒãƒƒãƒ—ã‚¢ãƒƒãƒ—ãƒ¡ãƒ‹ãƒ¥ãƒ¼ã‚’è¡¨ç¤ºã™ã‚‹ãŸã‚ã®ãƒã‚¦ã‚¹ãƒªã‚¹ãƒŠ */
 	private class TableMouseListener2 extends MouseAdapter {
 		public void mouseUp(MouseEvent e) {
 			if (e.button == 3) {
@@ -704,14 +704,14 @@ public class StepCountView extends ViewPart {
 		}
 	}
 
-	/** ƒe[ƒuƒ‹‚Å‘I‘ğ‚³‚ê‚½ƒtƒ@ƒCƒ‹‚ğŠJ‚­‚½‚ß‚ÌƒŠƒXƒi */
+	/** ãƒ†ãƒ¼ãƒ–ãƒ«ã§é¸æŠã•ã‚ŒãŸãƒ•ã‚¡ã‚¤ãƒ«ã‚’é–‹ããŸã‚ã®ãƒªã‚¹ãƒŠ */
 	private class TableOpenListener extends SelectionAdapter {
 		public void widgetSelected(SelectionEvent e) {
 			openEditor();
 		}
 	}
 
-	/** ƒe[ƒuƒ‹‚Ì•\¦“à—e‚ğƒNƒŠƒA‚·‚é‚½‚ß‚ÌƒŠƒXƒi */
+	/** ãƒ†ãƒ¼ãƒ–ãƒ«ã®è¡¨ç¤ºå†…å®¹ã‚’ã‚¯ãƒªã‚¢ã™ã‚‹ãŸã‚ã®ãƒªã‚¹ãƒŠ */
 	private class TableClearListener extends SelectionAdapter {
 		public void widgetSelected(SelectionEvent e) {
 			fileTable.removeAll();
