@@ -93,7 +93,7 @@ public class DiffCounterTask extends Task {
 
 	/**
 	 * 出力するファイルを指定します。
-	 * @param file 出力するファイル
+	 * @param output 出力するファイル
 	 */
 	public void setOutput(String output) {
 		this.output = output;

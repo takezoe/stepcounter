@@ -129,6 +129,8 @@ public class ConfigManager {
 
 	/**
 	 * プロパティファイルを更新（存在しなければ作成）します。
+	 * 
+	 * @throws IOException 入出力例外が発生した場合。
 	 */
 	public synchronized void save() throws IOException {
 		BufferedWriter writer = new BufferedWriter(new FileWriter(this.file));

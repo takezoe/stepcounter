@@ -19,27 +19,47 @@ public class Main {
 	private OutputStream output = System.out;
 	private boolean showDirectory = false;
 
-	/** 引数で指定したディレクトリからの階層を表示するか設定します */
+	/**
+	 * 引数で指定したディレクトリからの階層を表示するか設定します
+	 *
+	 * @param showDirectory ディレクトリを表示するかどうか。
+	 */
 	public void setShowDirectory(boolean showDirectory) {
 		this.showDirectory = showDirectory;
 	}
 
-	/** ファイルをセットします */
+	/**
+	 * ファイルをセットします
+	 *
+	 * @param files セットしたいファイル配列。
+	 */
 	public void setFiles(File[] files){
 		this.files = files;
 	}
 
-	/** フォーマッタをセットします。 */
+	/**
+	 * フォーマッタをセットします。
+	 *
+	 * @param formatter セットしたいフォーマッタ。
+	 */
 	public void setFormatter(ResultFormatter formatter){
 		this.formatter = formatter;
 	}
 
-	/** 出力ストリームを設定します。 */
+	/**
+	 * 出力ストリームを設定します。 
+	 *
+	 * @param output セットしたい出力ストリーム。
+	 */
 	public void setOutput(OutputStream output){
 		this.output = output;
 	}
 
-	/** カウントを実行します */
+	/**
+	 * カウントを実行します
+	 *
+     * @throws IOException 入出力例外が発生した場合。
+	 */
 	public void executeCount() throws IOException {
 		// フォーマッタが設定されていない場合はデフォルトを使用
 		if(formatter == null){
@@ -122,7 +142,12 @@ public class Main {
 		return file.getName();
 	}
 
-	/** コマンドライン起動用メソッド */
+	/**
+	 * コマンドライン起動用メソッド
+	 *
+	 * @param args コマンドライン引数。
+	 * @throws IOException 入出力例外が発生した場合。
+	 */
 	public static void main(String[] args) throws IOException {
 
 		if(args==null || args.length==0){
