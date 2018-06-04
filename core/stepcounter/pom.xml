@@ -6,8 +6,12 @@
   <packaging>jar</packaging>
   <version>3.0.4</version>
   <name>StepCounter</name>
-  <url></url>
-  <description>
+  <url>https://github.com/takezoe/stepcounter</url>
+  <description>Amateras Stepcounter is a step counter supporting various programming languages.
+ Stepcounter can count lines of java, scala, cpp, cxx, cc, c, m, mm, h, hpp, hxx, 
+ cs, jsp, jspf, tag, php, php3, asp, asa, html, htm, xhtml, js, json, vbs, bas, frm, cls, vb, pl, pm, py,
+ rb, tcl, sh, sql, ddl, cfm, properties, xml, dicon, xsl, xi, dtd, tld, xsd, bat, css, sass, scss, 
+ l, el, cl, clj, scm, st, vm, vsl, ini, lua, hs, f, for, ftn, f90, f95, makefile, mk, as, mxml, groovy.
   </description>
   <inceptionYear>2012</inceptionYear>
   <licenses>
