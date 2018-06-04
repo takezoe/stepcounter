@@ -16,7 +16,11 @@ public interface Cutter {
 	 */
 	public DiffSource cut(String source);
 
-	/** ファイルタイプを取得します */
+	/**
+	 * ファイルタイプを取得します
+	 *
+	 * @return ファイルタイプ。
+	 */
 	public String getFileType();
 
 }

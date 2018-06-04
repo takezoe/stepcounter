@@ -46,27 +46,50 @@ public class DefaultStepCounter implements StepCounter, Cutter {
 		return (String[])skipPatterns.toArray(new String[skipPatterns.size()]);
 	}
 
-	/** ファイルの種類を設定します */
+	/**
+	 * ファイルの種類を設定します
+	 *
+	 * @param fileType ファイルタイプ。
+	 */
 	public void setFileType(String fileType){
 		this.fileType = fileType;
 	}
 
-	/** ファイルの種類を取得します */
+	/**
+	 * ファイルの種類を取得します
+	 *
+	 * @return ファイルタイプ。
+	 */
 	public String getFileType(){
 		return this.fileType;
 	}
 
-	/** 単一行コメントの開始文字列を追加します */
+	/**
+	 * 単一行コメントの開始文字列を追加します
+	 *
+	 * @param str コメント文字列。
+	 */
 	public void addLineComment(String str){
 		this.lineComments.add(str);
 	}
 
-	/** 複数行コメントを追加します */
+	/**
+	 * 複数行コメントを追加します
+	 *
+	 * @param area エリアコメント。
+	 */
 	public void addAreaComment(AreaComment area){
 		this.areaComments.add(area);
 	}
 
-	/** カウントします */
+	/**
+	 * カウントします
+	 *
+	 * @param file カウント対象ファイル。
+	 * @param charset 文字エンコーディング。
+	 * @return カウント結果。
+	 * @throws IOException 入出力例外が発生した場合。
+	 */
 	public CountResult count(File file, String charset) throws IOException {
 		String charSetName = charset;
 		if (charSetName == null) {
@@ -125,7 +148,12 @@ public class DefaultStepCounter implements StepCounter, Cutter {
 		return new CountResult(file, file.getName(), getFileType(), category, step, non, comment);
 	}
 
-	/** スキップパターンにマッチするかチェック */
+	/**
+	 * スキップパターンにマッチするかチェック
+	 *
+	 * @param line パターン文字列。
+	 * @return チェックにマッチしたかどうか。
+	 */
 	private boolean skipPatternCheck(String line){
 		for(int i=0;i<skipPatterns.size();i++){
 			if(Pattern.matches((String) skipPatterns.get(i), line)){
@@ -135,7 +163,12 @@ public class DefaultStepCounter implements StepCounter, Cutter {
 		return false;
 	}
 
-	/** 空行かどうかをチェック */
+	/**
+	 * 空行かどうかをチェック
+	 *
+	 * @param line 空行かどうかを判定したい文字列。
+	 * @return 空行なら true。
+	 */
 	private boolean nonCheck(String line){
 		if(line.equals("")){
 			return true;

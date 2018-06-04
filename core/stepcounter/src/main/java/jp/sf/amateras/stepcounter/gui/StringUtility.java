@@ -146,8 +146,9 @@ public class StringUtility {
 	/**
 	 * 文字列がNULLだった場合に指定した文字列に変換します。
 	 *
-	 * @param s 変換対象の文字列。
-	 * @return sがnullの場合は指定した文字列を、それ以外の場合は元の文字列を返します。
+	 * @param s1 変換対象の文字列。
+     * @param s2 変換対象の文字列。
+	 * @return s1がnullの場合は指定した文字列を、それ以外の場合は元の文字列を返します。
 	 */
 	public static String nullConvert(String s1,String s2){
 		if(s1==null){ return s1; } else { return s2; }

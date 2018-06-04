@@ -72,7 +72,12 @@ public class DefaultFormatter implements ResultFormatter {
 		return sb.toString().getBytes();
 	}
 
-	/** ファイル名の長さに合わせた最大長を取得します（最小40） */
+	/**
+	 * ファイル名の長さに合わせた最大長を取得します（最小40） 
+	 *
+	 * @param results カウント結果の配列。
+	 * @return 計算結果であるファイル長さ。
+	 */
 	protected int getFileLength(CountResult[] results) {
 		int fileLength = 40;
 		if (results == null || results.length == 0) {

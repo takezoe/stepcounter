@@ -54,7 +54,7 @@ public class StepCounterTask extends Task {
 	/**
 	 * 出力するファイルを指定します。
 	 *
-	 * @param file 出力するファイル
+	 * @param output 出力するファイル
 	 */
 	public void setOutput(File output) {
 		this.output = output;
@@ -108,7 +108,7 @@ public class StepCounterTask extends Task {
 	/**
 	 * デフォルトの除外設定を有効にするか指定します。デフォルトは true です。
 	 *
-	 * @param showDirectory デフォルトの除外設定を有効にする場合 true
+	 * @param defaultExcludes デフォルトの除外設定を有効にする場合 true
 	 */
     public void setDefaultexcludes(boolean defaultExcludes) {
     	this.defaultExcludes = defaultExcludes;

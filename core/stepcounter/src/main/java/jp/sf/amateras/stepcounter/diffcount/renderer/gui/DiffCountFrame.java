@@ -189,6 +189,8 @@ public class DiffCountFrame extends JFrame {
 	 * Note: This class is only created so that you can easily preview the result at runtime.
 	 * It is not expected to be managed by the designer.
 	 * You can modify it as you like.
+	 * 
+	 * @param args Command line args of main static method.
 	 */
 	public static void main(String[] args) {
 		installLnF();

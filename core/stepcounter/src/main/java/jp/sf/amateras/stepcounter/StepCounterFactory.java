@@ -146,7 +146,7 @@ public class StepCounterFactory {
 			return createVBCounter("vbs");
 
 		} else if(fileName.endsWith(".bas") || fileName.endsWith(".frm") || fileName.endsWith(".cls")){
-			// VB用カウンタを作成
+				// VB用カウンタを作成
 			return createVBCounter("VB");
 
 		} else if(fileName.endsWith(".vb")){

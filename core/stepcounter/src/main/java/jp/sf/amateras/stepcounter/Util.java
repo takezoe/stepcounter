@@ -35,8 +35,8 @@ public class Util {
 	 * 渡された文字列を指定エンコーディングの指定バイト数で先頭から切り出す。
 	 * カタカナの判定は正しく行うことができない。
 	 *
-	 * @param   s    切り出し対象文字列
-	 * @param   cnt  切り出しバイト数
+	 * @param   str    切り出し対象文字列
+	 * @param   length  切り出しバイト数
 	 * @return  結果文字列
 	 */
 	public static String substring(String str,int length){

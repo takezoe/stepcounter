@@ -110,6 +110,8 @@ public class MainWindow extends JFrame implements ActionListener {
 
 	/**
 	 * テキストエリアにテキストを追加します。
+	 * 
+	 * @param text 追加したいテキスト。
 	 */
 	public void appendText(String text){
 		textArea.append(text);
@@ -213,6 +215,8 @@ public class MainWindow extends JFrame implements ActionListener {
 	/**
 	 * 起動メソッド<BR>
 	 * java -cp stepcounter.jar tk.stepcounter.gui.MainWindow
+     *
+	 * @param args コマンドライン引数。 
 	 */
 	public static void main(String[] args){
 		MainWindow window = new MainWindow();

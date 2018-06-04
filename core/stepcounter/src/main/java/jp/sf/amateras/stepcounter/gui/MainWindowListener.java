@@ -12,6 +12,8 @@ public class MainWindowListener extends WindowAdapter {
 	
 	/**
 	 * コンストラクタ
+	 * 
+	 * @param window メインウィンドウ。
 	 */
 	public MainWindowListener(MainWindow window){
 		this.window = window;
