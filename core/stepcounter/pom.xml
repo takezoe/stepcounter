@@ -30,6 +30,11 @@
       <name>Naoki Takezoe</name>
       <email>takezoe_at_gmail.com</email>
       <url>http://d.hatena.ne.jp/takezoe/</url>
+      <roles>
+        <role>lead</role>
+        <role>architect</role>
+        <role>developer</role>
+      </roles>
       <timezone>+9</timezone>
     </developer>
   </developers>
