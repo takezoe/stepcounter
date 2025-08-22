@@ -68,12 +68,12 @@
       <artifactId>diffutils</artifactId>
       <version>1.2.1</version>
     </dependency>
+    <!--
     <dependency>
       <groupId>org.dyno.visual.swing.layouts</groupId>
       <artifactId>grouplayout</artifactId>
       <version>1.0.0</version>
     </dependency>
-    <!--
     <dependency>
       <groupId>org.dyno.visual.swing</groupId>
       <artifactId>visual.swing.layouts</artifactId>
@@ -124,11 +124,10 @@
       </plugin>
       <plugin>
         <artifactId>maven-compiler-plugin</artifactId>
-        <version>2.3.2</version>
+        <version>3.14.0</version>
         <configuration>
           <encoding>UTF-8</encoding>
-          <source>1.5</source>
-          <target>1.5</target>
+	  <release>8</release>
         </configuration>
       </plugin>
       <plugin>
@@ -157,7 +156,7 @@
             <id>make-assembly</id>
             <phase>package</phase>
             <goals>
-              <goal>attached</goal>
+              <goal>single</goal>
             </goals>
           </execution>
         </executions>
